@@ -1,0 +1,74 @@
+body{
+	background-color: white;
+	font-family: "Arial";
+}
+
+#myCanvas{
+	width: 1000px;
+	height: 562px;
+	background-color: lightgrey;
+}
+
+#formulario_inicio{
+	width: 300px;
+	padding: 30px;
+	background-color: white;
+	position: absolute;
+  	top: 50px;
+  	left: 320px;
+}
+
+#formulario_inicio img{
+	width: auto;
+	height: 160px;
+	border-radius: 50%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+
+#formulario_inicio input[type=text],input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+#formulario_inicio input[type=text]:focus,input[type=number]:focus {
+    border: 3px solid #555;
+}
+
+.button {
+    border: none;
+    padding: 32px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.play {
+    background-color: grey; 
+    background-image: url("images/play.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: black; 
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.play:hover {
+    background-color: black;
+}
