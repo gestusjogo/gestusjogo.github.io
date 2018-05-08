@@ -4,6 +4,9 @@ body{
 }
 
 #myCanvas{
+	position: absolute;
+    left: 10%;
+    top: 5%;
 	width: 1000px;
 	height: 562px;
 	background-color: lightgrey;
