@@ -57,6 +57,7 @@ body{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .play {
@@ -65,7 +66,6 @@ body{
     background-repeat: no-repeat;
     background-position: center; 
     color: black; 
-    border-radius: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -74,4 +74,77 @@ body{
 
 .play:hover {
     background-color: black;
+}
+
+.btn_mapa {
+    background-color: grey; 
+    background-image: url("images/play.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: black; 
+    display: block;
+}
+
+.btn_mapa:hover {
+    background-color: black;
+}
+
+#escola{
+    background-image: url("images/pencil.png");
+    position: absolute;
+    top: 450px;
+    left: 90px;
+}
+
+#supermercado{
+    background-image: url("images/supermercado.png");
+    position: absolute;
+    top: 300px;
+    left: 600px;
+}
+
+#parque{
+    background-image: url("images/parque.png");
+    position: absolute;
+    top: 380px;
+    left: 280px;
+}
+
+#voltar_menu{
+    background-image: url("images/back.png");
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.bg_tela1{
+    background-image: url("images/sala.jpg");
+}
+
+.bg_menu{
+    background-image: url("images/sala.jpg");
+}
+
+.bg_escola{
+    background-image: url("images/bg_escola.jpg");   
+}
+
+#grid_memoria{
+    float: right;
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    width: 600px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto auto auto;
+}
+
+.card_memoria{
+    background-color: white;
+    height: 150px;
+    background-size: contain;
+    background-image: url('images/alfabeto/a.png');
+    background-repeat: no-repeat;
+    background-position: center; 
 }

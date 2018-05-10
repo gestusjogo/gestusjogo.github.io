@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="play.js"></script>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="play.js"></script>
+	<script type="text/javascript" src="jogo_memoria.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>FOCUS</title>
 </head>
 <body>
 	<div id="myCanvas">
-		<form name="formulario" id="formulario_inicio" method="post" onsubmit="return testeInicio()">
-			<img src="images/steven.jpg">
-			<input type="text" name="nome" placeholder="NOME">
-			<input type="number" name="idade" placeholder="IDADE" min="1">
-			<input type="submit" value="" class="button play" >
-		</form>
+		<div id="tela1">		
+			<form name="formulario" id="formulario_inicio">
+				<img src="images/steven.jpg">
+				<input type="text" name="nome" id="nome" placeholder="NOME">
+				<input type="number" name="idade" placeholder="IDADE" min="1">
+				<input type="button" value="" id="play" class="button play" onclick="return trocarTela('#tela_menu','bg_menu')">
+			</form>
+		</div>
+		<div id="tela_menu">
+			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
+			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
+			<input type="button" id="supermercado" class="button btn_mapa" onclick="">
+			<input type="button" id="parque" class="button btn_mapa" onclick="">
+		</div>
+		
+		<div id="tela_escola">
+		 	<input type="button" id="voltar_menu" class="button btn_mapa" onclick="return trocarTela('#tela_menu', 'bg_menu')">
+		 	<div id="grid_memoria">
+		 		<div id="c1" class="card_memoria"></div>
+		 		<div id="c2" class="card_memoria"></div>
+		 		<div id="c3" class="card_memoria"></div>
+		 		<div id="c4" class="card_memoria"></div>
+		 		<div id="c5" class="card_memoria"></div>
+		 		<div id="c6" class="card_memoria"></div>
+		 		<div id="c7" class="card_memoria"></div>
+		 		<div id="c8" class="card_memoria"></div>
+		 		<div id="c9" class="card_memoria"></div>
+		 		<div id="c10" class="card_memoria"></div>
+		 		<div id="c11" class="card_memoria"></div>
+		 		<div id="c12" class="card_memoria"></div>
+		 	</div>
+		</div>
 	</div>	
 </body>
 </html>
