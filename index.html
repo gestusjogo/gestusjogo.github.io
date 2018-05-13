@@ -12,8 +12,8 @@
 	<div id="myCanvas">
 		<div id="tela1">		
 			<form name="formulario" id="formulario_inicio">
-				<img src="images/steven.jpg">
-				<input type="text" name="nome" id="nome" placeholder="NOME">
+				<img id="pacote" src="images/steven.jpg">
+				<input type="text" name="nome" id="nome" placeholder="NOME" onkeyup="animaLetra()">
 				<input type="number" name="idade" placeholder="IDADE" min="1">
 				<input type="button" value="" id="play" class="button play" onclick="return trocarTela('#tela_menu','bg_menu')">
 			</form>

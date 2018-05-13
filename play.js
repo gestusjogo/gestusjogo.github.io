@@ -28,3 +28,12 @@ function trocarTela(tela,bg){
 	bg_image = bg;
 	telaAtual = tela;
 }
+
+function animaLetra() {
+	var id = document.getElementById("nome").value;
+	var lastChar = id.substr(id.length - 1);
+	if(lastChar == "a"){
+		// alert("Você digitou a letra a");
+		document.getElementById("pacote").src = "images/alfabeto/a.png";
+	}
+}
