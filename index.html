@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="play.js"></script>
-	<script type="text/javascript" src="jogo_memoria.js"></script>
+	<link rel="stylesheet" type="text/css" href="style_jogomemoria.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>FOCUS</title>
 </head>
@@ -26,21 +26,55 @@
 		</div>
 		
 		<div id="tela_escola">
-		 	<input type="button" id="voltar_menu" class="button btn_mapa" onclick="return trocarTela('#tela_menu', 'bg_menu')">
-		 	<div id="grid_memoria">
-		 		<div id="c1" class="card_memoria"></div>
-		 		<div id="c2" class="card_memoria"></div>
-		 		<div id="c3" class="card_memoria"></div>
-		 		<div id="c4" class="card_memoria"></div>
-		 		<div id="c5" class="card_memoria"></div>
-		 		<div id="c6" class="card_memoria"></div>
-		 		<div id="c7" class="card_memoria"></div>
-		 		<div id="c8" class="card_memoria"></div>
-		 		<div id="c9" class="card_memoria"></div>
-		 		<div id="c10" class="card_memoria"></div>
-		 		<div id="c11" class="card_memoria"></div>
-		 		<div id="c12" class="card_memoria"></div>
-		 	</div>
+			<input type="button" id="voltar_menu" class="button btn_mapa" onclick="return trocarTela('#tela_menu', 'bg_menu')">
+			<div id="game">
+				<div class="card" id="card0">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card1">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card2">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card3">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card4">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card5">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card6">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card7">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card8">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<div class="card" id="card9">
+					<div class="face back"></div>
+					<div class="face front"></div>
+				</div>
+				<img id="match" src="images/alfabeto/match.png" />
+
+				<div id="gameOver">
+					<img id="imgGameOver" src="images/alfabeto/gameover.png" />
+				</div>
+				<script type="text/javascript" src="jogo_memoria.js"></script>
+			</div>
 		</div>
 	</div>	
 </body>

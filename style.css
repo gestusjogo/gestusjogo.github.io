@@ -129,22 +129,3 @@ body{
     background-image: url("images/bg_escola.jpg");   
 }
 
-#grid_memoria{
-    float: right;
-    position: absolute;
-    top: 50px;
-    left: 200px;
-    width: 600px;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: auto auto auto auto;
-}
-
-.card_memoria{
-    background-color: white;
-    height: 150px;
-    background-size: contain;
-    background-image: url('images/alfabeto/a.png');
-    background-repeat: no-repeat;
-    background-position: center; 
-}
