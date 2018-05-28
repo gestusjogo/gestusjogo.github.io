@@ -1,0 +1,162 @@
+body{
+	background-color: white;
+	font-family: "Arial";
+}
+
+@font-face { 
+    font-family: AristaPro-Fat; 
+    src: url('../assets/fonts/AristaPro-Fat.otf'); 
+}
+
+#myCanvas{
+	position: absolute;
+    left: 10%;
+    top: 5%;
+	width: 1000px;
+	height: 562px;
+	background-color: lightgrey;
+}
+
+#formulario_inicio{
+	width: 300px;
+	padding: 30px;
+	background-color: white;
+	position: absolute;
+  	top: 50px;
+  	left: 320px;
+}
+
+#formulario_inicio img{
+	width: auto;
+	height: 160px;
+	border-radius: 50%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+#formulario_inicio input[type=text],input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+#formulario_inicio input[type=text]:focus,input[type=number]:focus {
+    border: 3px solid #555;
+}
+
+.button {
+    border: none;
+    padding: 32px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.play {
+    background-color: grey; 
+    background-image: url("../assets/images/play.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: black; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.play:hover {
+    background-color: black;
+}
+
+.btn_mapa {
+    background-color: grey; 
+    background-image: url("../assets/images/play.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: black; 
+    display: block;
+}
+
+.btn_mapa:hover {
+    background-color: black;
+}
+
+#escola{
+    background-image: url("../assets/images/pencil.png");
+    position: absolute;
+    top: 450px;
+    left: 90px;
+}
+
+#supermercado{
+    background-image: url("../assets/images/supermercado.png");
+    position: absolute;
+    top: 300px;
+    left: 600px;
+}
+
+#parque{
+    background-image: url("../assets/images/parque.png");
+    position: absolute;
+    top: 380px;
+    left: 280px;
+}
+
+#voltar_menu{
+    background-image: url("../assets/images/back.png");
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.butt_pular{
+    position: absolute;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'AristaPro-Fat', sans-serif;
+    line-height: 51px;
+    font-size: 40px;
+    /*margin: 4px 2px;*/
+    cursor: pointer;
+    /*padding: 14px 40px;*/
+    width: 193px;
+    height: 51px;
+    left: 790px;
+    top: 15px;
+}
+
+.butt_pular:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.bg_tela1{
+    background-image: url("../assets/images/sala.jpg");
+}
+
+.bg_menu{
+    background-image: url("../assets/images/sala.jpg");
+}
+
+.bg_escola{
+    background-image: url("../assets/images/bg_escola.jpg");   
+}
+
+.bg_casa{
+    background-image: url("../assets/images/bg_casa.jpg");   
+}
