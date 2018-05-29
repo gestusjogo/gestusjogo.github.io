@@ -39,18 +39,18 @@
     color: #91DC5A;
     text-align: center;
     font-size: 25px;
-    width: 30px;
-    height: 17.48px;
+    width: 60px;
+    height: 60px;
     top: 510.52px;
-    left: 933.14px;	
+    left: 922.14px;	
     z-index: 1;
     cursor: pointer;
 }
 
 .bounce {
-	-moz-animation: bounce 3s infinite;
-	-webkit-animation: bounce 3s infinite;
-	animation: bounce 3s infinite;
+	-moz-animation: bounce 2s infinite;
+	-webkit-animation: bounce 2s infinite;
+	animation: bounce 2s infinite;
 }
 @-moz-keyframes bounce {
   0%, 20%, 50%, 80%, 100% {

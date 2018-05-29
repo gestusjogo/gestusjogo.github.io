@@ -1,7 +1,7 @@
 var telaAtual;
 var bg_image;
-var dialogo;
-var id_di;
+var nome;
+var idade;
 
 $(document).ready(function () {
 	$("#tela1").show();
@@ -24,11 +24,10 @@ function trocarTela(tela,bg){
 	// Mostra a Tela Escolhida
 	$(tela).show();
 	if(tela == "#tela_inicio"){
-		for (var i = 2; i <= 5; i++) {
-			dialogo = "#di_ini0";
-			id_di = 1;
-			$("#di_ini0" + i).hide();	
-		}
+		nome = $("#nome").val();
+		idade = $("#idade").val();
+		id_di = 0;
+		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
 	}
 	// Remove o Background Imge atual
 	$("#myCanvas").removeClass(bg_image);
@@ -42,63 +41,70 @@ function trocarTela(tela,bg){
 function animaLetra() {
 	var id = document.getElementById("nome").value;
 	var lastChar = id.substr(id.length - 1);
-	if(lastChar == "a"){
+	if(lastChar == "a" || lastChar == "A"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/a.png";
-	}else if(lastChar == "b"){
+	}else if(lastChar == "b" || lastChar == "B"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/b.png";
-	}else if(lastChar == "c"){
+	}else if(lastChar == "c" || lastChar == "C"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/c.png";
-	}else if(lastChar == "d"){
+	}else if(lastChar == "d" || lastChar == "D"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/d.png";
-	}else if(lastChar == "e"){
+	}else if(lastChar == "e" || lastChar == "E"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/e.png";
-	}else if(lastChar == "f"){
+	}else if(lastChar == "f" || lastChar == "F"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/f.png";
-	}else if(lastChar == "g"){
+	}else if(lastChar == "g" || lastChar == "G"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/g.png";
-	}else if(lastChar == "h"){
+	}else if(lastChar == "h" || lastChar == "H"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/h.png";
-	}else if(lastChar == "i"){
+	}else if(lastChar == "i" || lastChar == "I"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/i.png";
-	}else if(lastChar == "j"){
+	}else if(lastChar == "j" || lastChar == "J"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/j.png";
-	}else if(lastChar == "k"){
+	}else if(lastChar == "k" || lastChar == "K"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/k.png";
-	}else if(lastChar == "l"){
+	}else if(lastChar == "l" || lastChar == "L"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/l.png";
-	}else if(lastChar == "m"){
+	}else if(lastChar == "m" || lastChar == "M"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/m.png";
-	}else if(lastChar == "n"){
+	}else if(lastChar == "n" || lastChar == "N"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/n.png";
-	}else if(lastChar == "o"){
+	}else if(lastChar == "o" || lastChar == "O"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/o.png";
-	}else if(lastChar == "p"){
+	}else if(lastChar == "p" || lastChar == "P"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/p.png";
-	}else if(lastChar == "q"){
+	}else if(lastChar == "q" || lastChar == "Q"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/q.png";
-	}else if(lastChar == "r"){
+	}else if(lastChar == "r" || lastChar == "R"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/r.png";
-	}else if(lastChar == "s"){
+	}else if(lastChar == "s" || lastChar == "S"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/s.png";
-	}else if(lastChar == "t"){
+	}else if(lastChar == "t" || lastChar == "T"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/t.png";
-	}else if(lastChar == "u"){
+	}else if(lastChar == "u" || lastChar == "U"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/u.png";
-	}else if(lastChar == "v"){
+	}else if(lastChar == "v" || lastChar == "V"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/v.png";
-	}else if(lastChar == "w"){
+	}else if(lastChar == "w" || lastChar == "W"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/w.png";
-	}else if(lastChar == "x"){
+	}else if(lastChar == "x" || lastChar == "X"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/x.png";
-	}else if(lastChar == "y"){
+	}else if(lastChar == "y" || lastChar == "Y"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/y.png";
-	}else if(lastChar == "z"){
+	}else if(lastChar == "z" || lastChar == "Z"){
 		document.getElementById("pacote").src = "./assets/images/alfabeto/z.png";
 	}
 }
 
 function falas(){
-	$("#di_ini0" + id_di).hide();	
 	id_di += 1;
-	$("#di_ini0" + id_di).show();	
+	if(id_di <= 10){
+		if (id_di == 8) {
+			$("#di_ini").html("Mesmo você tendo " + "<i style='color:red'> " + idade + "</i>" + " anos dá pra aprender com facilidade.");	
+		} else if(id_di == 10){
+			trocarTela('#tela_menu','bg_menu');
+		} else {
+			$("#di_ini").html(dialogo[id_di]);			
+		}	
+	}
 }

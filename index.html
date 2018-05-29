@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/play.js"></script>
+	<script type="text/javascript" src="js/textos.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style_dialogo.css">
 	<link rel="stylesheet" type="text/css" href="css/style_jogomemoria.css">
@@ -15,7 +16,7 @@
 			<form name="formulario" id="formulario_inicio">
 				<img id="pacote" src="assets/images/steven.jpg">
 				<input type="text" name="nome" id="nome" placeholder="NOME" onkeyup="animaLetra()">
-				<input type="number" name="idade" placeholder="IDADE" min="1">
+				<input type="number" name="idade" id="idade" placeholder="IDADE" min="1">
 				<input type="button" value="" id="play" class="button play" onclick="return trocarTela('#tela_inicio','bg_casa')">
 			</form>
 		</div>
@@ -25,11 +26,7 @@
 			<div>
 				<div class="dialogo_pers">JONAS</div>
 				<div class="caixa_dialogo">
-					<p id="di_ini01">BELAS PALAVRAS, PALAVRAS BONITAS.</p>
-					<p id="di_ini02">SEU NOME PODE SER SARAH...</p>
-					<p id="di_ini03">MAS SÓ A SARAH É PAULISTA...</p>
-					<p id="di_ini04">COMO ELA MESMO DIZ:</p>
-					<p id="di_ini05">"TESÃAAOOOO" - BRIZZANTE, Sarah.</p>
+					<p id="di_ini"></p>
 				</div>
 				<div class="caixa_seta bounce" onclick="falas();"> 
 					▼
