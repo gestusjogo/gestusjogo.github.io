@@ -8,6 +8,7 @@ $(document).ready(function () {
 	$("#tela_inicio").hide();
 	$("#tela_menu").hide();
 	$("#tela_escola").hide();
+	$("#tela_fliperama").hide();
 	telaAtual = "#tela1";
 	bg_image = "bg_tela1";
 });
@@ -70,3 +71,11 @@ function falas(){
     	return false;
  	return true;
 }
+
+$("#tela_fliperama").show(function() { 
+   loadGame();
+});
+
+$("#main").show(function() { 
+   runme.call(this, this)
+});

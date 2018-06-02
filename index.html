@@ -5,6 +5,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/play.js"></script>
 	<script type="text/javascript" src="js/textos.js"></script>
+	<script type='text/javascript' src='js//match3-example.js'></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style_dialogo.css">
 	<link rel="stylesheet" type="text/css" href="css/style_jogomemoria.css">
@@ -39,7 +40,7 @@
 			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
 			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
 			<input type="button" id="supermercado" class="button btn_mapa" onclick="">
-			<input type="button" id="parque" class="button btn_mapa" onclick="">
+			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
 		</div>
 		
 		<div id="tela_escola">
@@ -92,7 +93,10 @@
 				</div>
 				<script type="text/javascript" src="js/jogo_memoria.js"></script>
 			</div>
+		</div>		
+		<div id="tela_fliperama">
+			<canvas id="viewport" width="640" height="480"></canvas></div>
 		</div>
-	</div>	
+	</div>
 </body>
 </html>

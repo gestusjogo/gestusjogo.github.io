@@ -160,3 +160,7 @@ body{
 .bg_casa{
     background-image: url("../assets/images/bg_casa.jpg");   
 }
+
+.bg_fliperama{
+    background: none;
+}
