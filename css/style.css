@@ -164,3 +164,8 @@ body{
 .bg_fliperama{
     background: none;
 }
+
+#viewport{
+    position: absolute;
+    left: 180px;
+}
