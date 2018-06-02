@@ -48,7 +48,7 @@ var array_letra;
 	for(var i = 0; i < 10; i++){
 		//cria um objeto img com um src e um id
 		var img = {
-			src: "./assets/images/alfabeto/" + lestra_jogo[i%5] ,
+			src: "./assets/images/jogo_memoria/" + lestra_jogo[i%5] ,
 			id: i%5
 		};
 		

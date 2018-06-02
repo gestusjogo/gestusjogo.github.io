@@ -38,6 +38,32 @@ function trocarTela(tela,bg){
 	telaAtual = tela;
 }
 
+function animaNumero() {
+	var id = document.getElementById("idade").value;
+	var lastChar = id.substr(id.length - 1);
+	if(lastChar == 0){
+		document.getElementById("pacote").src = "./assets/images/numeros/0.png";
+	}else if(lastChar == 1){
+		document.getElementById("pacote").src = "./assets/images/numeros/1.png";
+	}else if(lastChar == 2){
+		document.getElementById("pacote").src = "./assets/images/numeros/2.png";
+	}else if(lastChar == 3){
+		document.getElementById("pacote").src = "./assets/images/numeros/3.png";
+	}else if(lastChar == 4){
+		document.getElementById("pacote").src = "./assets/images/numeros/4.png";
+	}else if(lastChar == 5){
+		document.getElementById("pacote").src = "./assets/images/numeros/5.png";
+	}else if(lastChar == 6){
+		document.getElementById("pacote").src = "./assets/images/numeros/6.png";
+	}else if(lastChar == 7){
+		document.getElementById("pacote").src = "./assets/images/numeros/7.png";
+	}else if(lastChar == 8){
+		document.getElementById("pacote").src = "./assets/images/numeros/8.png";
+	}else if(lastChar == 9){
+		document.getElementById("pacote").src = "./assets/images/numeros/9.png";
+	}
+}
+
 function animaLetra() {
 	var id = document.getElementById("nome").value;
 	var lastChar = id.substr(id.length - 1);
