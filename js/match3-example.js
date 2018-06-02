@@ -46,13 +46,13 @@ window.onload = function() {
     };
     
     // All of the different tile colors in RGB
-    var tilecolors = [[255, 128, 128],
-                      [128, 255, 128],
-                      [128, 128, 255],
-                      [255, 255, 128],
-                      [255, 128, 255],
-                      [128, 255, 255],
-                      [255, 255, 255]];
+    var tilecolors = [[255, 128, 128], //red
+                      [128, 255, 128], //green
+                      [128, 128, 255], //blue
+                      [255, 255, 128], //yellow
+                      [255, 128, 255], //rosa
+                      [128, 255, 255], //ciano
+                      [255, 255, 255]]; //white
     
     // Clusters and moves that were found
     var clusters = [];  // { column, row, length, horizontal }
@@ -86,6 +86,8 @@ window.onload = function() {
     var buttons = [ { x: 30, y: 240, width: 150, height: 50, text: "New Game"},
                     { x: 30, y: 300, width: 150, height: 50, text: "Show Moves"},
                     { x: 30, y: 360, width: 150, height: 50, text: "Enable AI Bot"}];
+
+    var cor;
     
     // Initialize the game
     function init() {
@@ -171,7 +173,27 @@ window.onload = function() {
                         // Add points to the score
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
-                            score += 100 * (clusters[i].length - 2);;
+                            if (score < 200) {
+                                score += 100 * (clusters[i].length - 2);;
+                                if (cor == 0) {
+                                    alert("Vermelho!");
+                                }else if(cor == 1){
+                                    alert("Verde!");
+                                }else if(cor == 2){
+                                    alert("Azul!");
+                                }else if(cor == 3){
+                                    alert("Amarelo!");
+                                }else if(cor == 4){
+                                    alert("Rosa!");
+                                }else if(cor == 5){
+                                    alert("Ciano!");
+                                }else if(cor == 6){
+                                    alert("White!");
+                                }
+                            }
+                        }
+                        if (score == 200) {
+                            trocarTela('#tela_menu', 'bg_menu');
                         }
                     
                         // Clusters found, remove them
@@ -313,35 +335,10 @@ window.onload = function() {
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.fillStyle = "#e8eaec";
         context.fillRect(1, 1, canvas.width-2, canvas.height-2);
-        
-        // Draw header
-        context.fillStyle = "#303030";
-        context.fillRect(0, 0, canvas.width, 65);
-        
-        // Draw title
-        context.fillStyle = "#ffffff";
-        context.font = "24px Verdana";
-        context.fillText("Match3 Example - Rembound.com", 10, 30);
-        
-        // Display fps
-        context.fillStyle = "#ffffff";
-        context.font = "12px Verdana";
-        context.fillText("Fps: " + fps, 13, 50);
     }
     
     // Draw buttons
     function drawButtons() {
-        for (var i=0; i<buttons.length; i++) {
-            // Draw button shape
-            context.fillStyle = "#000000";
-            context.fillRect(buttons[i].x, buttons[i].y, buttons[i].width, buttons[i].height);
-            
-            // Draw button text
-            context.fillStyle = "#ffffff";
-            context.font = "18px Verdana";
-            var textdim = context.measureText(buttons[i].text);
-            context.fillText(buttons[i].text, buttons[i].x + (buttons[i].width-textdim.width)/2, buttons[i].y+30);
-        }
     }
     
     // Render tiles
@@ -556,6 +553,7 @@ window.onload = function() {
                         // Found a horizontal cluster
                         clusters.push({ column: i+1-matchlength, row:j,
                                         length: matchlength, horizontal: true });
+                        cor = level.tiles[i][j].type;
                     }
                     
                     matchlength = 1;
@@ -591,6 +589,7 @@ window.onload = function() {
                         // Found a vertical cluster
                         clusters.push({ column: i, row:j+1-matchlength,
                                         length: matchlength, horizontal: false });
+                        cor = level.tiles[i][j].type;
                     }
                     
                     matchlength = 1;
