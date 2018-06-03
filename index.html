@@ -38,7 +38,15 @@
 
 
 		<div id="tela_menu">
-			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
+			<div id="dialogo_menu">
+				<div class="dialogo_pers">JONAS</div>
+				<div class="caixa_dialogo">
+					<p id="di_men"></p>
+				</div>
+				<div class="caixa_seta bounce" onclick="falas();"> 
+					▼
+				</div>
+			</div>
 			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
 			<input type="button" id="supermercado" class="button btn_mapa" onclick="">
 			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">

@@ -2,6 +2,7 @@ var telaAtual;
 var bg_image;
 var nome;
 var idade;
+var first_time_menu = false;
 
 $(document).ready(function () {
 	$("#tela1").show();
@@ -22,14 +23,21 @@ function triste() {
 function trocarTela(tela,bg){
 	// Esconde a Tela Atual
 	$(telaAtual).hide();
-	// Mostra a Tela Escolhida
-	$(tela).show();
 	if(tela == "#tela_inicio"){
 		nome = $("#nome").val();
 		idade = $("#idade").val();
 		id_di = 0;
 		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
+	}else if(tela == "#tela_menu" && first_time_menu == false){
+		id_di = 11;
+		document.getElementById("escola").style.opacity = 0; 
+		document.getElementById("supermercado").style.opacity = 0;
+		document.getElementById("parque").style.opacity = 0;
+		$("#di_men").html(dialogo[id_di]);
+		first_time_menu = true;
 	}
+	// Mostra a Tela Escolhida
+	$(tela).show();
 	// Remove o Background Imge atual
 	$("#myCanvas").removeClass(bg_image);
 	// Adiciona o Background da nova tela
@@ -62,6 +70,15 @@ function falas(){
 		} else {
 			$("#di_ini").html(dialogo[id_di]);			
 		}	
+	}else if(id_di <= 13){
+		if (id_di == 13) {
+			$("#dialogo_menu").hide();
+			document.getElementById("escola").style.opacity = 1;
+			document.getElementById("supermercado").style.opacity = 1;
+			document.getElementById("parque").style.opacity = 1;
+		}else{
+			$("#di_men").html(dialogo[id_di]);
+		}
 	}
 }
 
