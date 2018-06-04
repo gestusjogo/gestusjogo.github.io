@@ -5,6 +5,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- ARQUIVOS JS -->
 	<script type="text/javascript" src="js/play.js"></script>
+	<script type="text/javascript" src="js/textos.js"></script>
+	<script type='text/javascript' src='js/jogo_das_cores.js'></script>
+	<script type='text/javascript' src='js/animation.js'></script>
 	<!-- ARQUIVOS CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style_dialogo.css">
@@ -18,7 +21,7 @@
 			<form name="formulario" id="formulario_inicio">
 				<img id="pacote" src="assets/images/steven.jpg">
 				<input type="text" name="nome" id="nome" placeholder="NOME" onkeyup="animaLetra()">
-				<input type="number" name="idade" id="idade" placeholder="IDADE" min="1" onkeyup="animaNumero()">
+				<input type="number" name="idade" id="idade" placeholder="IDADE" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
 				<input type="button" value="" id="play" class="button play" onclick="return trocarTela('#tela_inicio','bg_casa')">
 			</form>
 		</div>
@@ -38,9 +41,18 @@
 
 
 		<div id="tela_menu">
+			<div id="dialogo_menu">
+				<div class="dialogo_pers">JONAS</div>
+				<div class="caixa_dialogo">
+					<p id="di_men"></p>
+				</div>
+				<div class="caixa_seta bounce" onclick="falas();"> 
+					▼
+				</div>
+			</div>
 			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
-			<input type="button" id="supermercado" class="button btn_mapa" onclick="return trocarTela('#tela_supermercado1', 'bg_supermercado1')">
-			<input type="button" id="parque" class="button btn_mapa" onclick="">
+			<input type="button" id="supermercado" class="button btn_mapa" onclick="trocarTela('#tela_supermercado1', 'bg_supermercado1')"">
+			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
 		</div>
 		
 		<div id="tela_escola">
@@ -101,7 +113,8 @@
 					<img id="imgGameOver" src="assets/images/jogo_memoria/gameover.png" />
 				</div>
 			</div>
-		</div>
+		</div>		
+
 		<div id="tela_supermercado1">
 			<img src="assets/images/supermercado_next.png" class="next_super" onclick="return trocarTela('#tela_supermercado2', 'bg_supermercado2')">
 			<button class="butt_voltar" id="btn_voltar_mercado"> VOLTAR </button>
@@ -159,6 +172,10 @@
 					<li class="p5">Queijo</li>
 				</ol>
 			</div>
+		</div>
+		<div id="tela_fliperama">
+			<input type="button" id="voltar_menu" class="button btn_mapa" onclick="return trocarTela('#tela_menu', 'bg_menu')">
+			<canvas id="viewport" width="640" height="480"></canvas></div>
 		</div>
 	</div>
 	<!-- ARQUIVOS JS -->

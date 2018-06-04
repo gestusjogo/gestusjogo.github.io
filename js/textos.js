@@ -12,5 +12,8 @@ var dialogo = [
 				"Minha irmã é surda e ela me ensinou tudo o que sei.",
 				"Agora eu vou repassar esse conhecimento.",
 				"Mesmo você tendo (idade) anos dá pra aprender com facilidade.",
-				"Vamos lá?"
+				"Vamos lá?",
+				"",
+				"Agora você pode explorar outros cantos da cidade",
+				"Escolha algum local apertando nele."
 ]

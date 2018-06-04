@@ -190,7 +190,7 @@ body{
   background-image: url("../assets/images/supermercado02.png");   
 }
 .bg_casa{
-  background-image: url("../assets/images/bg_casa.jpg");   
+  background-image: url("../assets/images/bg_casa.jpg"); 
 }
 
 .text-center{
@@ -256,5 +256,14 @@ body{
 }
 
 .btns_confirmacao{
-  text-align: center;
+  text-align: center;   
+}
+
+.bg_fliperama{
+  background: none;
+}
+
+#viewport{
+  position: absolute;
+  left: 180px;
 }

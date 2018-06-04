@@ -2,6 +2,7 @@ var telaAtual;
 var bg_image;
 var nome;
 var idade;
+var first_time_menu = false;
 
 $(document).ready(function () {
 	$("#tela1").show();
@@ -10,6 +11,7 @@ $(document).ready(function () {
 	$("#tela_escola").hide();
 	$("#tela_supermercado1").hide();
 	$("#tela_supermercado2").hide();
+	$("#tela_fliperama").hide();
 	telaAtual = "#tela1";
 	bg_image = "bg_tela1";
 });
@@ -23,14 +25,21 @@ function triste() {
 function trocarTela(tela,bg){
 	// Esconde a Tela Atual
 	$(telaAtual).hide();
-	// Mostra a Tela Escolhida
-	$(tela).show();
 	if(tela == "#tela_inicio"){
 		nome = $("#nome").val();
 		idade = $("#idade").val();
 		id_di = 0;
 		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
+	}else if(tela == "#tela_menu" && first_time_menu == false){
+		id_di = 11;
+		document.getElementById("escola").style.opacity = 0; 
+		document.getElementById("supermercado").style.opacity = 0;
+		document.getElementById("parque").style.opacity = 0;
+		$("#di_men").html(dialogo[id_di]);
+		first_time_menu = true;
 	}
+	// Mostra a Tela Escolhida
+	$(tela).show();
 	// Remove o Background Imge atual
 	$("#myCanvas").removeClass(bg_image);
 	// Adiciona o Background da nova tela
@@ -43,85 +52,14 @@ function trocarTela(tela,bg){
 function animaNumero() {
 	var id = document.getElementById("idade").value;
 	var lastChar = id.substr(id.length - 1);
-	if(lastChar == 0){
-		document.getElementById("pacote").src = "./assets/images/numeros/0.png";
-	}else if(lastChar == 1){
-		document.getElementById("pacote").src = "./assets/images/numeros/1.png";
-	}else if(lastChar == 2){
-		document.getElementById("pacote").src = "./assets/images/numeros/2.png";
-	}else if(lastChar == 3){
-		document.getElementById("pacote").src = "./assets/images/numeros/3.png";
-	}else if(lastChar == 4){
-		document.getElementById("pacote").src = "./assets/images/numeros/4.png";
-	}else if(lastChar == 5){
-		document.getElementById("pacote").src = "./assets/images/numeros/5.png";
-	}else if(lastChar == 6){
-		document.getElementById("pacote").src = "./assets/images/numeros/6.png";
-	}else if(lastChar == 7){
-		document.getElementById("pacote").src = "./assets/images/numeros/7.png";
-	}else if(lastChar == 8){
-		document.getElementById("pacote").src = "./assets/images/numeros/8.png";
-	}else if(lastChar == 9){
-		document.getElementById("pacote").src = "./assets/images/numeros/9.png";
-	}
+	document.getElementById("pacote").src = "./assets/images/numeros/" + lastChar +".png";
 }
 
 function animaLetra() {
 	var id = document.getElementById("nome").value;
 	var lastChar = id.substr(id.length - 1);
-	if(lastChar == "a" || lastChar == "A"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/a.png";
-	}else if(lastChar == "b" || lastChar == "B"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/b.png";
-	}else if(lastChar == "c" || lastChar == "C"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/c.png";
-	}else if(lastChar == "d" || lastChar == "D"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/d.png";
-	}else if(lastChar == "e" || lastChar == "E"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/e.png";
-	}else if(lastChar == "f" || lastChar == "F"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/f.png";
-	}else if(lastChar == "g" || lastChar == "G"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/g.png";
-	}else if(lastChar == "h" || lastChar == "H"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/h.png";
-	}else if(lastChar == "i" || lastChar == "I"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/i.png";
-	}else if(lastChar == "j" || lastChar == "J"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/j.png";
-	}else if(lastChar == "k" || lastChar == "K"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/k.png";
-	}else if(lastChar == "l" || lastChar == "L"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/l.png";
-	}else if(lastChar == "m" || lastChar == "M"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/m.png";
-	}else if(lastChar == "n" || lastChar == "N"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/n.png";
-	}else if(lastChar == "o" || lastChar == "O"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/o.png";
-	}else if(lastChar == "p" || lastChar == "P"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/p.png";
-	}else if(lastChar == "q" || lastChar == "Q"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/q.png";
-	}else if(lastChar == "r" || lastChar == "R"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/r.png";
-	}else if(lastChar == "s" || lastChar == "S"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/s.png";
-	}else if(lastChar == "t" || lastChar == "T"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/t.png";
-	}else if(lastChar == "u" || lastChar == "U"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/u.png";
-	}else if(lastChar == "v" || lastChar == "V"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/v.png";
-	}else if(lastChar == "w" || lastChar == "W"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/w.png";
-	}else if(lastChar == "x" || lastChar == "X"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/x.png";
-	}else if(lastChar == "y" || lastChar == "Y"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/y.png";
-	}else if(lastChar == "z" || lastChar == "Z"){
-		document.getElementById("pacote").src = "./assets/images/alfabeto/z.png";
-	}
+	var letra = lastChar.toLowerCase();
+	document.getElementById("pacote").src = "./assets/images/alfabeto/" + letra + ".png";
 }
 
 function falas(){
@@ -134,5 +72,29 @@ function falas(){
 		} else {
 			$("#di_ini").html(dialogo[id_di]);			
 		}	
+	}else if(id_di <= 13){
+		if (id_di == 13) {
+			$("#dialogo_menu").hide();
+			document.getElementById("escola").style.opacity = 1;
+			document.getElementById("supermercado").style.opacity = 1;
+			document.getElementById("parque").style.opacity = 1;
+		}else{
+			$("#di_men").html(dialogo[id_di]);
+		}
 	}
 }
+
+ function isNumberKey(evt){
+ 	var charCode = (evt.which) ? evt.which : event.keyCode
+ 	if (charCode > 31 && (charCode < 48 || charCode > 57))
+    	return false;
+ 	return true;
+}
+
+$("#tela_fliperama").show(function() { 
+   loadGame();
+});
+
+$("#main").show(function() { 
+   runme.call(this, this)
+});
