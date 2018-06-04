@@ -8,6 +8,8 @@ $(document).ready(function () {
 	$("#tela_inicio").hide();
 	$("#tela_menu").hide();
 	$("#tela_escola").hide();
+	$("#tela_supermercado1").hide();
+	$("#tela_supermercado2").hide();
 	telaAtual = "#tela1";
 	bg_image = "bg_tela1";
 });

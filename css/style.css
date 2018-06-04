@@ -9,9 +9,12 @@ body{
 }
 
 #myCanvas{
-	position: absolute;
-    left: 10%;
-    top: 5%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
 	width: 1000px;
 	height: 562px;
 	background-color: lightgrey;
@@ -31,73 +34,71 @@ body{
 	height: 160px;
 	border-radius: 50%;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
 }
 
 #formulario_inicio input[type=text],input[type=number] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
 }
 
 #formulario_inicio input[type=text]:focus,input[type=number]:focus {
-    border: 3px solid #555;
+  border: 3px solid #555;
 }
 
 .button {
-    border: none;
-    padding: 32px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 50%;
+  border: none;
+  padding: 32px 40px;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .play {
-    background-color: grey; 
-    background-image: url("../assets/images/play.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-    color: black; 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+  background-color: grey; 
+  background-image: url("../assets/images/play.png");
+  background-repeat: no-repeat;
+  background-position: center; 
+  color: black; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 .play:hover {
-    background-color: black;
+  background-color: black;
 }
 
 .btn_mapa {
-    background-color: grey; 
-    background-image: url("../assets/images/play.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-    color: black; 
-    display: block;
+  background-color: grey; 
+  background-image: url("../assets/images/play.png");
+  background-repeat: no-repeat;
+  background-position: center; 
+  color: black; 
+  display: block;
 }
 
 .btn_mapa:hover {
-    background-color: black;
+  background-color: black;
 }
 
 #escola{
-    background-image: url("../assets/images/pencil.png");
-    position: absolute;
-    top: 450px;
-    left: 90px;
+  background-image: url("../assets/images/pencil.png");
+  position: absolute;
+  top: 450px;
+  left: 90px;
 }
 
 #supermercado{
@@ -114,49 +115,146 @@ body{
     left: 280px;
 }
 
-#voltar_menu{
-    background-image: url("../assets/images/back.png");
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.voltar_menu{
+  background-image: url("../assets/images/back.png");
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .butt_pular{
-    position: absolute;
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'AristaPro-Fat', sans-serif;
-    line-height: 51px;
-    font-size: 40px;
-    /*margin: 4px 2px;*/
-    cursor: pointer;
-    /*padding: 14px 40px;*/
-    width: 193px;
-    height: 51px;
-    left: 790px;
-    top: 15px;
+  position: absolute;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'AristaPro-Fat', sans-serif;
+  line-height: 51px;
+  font-size: 40px;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+  /*padding: 14px 40px;*/
+  width: 193px;
+  height: 51px;
+  left: 790px;
+  top: 15px;
 }
 
 .butt_pular:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.butt_voltar{
+  position: absolute;
+  background-color: #ff7ca4; /* Rosa */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'AristaPro-Fat', sans-serif;
+  line-height: 51px;
+  font-size: 40px;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+  /*padding: 14px 40px;*/
+  width: 193px;
+  height: 51px;
+  left: 20px;
+  top: 15px;
+}
+
+.butt_voltar:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .bg_tela1{
-    background-image: url("../assets/images/sala.jpg");
+  background-image: url("../assets/images/sala.jpg");
 }
 
 .bg_menu{
-    background-image: url("../assets/images/sala.jpg");
+  background-image: url("../assets/images/sala.jpg");
 }
 
 .bg_escola{
-    background-image: url("../assets/images/bg_escola.jpg");   
+  background-image: url("../assets/images/bg_escola.jpg");   
 }
 
+.bg_supermercado1{
+  background-image: url("../assets/images/supermercado01.png");   
+}
+
+.bg_supermercado2{
+  background-image: url("../assets/images/supermercado02.png");   
+}
 .bg_casa{
-    background-image: url("../assets/images/bg_casa.jpg");   
+  background-image: url("../assets/images/bg_casa.jpg");   
+}
+
+.text-center{
+  text-align: center;
+}
+
+/* MODAL */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 1000px;
+  height: 562px;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  margin-top: 150px;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 30%;
+}
+
+/* The Close Button */
+.close {
+  background-image: url("../assets/images/nao.png");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-color: #ff7ca4;
+}
+
+.close:hover,
+.close:focus {
+  background-color: #ff1a5e;
+}
+
+.sair{
+  background-image: url("../assets/images/sim.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #61ca76;
+}
+
+.sair:hover,
+.sair:focus {
+  background-color: #339947;
+}
+
+.text-modal{
+  font-size: 24px;
+}
+
+.btns_confirmacao{
+  text-align: center;
 }

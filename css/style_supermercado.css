@@ -1,0 +1,64 @@
+.next_super{
+    position: absolute;
+    top: 250px;
+    left: 936px;
+}
+
+.back_super{
+    position: absolute;
+    top: 250px;
+    left: 0px;
+}
+
+.lista_supermercado {
+	background-color: yellow;
+	padding: 10px;
+	width: 150px;
+	position: absolute;
+	left: 20px;
+	top: 350px;
+}
+
+.item_lista{
+	border: none;
+}
+
+#item1{
+	background-color: red;
+	position: absolute;
+    top: 260px;
+    left: 800px;
+    padding: 20px 50px;
+}
+
+#item2{
+	background-color: green;
+	position: absolute;
+    top: 220px;
+    left: 700px;
+    padding: 20px 50px;
+}
+
+#item3{
+	background-color: blue;
+	position: absolute;
+    top: 405px;
+    left: 800px;
+    padding: 20px 50px;
+}
+
+#item4{
+	background-color: black;
+	position: absolute;
+    top: 400px;
+    left: 400px;
+    padding: 20px 50px;
+}
+
+#item5{
+	background-color: yellow;
+	position: absolute;
+    top: 180px;
+    left: 390px;
+    padding: 20px 50px;
+}

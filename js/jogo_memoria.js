@@ -1,6 +1,6 @@
 var array_letra;
 
-(function(){
+$(document).ready(function(){
 	//array que armazenará os objetos com src e id de 1 a 8
 	var images = [];
 	
