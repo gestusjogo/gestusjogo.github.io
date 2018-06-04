@@ -115,6 +115,14 @@ body{
     left: 280px;
 }
 
+#sorveteria{
+  background-image: url("../assets/images/sorvete.png");
+  position: absolute;
+  top: 150px;
+  left: 800px;
+}
+
+
 .voltar_menu{
   background-image: url("../assets/images/back.png");
   position: absolute;
@@ -189,8 +197,13 @@ body{
 .bg_supermercado2{
   background-image: url("../assets/images/supermercado02.png");   
 }
+
 .bg_casa{
   background-image: url("../assets/images/bg_casa.jpg"); 
+}
+
+.bg_sorveteria{
+  background-image: url("../assets/images/bg_sorveteria.jpg"); 
 }
 
 .text-center{

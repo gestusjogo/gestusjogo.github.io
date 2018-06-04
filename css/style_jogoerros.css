@@ -1,0 +1,103 @@
+.erros{
+	/*border: none;*/
+}
+
+#erro0{
+	border-style: solid;
+    border-color: grey;
+    background-color: transparent;
+	position: absolute;
+    top: 50px;
+    left: 870px;
+    padding: 10px 20px;	
+}
+
+#erro1{
+	border-style: solid;
+    border-color: magenta;
+    background-color: transparent;
+	position: absolute;
+    top: 205px;
+    left: 800px;
+    padding: 25px 30px;
+}
+
+#erro2{
+	border-style: solid;
+    border-color: orange;
+    background-color: transparent;
+	position: absolute;
+    top: 195px;
+    left: 680px;
+    padding: 30px 30px;
+}
+
+#erro3{
+	border-style: solid;
+    border-color: black;
+    background-color: transparent;
+	position: absolute;
+    top: 90px;
+    left: 705px;
+    padding: 4px 10px;	
+}
+
+#erro4{
+	border-style: solid;
+    border-color: lightgreen;
+    background-color: transparent;
+	position: absolute;
+    top: 95px;
+    left: 595px;
+    padding: 10px 15px;
+}
+
+#erro5{
+	border-style: solid;
+    border-color: white;
+    background-color: transparent;
+	position: absolute;
+    top: 150px;
+    left: 470px;
+    padding: 10px 20px;
+}
+
+#erro6{
+	border-style: solid;
+    border-color: pink;
+    background-color: transparent;
+	position: absolute;
+    top: 30px;
+    left: 470px;
+    padding: 10px 15px;
+}
+
+#erro7{
+	border-style: solid;
+    border-color: yellow;
+    background-color: transparent;
+	position: absolute;
+    top: 170px;
+    left: 350px;
+    padding: 10px 20px;
+}
+
+#erro8{
+	border-style: solid;
+    border-color: green;
+    background-color: transparent;
+	position: absolute;
+    top: 130px;
+    left: 110px;
+    padding: 20px 20px;
+}
+
+#erro9{
+	border-style: solid;
+    border-color: blue;
+    background-color: transparent;
+	position: absolute;
+  	top: 140px;
+    left: 30px;
+    padding: 10px 20px;
+}

@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style_dialogo.css">
 	<link rel="stylesheet" type="text/css" href="css/style_jogomemoria.css">
 	<link rel="stylesheet" type="text/css" href="css/style_supermercado.css">
+	<link rel="stylesheet" type="text/css" href="css/style_jogoerros.css">
 	<title>GESTUS</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
 			<form name="formulario" id="formulario_inicio">
 				<img id="pacote" src="assets/images/steven.jpg">
 				<input type="text" name="nome" id="nome" placeholder="NOME" onkeyup="animaLetra()">
-				<input type="number" name="idade" id="idade" placeholder="IDADE" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
+				<input type="text" name="idade" id="idade" placeholder="IDADE" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
 				<input type="button" value="" id="play" class="button play" onclick="return trocarTela('#tela_inicio','bg_casa')">
 			</form>
 		</div>
@@ -53,6 +54,7 @@
 			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
 			<input type="button" id="supermercado" class="button btn_mapa" onclick="trocarTela('#tela_supermercado1', 'bg_supermercado1')"">
 			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
+			<input type="button" id="sorveteria" class="button btn_mapa" onclick="return trocarTela('#tela_sorveteria', 'bg_sorveteria')">
 		</div>
 		
 		<div id="tela_escola">
@@ -173,6 +175,28 @@
 				</ol>
 			</div>
 		</div>
+		<div id="tela_sorveteria">
+			<button class="butt_voltar" id="btn_voltar_sorveteria"> VOLTAR </button>
+			<div id="voltar_sorveteria" class="modal">
+				<div class="modal-content">
+					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
+					<div class="btns_confirmacao">
+						<input type="button" id="sair_sorveteria" class="button sair">
+						<input type="button" id="close_sorveteria" class="button close">	
+					</div>
+				</div>
+			</div>
+			<input type="button" id="erro0" class="erros" name="ovo" onclick="">
+			<input type="button" id="erro1" class="erros" name="agua" onclick="">
+			<input type="button" id="erro2" class="erros" name="chocolate" onclick="">
+			<input type="button" id="erro3" class="erros" name="queijo" onclick="">
+			<input type="button" id="erro4" class="erros" name="queijo" onclick="">
+			<input type="button" id="erro5" class="erros" name="queijo" onclick="">
+			<input type="button" id="erro6" class="erros" name="queijo" onclick="">
+			<input type="button" id="erro7" class="erros" name="queijo" onclick="">
+			<input type="button" id="erro8" class="erros" name="queijo" onclick="">
+			<input type="button" id="erro9" class="erros" name="queijo" onclick="">
+		</div>
 		<div id="tela_fliperama">
 			<button class="butt_voltar" id="btn_voltar_flip"> VOLTAR </button>
 			<div id="voltar_flip" class="modal">
@@ -191,6 +215,7 @@
 	<script type="text/javascript" src="js/textos.js"></script>
 	<script type="text/javascript" src="js/jogo_supermercado.js"></script>
 	<script type="text/javascript" src="js/jogo_memoria.js"></script>
+	<script type="text/javascript" src="js/jogo_erros.js"></script>
 	<script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>

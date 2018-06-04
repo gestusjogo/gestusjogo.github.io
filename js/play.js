@@ -12,6 +12,7 @@ $(document).ready(function () {
 	$("#tela_supermercado1").hide();
 	$("#tela_supermercado2").hide();
 	$("#tela_fliperama").hide();
+	$("#tela_sorveteria").hide();
 	telaAtual = "#tela1";
 	bg_image = "bg_tela1";
 });
@@ -35,6 +36,7 @@ function trocarTela(tela,bg){
 		document.getElementById("escola").style.opacity = 0; 
 		document.getElementById("supermercado").style.opacity = 0;
 		document.getElementById("parque").style.opacity = 0;
+		document.getElementById("sorveteria").style.opacity = 0;
 		$("#di_men").html(dialogo[id_di]);
 		first_time_menu = true;
 	}
@@ -78,6 +80,7 @@ function falas(){
 			document.getElementById("escola").style.opacity = 1;
 			document.getElementById("supermercado").style.opacity = 1;
 			document.getElementById("parque").style.opacity = 1;
+			document.getElementById("sorveteria").style.opacity = 1;
 		}else{
 			$("#di_men").html(dialogo[id_di]);
 		}
