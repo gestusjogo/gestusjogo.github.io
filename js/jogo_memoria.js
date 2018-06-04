@@ -219,7 +219,7 @@ $(document).ready(function(){
 		},false);
 	}
 
-	document.getElementById("voltar_menu").addEventListener("click", function(){
+	document.getElementById("sair_escola").addEventListener("click", function(){
         startGame();
 	});
 }());

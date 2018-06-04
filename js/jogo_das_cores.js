@@ -864,4 +864,8 @@ window.onload = function() {
     
     // Call init to start the game
     init();
+    
+    document.getElementById("sair_flip").addEventListener("click", function(){
+        score = 0;
+    });
 };
