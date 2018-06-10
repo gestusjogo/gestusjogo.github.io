@@ -40,7 +40,6 @@ $(document).ready(function(){
 				lestra_jogo.push(item);
 			}
 		}
-		console.log(lestra_jogo);
 	}
 
 	escolherLetras();

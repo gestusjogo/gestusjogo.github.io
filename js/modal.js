@@ -120,6 +120,10 @@ close4.onclick = function() {
 
 sair4.onclick = function() {
 	trocarTela('#tela_menu', 'bg_menu');
+  for (var i = erros_encontrados.length - 1; i >= 0; i--) {
+    $(erros_encontrados[i]).hide();
+  }
+  erros_encontrados.length = 0;
   modal4.style.display = "none";
 }
 

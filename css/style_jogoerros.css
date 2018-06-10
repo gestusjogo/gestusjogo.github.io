@@ -3,8 +3,7 @@
 }
 
 #erro0{
-	border-style: solid;
-    border-color: grey;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 50px;
@@ -13,8 +12,7 @@
 }
 
 #erro1{
-	border-style: solid;
-    border-color: magenta;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 205px;
@@ -23,8 +21,7 @@
 }
 
 #erro2{
-	border-style: solid;
-    border-color: orange;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 195px;
@@ -33,8 +30,7 @@
 }
 
 #erro3{
-	border-style: solid;
-    border-color: black;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 90px;
@@ -43,8 +39,7 @@
 }
 
 #erro4{
-	border-style: solid;
-    border-color: lightgreen;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 95px;
@@ -53,8 +48,7 @@
 }
 
 #erro5{
-	border-style: solid;
-    border-color: white;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 150px;
@@ -63,8 +57,7 @@
 }
 
 #erro6{
-	border-style: solid;
-    border-color: pink;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 30px;
@@ -73,8 +66,7 @@
 }
 
 #erro7{
-	border-style: solid;
-    border-color: yellow;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 170px;
@@ -83,8 +75,7 @@
 }
 
 #erro8{
-	border-style: solid;
-    border-color: green;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
     top: 130px;
@@ -93,11 +84,69 @@
 }
 
 #erro9{
-	border-style: solid;
-    border-color: blue;
+	border-style: none;
     background-color: transparent;
 	position: absolute;
   	top: 140px;
     left: 30px;
     padding: 10px 20px;
+}
+
+#x0{
+    position: absolute;
+    right: 135px; 
+    top: 340px;   
+}
+#x1{
+    position: absolute;
+    right: 185px; 
+    top: 490px;   
+}
+
+#x2{
+    position: absolute;
+    right: 290px; 
+    top: 490px;    
+}
+
+#x3{
+    position: absolute;
+    right: 290px; 
+    top: 360px;      
+}
+
+#x4{
+    position: absolute;
+    right: 380px; 
+    top: 380px;   
+}
+
+#x5{
+    position: absolute;
+    right: 490px; 
+    top: 430px;     
+}
+
+#x6{
+    position: absolute;
+    right: 500px; 
+    top: 330px;     
+}
+
+#x7{
+    position: absolute;
+    right: 600px; 
+    top: 450px;     
+}
+
+#x8{
+    position: absolute;
+    left: 155px; 
+    top: 420px;      
+}
+
+#x9{
+    position: absolute;
+    left: 83px; 
+    top: 420px;  
 }
