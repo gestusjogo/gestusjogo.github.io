@@ -1,8 +1,8 @@
 // JODO DA MEMÓRIA
 var modal = document.getElementById('myModal');
 var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-var sair = document.getElementsByClassName("sair")[0];
+var span = document.getElementById("close_escola");
+var sair = document.getElementById("sair_escola");
 
 btn.onclick = function() {
   modal.style.display = "block";
