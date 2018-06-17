@@ -3,6 +3,8 @@ var bg_image;
 var nome;
 var idade;
 var first_time_menu = false;
+var sauda_inicio = 0;
+var saudacoes = false;
 
 $(document).ready(function () {
 	$("#tela1").show();
@@ -30,14 +32,15 @@ function trocarTela(tela,bg){
 		nome = $("#nome").val();
 		idade = $("#idade").val();
 		id_di = 0;
+		$("#saudacoes").hide();
 		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
 	}else if(tela == "#tela_menu" && first_time_menu == false){
-		id_di = 11;
+		id_di = 15;
+		$("#di_men").html(dialogo[id_di]);
 		document.getElementById("escola").style.opacity = 0; 
 		document.getElementById("supermercado").style.opacity = 0;
 		document.getElementById("parque").style.opacity = 0;
 		document.getElementById("sorveteria").style.opacity = 0;
-		$("#di_men").html(dialogo[id_di]);
 		first_time_menu = true;
 	}
 	// Mostra a Tela Escolhida
@@ -66,16 +69,29 @@ function animaLetra() {
 
 function falas(){
 	id_di += 1;
-	if(id_di <= 10){
+	if(id_di <= 14){
 		if (id_di == 8) {
 			$("#di_ini").html("Mesmo você tendo " + "<i style='color:red'> " + idade + "</i>" + " anos dá pra aprender com facilidade.");	
-		} else if(id_di == 10){
+		}else if(id_di == 11){
+			$(".jonas_cutscene").css('left', 352);
+			$("#di_ini").html(dialogo[id_di]);	
+		}else if(id_di == 12){
+			if (saudacoes == false) {
+				$("#saudacoes").show();
+				$("#dialogo_inicio").hide();
+				saudacoes = true;
+			} else {
+				$("#dialogo_inicio").show();
+				$("#di_ini").html(dialogo[id_di]);	
+			}
+		}else if(id_di == 14){
 			trocarTela('#tela_menu','bg_menu');
+			$("#di_ini").html(dialogo[id_di]);	
 		} else {
 			$("#di_ini").html(dialogo[id_di]);			
 		}	
-	}else if(id_di <= 13){
-		if (id_di == 13) {
+	}else if(id_di <= 16){
+		if (id_di == 16) {
 			$("#dialogo_menu").hide();
 			document.getElementById("escola").style.opacity = 1;
 			document.getElementById("supermercado").style.opacity = 1;
@@ -85,6 +101,7 @@ function falas(){
 			$("#di_men").html(dialogo[id_di]);
 		}
 	}
+	console.log(id_di);
 }
 
  function isNumberKey(evt){
@@ -101,3 +118,11 @@ $("#tela_fliperama").show(function() {
 $("#main").show(function() { 
    runme.call(this, this)
 });
+
+function f_saudacoes() {
+	sauda_inicio += 1;
+	if (sauda_inicio == 4) {
+		id_di = 11;
+		falas();
+	}
+}

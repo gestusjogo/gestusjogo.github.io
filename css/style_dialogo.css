@@ -9,6 +9,8 @@
     height: 115px;
     top: 425px;
     right: 27px;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .caixa_dialogo > p{
@@ -29,22 +31,22 @@
     height: 60px;
     top: 395px;
     left: 42px;	
-    z-index: 1;
+    z-index: 2;
 }
 
 .caixa_seta{
 	position: absolute;
 	background-color: none;
 	border: none;
-    color: #91DC5A;
-    text-align: center;
-    font-size: 25px;
-    width: 60px;
-    height: 60px;
-    top: 510.52px;
-    left: 922.14px;	
-    z-index: 1;
-    cursor: pointer;
+  color: #91DC5A;
+  text-align: center;
+  font-size: 25px;
+  width: 27.81px;
+  height: 17.48px;
+  left: 933.14px;
+  top: 510.52px;	
+  z-index: 1;
+  cursor: pointer;
 }
 
 .bounce {

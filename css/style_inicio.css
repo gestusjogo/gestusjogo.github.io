@@ -1,0 +1,63 @@
+#ini_oi{
+	position: absolute;
+	width: 115px;
+	height: 115px;
+	left: 170px;
+	top: 424px;
+	background-color: #8ED77C;
+	border-radius: 50%;
+	font-family: 'AristaPro-Fat', sans-serif;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	line-height: 115px;
+	cursor: pointer;
+}
+
+#ini_bd{
+	position: absolute;
+	width: 115px;
+	height: 115px;
+	left: 352px;
+	top: 424px;
+	background-color: #8ED77C;
+	border-radius: 50%;
+	font-family: 'AristaPro-Fat', sans-serif;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	line-height: 115px;
+	cursor: pointer;
+}
+
+#ini_bt{
+	position: absolute;
+	width: 115px;
+	height: 115px;
+	left: 534px;
+	top: 424px;
+	background-color: #8ED77C;
+	border-radius: 50%;
+	font-family: 'AristaPro-Fat', sans-serif;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	line-height: 115px;
+	cursor: pointer;
+}
+
+#ini_bn{
+	position: absolute;
+	width: 115px;
+	height: 115px;
+	left: 717px;
+	top: 424px;
+	background-color: #8ED77C;
+	border-radius: 50%;
+	font-family: 'AristaPro-Fat', sans-serif;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	line-height: 115px;
+	cursor: pointer;
+}

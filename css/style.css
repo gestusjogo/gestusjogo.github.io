@@ -132,7 +132,7 @@ body{
 
 .butt_pular{
   position: absolute;
-  background-color: #4CAF50; /* Green */
+  background-color: #8ED77C; /* Green */
   border: none;
   color: white;
   text-align: center;
@@ -280,4 +280,12 @@ body{
   position: absolute;
   left: 180px;
   top: 70px;
+}
+
+.jonas_cutscene{
+  position: absolute;
+  left: 66px;
+  top: 91px;
+  width: 316px;
+  height: 471px;
 }
