@@ -76,12 +76,15 @@
 					<img class="arrow" src="assets/images/arrow.png">
 				</div>
 			</div>
-			<img class="jonas_cutscene" src="assets/images/jonas.png">
+			<img class="jonas_cutscene"  onclick="anima(1);" src="assets/images/jonas.png">
 			<div id="saudacoes">
 				<div id="ini_oi" onclick="f_saudacoes()">Oi</div>
-				<div id="ini_bd" onclick="f_saudacoes()">Bom dia</div>
+				<div id="ini_bd" onclick="anima(1);">Bom dia</div>
 				<div id="ini_bt" onclick="f_saudacoes()">Boa tarde</div>
 				<div id="ini_bn" onclick="f_saudacoes()">Boa noite</div>
+			</div>
+			<div id="animacaozinha">
+				<canvas id="animation"></canvas>
 			</div>
 		</div>
 
@@ -98,8 +101,9 @@
 			</div>
 			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
 			<input type="button" id="supermercado" class="button btn_mapa" onclick="trocarTela('#tela_supermercado1', 'bg_supermercado1')">
-			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
+			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_parque', 'bg_parque')">
 			<input type="button" id="sorveteria" class="button btn_mapa" onclick="return trocarTela('#tela_sorveteria', 'bg_sorveteria')">
+			<input type="button" id="fliperama" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
 		</div>
 		
 		<div id="tela_escola">
@@ -269,7 +273,6 @@
 		</div>
 
 		<div id="tela_fliperama">
-			<button class="butt_voltar" id="btn_voltar_flip2"> VOLTAR </button>
 			<div id="dialogo_fliperama">
 				<div class="dialogo_pers">JONAS</div>
 				<div class="caixa_dialogo" onclick="falas();">
@@ -280,15 +283,6 @@
 				</div>
 			</div>
 			<img class="jonas_cutscene" src="assets/images/jonas.png">
-			<div id="voltar_flip2" class="modal">
-				<div class="modal-content">
-					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
-					<div class="btns_confirmacao">
-						<input type="button" id="close_flip2" class="button close">	
-						<input type="button" id="sair_flip2" class="button sair">
-					</div>
-				</div>
-			</div>
 		</div>
 		<div id="tela_fliperama2">
 			<button class="butt_voltar" id="btn_voltar_flip"> VOLTAR </button>
@@ -305,6 +299,9 @@
 				<a id="score_cc_text">Pontuação: 000</a>
 			</div>
 			<canvas id="viewport" width="640" height="480"></canvas>
+		</div>
+
+		<div id="tela_parque">
 		</div>
 	</div>
 	<!-- ARQUIVOS JS -->

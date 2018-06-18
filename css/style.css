@@ -106,6 +106,13 @@ body{
   left: 800px;
 }
 
+#fliperama{
+  background-image: url("../assets/images/fliperama.png");
+  position: absolute;
+  top: 120px;
+  left: 700px; 
+}
+
 
 .voltar_menu{
   background-image: url("../assets/images/back.png");
@@ -424,4 +431,23 @@ body{
 
 .proximo:hover{
   background-color: #ff4d91;
+}
+
+#score_cc{
+  position: absolute;
+  width: 314px;
+  height: 31px;
+  left: 343px;
+  top: 23px;
+  font-family: 'AristaPro-Fat', sans-serif;
+  font-size: 34px;
+  line-height: 31px;
+  text-align: center;
+  color: #565656;
+}
+
+#animation{
+  position: absolute;
+  left: 257px;
+  top: 47px;
 }

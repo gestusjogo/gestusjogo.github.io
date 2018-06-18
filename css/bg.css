@@ -46,5 +46,13 @@
 }
 
 .bg_fliperama{
-  background: none;
+  background: url("../assets/images/bg_fliperama.jpg"); 
+}
+
+.bg_fliperama2{
+  background: url("../assets/images/bg_fliperama2.jpg"); 
+}
+
+.bg_parque{
+  background: url("../assets/images/bg_parque.jpg");  
 }

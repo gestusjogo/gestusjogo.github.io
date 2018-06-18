@@ -42,10 +42,11 @@
         };
 }());
 
-function anima() {
-			
+function anima(num) {
+				
 	var coin,
 		coinImage,
+		local,
 		canvas;					
 
 	function gameLoop () {
@@ -72,11 +73,12 @@ function anima() {
 		that.update = function () {
 
             tickCount += 1;
-
+            
             if (tickCount > ticksPerFrame) {
-
+            	if (num == 1) {
+		$(".jonas_cutscene").hide();
+	}
 				tickCount = 0;
-				
                 // If the current frame index is in range
                 if (frameIndex < numberOfFrames - 1) {	
                     // Go to the next frame
@@ -113,9 +115,9 @@ function anima() {
 	}
 	
 	// Get canvas
-	canvas = document.getElementById("coinAnimation");
-	canvas.width = 670;
-	canvas.height = 680;
+	canvas = document.getElementById("animation");
+	canvas.width = 416;
+	canvas.height = 516;
 	
 	// Create sprite sheet
 	coinImage = new Image();	
@@ -123,8 +125,8 @@ function anima() {
 	// Create sprite
 	coin = sprite({
 		context: canvas.getContext("2d"),
-		width: 8040,
-		height: 680,
+		width: 6101,
+		height: 516,
 		image: coinImage,
 		numberOfFrames: 12,
 		ticksPerFrame: 8
@@ -132,7 +134,10 @@ function anima() {
 	
 	// Load sprite sheet
 	coinImage.addEventListener("load", gameLoop);
-	coinImage.src = "./assets/images/bom-dia.png";
+	if (num == 1) {
+		local = "./assets/images/animacoes/bomdiasheet.png";
+	}
+	coinImage.src = local;
 
 }
 
