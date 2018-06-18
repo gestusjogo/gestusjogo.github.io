@@ -3,6 +3,16 @@
   background-image: url("../assets/images/fundo.png");
 }
 
+.bg_ajuda{
+  background-color: white;
+  background-image: url("../assets/images/bg_ajuda.png");
+}
+
+.bg_infor{
+  background-color: white;
+  background-image: url("../assets/images/bg_infor.png");
+}
+
 .bg_inicio{
   background-image: url("../assets/images/bg_menu.png");
 }
