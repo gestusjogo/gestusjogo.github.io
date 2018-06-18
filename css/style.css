@@ -8,6 +8,11 @@ body{
   src: url('../assets/fonts/AristaPro-Fat.otf'); 
 }
 
+@font-face { 
+  font-family: Amatic; 
+  src: url('../assets/fonts/Amatic-Bold.ttf'); 
+}
+
 #myCanvas{
   position: absolute;
   top: 0;
