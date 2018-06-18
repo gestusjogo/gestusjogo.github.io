@@ -5,6 +5,7 @@ var idade;
 var first_time_menu = false;
 var sauda_inicio = 0;
 var saudacoes = false;
+var canva_supermercado = false;
 
 $(document).ready(function () {
 	$("#menu").show();
