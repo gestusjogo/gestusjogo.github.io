@@ -1,16 +1,11 @@
 body{
-	background-color: black;
-	font-family: "Arial";
+  background-color: black;
+  font-family: "Arial";
 }
 
 @font-face { 
   font-family: AristaPro-Fat; 
   src: url('../assets/fonts/AristaPro-Fat.otf'); 
-}
-
-@font-face { 
-  font-family: Amatic; 
-  src: url('../assets/fonts/Amatic-Bold.ttf'); 
 }
 
 #myCanvas{
@@ -20,22 +15,22 @@ body{
   right: 0;
   left: 0;
   margin: auto;
-	width: 1000px;
-	height: 562px;
+  width: 1000px;
+  height: 562px;
 }
 
 #formulario_inicio{
-	width: 500px;
-	padding: 30px;
-	position: absolute;
+  width: 500px;
+  padding: 30px;
+  position: absolute;
   top: 20px;
   left: 220px;
 }
 
 #formulario_inicio img{
-	width: auto;
-	height: 160px;
-	display: block;
+  width: auto;
+  height: 160px;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
@@ -167,45 +162,6 @@ body{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-<<<<<<< HEAD
-.bg_tela1{
-  background-image: url("../assets/images/sala.jpg");
-}
-
-.bg_menu{
-  background-image: url("../assets/images/sala.jpg");
-}
-
-.bg_escola{
-  background-image: url("../assets/images/bg_escola.jpg");   
-}
-
-.bg_supermercado1{
-  background-image: url("../assets/images/supermercado01.png");   
-}
-
-.bg_supermercado2{
-  background-image: url("../assets/images/supermercado02.png");   
-}
-
-.bg_casa{
-  background-image: url("../assets/images/bg_casa.jpg"); 
-}
-
-.bg_sorveteria{
-  background-image: url("../assets/images/bg_sorveteria.jpg"); 
-}
-
-.bg_fliperama{
-  background-image: url("../assets/images/bg_fliperama.jpg");   
-}
-
-.bg_fliperama2{
-  background-image: url("../assets/images/bg_fliperama2.jpg");   
-}
-
-=======
->>>>>>> 9e1468cbd8aafafe7b971f5b8932121bc66022aa
 .text-center{
   text-align: center;
 }
@@ -415,16 +371,12 @@ body{
   box-shadow:  5px 10px #2b2b2b;
 }
 
-<<<<<<< HEAD
-#viewport{
-=======
 .btn_jogadores:hover {
   box-shadow: 2px 2px #2b2b2b;
   transform: translate(3px, 8px);
 }
 
 .btn_j1{
->>>>>>> 9e1468cbd8aafafe7b971f5b8932121bc66022aa
   position: absolute;
   top: 130px;
   left: 193px;
@@ -438,25 +390,6 @@ body{
 
 .btn_j2{
   position: absolute;
-<<<<<<< HEAD
-  left: 66px;
-  top: 91px;
-  width: 316px;
-  height: 471px;
-}
-
-#score_cc{
-  position: absolute;
-  left: 343px;
-  top: 23px;
-  width: 314px;
-  height: 31px;
-  font-family: 'AristaPro-Fat', sans-serif;
-  font-size: 34px;
-  text-align: center;
-  line-height: 31px;
-  color: #565656;
-=======
   top: 295px;
   left: 193px;
   padding:  20px 80px;
@@ -491,5 +424,4 @@ body{
 
 .proximo:hover{
   background-color: #ff4d91;
->>>>>>> 9e1468cbd8aafafe7b971f5b8932121bc66022aa
 }
