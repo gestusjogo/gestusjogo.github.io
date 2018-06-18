@@ -96,9 +96,14 @@ function trocarTela(tela,bg){
 	}else if (tela == "#tela_fliperama") {
 		id_di = 35;
 		$(".jonas_cutscene").show();
-		$("#di_fli").html(dialogo[id_di])
+		$("#di_fli").html(dialogo[id_di]);
 	}else if(tela == "#tela_parque"){
 		$("#top").show();
+	}else if(tela == "#tela_sorveteria"){
+		id_di = 24;
+		$("#di_sov").html(dialogo[id_di]);
+		$("#dialogo_soverteria").show();
+		$(".jonas_cutscene").show();
 	}
 	// Mostra a Tela Escolhida
 	$(tela).show();
@@ -167,6 +172,12 @@ function falas(){
 			$("#dialogo_escola").hide();
 			$(".jonas_cutscene").hide();
 			$("#game").show();
+		}
+	}else if(id_di <= 29){
+		$("#di_sov").html(dialogo[id_di]);
+		if (id_di == 29) {
+			$("#dialogo_soverteria").hide();
+			$(".jonas_cutscene").hide();
 		}
 	}else if(id_di <=34){
 		$("#di_sup").html(dialogo[id_di]);
