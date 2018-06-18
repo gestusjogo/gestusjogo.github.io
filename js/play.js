@@ -51,6 +51,7 @@ function trocarTela(tela,bg){
 		document.getElementById("parque").style.opacity = 0;
 		document.getElementById("sorveteria").style.opacity = 0;
 		document.getElementById("volta_menu").style.opacity = 0;
+		document.getElementById("fliperama").style.opacity = 0;
 		first_time_menu = true;
 	}else if(tela == "#tela_escola"){
 		$("#game").hide();
@@ -116,6 +117,7 @@ function falas(){
 			document.getElementById("supermercado").style.opacity = 1;
 			document.getElementById("parque").style.opacity = 1;
 			document.getElementById("sorveteria").style.opacity = 1;
+			document.getElementById("fliperama").style.opacity = 1;
 		}else{
 			$("#di_men").html(dialogo[id_di]);
 		}

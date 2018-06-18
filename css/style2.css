@@ -1,0 +1,116 @@
+#escola{
+  border-style: none;
+  position: absolute;
+  top: 140px;
+  left: 700px; 
+  background-color: transparent;
+  padding: 65px 100px;
+  -ms-transform: rotate(30deg); /* IE 9 */
+  -webkit-transform: rotate(30deg); /* Safari 3-8 */
+  transform: rotate(30deg);
+}
+
+#supermercado{
+  border-style: none;
+  position: absolute;
+  top: 30px;
+  left: 520px;
+  background-color: transparent;
+  padding: 50px 80px;
+  -ms-transform: rotate(-30deg); /* IE 9 */
+  -webkit-transform: rotate(-30deg); /* Safari 3-8 */
+  transform: rotate(-30deg);
+}
+
+#parque{
+  border-style: none;
+  position: absolute;
+  top: 230px;
+  left: 565px;
+  background-color: transparent;
+  padding: 30px 60px;
+  -ms-transform: rotate(-30deg); /* IE 9 */
+  -webkit-transform: rotate(-30deg); /* Safari 3-8 */
+  transform: rotate(-30deg);
+}
+
+#sorveteria{
+  border-style: none;
+  position: absolute;
+  top: 390px;
+  left: 370px;
+  background-color: transparent;
+  padding: 60px 80px;
+  -ms-transform: rotate(32deg); /* IE 9 */
+  -webkit-transform: rotate(32deg); /* Safari 3-8 */
+  transform: rotate(32deg);
+}
+
+#fliperama{
+  border-style: none;
+  position: absolute;
+  top: 295px;
+  left: 665px; 
+  background-color: transparent;
+  padding: 40px 70px;
+  -ms-transform: rotate(35deg); /* IE 9 */
+  -webkit-transform: rotate(35deg); /* Safari 3-8 */
+  transform: rotate(35deg);
+}
+
+#casa{
+  border-style: none;
+  position: absolute;
+  top: 260px;
+  left: 180px; 
+  background-color: transparent;
+  padding: 60px 70px;
+  -ms-transform: rotate(35deg); /* IE 9 */
+  -webkit-transform: rotate(35deg); /* Safari 3-8 */
+  transform: rotate(35deg);
+}
+
+#pin_escola{
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 780px; 
+}
+
+
+#pin_supermercado{
+  display: none;
+  position: absolute;
+  top: -20px;
+  left: 570px;
+}
+
+
+#pin_fliperama{
+  display: none;
+  position: absolute;
+  top: 240px;
+  left: 700px; 
+}
+
+
+#pin_parque{
+  display: none;
+  position: absolute;
+  top: 185px;
+  left: 590px;
+}
+
+#pin_sorveteria{
+  display: none;
+  position: absolute;
+  top: 330px;
+  left: 430px; 
+}
+
+#pin_casa{
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 220px; 
+}

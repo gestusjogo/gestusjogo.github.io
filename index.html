@@ -6,11 +6,13 @@
 	<!-- ARQUIVOS JS -->
 	<script type='text/javascript' src='js/multi_jogadores.js'></script>
 	<script type="text/javascript" src="js/play.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/textos.js"></script>
 	<script type='text/javascript' src='js/jogo_das_cores.js'></script>
 	<script type='text/javascript' src='js/animation.js'></script>
 	<!-- ARQUIVOS CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<link rel="stylesheet" type="text/css" href="css/bg.css">
 	<link rel="stylesheet" type="text/css" href="css/style_inicio.css">
 	<link rel="stylesheet" type="text/css" href="css/style_dialogo.css">
@@ -100,11 +102,18 @@
 					<img class="arrow" src="assets/images/arrow.png">
 				</div>
 			</div>
-			<input type="button" id="escola" class="button btn_mapa" onclick="return trocarTela('#tela_escola', 'bg_escola')">
-			<input type="button" id="supermercado" class="button btn_mapa" onclick="trocarTela('#tela_supermercado1', 'bg_supermercado1')">
-			<input type="button" id="parque" class="button btn_mapa" onclick="return trocarTela('#tela_parque', 'bg_parque')">
-			<input type="button" id="sorveteria" class="button btn_mapa" onclick="return trocarTela('#tela_sorveteria', 'bg_sorveteria')">
-			<input type="button" id="fliperama" class="button btn_mapa" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
+			<input type="button" id="escola" onclick="return trocarTela('#tela_escola', 'bg_escola')">
+			<img id="pin_escola" src="assets/images/pin.png">
+			<input type="button" id="supermercado" onclick="trocarTela('#tela_supermercado1', 'bg_supermercado1')">
+			<img id="pin_supermercado" src="assets/images/pin.png">
+			<input type="button" id="parque" onclick="return trocarTela('#tela_parque', 'bg_parque')">
+			<img id="pin_parque" src="assets/images/pin.png">
+			<input type="button" id="sorveteria" onclick="return trocarTela('#tela_sorveteria', 'bg_sorveteria')">
+			<img id="pin_sorveteria" src="assets/images/pin.png">
+			<input type="button" id="fliperama" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
+			<img id="pin_fliperama" src="assets/images/pin.png">
+			<input type="button" id="casa" onclick="">
+			<img id="pin_casa" src="assets/images/pin.png">
 		</div>
 		
 		<div id="tela_escola">
