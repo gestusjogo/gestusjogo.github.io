@@ -4,7 +4,22 @@ var add_itens = true
 function item_encontrado(id) {
 	$(id).css({"text-decoration": "line-through", "-webkit-text-decoration-color": "red", "text-decoration-color": "red"});
 	
-	anima(4);
+	if (id == ".p1") {
+		$("#animation1").show();
+		anima(4);
+	}else if (id == ".p2") {
+		$("#animation2").show();
+		anima(5);
+	}else if (id == ".p3") {
+		$("#animation3").show();
+		anima(6);
+	}else if (id == ".p4") {
+		$("#animation5").show();
+		anima(7);
+	}else if (id == ".p5") {
+		$("#animation4").show();
+		anima(8);
+	}
 
 	if (itens_coletados.length >= 0) {
 		for (var i = itens_coletados.length - 1; i >= 0; i--) {

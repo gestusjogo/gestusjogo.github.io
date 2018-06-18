@@ -204,7 +204,20 @@
 					</div>
 				</div>
 			</div>
-
+			<div id="dialogo_supermercado">
+				<div class="dialogo_pers">JONAS</div>
+				<div class="caixa_dialogo" onclick="falas();">
+					<p id="di_sup"></p>
+				</div>
+				<div class="caixa_seta bounce" onclick="falas();"> 
+					<img class="arrow" src="assets/images/arrow.png">
+				</div>
+			</div>
+			<img class="jonas_cutscene" src="assets/images/jonas.png">
+			<canvas id="animation1"></canvas>
+			<canvas id="animation2"></canvas>
+			<canvas id="animation3"></canvas>
+			<canvas id="animation4"></canvas>
 			<!-- BOTÕES PRODUTOS -->			
 			<input type="button" id="item1" class="item_lista" name="maca" onclick="return item_encontrado('.p1')">
 			<input type="button" id="item2" class="item_lista" name="ovo" onclick="return item_encontrado('.p2')">
@@ -235,6 +248,7 @@
 					</div>
 				</div>
 			</div>
+			<canvas id="animation5"></canvas>
 			<!-- BOTÕES PRODUTOS -->
 			<input type="button" id="item4" class="item_lista" name="chocolate" onclick="return item_encontrado('.p4')">
 

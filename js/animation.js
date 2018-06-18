@@ -50,6 +50,8 @@ function anima(num) {
 		w,
 		h,
 		nof,
+		c,
+		tpf,
 		canvas;					
 
 	function gameLoop () {
@@ -78,9 +80,6 @@ function anima(num) {
             tickCount += 1;
 
             if (tickCount > ticksPerFrame) {
-            	if (num < 4) {
-					$(".jonas_cutscene").hide();
-				}
 				tickCount = 0;
                 // If the current frame index is in range
                 if (frameIndex < numberOfFrames - 1) {	
@@ -88,12 +87,27 @@ function anima(num) {
                     frameIndex += 1;
                     if (num == 1 || num == 2 || num == 3) {
                     	if(frameIndex == 4){
-                    		sleep(1000);
+                    		sleep(700);
+                    	}
+                    }else if(num == 4){
+                    	if(frameIndex == 1){
+                    		sleep(700);
                     	}
                     }
                 } else {
                 	//Aqui que rola o loop
                     // frameIndex = 0;
+                    if (num == 4) {
+                    	$("#animation1").hide();
+                    }else if (num == 5) {
+                    	$("#animation2").hide();
+                    }else if (num == 6) {
+                    	$("#animation3").hide();
+                    }else if (num == 7) {
+                    	$("#animation5").hide();
+                    }else if (num == 8) {
+                    	$("#animation4").hide();
+                    }
                 }
             }
         };
@@ -118,9 +132,21 @@ function anima(num) {
 		
 		return that;
 	}
-	
+	if (num < 4) {
+		c = "animation";
+	}else if (num == 4) {
+		c = "animation1";
+	}else if (num == 5) {
+		c = "animation2";
+	}else if (num == 6) {
+		c = "animation3";
+	}else if (num == 7) {
+		c = "animation5";
+	}else if (num == 8) {
+		c = "animation4";
+	}
 	// Get canvas
-	canvas = document.getElementById("animation");
+	canvas = document.getElementById(c);
 	if (num == 1) {
 		canvas.width = 416;
 		canvas.height = 516;
@@ -152,6 +178,31 @@ function anima(num) {
 		w = 6604;
 		h = 516;
 		nof = 13;
+	}else if (num == 4) {
+		local = "./assets/images/animacoes/maçasheet.png";
+		w = 1016;
+		h = 516;
+		nof = 2;
+	}else if (num == 5) {
+		local = "./assets/images/animacoes/ovosheet.png";
+		w = 3556;
+		h = 516;
+		nof = 7;
+	}else if (num == 6) {
+		local = "./assets/images/animacoes/aguasheet.png";
+		w = 3556;
+		h = 516;
+		nof = 7;
+	}else if (num == 7) {
+		local = "./assets/images/animacoes/chocolatesheet.png";
+		w = 3556;
+		h = 516;
+		nof = 7;
+	}else if (num == 8) {
+		local = "./assets/images/animacoes/queijosheet.png";
+		w = 1524;
+		h = 516;
+		nof = 3;
 	}
 
 	// Create sprite
