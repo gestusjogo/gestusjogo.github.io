@@ -54,7 +54,7 @@ function trocarTela(tela,bg){
 			$(".jonas_cutscene1").hide();
 			$(".jonas_cutscene").show();
 			$("#saudacoes").hide();
-			$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
+			$("#di_ini").html(dialogo[id_di] + "<i style='color:black'> " + nome + "</i>");
 			$("#nextop").hide();
 			first_time_inicio = true;
 		}else{
