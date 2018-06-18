@@ -124,13 +124,19 @@ sair4.onclick = function() {
     $(erros_encontrados[i]).hide();
   }
   erros_encontrados.length = 0;
+  sair = false; 
+  document.getElementById("fim_erros").style.display = "none"
+  document.getElementById("x0").style.zIndex = "0"
+  document.getElementById("x1").style.zIndex = "0"
+  document.getElementById("x2").style.zIndex = "0"
+  document.getElementById("x3").style.zIndex = "0"
+  document.getElementById("x4").style.zIndex = "0"
+  document.getElementById("x5").style.zIndex = "0"
+  document.getElementById("x6").style.zIndex = "0"
+  document.getElementById("x7").style.zIndex = "0"
+  document.getElementById("x8").style.zIndex = "0"
+  document.getElementById("x9").style.zIndex = "0"
   modal4.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal4.style.display = "none";
-  }
 }
 
 // JODO DO FLIPERAMA

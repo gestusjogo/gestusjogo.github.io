@@ -11,6 +11,11 @@ $("#x7").hide();
 $("#x8").hide();
 $("#x9").hide();
 
+var fim_erros = document.getElementById("fim_erros");
+
+fim_erros.style.display = "none"
+
+
 function erro_aqui(erro) {
 	var modal = document.getElementById('exibir_numero');
 	var fechar = document.getElementById("close_numero");
@@ -45,11 +50,22 @@ function erro_aqui(erro) {
 	fechar.onclick = function() {
 		modal.style.display = "none";
 		if(sair == true){
-			fim_erros();
+			fimerros();
 		}
 	}
 }
 
-function fim_erros() {
-	alert("Parabéns, você é top!");
+function fimerros() {
+	//tela_sorveteria.classList.remove("bg_fim");
+	fim_erros.style.display = "block"
+	document.getElementById("x0").style.zIndex = "-1"
+	document.getElementById("x1").style.zIndex = "-1"
+	document.getElementById("x2").style.zIndex = "-1"
+	document.getElementById("x3").style.zIndex = "-1"
+	document.getElementById("x4").style.zIndex = "-1"
+	document.getElementById("x5").style.zIndex = "-1"
+	document.getElementById("x6").style.zIndex = "-1"
+	document.getElementById("x7").style.zIndex = "-1"
+	document.getElementById("x8").style.zIndex = "-1"
+	document.getElementById("x9").style.zIndex = "-1"
 }
