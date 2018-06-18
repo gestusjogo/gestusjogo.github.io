@@ -7,6 +7,8 @@ var sauda_inicio = 0;
 var saudacoes = false;
 var canva_supermercado = false;
 var first_time_super = false;
+first_time_inicio = false;
+
 $(document).ready(function () {
 	$("#menu").show();
 	$("#tela1").hide();
@@ -38,13 +40,21 @@ function trocarTela(tela,bg){
 	// Esconde a Tela Atual
 	$(telaAtual).hide();
 	if(tela == "#tela_inicio"){
-		nome = $("#nome").val();
-		idade = $("#idade").val();
-		id_di = 0;
-		$(".jonas_cutscene1").hide();
-		$(".jonas_cutscene").show();
-		$("#saudacoes").hide();
-		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
+		if (first_time_inicio == false) {
+			nome = $("#nome").val();
+			idade = $("#idade").val();
+			id_di = 0;
+			$(".jonas_cutscene1").hide();
+			$(".jonas_cutscene").show();
+			$("#saudacoes").hide();
+			$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
+			first_time_inicio = true;
+		}else{
+			id_di = 10;
+			$("#di_ini").html(dialogo[id_di]);
+			$(".jonas_cutscene").hide();
+			$(".jonas_cutscene1").show();
+		}
 	}else if(tela == "#tela_menu" && first_time_menu == false){
 		id_di = 15;
 		$("#di_men").html(dialogo[id_di]);

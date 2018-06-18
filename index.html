@@ -118,7 +118,7 @@
 			<img id="pin_sorveteria" src="assets/images/pin.png">
 			<input type="button" id="fliperama" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
 			<img id="pin_fliperama" src="assets/images/pin.png">
-			<input type="button" id="casa" onclick="">
+			<input type="button" id="casa" onclick="return trocarTela('#tela_inicio','bg_casa')">
 			<img id="pin_casa" src="assets/images/pin.png">
 		</div>
 		
@@ -327,8 +327,12 @@
 				</div>
 			</div>
 			<div id="score_cc"> 
-				<a id="score_cc_text">Pontuação: 000</a>
+				<a id="score_cc_text" onclick="anima(9);">Pontuação: 000</a>
 			</div>
+			<canvas id="animation6"></canvas>
+			<canvas id="animation7"></canvas>
+			<canvas id="animation8"></canvas>
+			<canvas id="animation9"></canvas>
 			<canvas id="viewport" width="640" height="480"></canvas>
 		</div>
 

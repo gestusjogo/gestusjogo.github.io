@@ -173,16 +173,22 @@ window.onload = function() {
                             if (score < 2000) {
                                 score += 100 * (clusters[i].length - 2);;
                                 if (cor == 0) {
-                                    alert("Amarelo!");
+                                    // alert("Amarelo!");
+                                    anima(9);
+                                    $("#viewport").hide();
                                 }else if(cor == 1){
-                                    alert("Verde!");
+                                    // alert("Verde!");
+                                    anima(10);
+                                    $("#viewport").hide();
                                 }else if(cor == 2){
-                                    alert("Azul!");
+                                    // alert("Azul!");
+                                    anima(11);
+                                    $("#viewport").hide();
                                 }else if(cor == 3){
-                                    alert("Vermelho!");
+                                    // alert("Vermelho!");
+                                    anima(12);
+                                    $("#viewport").hide();
                                 }
-                            }else if (score == 2000) {
-                                score += 1;
                             }
                         }
                         if(score == 2000){
@@ -357,6 +363,7 @@ window.onload = function() {
                 if (level.selectedtile.selected) {
                     if (level.selectedtile.column == i && level.selectedtile.row == j) {
                         // Draw a red tile
+                        cor = level.selectedtile.type;
                         drawTile(coord.tilex, coord.tiley, 255, 0, 0);
                     }
                 }
@@ -546,7 +553,7 @@ window.onload = function() {
                         // Found a horizontal cluster
                         clusters.push({ column: i+1-matchlength, row:j,
                                         length: matchlength, horizontal: true });
-                        cor = level.tiles[i][j].type;
+                        // cor = level.tiles[i][j].type;
                     }
                     
                     matchlength = 1;
