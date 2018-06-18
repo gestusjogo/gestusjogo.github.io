@@ -10,7 +10,7 @@
     top: 425px;
     right: 27px;
     z-index: 1;
-    cursor: pointer;
+    cursor:  url(../assets/images/hover.png), auto;
 }
 
 .caixa_dialogo > p{
@@ -46,7 +46,7 @@
   left: 933.14px;
   top: 510.52px;	
   z-index: 1;
-  cursor: pointer;
+  cursor:  url(../assets/images/hover.png), auto;
 }
 
 .bounce {

@@ -7,7 +7,6 @@ var sauda_inicio = 0;
 var saudacoes = false;
 var canva_supermercado = false;
 var first_time_super = false;
-
 $(document).ready(function () {
 	$("#menu").show();
 	$("#tela1").hide();

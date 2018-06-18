@@ -11,7 +11,7 @@
 	color: white;
 	text-align: center;
 	line-height: 115px;
-	cursor: pointer;
+	cursor:  url(../assets/images/hover.png), auto;
 }
 
 #ini_bd{
@@ -27,7 +27,7 @@
 	color: white;
 	text-align: center;
 	line-height: 115px;
-	cursor: pointer;
+	cursor:  url(../assets/images/hover.png), auto;
 	z-index: 9999;
 }
 
@@ -44,7 +44,7 @@
 	color: white;
 	text-align: center;
 	line-height: 115px;
-	cursor: pointer;
+	cursor:  url(../assets/images/hover.png), auto;
 }
 
 #ini_bn{
@@ -60,7 +60,7 @@
 	color: white;
 	text-align: center;
 	line-height: 115px;
-	cursor: pointer;
+	cursor:  url(../assets/images/hover.png), auto;
 }
 
 #saudacoes{
