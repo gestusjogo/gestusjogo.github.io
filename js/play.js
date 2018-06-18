@@ -29,6 +29,7 @@ $(document).ready(function () {
 	$("#tela_parque").hide();
 	telaAtual = "#menu";
 	bg_image = "bg_inicio";
+	$("#top").hide();
 });
 
 function triste() {
@@ -89,6 +90,8 @@ function trocarTela(tela,bg){
 		id_di = 35;
 		$(".jonas_cutscene").show();
 		$("#di_fli").html(dialogo[id_di])
+	}else if(tela == "#tela_parque"){
+		$("#top").show();
 	}
 	// Mostra a Tela Escolhida
 	$(tela).show();
