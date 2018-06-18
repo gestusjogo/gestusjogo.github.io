@@ -174,24 +174,28 @@ window.onload = function() {
                                 score += 100 * (clusters[i].length - 2);
                                 if (cor == 0) {
                                     // alert("Amarelo!");
+                                    $("#viewport").hide();
+                                    $("#animation6").show();
                                     anima(9);
                                     aaa = 9;
-                                    $("#viewport").hide();
                                 }else if(cor == 1){
                                     // alert("Verde!");
+                                    $("#viewport").hide();
+                                    $("#animation7").show();
                                     anima(10);
                                     aaa = 10;
-                                    $("#viewport").hide();
                                 }else if(cor == 2){
                                     // alert("Azul!");
+                                    $("#viewport").hide();
+                                    $("#animation8").show();
                                     anima(11);
                                     aaa = 11;
-                                    $("#viewport").hide();
                                 }else if(cor == 3){
                                     // alert("Vermelho!");
-                                    anima(12);
-                                    aaa = 12;
                                     $("#viewport").hide();
+                                    $("#animation9").show();
+                                    anima(12);
+                                    aaa = 12;   
                                 }
                             }
                         }

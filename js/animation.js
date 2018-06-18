@@ -262,14 +262,26 @@ function aprendi(){
     	$("#animation4").hide();
     }else if (aaa == 9) {
     	$("#animation6").hide();
+    	$("#animation7").hide();
+		$("#animation8").hide();
+		$("#animation9").hide();
     	$("#viewport").show();
     }else if (aaa == 10) {
     	$("#animation7").hide();
+    	$("#animation6").hide();
+    	$("#animation8").hide();
+		$("#animation9").hide();
     	$("#viewport").show();
     }else if (aaa == 11) {
+    	$("#animation7").hide();
+    	$("#animation6").hide();
     	$("#animation8").hide();
+    	$("#animation9").hide();
     	$("#viewport").show();
     }else if (aaa == 12) {
+    	$("#animation7").hide();
+    	$("#animation6").hide();
+    	$("#animation8").hide();
     	$("#animation9").hide();
     	$("#viewport").show();
     }
