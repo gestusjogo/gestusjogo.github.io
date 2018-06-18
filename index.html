@@ -78,10 +78,10 @@
 			</div>
 			<img class="jonas_cutscene"  onclick="anima(1);" src="assets/images/jonas.png">
 			<div id="saudacoes">
-				<div id="ini_oi" onclick="f_saudacoes()">Oi</div>
-				<div id="ini_bd" onclick="anima(1);">Bom dia</div>
-				<div id="ini_bt" onclick="f_saudacoes()">Boa tarde</div>
-				<div id="ini_bn" onclick="f_saudacoes()">Boa noite</div>
+				<div id="ini_oi" onclick="f_saudacoes(); anima(0);">Oi</div>
+				<div id="ini_bd" onclick="f_saudacoes(); anima(1);">Bom dia</div>
+				<div id="ini_bt" onclick="f_saudacoes(); anima(2);">Boa tarde</div>
+				<div id="ini_bn" onclick="f_saudacoes(); anima(3);">Boa noite</div>
 			</div>
 			<div id="animacaozinha">
 				<canvas id="animation"></canvas>

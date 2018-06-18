@@ -43,10 +43,13 @@
 }());
 
 function anima(num) {
-				
+
 	var coin,
 		coinImage,
 		local,
+		w,
+		h,
+		nof,
 		canvas;					
 
 	function gameLoop () {
@@ -73,18 +76,20 @@ function anima(num) {
 		that.update = function () {
 
             tickCount += 1;
-            
+
             if (tickCount > ticksPerFrame) {
-            	if (num == 1) {
-		$(".jonas_cutscene").hide();
-	}
+            	if (num < 4) {
+					$(".jonas_cutscene").hide();
+				}
 				tickCount = 0;
                 // If the current frame index is in range
                 if (frameIndex < numberOfFrames - 1) {	
                     // Go to the next frame
                     frameIndex += 1;
-                    if(frameIndex == 4){
-                    	sleep(1000);
+                    if (num == 1 || num == 2 || num == 3) {
+                    	if(frameIndex == 4){
+                    		sleep(1000);
+                    	}
                     }
                 } else {
                 	//Aqui que rola o loop
@@ -116,27 +121,51 @@ function anima(num) {
 	
 	// Get canvas
 	canvas = document.getElementById("animation");
-	canvas.width = 416;
-	canvas.height = 516;
+	if (num == 1) {
+		canvas.width = 416;
+		canvas.height = 516;
+	}else{
+		canvas.width = 508;
+		canvas.height = 516;
+	}
 	
 	// Create sprite sheet
 	coinImage = new Image();	
 	
+	if (num == 0) {
+		local = "./assets/images/animacoes/oisheet.png";
+		w = 2032;
+		h = 516;
+		nof = 4;
+	}else if (num == 1) {
+		local = "./assets/images/animacoes/bomdiasheet.png";
+		w = 6101;
+		h = 516;
+		nof = 12;
+	}else if (num == 2) {
+		local = "./assets/images/animacoes/boatardesheet.png";
+		w = 6096;
+		h = 516;
+		nof = 12;
+	}else if (num == 3) {
+		local = "./assets/images/animacoes/boanoitesheet.png";
+		w = 6604;
+		h = 516;
+		nof = 13;
+	}
+
 	// Create sprite
 	coin = sprite({
 		context: canvas.getContext("2d"),
-		width: 6101,
-		height: 516,
+		width: w,
+		height: h,
 		image: coinImage,
-		numberOfFrames: 12,
+		numberOfFrames: nof,
 		ticksPerFrame: 8
 	});
 	
 	// Load sprite sheet
 	coinImage.addEventListener("load", gameLoop);
-	if (num == 1) {
-		local = "./assets/images/animacoes/bomdiasheet.png";
-	}
 	coinImage.src = local;
 
 }
