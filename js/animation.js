@@ -107,6 +107,18 @@ function anima(num) {
                     	$("#animation5").hide();
                     }else if (num == 8) {
                     	$("#animation4").hide();
+                    }else if (num == 9) {
+                    	$("#animation6").hide();
+                    	$("#viewport").show();
+                    }else if (num == 10) {
+                    	$("#animation7").hide();
+                    	$("#viewport").show();
+                    }else if (num == 11) {
+                    	$("#animation8").hide();
+                    	$("#viewport").show();
+                    }else if (num == 12) {
+                    	$("#animation9").hide();
+                    	$("#viewport").show();
                     }
                 }
             }
@@ -144,6 +156,14 @@ function anima(num) {
 		c = "animation5";
 	}else if (num == 8) {
 		c = "animation4";
+	}else if (num == 9) {
+		c = "animation6";
+	}else if (num == 10) {
+		c = "animation7";
+	}else if (num == 11) {
+		c = "animation8";
+	}else if (num == 12) {
+		c = "animation9";
 	}
 	// Get canvas
 	canvas = document.getElementById(c);
@@ -203,6 +223,26 @@ function anima(num) {
 		w = 1524;
 		h = 516;
 		nof = 3;
+	}else if (num == 9) {
+		local = "./assets/images/animacoes/amerelosheet.png";
+		w = 2032;
+		h = 516;
+		nof = 4;
+	}else if (num == 10) {
+		local = "./assets/images/animacoes/verdesheet.png";
+		w = 2032;
+		h = 516;
+		nof = 4;
+	}else if (num == 11) {
+		local = "./assets/images/animacoes/azulsheet.png";
+		w = 3048;
+		h = 516;
+		nof = 6;
+	}else if (num == 12) {
+		local = "./assets/images/animacoes/vermelhosheet.png";
+		w = 3556;
+		h = 516;
+		nof = 7;
 	}
 
 	// Create sprite
