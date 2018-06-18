@@ -1,0 +1,50 @@
+.bg_fundo{
+  background-color: white;
+  background-image: url("../assets/images/fundo.png");
+}
+
+.bg_inicio{
+  background-image: url("../assets/images/bg_menu.png");
+}
+
+.bg_j1{
+  background-color: white;
+  background-image: url("../assets/images/fundo.png");
+}
+
+.bg_j2{
+  background-color: white;
+  background-image: url("../assets/images/fundo.png");
+}
+
+.bg_tela1{
+  background-image: url("../assets/images/sala.jpg");
+}
+
+.bg_menu{
+  background-image: url("../assets/images/sala.jpg");
+}
+
+.bg_escola{
+  background-image: url("../assets/images/bg_escola.jpg");   
+}
+
+.bg_supermercado1{
+  background-image: url("../assets/images/supermercado01.png");   
+}
+
+.bg_supermercado2{
+  background-image: url("../assets/images/supermercado02.png");   
+}
+
+.bg_casa{
+  background-image: url("../assets/images/bg_casa.jpg"); 
+}
+
+.bg_sorveteria{
+  background-image: url("../assets/images/bg_sorveteria.jpg"); 
+}
+
+.bg_fliperama{
+  background: none;
+}

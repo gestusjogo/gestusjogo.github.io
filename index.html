@@ -4,12 +4,14 @@
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- ARQUIVOS JS -->
+	<script type='text/javascript' src='js/multi_jogadores.js'></script>
 	<script type="text/javascript" src="js/play.js"></script>
 	<script type="text/javascript" src="js/textos.js"></script>
 	<script type='text/javascript' src='js/jogo_das_cores.js'></script>
 	<script type='text/javascript' src='js/animation.js'></script>
 	<!-- ARQUIVOS CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bg.css">
 	<link rel="stylesheet" type="text/css" href="css/style_inicio.css">
 	<link rel="stylesheet" type="text/css" href="css/style_dialogo.css">
 	<link rel="stylesheet" type="text/css" href="css/style_jogomemoria.css">
@@ -18,16 +20,51 @@
 	<title>GESTUS</title>
 </head>
 <body>
-	<div id="myCanvas">
-		<div id="tela1">		
+	<div id="myCanvas" class="bg_inicio">
+		<div id="menu">
+			<button class="button_menu play_game" onclick="return trocarTela('#tela_escolher_player','bg_fundo')"></button>
+			<button class="button_menu som" onclick=""></button>
+			<button class="button_menu ajuda" onclick="return trocarTela('#tela_ajuda','bg_fundo')"></button>
+			<button class="button_menu infor" onclick="return trocarTela('#tela_infor','bg_fundo')"></button>
+		</div>
+		<div id="tela_escolher_player">
+			<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
+			<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>
+			<button class="btn_jogadores btn_j2" onclick="return trocarTela('#tela_j1','bg_j1')"> 2 jogadores </button>
+		</div>
+		<div id="tela_ajuda">
+			<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
+		</div>
+		<div id="tela_infor">
+			<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
+		</div>
+		<div id="tela1">
+			<button class="butt_voltar" onclick="return trocarTela('#tela_escolher_player','bg_fundo')"> VOLTAR </button>
 			<form name="formulario" id="formulario_inicio">
 				<img id="pacote" src="assets/images/steven.jpg">
-				<input type="text" name="nome" id="nome" placeholder="NOME" onkeyup="animaLetra()">
-				<input type="text" name="idade" id="idade" placeholder="IDADE" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
-				<input type="button" value="" id="play" class="button play" onclick="return trocarTela('#tela_inicio','bg_casa')">
+				<input type="text" name="nome" id="nome" placeholder="Nome" onkeyup="animaLetra()">
+				<input type="text" name="idade" id="idade" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
+				<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_inicio','bg_casa')">
 			</form>
 		</div>
-
+		<div id="tela_j1">
+			<button class="butt_voltar" onclick="return trocarTela('#tela_escolher_player','bg_fundo')"> VOLTAR </button>
+			<form name="formulario" id="formulario_inicio">
+				<img id="pacote_j1" src="assets/images/steven.jpg">
+				<input type="text" name="nome" id="nome_j1" placeholder="Nome" onkeyup="animaLetra_j1()">
+				<input type="text" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
+				<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="return trocarTela('#tela_j2','bg_j2')">
+			</form>
+		</div>
+		<div id="tela_j2">
+			<button class="butt_voltar" onclick="return trocarTela('#tela_j1','bg_j1')"> VOLTAR </button>
+			<form name="formulario" id="formulario_inicio">
+				<img id="pacote_j2" src="assets/images/steven.jpg">
+				<input type="text" name="nome" id="nome_j2" placeholder="Nome" onkeyup="animaLetra_j2()">
+				<input type="text" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
+				<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_inicio','bg_casa')">
+			</form>
+		</div>
 		<div id="tela_inicio">
 			<button class="butt_pular" onclick="return trocarTela('#tela_menu','bg_menu')">PULAR</button>
 			<div id="dialogo_inicio">
@@ -48,8 +85,8 @@
 			</div>
 		</div>
 
-
 		<div id="tela_menu">
+			<button class="butt_voltar" id="volta_menu" onclick="return trocarTela('#menu','bg_inicio')"> MENU </button>
 			<div id="dialogo_menu">
 				<div class="dialogo_pers">JONAS</div>
 				<div class="caixa_dialogo" onclick="falas();">
@@ -192,6 +229,13 @@
 						<input type="button" id="close_sorveteria" class="btn_alertas btn_alertas_nao" value=" Não ">	
 						<input type="button" id="sair_sorveteria"  class="btn_alertas btn_alertas_sim" value=" Sim ">
 					</div>
+				</div>
+			</div>
+			<div id="exibir_numero" class="modal-erros">
+				<input type="button" id="close_numero">	
+				<div class="modal-erros-content">
+					<img id="pacote" src="assets/images/numeros/coloridos/0.png">
+					<p class="text-center text-modal-erros" id="numero">0</p>
 				</div>
 			</div>
 			<input type="button" id="erro0" class="erros" onclick="erro_aqui('#x0')">

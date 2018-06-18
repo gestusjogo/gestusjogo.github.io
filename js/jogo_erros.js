@@ -1,4 +1,5 @@
 var erros_encontrados = [];
+var sair = false; 
 $("#x0").hide();
 $("#x1").hide();
 $("#x2").hide();
@@ -11,6 +12,9 @@ $("#x8").hide();
 $("#x9").hide();
 
 function erro_aqui(erro) {
+	var modal = document.getElementById('exibir_numero');
+	var fechar = document.getElementById("close_numero");
+
 	var adicionar = true
 	if (erros_encontrados.length >= 0) {
 		for (var i = erros_encontrados.length - 1; i >= 0; i--) {
@@ -22,10 +26,10 @@ function erro_aqui(erro) {
 
 	if(adicionar){
 		erros_encontrados.push(erro);
-	}
-
-	if(erros_encontrados.length == 10) {
-		fim_erros();
+  		modal.style.display = "block";
+  		if(erros_encontrados.length == 10) {
+  			sair = true;
+		}
 	}
 
 	if (erros_encontrados.length > 0) {
@@ -33,7 +37,14 @@ function erro_aqui(erro) {
 			$(erros_encontrados[i]).show();
 		}
 	}
-	console.log(erros_encontrados);
+
+
+	fechar.onclick = function() {
+		modal.style.display = "none";
+		if(sair == true){
+			fim_erros();
+		}
+	}
 }
 
 function fim_erros() {
