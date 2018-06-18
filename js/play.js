@@ -87,6 +87,8 @@ function trocarTela(tela,bg){
 		if (first_time_super == false) {
 			id_di = 30;
 			$("#di_sup").html(dialogo[id_di]);
+			$("#dialogo_supermercado").show();
+			$(".jonas_cutscene").show();
 		}else{
 			$("#dialogo_supermercado").hide();
 			$(".jonas_cutscene").hide();
