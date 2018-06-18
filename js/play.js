@@ -20,6 +20,7 @@ $(document).ready(function () {
 	$("#tela_supermercado1").hide();
 	$("#tela_supermercado2").hide();
 	$("#tela_fliperama").hide();
+	$("#tela_fliperama2").hide();
 	$("#tela_sorveteria").hide();
 	telaAtual = "#menu";
 	bg_image = "bg_inicio";
@@ -49,6 +50,9 @@ function trocarTela(tela,bg){
 		document.getElementById("sorveteria").style.opacity = 0;
 		document.getElementById("volta_menu").style.opacity = 0;
 		first_time_menu = true;
+	}else if (tela == "#tela_fliperama") {
+		id_di = 35;
+		$("#di_fli").html(dialogo[id_di])
 	}
 	// Mostra a Tela Escolhida
 	$(tela).show();
@@ -108,6 +112,11 @@ function falas(){
 		}else{
 			$("#di_men").html(dialogo[id_di]);
 		}
+	}else if(id_di <= 40){
+		$("#di_fli").html(dialogo[id_di]);
+		if(id_di == 40){
+			trocarTela('#tela_fliperama2', 'bg_fliperama2');
+		}
 	}
 	console.log(id_di);
 }
@@ -133,4 +142,8 @@ function f_saudacoes() {
 		id_di = 11;
 		falas();
 	}
+}
+
+function draw_score_cc(s){
+	$("#score_cc_text").html("Pontuação: " + s);
 }
