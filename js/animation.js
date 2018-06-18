@@ -260,16 +260,16 @@ function aprendi(){
     	$("#animation5").hide();
     }else if (aaa == 8) {
     	$("#animation4").hide();
-    }else if (num == 9) {
+    }else if (aaa == 9) {
     	$("#animation6").hide();
     	$("#viewport").show();
-    }else if (num == 10) {
+    }else if (aaa == 10) {
     	$("#animation7").hide();
     	$("#viewport").show();
-    }else if (num == 11) {
+    }else if (aaa == 11) {
     	$("#animation8").hide();
     	$("#viewport").show();
-    }else if (num == 12) {
+    }else if (aaa == 12) {
     	$("#animation9").hide();
     	$("#viewport").show();
     }

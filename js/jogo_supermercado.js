@@ -19,9 +19,11 @@ function item_encontrado(id) {
 		anima(6);
 	}else if (id == ".p4") {
 		$("#animation5").show();
+		aaa = 7;
 		anima(7);
 	}else if (id == ".p5") {
 		$("#animation4").show();
+		aaa = 8;
 		anima(8);
 	}
 

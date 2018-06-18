@@ -92,13 +92,14 @@
 				<div id="ini_bt" onclick="f_saudacoes(); anima(2);">Boa tarde</div>
 				<div id="ini_bn" onclick="f_saudacoes(); anima(3);">Boa noite</div>
 			</div>
+				<img id="nextop" class="arrow2" onclick="nextop()" src="assets/images/arrow.png">
 			<div id="animacaozinha">
 				<canvas id="animation"></canvas>
 			</div>
 		</div>
 
 		<div id="tela_menu">
-			<button class="butt_voltar" id="volta_menu" onclick="return trocarTela('#menu','bg_inicio')"> MENU </button>
+			<button class="butt_voltar" id="volta_menu" onclick="return trocarTela('#menu','bg_inicio'), voltarmenu();"> MENU </button>
 			<div id="dialogo_menu">
 				<div class="dialogo_pers">JONAS</div>
 				<div class="caixa_dialogo" onclick="falas();">
@@ -318,6 +319,7 @@
 		</div>
 		<div id="tela_fliperama2">
 			<button class="butt_voltar" id="btn_voltar_flip"> VOLTAR </button>
+			<button class="butt_pular" onclick="aprendi();">APRENDI</button>
 			<div id="voltar_flip" class="modal">
 				<div class="modal-content">
 					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>

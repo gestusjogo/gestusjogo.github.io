@@ -171,22 +171,26 @@ window.onload = function() {
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
                             if (score < 2000) {
-                                score += 100 * (clusters[i].length - 2);;
+                                score += 100 * (clusters[i].length - 2);
                                 if (cor == 0) {
                                     // alert("Amarelo!");
                                     anima(9);
+                                    aaa = 9;
                                     $("#viewport").hide();
                                 }else if(cor == 1){
                                     // alert("Verde!");
                                     anima(10);
+                                    aaa = 10;
                                     $("#viewport").hide();
                                 }else if(cor == 2){
                                     // alert("Azul!");
                                     anima(11);
+                                    aaa = 11;
                                     $("#viewport").hide();
                                 }else if(cor == 3){
                                     // alert("Vermelho!");
                                     anima(12);
+                                    aaa = 12;
                                     $("#viewport").hide();
                                 }
                             }

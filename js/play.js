@@ -49,23 +49,29 @@ function trocarTela(tela,bg){
 			$(".jonas_cutscene").show();
 			$("#saudacoes").hide();
 			$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
+			$("#nextop").hide();
 			first_time_inicio = true;
 		}else{
 			id_di = 10;
 			$("#di_ini").html(dialogo[id_di]);
+			$("#nextop").hide();
 			$(".jonas_cutscene").hide();
 			$(".jonas_cutscene1").show();
 		}
-	}else if(tela == "#tela_menu" && first_time_menu == false){
-		id_di = 15;
-		$("#di_men").html(dialogo[id_di]);
-		document.getElementById("escola").style.opacity = 0; 
-		document.getElementById("supermercado").style.opacity = 0;
-		document.getElementById("parque").style.opacity = 0;
-		document.getElementById("sorveteria").style.opacity = 0;
-		document.getElementById("volta_menu").style.opacity = 0;
-		document.getElementById("fliperama").style.opacity = 0;
-		first_time_menu = true;
+	}else if(tela == "#tela_menu"){
+		if (first_time_menu == false) {
+			id_di = 15;
+			$("#di_men").html(dialogo[id_di]);
+			document.getElementById("escola").style.opacity = 0; 
+			document.getElementById("supermercado").style.opacity = 0;
+			document.getElementById("parque").style.opacity = 0;
+			document.getElementById("sorveteria").style.opacity = 0;
+			document.getElementById("volta_menu").style.opacity = 0;
+			document.getElementById("fliperama").style.opacity = 0;
+			first_time_menu = true;
+		}else{
+			first_time_menu = true;
+		}
 	}else if(tela == "#tela_escola"){
 		$("#game").hide();
 		$(".jonas_cutscene").show();
@@ -81,6 +87,7 @@ function trocarTela(tela,bg){
 		}
 	}else if (tela == "#tela_fliperama") {
 		id_di = 35;
+		$(".jonas_cutscene").show();
 		$("#di_fli").html(dialogo[id_di])
 	}
 	// Mostra a Tela Escolhida
@@ -186,16 +193,25 @@ function f_saudacoes() {
 	if (sauda_inicio == 1) {
 		$(".jonas_cutscene1").hide();
 		$("#animacaozinha").show();
-	}else if (sauda_inicio == 5) {
-		$("#saudacoes").hide();
-		$("#animacaozinha").hide();
-		$(".jonas_cutscene").show();
-		id_di = 11;
-		falas();
-		sauda_inicio = 0;
+	}else if (sauda_inicio == 4) {
+		$("#nextop").show();
 	}
+}
+
+function nextop(){
+	$("#saudacoes").hide();
+	$("#animacaozinha").hide();
+	$(".jonas_cutscene").show();
+	$("#nextop").hide();
+	id_di = 11;
+	falas();
+	sauda_inicio = 0;
 }
 
 function draw_score_cc(s){
 	$("#score_cc_text").html("Pontuação: " + s);
+}
+
+function voltarmenu(){
+	first_time_inicio = false;
 }
