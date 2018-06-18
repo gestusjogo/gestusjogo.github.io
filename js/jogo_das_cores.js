@@ -35,24 +35,21 @@ window.onload = function() {
     
     // Level object
     var level = {
-        x: 250,         // X position
-        y: 113,         // Y position
+        x: 107,         // X position
+        y: 6,         // Y position
         columns: 8,     // Number of tile columns
         rows: 8,        // Number of tile rows
-        tilewidth: 40,  // Visual width of a tile
-        tileheight: 40, // Visual height of a tile
+        tilewidth: 53.25,  // Visual width of a tile
+        tileheight: 53.25, // Visual height of a tile
         tiles: [],      // The two-dimensional tile array
         selectedtile: { selected: false, column: 0, row: 0 }
     };
     
     // All of the different tile colors in RGB
-    var tilecolors = [[255, 128, 128], //red
-                      [128, 255, 128], //green
-                      [128, 128, 255], //blue
-                      [255, 255, 128], //yellow
-                      [255, 128, 255], //rosa
-                      [128, 255, 255], //ciano
-                      [255, 255, 255]]; //white
+    var tilecolors = [[255, 238, 184], //yellow
+                      [177, 251, 177], //green
+                      [125, 220, 222], //blue
+                      [249, 166, 166]]; //red
     
     // Clusters and moves that were found
     var clusters = [];  // { column, row, length, horizontal }
@@ -173,26 +170,25 @@ window.onload = function() {
                         // Add points to the score
                         for (var i=0; i<clusters.length; i++) {
                             // Add extra points for longer clusters
-                            if (score < 200) {
+                            if (score < 2000) {
                                 score += 100 * (clusters[i].length - 2);;
                                 if (cor == 0) {
-                                    alert("Vermelho!");
+                                    alert("Amarelo!");
                                 }else if(cor == 1){
                                     alert("Verde!");
                                 }else if(cor == 2){
                                     alert("Azul!");
                                 }else if(cor == 3){
-                                    alert("Amarelo!");
-                                }else if(cor == 4){
-                                    alert("Rosa!");
-                                }else if(cor == 5){
-                                    alert("Ciano!");
-                                }else if(cor == 6){
-                                    alert("White!");
+                                    alert("Vermelho!");
                                 }
+                            }else if (score == 2000) {
+                                score += 1;
                             }
                         }
-                        if (score == 200) {
+                        if(score == 2000){
+                            $("#score_cc_text").html("Você é top!");
+                        }
+                        if (score == 2001) {
                             trocarTela('#tela_menu', 'bg_menu');
                         }
                     
@@ -292,20 +288,20 @@ window.onload = function() {
         drawFrame();
         
         // Draw score
-        context.fillStyle = "#000000";
-        context.font = "24px Verdana";
-        drawCenterText("Score:", 30, level.y+40, 150);
-        drawCenterText(score, 30, level.y+70, 150);
+        // context.fillStyle = "#000000";
+        // context.font = "24px Verdana";
+        // drawCenterText("Score:", 30, level.y+40, 150);
+        // drawCenterText(score, 30, level.y+70, 150);
+        draw_score_cc(score);
         
         // Draw buttons
         drawButtons();
         
         // Draw level background
-        var levelwidth = level.columns * level.tilewidth;
-        var levelheight = level.rows * level.tileheight;
-        context.fillStyle = "#000000";
+        var levelwidth = 426.03;
+        var levelheight = 426.03;
+        context.fillStyle = "#FCFCFC";
         context.fillRect(level.x - 4, level.y - 4, levelwidth + 8, levelheight + 8);
-        
         // Render tiles
         renderTiles();
         
@@ -331,10 +327,7 @@ window.onload = function() {
     // Draw a frame with a border
     function drawFrame() {
         // Draw background and a border
-        context.fillStyle = "#d0d0d0";
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = "#e8eaec";
-        context.fillRect(1, 1, canvas.width-2, canvas.height-2);
+      
     }
     
     // Draw buttons

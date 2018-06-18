@@ -206,6 +206,14 @@ body{
   background-image: url("../assets/images/bg_sorveteria.jpg"); 
 }
 
+.bg_fliperama{
+  background-image: url("../assets/images/bg_fliperama.jpg");   
+}
+
+.bg_fliperama2{
+  background-image: url("../assets/images/bg_fliperama2.jpg");   
+}
+
 .text-center{
   text-align: center;
 }
@@ -272,10 +280,6 @@ body{
   text-align: center;   
 }
 
-.bg_fliperama{
-  background: none;
-}
-
 #viewport{
   position: absolute;
   left: 180px;
@@ -288,4 +292,17 @@ body{
   top: 91px;
   width: 316px;
   height: 471px;
+}
+
+#score_cc{
+  position: absolute;
+  left: 343px;
+  top: 23px;
+  width: 314px;
+  height: 31px;
+  font-family: 'AristaPro-Fat', sans-serif;
+  font-size: 34px;
+  text-align: center;
+  line-height: 31px;
+  color: #565656;
 }
