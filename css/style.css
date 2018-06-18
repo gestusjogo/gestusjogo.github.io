@@ -27,13 +27,15 @@ body{
   left: 220px;
 }
 
-#formulario_inicio img{
+.circulo_azul  img, .circulo_rosa img{
   width: auto;
   height: 160px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+
 }
 
 #formulario_inicio input[type=text],input[type=number] {

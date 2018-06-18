@@ -43,7 +43,9 @@
 		<div id="tela1">
 			<button class="butt_voltar" onclick="return trocarTela('#tela_escolher_player','bg_fundo')"> VOLTAR </button>
 			<form name="formulario" id="formulario_inicio">
-				<img id="pacote" src="assets/images/steven.jpg">
+				<div class="circulo_azul">
+					<img id="pacote" src="assets/images/jogador.png">
+				</div>
 				<input type="text" name="nome" id="nome" placeholder="Nome" onkeyup="animaLetra()">
 				<input type="text" name="idade" id="idade" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
 				<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_inicio','bg_casa')">
@@ -52,7 +54,9 @@
 		<div id="tela_j1">
 			<button class="butt_voltar" onclick="return trocarTela('#tela_escolher_player','bg_fundo')"> VOLTAR </button>
 			<form name="formulario" id="formulario_inicio">
-				<img id="pacote_j1" src="assets/images/steven.jpg">
+				<div class="circulo_rosa">
+					<img id="pacote_j1" src="assets/images/jogador.png">
+				</div>
 				<input type="text" name="nome" id="nome_j1" placeholder="Nome" onkeyup="animaLetra_j1()">
 				<input type="text" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
 				<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="return trocarTela('#tela_j2','bg_j2')">
@@ -61,7 +65,9 @@
 		<div id="tela_j2">
 			<button class="butt_voltar" onclick="return trocarTela('#tela_j1','bg_j1')"> VOLTAR </button>
 			<form name="formulario" id="formulario_inicio">
-				<img id="pacote_j2" src="assets/images/steven.jpg">
+				<div class="circulo_azul">
+					<img id="pacote_j2" src="assets/images/jogador.png">
+				</div>
 				<input type="text" name="nome" id="nome_j2" placeholder="Nome" onkeyup="animaLetra_j2()">
 				<input type="text" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
 				<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_inicio','bg_casa')">
@@ -313,6 +319,16 @@
 		</div>
 
 		<div id="tela_parque">
+			<button class="butt_voltar" id="btn_voltar_parque"> VOLTAR </button>
+			<div id="voltar_parque" class="modal">
+				<div class="modal-content">
+					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
+					<div class="btns_confirmacao">
+						<input type="button" id="close_parque" class="btn_alertas btn_alertas_nao" value=" Não ">	
+						<input type="button" id="sair_parque"  class="btn_alertas btn_alertas_sim" value=" Sim ">
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- ARQUIVOS JS -->

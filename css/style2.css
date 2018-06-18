@@ -97,7 +97,7 @@
 #pin_parque{
   display: none;
   position: absolute;
-  top: 185px;
+  top: 165px;
   left: 590px;
 }
 
@@ -113,4 +113,20 @@
   position: absolute;
   top: 200px;
   left: 220px; 
+}
+
+.circulo_azul{
+  margin-left: 150px;
+  border-radius: 50%;
+  background-color: #5A9AF9;
+  width: 200px;
+  height: 200px;
+}
+
+.circulo_rosa{
+  margin-left: 150px;
+  border-radius: 50%;
+  background-color: #ffb2db;
+  width: 200px;
+  height: 200px;
 }
