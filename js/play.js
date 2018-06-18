@@ -10,6 +10,11 @@ var first_time_super = false;
 first_time_inicio = false;
 
 $(document).ready(function () {
+	 var x = document.getElementById("myAudio"); 
+    
+    function sovai() { 
+        x.play(); 
+    } 
 	$("#menu").show();
 	$("#tela1").hide();
 	$("#tela_escolher_player").hide();

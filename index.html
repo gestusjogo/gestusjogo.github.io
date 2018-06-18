@@ -5,6 +5,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- ARQUIVOS JS -->
 	<script type='text/javascript' src='js/multi_jogadores.js'></script>
+	<script type='text/javascript' src='js/som.js'></script>
 	<script type="text/javascript" src="js/play.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/textos.js"></script>
@@ -23,9 +24,12 @@
 </head>
 <body>
 	<div id="myCanvas" class="bg_inicio">
+		<audio id="myAudio" autoplay>
+			<source src="./assets/musica.mp3" type="audio/mpeg">
+		</audio>
 		<div id="menu">
 			<button class="button_menu play_game" onclick="return trocarTela('#tela_escolher_player','bg_fundo')"></button>
-			<button class="button_menu som" onclick=""></button>
+			<button class="button_menu som somativo" id="somaqui"></button>
 			<button class="button_menu ajuda" onclick="return trocarTela('#tela_ajuda','bg_ajuda')"></button>
 			<button class="button_menu infor" onclick="return trocarTela('#tela_infor','bg_infor')"></button>
 		</div>
