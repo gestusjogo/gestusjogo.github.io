@@ -7,8 +7,14 @@ var sauda_inicio = 0;
 var saudacoes = false;
 
 $(document).ready(function () {
-	$("#tela1").show();
+	$("#menu").show();
+	$("#tela1").hide();
+	$("#tela_escolher_player").hide();
+	$("#tela_ajuda").hide();
+	$("#tela_infor").hide();
 	$("#tela_inicio").hide();
+	$("#tela_j1").hide();
+	$("#tela_j2").hide();
 	$("#tela_menu").hide();
 	$("#tela_escola").hide();
 	$("#tela_supermercado1").hide();
@@ -16,8 +22,8 @@ $(document).ready(function () {
 	$("#tela_fliperama").hide();
 	$("#tela_fliperama2").hide();
 	$("#tela_sorveteria").hide();
-	telaAtual = "#tela1";
-	bg_image = "bg_tela1";
+	telaAtual = "#menu";
+	bg_image = "bg_inicio";
 });
 
 function triste() {
@@ -42,6 +48,7 @@ function trocarTela(tela,bg){
 		document.getElementById("supermercado").style.opacity = 0;
 		document.getElementById("parque").style.opacity = 0;
 		document.getElementById("sorveteria").style.opacity = 0;
+		document.getElementById("volta_menu").style.opacity = 0;
 		first_time_menu = true;
 	}else if (tela == "#tela_fliperama") {
 		id_di = 35;
@@ -97,6 +104,7 @@ function falas(){
 	}else if(id_di <= 16){
 		if (id_di == 16) {
 			$("#dialogo_menu").hide();
+			document.getElementById("volta_menu").style.opacity = 1;
 			document.getElementById("escola").style.opacity = 1;
 			document.getElementById("supermercado").style.opacity = 1;
 			document.getElementById("parque").style.opacity = 1;
