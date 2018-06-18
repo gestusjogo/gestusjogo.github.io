@@ -5,13 +5,17 @@ function item_encontrado(id) {
 	$(id).css({"text-decoration": "line-through", "-webkit-text-decoration-color": "red", "text-decoration-color": "red"});
 	
 	if (id == ".p1") {
+		frameIndex = 0;
 		$("#animation1").show();
+		aaa = 4;
 		anima(4);
 	}else if (id == ".p2") {
 		$("#animation2").show();
+		aaa = 5;
 		anima(5);
 	}else if (id == ".p3") {
 		$("#animation3").show();
+		aaa = 6;
 		anima(6);
 	}else if (id == ".p4") {
 		$("#animation5").show();

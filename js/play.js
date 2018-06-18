@@ -8,6 +8,7 @@ var saudacoes = false;
 var canva_supermercado = false;
 var first_time_super = false;
 first_time_inicio = false;
+var aaa = 4;
 
 $(document).ready(function () {
 	$("#menu").show();
