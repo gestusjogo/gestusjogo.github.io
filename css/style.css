@@ -229,6 +229,14 @@ body{
   height: 471px;
 }
 
+.jonas_cutscene1{
+  position: absolute;
+  left: 352px;
+  top: 91px;
+  width: 316px;
+  height: 471px;
+}
+
 /*BOTÃO DOS ALERTAS DE SAIR DO JOGO*/
 
 .btn_alertas {

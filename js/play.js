@@ -39,6 +39,7 @@ function trocarTela(tela,bg){
 		nome = $("#nome").val();
 		idade = $("#idade").val();
 		id_di = 0;
+		$(".jonas_cutscene1").hide();
 		$("#saudacoes").hide();
 		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
 	}else if(tela == "#tela_menu" && first_time_menu == false){
@@ -50,6 +51,11 @@ function trocarTela(tela,bg){
 		document.getElementById("sorveteria").style.opacity = 0;
 		document.getElementById("volta_menu").style.opacity = 0;
 		first_time_menu = true;
+	}else if(tela == "#tela_escola"){
+		$("#game").hide();
+		$(".jonas_cutscene").show();
+		id_di = 18;
+		$("#di_esc").html(dialogo[id_di]);
 	}else if (tela == "#tela_fliperama") {
 		id_di = 35;
 		$("#di_fli").html(dialogo[id_di])
@@ -112,6 +118,13 @@ function falas(){
 		}else{
 			$("#di_men").html(dialogo[id_di]);
 		}
+	}else if(id_di <= 23){
+		$("#di_esc").html(dialogo[id_di]);
+		if (id_di == 23) {
+			$("#dialogo_escola").hide();
+			$(".jonas_cutscene").hide();
+			$("#game").show();
+		}
 	}else if(id_di <= 40){
 		$("#di_fli").html(dialogo[id_di]);
 		if(id_di == 40){
@@ -138,7 +151,10 @@ $("#main").show(function() {
 
 function f_saudacoes() {
 	sauda_inicio += 1;
-	if (sauda_inicio == 4) {
+	if (sauda_inicio == 5) {
+		$("#saudacoes").hide();
+		$("#animacaozinha").hide();
+		$(".jonas_cutscene1").show();
 		id_di = 11;
 		falas();
 	}
