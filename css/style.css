@@ -281,13 +281,19 @@ body{
   top: 424px;
   left: 828px;
   background-color: #5A9AF9; 
-  background-image: url("../assets/images/music.png");
   background-repeat: no-repeat;
   background-position: center; 
   padding: 35px 35px;
   cursor:  url(../assets/images/hover.png), auto;
   border-radius: 100%;
   box-shadow:  5px 10px #2b2b2b;
+}
+
+.somativo{
+  background-image: url("../assets/images/music.png");
+}
+.somdesativo{
+  background-image: url("../assets/images/musicnot.png"); 
 }
 
 .som:hover {
