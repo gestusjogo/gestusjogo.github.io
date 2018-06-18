@@ -80,9 +80,6 @@ function anima(num) {
             tickCount += 1;
 
             if (tickCount > ticksPerFrame) {
-            	if (num < 4) {
-					$(".jonas_cutscene").hide();
-				}
 				tickCount = 0;
                 // If the current frame index is in range
                 if (frameIndex < numberOfFrames - 1) {	

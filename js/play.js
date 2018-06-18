@@ -6,6 +6,7 @@ var first_time_menu = false;
 var sauda_inicio = 0;
 var saudacoes = false;
 var canva_supermercado = false;
+var first_time_super = false;
 
 $(document).ready(function () {
 	$("#menu").show();
@@ -41,6 +42,7 @@ function trocarTela(tela,bg){
 		idade = $("#idade").val();
 		id_di = 0;
 		$(".jonas_cutscene1").hide();
+		$(".jonas_cutscene").show();
 		$("#saudacoes").hide();
 		$("#di_ini").html(dialogo[id_di] + "<i style='color:red'> " + nome + "</i>");
 	}else if(tela == "#tela_menu" && first_time_menu == false){
@@ -58,6 +60,14 @@ function trocarTela(tela,bg){
 		$(".jonas_cutscene").show();
 		id_di = 18;
 		$("#di_esc").html(dialogo[id_di]);
+	}else if (tela == "#tela_supermercado1") {
+		if (first_time_super == false) {
+			id_di = 30;
+			$("#di_sup").html(dialogo[id_di]);
+		}else{
+			$("#dialogo_supermercado").hide();
+			$(".jonas_cutscene").hide();
+		}
 	}else if (tela == "#tela_fliperama") {
 		id_di = 35;
 		$("#di_fli").html(dialogo[id_di])
@@ -92,7 +102,8 @@ function falas(){
 		if (id_di == 8) {
 			$("#di_ini").html("Mesmo você tendo " + "<i style='color:red'> " + idade + "</i>" + " anos dá pra aprender com facilidade.");	
 		}else if(id_di == 11){
-			$(".jonas_cutscene").css('left', 352);
+			$(".jonas_cutscene").hide();
+			$(".jonas_cutscene1").show();
 			$("#di_ini").html(dialogo[id_di]);	
 		}else if(id_di == 12){
 			if (saudacoes == false) {
@@ -111,6 +122,7 @@ function falas(){
 		}	
 	}else if(id_di <= 16){
 		if (id_di == 16) {
+			saudacoes = false;
 			$("#dialogo_menu").hide();
 			document.getElementById("volta_menu").style.opacity = 1;
 			document.getElementById("escola").style.opacity = 1;
@@ -127,6 +139,12 @@ function falas(){
 			$("#dialogo_escola").hide();
 			$(".jonas_cutscene").hide();
 			$("#game").show();
+		}
+	}else if(id_di <=34){
+		$("#di_sup").html(dialogo[id_di]);
+		if (id_di == 34) {
+			$("#dialogo_supermercado").hide();
+			$(".jonas_cutscene").hide();
 		}
 	}else if(id_di <= 40){
 		$("#di_fli").html(dialogo[id_di]);
@@ -154,12 +172,16 @@ $("#main").show(function() {
 
 function f_saudacoes() {
 	sauda_inicio += 1;
-	if (sauda_inicio == 5) {
+	if (sauda_inicio == 1) {
+		$(".jonas_cutscene1").hide();
+		$("#animacaozinha").show();
+	}else if (sauda_inicio == 5) {
 		$("#saudacoes").hide();
 		$("#animacaozinha").hide();
-		$(".jonas_cutscene1").show();
+		$(".jonas_cutscene").show();
 		id_di = 11;
 		falas();
+		sauda_inicio = 0;
 	}
 }
 
