@@ -1,3 +1,8 @@
+@font-face { 
+  font-family: Amatic; 
+  src: url('../assets/fonts/Amatic-Bold.ttf'); 
+}
+
 .next_super{
     position: absolute;
     top: 250px;
@@ -23,41 +28,41 @@
 }
 
 #item1{
-	background-color: red;
+	background-color: transparent;
 	position: absolute;
-    top: 260px;
-    left: 800px;
-    padding: 20px 50px;
+    top: 215px;
+    left: 280px;
+    padding: 20px 80px;
 }
 
 #item2{
-	background-color: green;
+	background-color: transparent;
 	position: absolute;
-    top: 220px;
-    left: 700px;
-    padding: 20px 50px;
+    top: 175px;
+    left: 710px;
+    padding: 40px 120px;
 }
 
 #item3{
-	background-color: blue;
+	background-color: transparent;
 	position: absolute;
-    top: 405px;
-    left: 800px;
-    padding: 20px 50px;
+    top: 230px;
+    left: 30px;
+    padding: 20px 75px;
 }
 
 #item4{
-	background-color: black;
+	background-color: transparent;
 	position: absolute;
-    top: 400px;
-    left: 400px;
-    padding: 20px 50px;
+    top: 175px;
+    left: 745px;
+    padding: 40px 80px;
 }
 
 #item5{
-	background-color: yellow;
+	background-color: transparent;
 	position: absolute;
-    top: 180px;
-    left: 390px;
-    padding: 20px 50px;
+    top: 497px;
+    left: 280px;
+    padding: 10px 87px;
 }
