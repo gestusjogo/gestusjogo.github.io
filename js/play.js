@@ -24,6 +24,7 @@ $(document).ready(function () {
 	$("#tela_fliperama").hide();
 	$("#tela_fliperama2").hide();
 	$("#tela_sorveteria").hide();
+	$("#tela_parque").hide();
 	telaAtual = "#menu";
 	bg_image = "bg_inicio";
 });

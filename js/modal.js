@@ -133,4 +133,27 @@ window.onclick = function(event) {
   }
 }
 
+// JODO DO FLIPERAMA
+var modal5 = document.getElementById('voltar_parque');
+var btn5 = document.getElementById("btn_voltar_parque");
+var close5 = document.getElementById("close_parque");
+var sair5 = document.getElementById("sair_parque");
 
+btn5.onclick = function() {
+  modal5.style.display = "block";
+}
+
+close5.onclick = function() {
+  modal5.style.display = "none";
+}
+
+sair5.onclick = function() {
+  trocarTela('#tela_menu', 'bg_menu');
+  modal5.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal5.style.display = "none";
+  }
+}
