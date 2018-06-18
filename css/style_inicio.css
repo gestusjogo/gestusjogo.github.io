@@ -28,6 +28,7 @@
 	text-align: center;
 	line-height: 115px;
 	cursor: pointer;
+	z-index: 9999;
 }
 
 #ini_bt{
@@ -60,4 +61,9 @@
 	text-align: center;
 	line-height: 115px;
 	cursor: pointer;
+}
+
+#saudacoes{
+	position: absolute;
+	z-index: 10;
 }
