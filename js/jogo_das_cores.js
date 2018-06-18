@@ -164,33 +164,46 @@ window.onload = function() {
                 // Clusters need to be found and removed
                 if (animationtime > animationtimetotal) {
                     // Find clusters
-                    findClusters();
-                    
-                    if (clusters.length > 0) {
+                    findClusters();                    
+                        switch(cor){
+                            case 0:
+                                $("#viewport").hide();
+                                $("#animation6").show();
+                                aaa = 9;
+                                anima(9);
+                                sleep(700);
+                                break;
+                            case 1:
+                                $("#viewport").hide();
+                                $("#animation7").show();
+                                aaa = 10;
+                                anima(10);
+                                sleep(700);
+                                break;
+                            case 2:
+                                $("#viewport").hide();
+                                $("#animation8").show();
+                                aaa = 11;
+                                anima(11);
+                                sleep(700);
+                                break;
+                            case 3:
+                                $("#viewport").hide();
+                                $("#animation9").show();
+                                aaa = 12;
+                                anima(12);
+                                sleep(700);
+                                break;
+                        }
+                        if (clusters.length > 0) {
                         // Add points to the score
-                        for (var i=0; i<clusters.length; i++) {
+                        for (var i=0; i<1; i++) {
                             // Add extra points for longer clusters
                             if (score < 2000) {
-                                score += 100 * (clusters[i].length - 2);;
-                                if (cor == 0) {
-                                    // alert("Amarelo!");
-                                    anima(9);
-                                    $("#viewport").hide();
-                                }else if(cor == 1){
-                                    // alert("Verde!");
-                                    anima(10);
-                                    $("#viewport").hide();
-                                }else if(cor == 2){
-                                    // alert("Azul!");
-                                    anima(11);
-                                    $("#viewport").hide();
-                                }else if(cor == 3){
-                                    // alert("Vermelho!");
-                                    anima(12);
-                                    $("#viewport").hide();
+                                score += 200;
                                 }
                             }
-                        }
+                        
                         if(score == 2000){
                             $("#score_cc_text").html("Você é top!");
                         }

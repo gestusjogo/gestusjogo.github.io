@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
- 
+
 (function() {
 	// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 	// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
@@ -97,29 +97,6 @@ function anima(num) {
                 } else {
                 	//Aqui que rola o loop
                     // frameIndex = 0;
-                    if (num == 4) {
-                    	$("#animation1").hide();
-                    }else if (num == 5) {
-                    	$("#animation2").hide();
-                    }else if (num == 6) {
-                    	$("#animation3").hide();
-                    }else if (num == 7) {
-                    	$("#animation5").hide();
-                    }else if (num == 8) {
-                    	$("#animation4").hide();
-                    }else if (num == 9) {
-                    	$("#animation6").hide();
-                    	$("#viewport").show();
-                    }else if (num == 10) {
-                    	$("#animation7").hide();
-                    	$("#viewport").show();
-                    }else if (num == 11) {
-                    	$("#animation8").hide();
-                    	$("#viewport").show();
-                    }else if (num == 12) {
-                    	$("#animation9").hide();
-                    	$("#viewport").show();
-                    }
                 }
             }
         };
@@ -266,4 +243,46 @@ function sleep(miliseconds) {
 
    while (currentTime + miliseconds >= new Date().getTime()) {
    }
+}
+
+function att(n){
+	aaa = n;
+}
+
+function aprendi(){
+	if (aaa == 4) {
+    	$("#animation1").hide();
+    }else if (aaa == 5) {
+    	$("#animation2").hide();
+    }else if (aaa == 6) {
+    	$("#animation3").hide();
+    }else if (aaa == 7) {
+    	$("#animation5").hide();
+    }else if (aaa == 8) {
+    	$("#animation4").hide();
+    }else if (aaa == 9) {
+    	$("#animation6").hide();
+    	$("#animation7").hide();
+		$("#animation8").hide();
+		$("#animation9").hide();
+    	$("#viewport").show();
+    }else if (aaa == 10) {
+    	$("#animation7").hide();
+    	$("#animation6").hide();
+    	$("#animation8").hide();
+		$("#animation9").hide();
+    	$("#viewport").show();
+    }else if (aaa == 11) {
+    	$("#animation7").hide();
+    	$("#animation6").hide();
+    	$("#animation8").hide();
+    	$("#animation9").hide();
+    	$("#viewport").show();
+    }else if (aaa == 12) {
+    	$("#animation7").hide();
+    	$("#animation6").hide();
+    	$("#animation8").hide();
+    	$("#animation9").hide();
+    	$("#viewport").show();
+    }
 }

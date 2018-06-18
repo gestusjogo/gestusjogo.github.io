@@ -49,6 +49,17 @@
   cursor:  url(../assets/images/hover.png), auto;
 }
 
+#nextop{
+  position: absolute;
+  font-size: 50px;
+  width: 76.69px;
+  height: 48.21px;
+  left: 895.26px;
+  top: 492.79px;  
+  z-index: 1;
+  cursor:  url(../assets/images/hover.png), auto;
+}
+
 .bounce {
 	-moz-animation: bounce 2s infinite;
 	-webkit-animation: bounce 2s infinite;
