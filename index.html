@@ -186,10 +186,11 @@
 			</div>
 
 			<!-- BOTÕES PRODUTOS -->			
+			<input type="button" id="item1" class="item_lista" name="maca" onclick="return item_encontrado('.p1')">
 			<input type="button" id="item2" class="item_lista" name="ovo" onclick="return item_encontrado('.p2')">
 			<input type="button" id="item3" class="item_lista" name="agua" onclick="return item_encontrado('.p3')">
-			<input type="button" id="item4" class="item_lista" name="chocolate" onclick="return item_encontrado('.p4')">
 			<input type="button" id="item5" class="item_lista" name="queijo" onclick="return item_encontrado('.p5')">
+		
 
 			<!-- LISTA DE COMPRAS -->
 			<div class="lista_supermercado">
@@ -215,7 +216,7 @@
 				</div>
 			</div>
 			<!-- BOTÕES PRODUTOS -->
-			<input type="button" id="item1" class="item_lista" name="maca" onclick="return item_encontrado('.p1')">
+			<input type="button" id="item4" class="item_lista" name="chocolate" onclick="return item_encontrado('.p4')">
 
 			<!-- LISTA DE COMPRAS -->
 			<div class="lista_supermercado">
@@ -242,8 +243,8 @@
 			<div id="exibir_numero" class="modal-erros">
 				<input type="button" id="close_numero">	
 				<div class="modal-erros-content">
-					<img id="pacote" src="assets/images/numeros/coloridos/0.png">
-					<p class="text-center text-modal-erros" id="numero">0</p>
+					<img id="imagem_erro" src="">
+					<p class="text-center text-modal-erros" id="numero_erro"></p>
 				</div>
 			</div>
 			<input type="button" id="erro0" class="erros" onclick="erro_aqui('#x0')">

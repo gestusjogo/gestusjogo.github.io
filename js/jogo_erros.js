@@ -26,6 +26,9 @@ function erro_aqui(erro) {
 
 	if(adicionar){
 		erros_encontrados.push(erro);
+		var nome = erros_encontrados.length;
+		document.getElementById("imagem_erro").src = "./assets/images/numeros/coloridos/" + nome +".png";
+		document.getElementById("numero_erro").innerHTML = nome;
   		modal.style.display = "block";
   		if(erros_encontrados.length == 10) {
   			sair = true;
