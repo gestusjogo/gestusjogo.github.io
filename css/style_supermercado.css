@@ -69,3 +69,7 @@
     left: 280px;
     padding: 10px 87px;
 }
+
+#fim_super{
+    z-index: 9999;
+}

@@ -43,6 +43,7 @@ sair1.onclick = function() {
   for (var i = itens_coletados.length - 1; i >= 0; i--) {
     $(itens_coletados[i]).css("text-decoration", "none");
   };
+  itens_coletados.length = 0;
   document.getElementById("fim_super").style.display = "none";
   document.getElementById("aprendi_super").style.zIndex = "1";
 }

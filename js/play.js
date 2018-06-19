@@ -80,6 +80,7 @@ function trocarTela(tela,bg){
 	}else if(tela == "#tela_escola"){
 		$("#game").hide();
 		$(".jonas_cutscene").show();
+		$("#dialogo_escola").show();
 		id_di = 18;
 		$("#di_esc").html(dialogo[id_di]);
 	}else if (tela == "#tela_supermercado1") {
