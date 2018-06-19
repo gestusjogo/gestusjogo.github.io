@@ -179,9 +179,9 @@ function anima(num) {
 		nof = 13;
 	}else if (num == 4) {
 		local = "./assets/images/animacoes/maçasheet.png";
-		w = 1016;
+		w = 3048;
 		h = 516;
-		nof = 2;
+		nof = 6;
 	}else if (num == 5) {
 		local = "./assets/images/animacoes/ovosheet.png";
 		w = 3556;
@@ -189,19 +189,19 @@ function anima(num) {
 		nof = 7;
 	}else if (num == 6) {
 		local = "./assets/images/animacoes/aguasheet.png";
-		w = 3556;
+		w = 7112;
 		h = 516;
-		nof = 7;
+		nof = 14;
 	}else if (num == 7) {
 		local = "./assets/images/animacoes/chocolatesheet.png";
-		w = 3556;
+		w = 7112;
 		h = 516;
-		nof = 7;
+		nof = 14;
 	}else if (num == 8) {
 		local = "./assets/images/animacoes/queijosheet.png";
-		w = 1524;
+		w = 4572;
 		h = 516;
-		nof = 3;
+		nof = 9;
 	}else if (num == 9) {
 		local = "./assets/images/animacoes/amerelosheet.png";
 		w = 2032;
