@@ -336,7 +336,7 @@
 		</div>
 		<div id="tela_fliperama2">
 			<button class="butt_voltar" id="btn_voltar_flip"> VOLTAR </button>
-			<button class="butt_pular" onclick="aprendi();">APRENDI</button>
+			<button class="butt_pular" onclick="aprendi_fli();">APRENDI</button>
 			<div id="voltar_flip" class="modal">
 				<div class="modal-content">
 					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
@@ -347,7 +347,13 @@
 				</div>
 			</div>
 			<div id="score_cc"> 
-				<a id="score_cc_text" onclick="anima(9);">Pontuação: 000</a>
+				<a id="score_cc_text">Pontuação: 000</a>
+			</div>
+			<div id="cores">
+				<div id="yellow" onclick="anima(9); sumir_candy(9);"></div>
+				<div id="green" onclick="anima(10); sumir_candy(10);"></div>
+				<div id="blue" onclick="anima(11); sumir_candy(11);"></div>
+				<div id="red" onclick="anima(12); sumir_candy(12);"></div>
 			</div>
 			<canvas id="animation6"></canvas>
 			<canvas id="animation7"></canvas>

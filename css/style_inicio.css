@@ -67,3 +67,80 @@
 	position: absolute;
 	z-index: 10;
 }
+
+#cores{
+	position: absolute;
+	z-index: 10;
+}
+
+#yellow{
+	position: absolute;
+	width: 95px;
+	height: 95px; 	
+	left: 19px;
+	top: 311px;
+	background-color: #FFEEB8;
+	border-radius: 50%;
+	cursor:  url(../assets/images/hover.png), auto;
+	border-radius: 100%;
+  	box-shadow:  5px 10px #2b2b2b;
+}
+
+#yellow:hover{
+	box-shadow: 2px 2px #2b2b2b;
+  	transform: translate(3px, 8px);
+}
+
+#green{
+	position: absolute;
+	width: 95px;
+	height: 95px; 	
+	left: 19px;
+	top: 198px;
+	background-color: #B1FBB1;
+	border-radius: 50%;
+	cursor:  url(../assets/images/hover.png), auto;
+	border-radius: 100%;
+  	box-shadow:  5px 10px #2b2b2b;
+}
+
+#green:hover{
+	box-shadow: 2px 2px #2b2b2b;
+  	transform: translate(3px, 8px);
+}
+
+#blue{
+	position: absolute;
+	width: 95px;
+	height: 95px; 	
+	left: 19px;
+	top: 424px;
+	background-color: #7DDCDE;
+	border-radius: 50%;
+	cursor:  url(../assets/images/hover.png), auto;
+	border-radius: 100%;
+  	box-shadow:  5px 10px #2b2b2b;
+}
+
+#blue:hover{
+	box-shadow: 2px 2px #2b2b2b;
+  	transform: translate(3px, 8px);
+}
+
+#red{
+	position: absolute;
+	width: 95px;
+	height: 95px; 	
+	left: 19px;
+	top: 85px;
+	background-color: #F9A6A6;
+	border-radius: 50%;
+	cursor:  url(../assets/images/hover.png), auto;
+	border-radius: 100%;
+  	box-shadow:  5px 10px #2b2b2b;
+}
+
+#red:hover{
+	box-shadow: 2px 2px #2b2b2b;
+  	transform: translate(3px, 8px);
+}

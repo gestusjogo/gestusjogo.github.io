@@ -44,6 +44,8 @@
 
 function anima(num) {
 
+	att(num);
+
 	var coin,
 		coinImage,
 		local,
@@ -260,29 +262,37 @@ function aprendi(){
     	$("#animation5").hide();
     }else if (aaa == 8) {
     	$("#animation4").hide();
-    }else if (aaa == 9) {
+    }
+}
+
+function aprendi_fli() {
+	if (aaa == 9) {
     	$("#animation6").hide();
     	$("#animation7").hide();
 		$("#animation8").hide();
 		$("#animation9").hide();
     	$("#viewport").show();
+    	$("#cores").show();
     }else if (aaa == 10) {
     	$("#animation7").hide();
     	$("#animation6").hide();
     	$("#animation8").hide();
 		$("#animation9").hide();
     	$("#viewport").show();
+    	$("#cores").show();
     }else if (aaa == 11) {
     	$("#animation7").hide();
     	$("#animation6").hide();
     	$("#animation8").hide();
     	$("#animation9").hide();
     	$("#viewport").show();
+    	$("#cores").show();
     }else if (aaa == 12) {
     	$("#animation7").hide();
     	$("#animation6").hide();
     	$("#animation8").hide();
     	$("#animation9").hide();
     	$("#viewport").show();
+    	$("#cores").show();
     }
 }

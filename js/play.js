@@ -9,7 +9,7 @@ var canva_supermercado = false;
 var first_time_super = false;
 first_time_inicio = false;
 var aaa = 4;
-
+ 
 $(document).ready(function () {
 	 var x = document.getElementById("myAudio"); 
     
@@ -65,6 +65,7 @@ function trocarTela(tela,bg){
 			$(".jonas_cutscene1").show();
 		}
 	}else if(tela == "#tela_menu"){
+		saudacoes = false;
 		if (first_time_menu == false) {
 			id_di = 15;
 			$("#di_men").html(dialogo[id_di]);
@@ -104,6 +105,8 @@ function trocarTela(tela,bg){
 		$("#di_sov").html(dialogo[id_di]);
 		$("#dialogo_soverteria").show();
 		$(".jonas_cutscene").show();
+	}else if(tela == "#tela_fliperama2"){
+		$("#cores").show();
 	}
 	// Mostra a Tela Escolhida
 	$(tela).show();
@@ -155,7 +158,6 @@ function falas(){
 		}	
 	}else if(id_di <= 16){
 		if (id_di == 16) {
-			saudacoes = false;
 			$("#dialogo_menu").hide();
 			document.getElementById("volta_menu").style.opacity = 1;
 			document.getElementById("escola").style.opacity = 1;
@@ -225,8 +227,8 @@ function nextop(){
 	$(".jonas_cutscene").show();
 	$("#nextop").hide();
 	id_di = 11;
-	falas();
 	sauda_inicio = 0;
+	falas();
 }
 
 function draw_score_cc(s){
@@ -235,4 +237,11 @@ function draw_score_cc(s){
 
 function voltarmenu(){
 	first_time_inicio = false;
+}
+
+function sumir_candy(bc){
+	var r = bc - 3;
+	$("#viewport").hide();
+	$("#cores").hide();
+	$("#animation"+r).show();
 }
