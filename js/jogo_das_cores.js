@@ -19,7 +19,12 @@
 // ------------------------------------------------------------------------
 
 // The function gets called when the window is fully loaded
+
+
 window.onload = function() {
+    var fim_fliper = document.getElementById("fim_fliper");
+    fim_fliper.style.display = "none";
+    
     var control_candy = false;
     // Get the canvas and context
     var canvas = document.getElementById("viewport");
@@ -202,7 +207,14 @@ window.onload = function() {
                             // Add extra points for longer clusters
                             score += 200;
                             if (score >= 2000 && control_candy == false) {
-                                alert("PARABÉNS!"); 
+                                fim_fliper.style.display = "block";
+                                document.getElementById("yellow").style.display = "none";
+                                document.getElementById("green").style.display = "none";
+                                document.getElementById("blue").style.display = "none";
+                                document.getElementById("red").style.display = "none";
+                                document.getElementById("viewport").style.display = "none";
+                                document.getElementById("score_cc_text").style.display = "none";
+                                document.getElementById("aprendi_flip").style.zIndex = "-1";
                                 control_candy = true;  
                             }
                         }
@@ -876,5 +888,14 @@ window.onload = function() {
     
     document.getElementById("sair_flip").addEventListener("click", function(){
         score = 0;
+        fim_fliper.style.display = "none";
+        document.getElementById("yellow").style.display = "block";
+        document.getElementById("green").style.display = "block";
+        document.getElementById("blue").style.display = "block";
+        document.getElementById("red").style.display = "block";
+        document.getElementById("viewport").style.display = "block";
+        document.getElementById("score_cc_text").style.display = "block";
+        document.getElementById("aprendi_flip").style.zIndex = "1";
+        control_candy = false;  
     });
 };

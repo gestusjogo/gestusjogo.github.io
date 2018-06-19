@@ -486,10 +486,3 @@ body{
   left: 257px;
   top: 47px;
 }
-
-#cadeado{
-  position: absolute;
-  left: 244px;
-  top: 25px;
-  z-index: 1;
-}
