@@ -113,3 +113,28 @@ sair4.onclick = function() {
   document.getElementById("x9").style.zIndex = "0"
   modal4.style.display = "none";
 }
+
+// JODO DO FLIPERAMA
+var modal5 = document.getElementById('voltar_flip1');
+var btn5 = document.getElementById("btn_voltar_flip1");
+var close5 = document.getElementById("close_flip1");
+var sair5 = document.getElementById("sair_flip1");
+
+btn5.onclick = function() {
+  modal5.style.display = "block";
+}
+
+close5.onclick = function() {
+  modal5.style.display = "none";
+}
+
+sair5.onclick = function() {
+  trocarTela('#tela_menu', 'bg_menu');
+  modal5.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal5.style.display = "none";
+  }
+}
