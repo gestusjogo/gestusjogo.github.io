@@ -1,5 +1,9 @@
 var itens_coletados = [];
 var add_itens = true
+var sair_super = false;
+var fim_super = document.getElementById("fim_super");
+
+fim_super.style.display = "none";
 
 function item_encontrado(id) {
 	$(id).css({"text-decoration": "line-through", "-webkit-text-decoration-color": "red", "text-decoration-color": "red"});
@@ -38,12 +42,16 @@ function item_encontrado(id) {
 	if(add_itens){
 		itens_coletados.push(id);
   		if(itens_coletados.length == 5) {
-  			fim();
+  			sair_super = true;
 		}
 	}
 
 }
 
-function fim() {
-	alert("Parabéns, você é top!");
-}
+$("#aprendi_super").click(function() { 
+	if(sair_super) {
+		fim_super.style.display = "block";
+		document.getElementById("aprendi_super").style.zIndex = "-1";
+		sair_super = false;
+	}
+});

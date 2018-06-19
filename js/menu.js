@@ -28,15 +28,6 @@ $(document).ready(function(){
     $("#sorveteria").mouseout(function(){
         $("#pin_sorveteria").css("display", "none");
     });
-
-    $("#parque").mouseover(function(){
-        $("#pin_parque").css("display", "block");
-    });
-
-    $("#parque").mouseout(function(){
-        $("#pin_parque").css("display", "none");
-    });
-
     $("#casa").mouseover(function(){
         $("#pin_casa").css("display", "block");
     });

@@ -96,7 +96,7 @@
 				<div id="ini_bt" onclick="f_saudacoes(); anima(2);">Boa tarde</div>
 				<div id="ini_bn" onclick="f_saudacoes(); anima(3);">Boa noite</div>
 			</div>
-				<img id="nextop" class="arrow2" onclick="nextop()" src="assets/images/arrow.png">
+				<img id="nextop" class="arrow2" onclick="nextop();" src="assets/images/arrow.png">
 			<div id="animacaozinha">
 				<canvas id="animation"></canvas>
 			</div>
@@ -117,8 +117,6 @@
 			<img id="pin_escola" src="assets/images/pin.png">
 			<input type="button" id="supermercado" onclick="trocarTela('#tela_supermercado1', 'bg_supermercado1')">
 			<img id="pin_supermercado" src="assets/images/pin.png">
-			<input type="button" id="parque" onclick="return trocarTela('#tela_parque', 'bg_parque')">
-			<img id="pin_parque" src="assets/images/pin.png">
 			<input type="button" id="sorveteria" onclick="return trocarTela('#tela_sorveteria', 'bg_sorveteria')">
 			<img id="pin_sorveteria" src="assets/images/pin.png">
 			<input type="button" id="fliperama" onclick="return trocarTela('#tela_fliperama', 'bg_fliperama')">
@@ -198,9 +196,8 @@
 		</div>		
 
 		<div id="tela_supermercado1">
-			<img src="assets/images/supermercado_next.png" class="next_super" onclick="return trocarTela('#tela_supermercado2', 'bg_supermercado2')">
 			<button class="butt_voltar" id="btn_voltar_mercado"> VOLTAR </button>
-			<button class="butt_pular" onclick="aprendi();">APRENDI</button>
+			<button class="butt_pular" id="aprendi_super" onclick="aprendi();">APRENDI</button>
 			<div id="voltar_mercado" class="modal">
 				<div class="modal-content">
 					<p class="text-center text-modal">Tem certeza que deseja voltar para a cidade?</p>
@@ -224,10 +221,12 @@
 			<canvas id="animation2"></canvas>
 			<canvas id="animation3"></canvas>
 			<canvas id="animation4"></canvas>
+			<canvas id="animation5"></canvas>
 			<!-- BOTÕES PRODUTOS -->			
 			<input type="button" id="item1" class="item_lista" name="maca" onclick="return item_encontrado('.p1')">
 			<input type="button" id="item2" class="item_lista" name="ovo" onclick="return item_encontrado('.p2')">
 			<input type="button" id="item3" class="item_lista" name="agua" onclick="return item_encontrado('.p3')">
+			<input type="button" id="item4" class="item_lista" name="chocolate" onclick="return item_encontrado('.p4')">
 			<input type="button" id="item5" class="item_lista" name="queijo" onclick="return item_encontrado('.p5')">
 		
 
@@ -241,34 +240,7 @@
 					<li class="p5">Queijo</li>
 				</ol>
 			</div>
-		</div>
-		<div id="tela_supermercado2">
-			<img src="assets/images/supermercado_back.png" class="back_super" onclick="return trocarTela('#tela_supermercado1', 'bg_supermercado1')">
-			<button class="butt_voltar" id="btn_voltar_mercado2"> VOLTAR </button>
-			<button class="butt_pular" onclick="aprendi();">APRENDI</button>
-			<div id="voltar_mercado2" class="modal">
-				<div class="modal-content">
-					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
-					<div class="btns_confirmacao">
-						<input type="button" id="close_mercado2" class="btn_alertas btn_alertas_nao" value=" Não ">	
-						<input type="button" id="sair_mercado2"  class="btn_alertas btn_alertas_sim" value=" Sim ">
-					</div>
-				</div>
-			</div>
-			<canvas id="animation5"></canvas>
-			<!-- BOTÕES PRODUTOS -->
-			<input type="button" id="item4" class="item_lista" name="chocolate" onclick="return item_encontrado('.p4')">
-
-			<!-- LISTA DE COMPRAS -->
-			<div class="lista_supermercado">
-				<ol>
-					<li class="p1">Maçã</li>
-					<li class="p2">Ovo</li>
-					<li class="p3">Água</li>
-					<li class="p4">Chocolate</li>
-					<li class="p5">Queijo</li>
-				</ol>
-			</div>
+			<img id="fim_super" src="assets/images/fim.png" />
 		</div>
 		<div id="tela_sorveteria">
 			<button class="butt_voltar" id="btn_voltar_sorveteria"> VOLTAR </button>
@@ -362,24 +334,6 @@
 			<canvas id="viewport" width="640" height="480"></canvas>
 		</div>
 
-		<div id="tela_parque">
-			<button class="butt_voltar" id="btn_voltar_parque"> VOLTAR </button>
-			<div id="voltar_parque" class="modal">
-				<div class="modal-content">
-					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
-					<div class="btns_confirmacao">
-						<input type="button" id="close_parque" class="btn_alertas btn_alertas_nao" value=" Não ">	
-						<input type="button" id="sair_parque"  class="btn_alertas btn_alertas_sim" value=" Sim ">
-					</div>
-				</div>
-			</div>
-			<img id="cadeado" src="assets/images/cadeado.png">
-			<div id="dialogo_parque">
-				<div class="caixa_dialogo">
-					<p id="di_par1">No momento você ainda não pode entrar aqui.</p>
-				</div>
-			</div>
-		</div>
 	</div>
 	<!-- ARQUIVOS JS -->
 	<script type="text/javascript" src="js/textos.js"></script>
