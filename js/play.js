@@ -54,12 +54,12 @@ function trocarTela(tela,bg){
 			$(".jonas_cutscene").show();
 			$("#saudacoes").hide();
 			$("#di_ini").html(dialogo[id_di] + " " + nome);
-			$("#nextop").hide();
+			$("#nextop1").hide();
 			first_time_inicio = true;
 		}else{
 			id_di = 10;
 			$("#di_ini").html(dialogo[id_di]);
-			$("#nextop").hide();
+			$("#nextop1").hide();
 			$(".jonas_cutscene").hide();
 			$(".jonas_cutscene1").show();
 		}
@@ -241,7 +241,7 @@ function f_saudacoes() {
 		$(".jonas_cutscene1").hide();
 		$("#animacaozinha").show();
 	}else if (sauda_inicio == 4) {
-		$("#nextop").show();
+		$("#nextop1").show();
 	}
 }
 
@@ -249,7 +249,7 @@ function nextop(){
 	$("#saudacoes").hide();
 	$("#animacaozinha").hide();
 	$(".jonas_cutscene").show();
-	$("#nextop").hide();
+	$("#nextop1").hide();
 	id_di = 11;
 	sauda_inicio = 0;
 	falas();
