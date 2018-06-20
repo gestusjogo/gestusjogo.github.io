@@ -157,9 +157,7 @@ function animaLetra() {
 function falas(){
 	id_di += 1;
 	if(id_di <= 14){
-		if (id_di == 8) {
-			$("#di_ini").html("Mesmo você tendo " + "<i style='color:red'> " + idade + "</i>" + " anos dá pra aprender com facilidade.");	
-		}else if(id_di == 11){
+		if(id_di == 11){
 			$(".jonas_cutscene").hide();
 			$(".jonas_cutscene1").show();
 			$("#di_ini").html(dialogo[id_di]);	
