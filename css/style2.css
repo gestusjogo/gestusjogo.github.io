@@ -9,6 +9,7 @@
   -webkit-transform: rotate(30deg); /* Safari 3-8 */
   transform: rotate(30deg);
   cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
 }
 
 #supermercado{
@@ -22,19 +23,7 @@
   -webkit-transform: rotate(-30deg); /* Safari 3-8 */
   transform: rotate(-30deg);
   cursor:  url(../assets/images/hover.png), auto;
-}
-
-#parque{
-  border-style: none;
-  position: absolute;
-  top: 230px;
-  left: 565px;
-  background-color: transparent;
-  padding: 30px 60px;
-  -ms-transform: rotate(-30deg); /* IE 9 */
-  -webkit-transform: rotate(-30deg); /* Safari 3-8 */
-  transform: rotate(-30deg);
-  cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
 }
 
 #sorveteria{
@@ -48,6 +37,7 @@
   -webkit-transform: rotate(32deg); /* Safari 3-8 */
   transform: rotate(32deg);
   cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
 }
 
 #fliperama{
@@ -61,6 +51,7 @@
   -webkit-transform: rotate(35deg); /* Safari 3-8 */
   transform: rotate(35deg);
   cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
 }
 
 #casa{
@@ -74,6 +65,7 @@
   -webkit-transform: rotate(35deg); /* Safari 3-8 */
   transform: rotate(35deg);
   cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
 }
 
 #pin_escola{
