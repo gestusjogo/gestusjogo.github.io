@@ -254,14 +254,34 @@ function att(n){
 function aprendi(){
 	if (aaa == 4) {
     	$("#animation1").hide();
+    	$("#item2").show();
+		$("#item3").show();
+		$("#item4").show();
+		$("#item5").show();
     }else if (aaa == 5) {
     	$("#animation2").hide();
+    	$("#item1").show();
+		$("#item3").show();
+		$("#item4").show();
+		$("#item5").show();
     }else if (aaa == 6) {
     	$("#animation3").hide();
+    	$("#item1").show();
+		$("#item2").show();
+		$("#item4").show();
+		$("#item5").show();
     }else if (aaa == 7) {
     	$("#animation5").hide();
+    	$("#item1").show();
+		$("#item2").show();
+		$("#item3").show();
+		$("#item5").show();
     }else if (aaa == 8) {
     	$("#animation4").hide();
+    	$("#item1").show();
+		$("#item2").show();
+		$("#item3").show();
+		$("#item4").show();
     }
 }
 

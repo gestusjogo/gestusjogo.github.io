@@ -841,27 +841,26 @@ window.onload = function() {
             // Start dragging
             drag = true;
         }
-        
         // Check if a button was clicked
-        for (var i=0; i<buttons.length; i++) {
-            if (pos.x >= buttons[i].x && pos.x < buttons[i].x+buttons[i].width &&
-                pos.y >= buttons[i].y && pos.y < buttons[i].y+buttons[i].height) {
+        // for (var i=0; i<buttons.length; i++) {
+        //     if (pos.x >= buttons[i].x && pos.x < buttons[i].x+buttons[i].width &&
+        //         pos.y >= buttons[i].y && pos.y < buttons[i].y+buttons[i].height) {
                 
-                // Button i was clicked
-                if (i == 0) {
-                    // New Game
-                    newGame();
-                } else if (i == 1) {
-                    // Show Moves
-                    showmoves = !showmoves;
-                    buttons[i].text = (showmoves?"Hide":"Show") + " Moves";
-                } else if (i == 2) {
-                    // AI Bot
-                    aibot = !aibot;
-                    buttons[i].text = (aibot?"Disable":"Enable") + " AI Bot";
-                }
-            }
-        }
+        //         // Button i was clicked
+        //         if (i == 0) {
+        //             // New Game
+        //             newGame();
+        //         } else if (i == 1) {
+        //             // Show Moves
+        //             showmoves = !showmoves;
+        //             buttons[i].text = (showmoves?"Hide":"Show") + " Moves";
+        //         } else if (i == 2) {
+        //             // AI Bot
+        //             aibot = !aibot;
+        //             buttons[i].text = (aibot?"Disable":"Enable") + " AI Bot";
+        //         }
+        //     }
+        // }
     }
     
     function onMouseUp(e) {

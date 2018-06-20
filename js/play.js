@@ -53,7 +53,7 @@ function trocarTela(tela,bg){
 			$(".jonas_cutscene1").hide();
 			$(".jonas_cutscene").show();
 			$("#saudacoes").hide();
-			$("#di_ini").html(dialogo[id_di] + "<i style='color:black'> " + nome + "</i>");
+			$("#di_ini").html(dialogo[id_di] + " " + nome);
 			$("#nextop").hide();
 			first_time_inicio = true;
 		}else{
@@ -89,9 +89,19 @@ function trocarTela(tela,bg){
 			$("#di_sup").html(dialogo[id_di]);
 			$("#dialogo_supermercado").show();
 			$(".jonas_cutscene").show();
+			$("#item1").hide();
+			$("#item2").hide();
+			$("#item3").hide();
+			$("#item4").hide();
+			$("#item5").hide();
 		}else{
 			$("#dialogo_supermercado").hide();
 			$(".jonas_cutscene").hide();
+			$("#item1").show();
+			$("#item2").show();
+			$("#item3").show();
+			$("#item4").show();
+			$("#item5").show();
 		}
 	}else if (tela == "#tela_fliperama") {
 		id_di = 35;
@@ -121,14 +131,27 @@ function trocarTela(tela,bg){
 function animaNumero() {
 	var id = document.getElementById("idade").value;
 	var lastChar = id.substr(id.length - 1);
-	document.getElementById("pacote").src = "./assets/images/numeros/" + lastChar +".png";
+	if (lastChar == "" || lastChar == ";" || lastChar == "," || lastChar == "." || lastChar == "/" || lastChar == "~" 
+		|| lastChar == "]" || lastChar == "´" || lastChar == "[" || lastChar == "=" || lastChar == "-" || lastChar == "'"
+		|| lastChar == " ") {
+		document.getElementById("pacote").src = "assets/images/jogador.png";
+	}else{
+		document.getElementById("pacote").src = "./assets/images/numeros/" + lastChar +".png";
+	}
 }
 
 function animaLetra() {
 	var id = document.getElementById("nome").value;
 	var lastChar = id.substr(id.length - 1);
-	var letra = lastChar.toLowerCase();
-	document.getElementById("pacote").src = "./assets/images/alfabeto/" + letra + ".png";
+	if (lastChar == "" || lastChar == ";" || lastChar == "," || lastChar == "." || lastChar == "/" || lastChar == "~" 
+		|| lastChar == "]" || lastChar == "´" || lastChar == "[" || lastChar == "=" || lastChar == "-" || lastChar == "'"
+		|| lastChar == " " || lastChar == "1" || lastChar == "2" || lastChar == "3"  || lastChar == "4" || lastChar == "5"
+		 || lastChar == "6" || lastChar == "7" || lastChar =="8" || lastChar =="9" || lastChar == "0") {
+		document.getElementById("pacote").src = "assets/images/jogador.png";
+	}else{
+		var letra = lastChar.toLowerCase();
+		document.getElementById("pacote").src = "./assets/images/alfabeto/" + letra + ".png";
+	}
 }
 
 function falas(){
@@ -184,10 +207,15 @@ function falas(){
 		if (id_di == 34) {
 			$("#dialogo_supermercado").hide();
 			$(".jonas_cutscene").hide();
+			$("#item1").show();
+			$("#item2").show();
+			$("#item3").show();
+			$("#item4").show();
+			$("#item5").show();
 		}
-	}else if(id_di <= 40){
+	}else if(id_di <= 42){
 		$("#di_fli").html(dialogo[id_di]);
-		if(id_di == 40){
+		if(id_di == 42){
 			trocarTela('#tela_fliperama2', 'bg_fliperama2');
 		}
 	}

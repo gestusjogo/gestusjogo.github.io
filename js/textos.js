@@ -9,16 +9,16 @@ var dialogo = [
 				"LIBRAS é a Língua Brasileira de Sinais.",//3
 				"Ela é a segunda língua oficial do Brasil.",//4
 				"E é a língua mais usada pelos surdos do país.",//5
-				"Minha irmã é surda e ela me ensinou LIBRAS.",//6
+				"Minha irmã que se chama Marina é surda",//6
+				"E ela que me ensinou LIBRAS.",
 				"Agora eu vou ensinar você.",//7
-				"Mesmo você tendo (idade) anos dá pra aprender com facilidade.",//8
 				"Vamos lá?",//9
 				"Vamos começar com alguns sinais.", //10
 				"Clique em um dos botões e te mostrarei o sinal.", //11 Nessa fala o personagem vai para o centro 
 				"Muito bem, agora você sabe algumas saudações",//12
 				"Vamos aprender mais pela cidade?",//13
 				"",//14
-				"Escolha algum local apertando nele.",//15
+				"Escolha algum local clicando nele.",//15
 				"Ainda não aprendemos tudo. Vamos voltar depois.",//16
 				"",//17
 				"O alfabeto em LIBRAS é muito importante",//18
@@ -41,8 +41,10 @@ var dialogo = [
 				"Eu amo jogos e você?",//35
 				"Vamos aprender as cores enquanto nos divertimos?",//36
 				"Nesse jogo seu objetivo é combinar cores iguais",//37
-				"Junte três cores e eu te ensino o sinal dela",//38
-				"Vai ser muito divertido, e chegue a 2000 pontos",//39
+				"Junte três cores na mesma linha ou coluna",//38
+				"Também posso te ensinar o sinal dessas cores",//39
+				"Basta espertar no botão da cor selecionada",
+				"Vamos lá?",
 				"",//40
 				"Agora posso te apresentar minha irmã.",//41
 				"O nome dela é Marina",//42
