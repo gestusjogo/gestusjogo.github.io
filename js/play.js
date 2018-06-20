@@ -55,13 +55,20 @@ function trocarTela(tela,bg){
 			$("#saudacoes").hide();
 			$("#di_ini").html(dialogo[id_di] + " " + nome);
 			$("#nextop1").hide();
+			$("#dialogo_inicio").show();
+			$("#animacaozinha").hide();
 			first_time_inicio = true;
+			sauda_inicio = 0;
 		}else{
 			id_di = 10;
+			sauda_inicio = 0;
 			$("#di_ini").html(dialogo[id_di]);
 			$("#nextop1").hide();
+			$("#saudacoes").hide();
 			$(".jonas_cutscene").hide();
 			$(".jonas_cutscene1").show();
+			$("#dialogo_inicio").show();
+			$("#animacaozinha").hide();
 		}
 	}else if(tela == "#tela_menu"){
 		saudacoes = false;
