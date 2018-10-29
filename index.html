@@ -20,6 +20,17 @@
 	<link rel="stylesheet" type="text/css" href="css/style_jogomemoria.css">
 	<link rel="stylesheet" type="text/css" href="css/style_supermercado.css">
 	<link rel="stylesheet" type="text/css" href="css/style_jogoerros.css">
+
+	<script type="text/javascript" src="./js/swal.min.js"></script>
+
+	<script type="text/javascript">
+		body.onload = function(){
+			document.getElementsByTagName('body').style.display='none';
+		};
+		window.onload = function(){
+			document.getElementsByTagName('body').style.display='block';
+		};
+	</script>
 	<title>GESTUS</title>
 </head>
 <body>
@@ -96,7 +107,10 @@
 				<div id="ini_bt" onclick="f_saudacoes(); anima(2);">Boa tarde</div>
 				<div id="ini_bn" onclick="f_saudacoes(); anima(3);">Boa noite</div>
 			</div>
+			<div class="bounce">	
 				<img id="nextop1" class="arrow2" onclick="nextop();" src="assets/images/arrow.png">
+			</div>
+			
 			<div id="animacaozinha">
 				<canvas id="animation"></canvas>
 			</div>
@@ -109,6 +123,7 @@
 				<div class="caixa_dialogo" onclick="falas();">
 					<p id="di_men"></p>
 				</div>
+				<img class="jonas_cutscene" src="assets/images/jonas.png">
 				<div class="caixa_seta bounce" onclick="falas();"> 
 					<img class="arrow" src="assets/images/arrow.png">
 				</div>

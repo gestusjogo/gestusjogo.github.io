@@ -11,7 +11,9 @@ first_time_inicio = false;
 var aaa = 4;
  
 $(document).ready(function () {
-	 var x = document.getElementById("myAudio"); 
+
+	swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.");
+	var x = document.getElementById("myAudio"); 
     
     function sovai() { 
         x.play(); 
@@ -75,11 +77,12 @@ function trocarTela(tela,bg){
 		if (first_time_menu == false) {
 			id_di = 15;
 			$("#di_men").html(dialogo[id_di]);
-			document.getElementById("escola").style.opacity = 0; 
-			document.getElementById("supermercado").style.opacity = 0;
-			document.getElementById("sorveteria").style.opacity = 0;
-			document.getElementById("volta_menu").style.opacity = 0;
-			document.getElementById("fliperama").style.opacity = 0;
+			document.getElementById("casa").style.display = "none";
+			document.getElementById("escola").style.display = "none";
+			document.getElementById("supermercado").style.display = "none";
+			document.getElementById("sorveteria").style.display = "none";
+			document.getElementById("volta_menu").style.display = "none";
+			document.getElementById("fliperama").style.display = "none";
 			first_time_menu = true;
 		}else{
 			first_time_menu = true;
@@ -133,6 +136,12 @@ function trocarTela(tela,bg){
 	// Altera os valores de Background e Tela Atual para os novos
 	bg_image = bg;
 	telaAtual = tela;
+
+	if (id_di == 15) {
+		$("#myCanvas").removeClass(bg);
+		$("#myCanvas").addClass("bg_blur");
+	}
+	console.log(id_di);
 }
 
 function animaNumero() {
@@ -163,6 +172,7 @@ function animaLetra() {
 
 function falas(){
 	id_di += 1;
+
 	if(id_di <= 14){
 		if(id_di == 11){
 			$(".jonas_cutscene").hide();
@@ -184,13 +194,17 @@ function falas(){
 			$("#di_ini").html(dialogo[id_di]);			
 		}	
 	}else if(id_di <= 16){
+
 		if (id_di == 16) {
 			$("#dialogo_menu").hide();
-			document.getElementById("volta_menu").style.opacity = 1;
-			document.getElementById("escola").style.opacity = 1;
-			document.getElementById("supermercado").style.opacity = 1;
-			document.getElementById("sorveteria").style.opacity = 1;
-			document.getElementById("fliperama").style.opacity = 1;
+			$("#myCanvas").removeClass("bg_blur");
+			$("#myCanvas").addClass("bg_menu");
+			document.getElementById("casa").style.display = "block";
+			document.getElementById("volta_menu").style.display = "block";
+			document.getElementById("escola").style.display = "block";
+			document.getElementById("supermercado").style.display = "block";
+			document.getElementById("sorveteria").style.display = "block";
+			document.getElementById("fliperama").style.display = "block";
 		}else{
 			$("#di_men").html(dialogo[id_di]);
 		}

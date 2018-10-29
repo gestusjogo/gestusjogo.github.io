@@ -51,11 +51,10 @@
 
 #nextop1{
   position: absolute;
-  font-size: 50px;
-  width: 76.69px;
-  height: 48.21px;
+  width: 47.81px;
+  height: 27.48px;
   left: 895.26px;
-  top: 492.79px;  
+  top: 500px;  
   z-index: 1;
   cursor:  url(../assets/images/hover.png), auto;
 }
