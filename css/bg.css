@@ -59,15 +59,12 @@
   background: url("../assets/images/bg_fliperama2.jpg"); 
 }
 
-.bg_parque{
-  background: url("../assets/images/bg_parque.jpg");  
-  /*-webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-  filter: blur(2px);
-  z-index: -1;
-  backdrop-filter: blur(5px);*/
+.bg_praca{
+  background: url("../assets/images/bg_praca.jpg");  
+}
+
+.bg_praca_fundo{
+  background: url("../assets/images/bg_praça_fundo.png");  
 }
 
 .bg_blur{

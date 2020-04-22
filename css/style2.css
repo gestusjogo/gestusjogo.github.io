@@ -68,6 +68,34 @@
   z-index: 5;
 }
 
+#praca{
+  border-style: none;
+  position: absolute;
+  top: 215px;
+  left: 585px; 
+  background-color: transparent;
+  padding: 45px 40px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari 3-8 */
+  transform: rotate(45deg);
+  cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
+}
+
+#parque{
+  border-style: none;
+  position: absolute;
+  top: 305px;
+  left: 305px; 
+  background-color: transparent;
+  padding: 40px 180px;
+  -ms-transform: rotate(33deg); /* IE 9 */
+  -webkit-transform: rotate(33deg); /* Safari 3-8 */
+  transform: rotate(33deg);
+  cursor:  url(../assets/images/hover.png), auto;
+  z-index: 5;
+}
+
 #pin_escola{
   display: none;
   position: absolute;
@@ -92,7 +120,7 @@
 }
 
 
-#pin_parque{
+#pin_praca{
   display: none;
   position: absolute;
   top: 165px;
@@ -104,6 +132,13 @@
   position: absolute;
   top: 330px;
   left: 430px; 
+}
+
+#pin_parque{
+  display: none;
+  position: absolute;
+  top: 250px;
+  left: 440px; 
 }
 
 #pin_casa{

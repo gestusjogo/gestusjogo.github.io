@@ -73,7 +73,7 @@
 	z-index: 1;
 }
 
-#yellow{
+#amarelo{
 	position: absolute;
 	width: 95px;
 	height: 95px; 	
@@ -83,15 +83,15 @@
 	border-radius: 50%;
 	cursor:  url(../assets/images/hover.png), auto;
 	border-radius: 100%;
-  	box-shadow:  5px 10px #2b2b2b;
+	box-shadow:  5px 10px #2b2b2b;
 }
 
-#yellow:hover{
+#amarelo:hover{
 	box-shadow: 2px 2px #2b2b2b;
-  	transform: translate(3px, 8px);
+	transform: translate(3px, 8px);
 }
 
-#green{
+#verde{
 	position: absolute;
 	width: 95px;
 	height: 95px; 	
@@ -101,15 +101,15 @@
 	border-radius: 50%;
 	cursor:  url(../assets/images/hover.png), auto;
 	border-radius: 100%;
-  	box-shadow:  5px 10px #2b2b2b;
+	box-shadow:  5px 10px #2b2b2b;
 }
 
-#green:hover{
+#verde:hover{
 	box-shadow: 2px 2px #2b2b2b;
-  	transform: translate(3px, 8px);
+	transform: translate(3px, 8px);
 }
 
-#blue{
+#azul{
 	position: absolute;
 	width: 95px;
 	height: 95px; 	
@@ -119,15 +119,15 @@
 	border-radius: 50%;
 	cursor:  url(../assets/images/hover.png), auto;
 	border-radius: 100%;
-  	box-shadow:  5px 10px #2b2b2b;
+	box-shadow:  5px 10px #2b2b2b;
 }
 
-#blue:hover{
+#azul:hover{
 	box-shadow: 2px 2px #2b2b2b;
-  	transform: translate(3px, 8px);
+	transform: translate(3px, 8px);
 }
 
-#red{
+#vermelho{
 	position: absolute;
 	width: 95px;
 	height: 95px; 	
@@ -137,10 +137,70 @@
 	border-radius: 50%;
 	cursor:  url(../assets/images/hover.png), auto;
 	border-radius: 100%;
-  	box-shadow:  5px 10px #2b2b2b;
+	box-shadow:  5px 10px #2b2b2b;
 }
 
-#red:hover{
+#vermelho:hover{
 	box-shadow: 2px 2px #2b2b2b;
-  	transform: translate(3px, 8px);
+	transform: translate(3px, 8px);
+}
+
+#lixo{
+	width: 40px; height: 40px; 
+	color: white; 
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+}
+.lixeira{
+	width: 150px;
+	height: 100%;
+	position: absolute;
+	float: left;
+}
+.lixo_verde{
+	background-color: green !important;
+}
+.lixo_vermelho{
+	background-color: red !important;
+}
+.lixo_amarelo{
+	background-color: yellow !important;
+}
+.lixo_azul{
+	background-color: blue !important;
+}
+
+#lixeira_verde{
+	background-color: green !important;
+	left: 770px;
+}
+#lixeira_vermelho{
+	background-color: red !important;
+	left: 80px;
+}
+#lixeira_amarelo{
+	background-color: yellow !important;
+	left: 540px;
+}
+#lixeira_azul{
+	background-color: blue !important;
+	left: 310px;
+}
+#lixeiras{
+	height: 200px; 
+	bottom: 0; 
+	position: absolute;
+	z-index: 1;
+}
+#lixo_inicio{
+	width: 0.010px; 
+	height: 0.010px; 
+	position: absolute;
+}
+#lixo_fim{
+	width: 0.010px; 
+	height: 0.010px; 
+	right: 0;
+	position: absolute;
 }

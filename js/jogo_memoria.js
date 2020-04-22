@@ -210,6 +210,7 @@ $(document).ready(function(){
 	function gameOver(){
 		//joga a mensagem de fim do jogo para o plano da frente
 		modal.style.zIndex = "99";
+		fase_escola_completa = true;
 		
 		//adiciona o evento click à imagem de game over
 		modal.addEventListener('click',function(){
@@ -217,8 +218,4 @@ $(document).ready(function(){
 			startGame();
 		},false);
 	}
-
-	document.getElementById("sair_escola").addEventListener("click", function(){
-        startGame();
-	});
 }());

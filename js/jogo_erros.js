@@ -51,6 +51,7 @@ function erro_aqui(erro) {
 		modal.style.display = "none";
 		if(sair == true){
 			fimerros();
+			fase_sorveteria_completa = true;
 		}
 	}
 }

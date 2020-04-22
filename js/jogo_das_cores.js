@@ -20,10 +20,17 @@
 
 // The function gets called when the window is fully loaded
 
-
+var score = 0;
+function reiniciar_fliperama(){
+    score = 0;
+    $(".cor").show();
+    $("#fim_fliper").hide();
+    $("#viewport").show();
+    $("#score_cc_text").show(); 
+}
 window.onload = function() {
-    var fim_fliper = document.getElementById("fim_fliper");
-    fim_fliper.style.display = "none";
+    
+    $("#fim_fliper").hide();
     
     var control_candy = false;
     // Get the canvas and context
@@ -56,7 +63,7 @@ window.onload = function() {
                       [177, 251, 177], //green
                       [125, 220, 222], //blue
                       [249, 166, 166]]; //red
-    
+
     // Clusters and moves that were found
     var clusters = [];  // { column, row, length, horizontal }
     var moves = [];     // { column1, row1, column2, row2 }
@@ -69,12 +76,12 @@ window.onload = function() {
     var gamestate = gamestates.init;
     
     // Score
-    var score = 0;
     
     // Animation variables
     var animationstate = 0;
     var animationtime = 0;
-    var animationtimetotal = 0.3;
+    //Tempo da animação - 
+    var animationtimetotal = 0.5;
     
     // Show available moves
     var showmoves = false;
@@ -87,8 +94,8 @@ window.onload = function() {
     
     // Gui buttons
     var buttons = [ { x: 30, y: 240, width: 150, height: 50, text: "New Game"},
-                    { x: 30, y: 300, width: 150, height: 50, text: "Show Moves"},
-                    { x: 30, y: 360, width: 150, height: 50, text: "Enable AI Bot"}];
+    { x: 30, y: 300, width: 150, height: 50, text: "Show Moves"},
+    { x: 30, y: 360, width: 150, height: 50, text: "Enable AI Bot"}];
 
     var cor;
     
@@ -99,7 +106,7 @@ window.onload = function() {
         canvas.addEventListener("mousedown", onMouseDown);
         canvas.addEventListener("mouseup", onMouseUp);
         canvas.addEventListener("mouseout", onMouseOut);
-        
+
         // Initialize the two-dimensional tile array
         for (var i=0; i<level.columns; i++) {
             level.tiles[i] = [];
@@ -154,7 +161,7 @@ window.onload = function() {
                         var move = moves[Math.floor(Math.random() * moves.length)];
                         
                         // Simulate a player using the mouse to swap two tiles
-                        mouseSwap(move.column1, move.row1, move.column2, move.row2);
+                        //mouseSwap(move.column1, move.row1, move.column2, move.row2);
                     } else {
                         // No moves left, Game Over. We could start a new game.
                         // newGame();
@@ -171,54 +178,19 @@ window.onload = function() {
                 if (animationtime > animationtimetotal) {
                     // Find clusters
                     findClusters();                    
-                        // switch(cor){
-                        //     case 0:
-                        //         $("#viewport").hide();
-                        //         $("#animation6").show();
-                        //         aaa = 9;
-                        //         anima(9);
-                        //         sleep(700);
-                        //         break;
-                        //     case 1:
-                        //         $("#viewport").hide();
-                        //         $("#animation7").show();
-                        //         aaa = 10;
-                        //         anima(10);
-                        //         sleep(700);
-                        //         break;
-                        //     case 2:
-                        //         $("#viewport").hide();
-                        //         $("#animation8").show();
-                        //         aaa = 11;
-                        //         anima(11);
-                        //         sleep(700);
-                        //         break;
-                        //     case 3:
-                        //         $("#viewport").hide();
-                        //         $("#animation9").show();
-                        //         aaa = 12;
-                        //         anima(12);
-                        //         sleep(700);
-                        //         break;
-                        // }
                         if (clusters.length > 0) {
                         // Add points to the score
-                        for (var i=0; i<1; i++) {
-                            // Add extra points for longer clusters
-                            score += 200;
-                            if (score >= 2000 && control_candy == false) {
-                                fim_fliper.style.display = "block";
-                                document.getElementById("yellow").style.display = "none";
-                                document.getElementById("green").style.display = "none";
-                                document.getElementById("blue").style.display = "none";
-                                document.getElementById("red").style.display = "none";
-                                document.getElementById("viewport").style.display = "none";
-                                document.getElementById("score_cc_text").style.display = "none";
-                                document.getElementById("aprendi_flip").style.zIndex = "-1";
-                                control_candy = true;  
+                        for (var i=0; i<clusters.length; i++) {
+                            if(clusters[i].length == 3){
+                                score += 100;   
+                            }else if(clusters[i].length == 4){
+                                score += 125;   
+                            }else{
+                                score += 150;
                             }
+                            // Add extra points for longer clusters
                         }
-                    
+
                         // Clusters found, remove them
                         removeClusters();
                         
@@ -282,9 +254,18 @@ window.onload = function() {
                 }
             }
             
+                        
             // Update moves and clusters
             findMoves();
             findClusters();
+        }
+        if (score >= 2000) {
+            $("#fim_fliper").show();
+            fase_fliperama_completa = true;
+            $(".cor").hide();
+            $("#viewport").hide();
+            $("#score_cc_text").hide(); 
+            score = 0;
         }
     }
     
@@ -311,18 +292,8 @@ window.onload = function() {
     
     // Render the game
     function render() {
-        // Draw the frame
-        drawFrame();
-        
-        // Draw score
-        // context.fillStyle = "#000000";
-        // context.font = "24px Verdana";
-        // drawCenterText("Score:", 30, level.y+40, 150);
-        // drawCenterText(score, 30, level.y+70, 150);
         draw_score_cc(score);
         
-        // Draw buttons
-        drawButtons();
         
         // Draw level background
         var levelwidth = 426.03;
@@ -350,17 +321,6 @@ window.onload = function() {
             drawCenterText("Game Over!", level.x, level.y + levelheight / 2 + 10, levelwidth);
         }
     }
-    
-    // Draw a frame with a border
-    function drawFrame() {
-        // Draw background and a border
-      
-    }
-    
-    // Draw buttons
-    function drawButtons() {
-    }
-    
     // Render tiles
     function renderTiles() {
         for (var i=0; i<level.columns; i++) {
@@ -385,7 +345,10 @@ window.onload = function() {
                     if (level.selectedtile.column == i && level.selectedtile.row == j) {
                         // Draw a red tile
                         cor = level.selectedtile.type;
-                        drawTile(coord.tilex, coord.tiley, 255, 0, 0);
+                        //MUDA A COR
+                        context.lineWidth = 4;
+                        context.strokeStyle = "#000";
+                        context.strokeRect(coord.tilex, coord.tiley, 52,52);
                     }
                 }
             }
@@ -442,15 +405,34 @@ window.onload = function() {
         for (var i=0; i<clusters.length; i++) {
             // Calculate the tile coordinates
             var coord = getTileCoordinate(clusters[i].column, clusters[i].row, 0, 0);
-            
+            switch(level.tiles[clusters[i].column][clusters[i].row].type){
+                case 0:
+                    context.strokeStyle = '#f2db0f';
+                break;
+                case 1:
+                    context.strokeStyle = '#2ed92e';
+                break;
+                case 2:
+                    context.strokeStyle = '#0000ff';
+                break;
+                case 3:
+                    context.strokeStyle = '#ff0000';
+                break;
+            }
+            context.lineWidth = 4;  
             if (clusters[i].horizontal) {
                 // Draw a horizontal line
-                context.fillStyle = "#00ff00";
-                context.fillRect(coord.tilex + level.tilewidth/2, coord.tiley + level.tileheight/2 - 4, (clusters[i].length - 1) * level.tilewidth, 8);
+                //context.fillStyle = "#00ff00";
+                //context.fillStyle = "transparent";
+                //context.fillRect(inicio, centralizacao, fim, espessura);
+                context.strokeRect(coord.tilex, coord.tiley, (clusters[i].length - 1) * level.tilewidth + 52, 52);
+                //context.fillRect(coord.tilex + level.tilewidth/2, coord.tiley + level.tileheight/2 - 4, (clusters[i].length - 1) * level.tilewidth, 8);
             } else {
                 // Draw a vertical line
-                context.fillStyle = "#0000ff";
-                context.fillRect(coord.tilex + level.tilewidth/2 - 4, coord.tiley + level.tileheight/2, 8, (clusters[i].length - 1) * level.tileheight);
+                //context.fillStyle = "#0000ff";
+                //context.fillStyle = "transparent";
+                context.strokeRect(coord.tilex, coord.tiley, 52, (clusters[i].length - 1) * level.tileheight + 52);
+                //context.fillRect(coord.tilex + level.tilewidth/2 - 4, coord.tiley + level.tileheight/2, 8, (clusters[i].length - 1) * level.tileheight);
             }
         }
     }
@@ -496,7 +478,7 @@ window.onload = function() {
         
         // Keep generating levels until it is correct
         while (!done) {
-        
+
             // Create a level with random tiles
             for (var i=0; i<level.columns; i++) {
                 for (var j=0; j<level.rows; j++) {
@@ -529,7 +511,7 @@ window.onload = function() {
         
         // While there are clusters left
         while (clusters.length > 0) {
-        
+
             // Remove clusters
             removeClusters();
             
@@ -561,8 +543,8 @@ window.onload = function() {
                     if (level.tiles[i][j].type == level.tiles[i+1][j].type &&
                         level.tiles[i][j].type != -1) {
                         // Same type as the previous tile, increase matchlength
-                        matchlength += 1;
-                    } else {
+                    matchlength += 1;
+                } else {
                         // Different type
                         checkcluster = true;
                     }
@@ -573,7 +555,7 @@ window.onload = function() {
                     if (matchlength >= 3) {
                         // Found a horizontal cluster
                         clusters.push({ column: i+1-matchlength, row:j,
-                                        length: matchlength, horizontal: true });
+                            length: matchlength, horizontal: true });
                         // cor = level.tiles[i][j].type;
                     }
                     
@@ -597,8 +579,8 @@ window.onload = function() {
                     if (level.tiles[i][j].type == level.tiles[i][j+1].type &&
                         level.tiles[i][j].type != -1) {
                         // Same type as the previous tile, increase matchlength
-                        matchlength += 1;
-                    } else {
+                    matchlength += 1;
+                } else {
                         // Different type
                         checkcluster = true;
                     }
@@ -609,7 +591,7 @@ window.onload = function() {
                     if (matchlength >= 3) {
                         // Found a vertical cluster
                         clusters.push({ column: i, row:j+1-matchlength,
-                                        length: matchlength, horizontal: false });
+                            length: matchlength, horizontal: false });
                         cor = level.tiles[i][j].type;
                     }
                     
@@ -754,11 +736,11 @@ window.onload = function() {
         if ((Math.abs(x1 - x2) == 1 && y1 == y2) ||
             (Math.abs(y1 - y2) == 1 && x1 == x2)) {
             return true;
-        }
-        
-        return false;
     }
-    
+
+    return false;
+}
+
     // Swap two tiles in the level
     function swap(x1, y1, x2, y2) {
         var typeswap = level.tiles[x1][y1].type;
@@ -770,7 +752,7 @@ window.onload = function() {
     function mouseSwap(c1, r1, c2, r2) {
         // Save the current move
         currentmove = {column1: c1, row1: r1, column2: c2, row2: r2};
-    
+
         // Deselect
         level.selectedtile.selected = false;
         
@@ -789,6 +771,7 @@ window.onload = function() {
         if (drag && level.selectedtile.selected) {
             // Get the tile under the mouse
             mt = getMouseTile(pos);
+
             if (mt.valid) {
                 // Valid tile
                 
@@ -832,6 +815,7 @@ window.onload = function() {
                     level.selectedtile.column = mt.x;
                     level.selectedtile.row = mt.y;
                     level.selectedtile.selected = true;
+                    level.selectedtile.fillStyle = 'blue';
                 }
             } else {
                 // Invalid tile
@@ -841,26 +825,6 @@ window.onload = function() {
             // Start dragging
             drag = true;
         }
-        // Check if a button was clicked
-        // for (var i=0; i<buttons.length; i++) {
-        //     if (pos.x >= buttons[i].x && pos.x < buttons[i].x+buttons[i].width &&
-        //         pos.y >= buttons[i].y && pos.y < buttons[i].y+buttons[i].height) {
-                
-        //         // Button i was clicked
-        //         if (i == 0) {
-        //             // New Game
-        //             newGame();
-        //         } else if (i == 1) {
-        //             // Show Moves
-        //             showmoves = !showmoves;
-        //             buttons[i].text = (showmoves?"Hide":"Show") + " Moves";
-        //         } else if (i == 2) {
-        //             // AI Bot
-        //             aibot = !aibot;
-        //             buttons[i].text = (aibot?"Disable":"Enable") + " AI Bot";
-        //         }
-        //     }
-        // }
     }
     
     function onMouseUp(e) {
@@ -884,17 +848,4 @@ window.onload = function() {
     
     // Call init to start the game
     init();
-    
-    document.getElementById("sair_flip").addEventListener("click", function(){
-        score = 0;
-        fim_fliper.style.display = "none";
-        document.getElementById("yellow").style.display = "block";
-        document.getElementById("green").style.display = "block";
-        document.getElementById("blue").style.display = "block";
-        document.getElementById("red").style.display = "block";
-        document.getElementById("viewport").style.display = "block";
-        document.getElementById("score_cc_text").style.display = "block";
-        document.getElementById("aprendi_flip").style.zIndex = "1";
-        control_candy = false;  
-    });
 };

@@ -1,131 +1,118 @@
-var telaAtual;
+var tela_atual;
 var bg_image;
 var nome;
 var idade;
 var first_time_menu = false;
 var sauda_inicio = 0;
+var inicio_jogo = true;
 var saudacoes = false;
 var canva_supermercado = false;
 var first_time_super = false;
+var fase_liberada = false;
 first_time_inicio = false;
+var primeira_vez_cidade = true;
+var primeira_vez_casa = true;
+var saudacoes_fim = false;
 var aaa = 4;
- 
+var temAnimacao = false;
+var praca_parte = 'inicio';
+
+var saudacoes = {
+	'oi' : false,
+	'bom_dia' : false,
+	'boa_tarde' : false,
+	'boa_noite' : false
+};
 $(document).ready(function () {
-
-	swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.");
-	var x = document.getElementById("myAudio"); 
-    
-    function sovai() { 
-        x.play(); 
-    } 
+	swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.").then(() => {
+		$('.somMenu').click();
+	});
 	$("#menu").show();
-	$("#tela1").hide();
-	$("#tela_escolher_player").hide();
-	$("#tela_ajuda").hide();
-	$("#tela_infor").hide();
-	$("#tela_inicio").hide();
-	$("#tela_j1").hide();
-	$("#tela_j2").hide();
-	$("#tela_menu").hide();
-	$("#tela_escola").hide();
-	$("#tela_supermercado1").hide();
-	$("#tela_supermercado2").hide();
-	$("#tela_fliperama").hide();
-	$("#tela_fliperama2").hide();
-	$("#tela_sorveteria").hide();
-	telaAtual = "#menu";
+	$('.som').hide();
+	$('.somMenu').show();
+	$(".tela").hide();
+	tela_atual = "#menu";
 	bg_image = "bg_inicio";
-	$("#top").hide();
 });
-
+function liberar_cidade(){
+	$("#myCanvas").removeClass("bg_blur");
+	$('.pin').show();
+	$("#parque").hide();
+	if(!fase_liberada){
+		$("#praca").hide();
+	}
+}
+function bloquear_cidade(){
+	$("#myCanvas").addClass("bg_blur");
+	$('.pin').hide();
+}
+function reiniciar_contador_fala(){
+	index_dialogo = -1;
+}
 function triste() {
-    var nome = document.forms["formulario_inicio"]["nome"].value;
-    var idade = document.forms["formulario_inicio"]["idade"].value;
-    alert("Seu nome é "+ nome + " e você tem "+ idade + " anos!");
+	var nome = document.forms["formulario_inicio"]["nome"].value;
+	var idade = document.forms["formulario_inicio"]["idade"].value;
+	alert("Seu nome é "+ nome + " e você tem "+ idade + " anos!");
 }
 
 function trocarTela(tela,bg){
 	// Esconde a Tela Atual
-	$(telaAtual).hide();
-	if(tela == "#tela_inicio"){
-		if (first_time_inicio == false) {
-			nome = $("#nome").val();
-			idade = $("#idade").val();
-			id_di = 0;
-			$(".jonas_cutscene1").hide();
-			$(".jonas_cutscene").show();
-			$("#saudacoes").hide();
-			$("#di_ini").html(dialogo[id_di] + " " + nome);
-			$("#nextop1").hide();
-			$("#dialogo_inicio").show();
-			$("#animacaozinha").hide();
-			first_time_inicio = true;
-			sauda_inicio = 0;
-		}else{
-			id_di = 10;
-			sauda_inicio = 0;
-			$("#di_ini").html(dialogo[id_di]);
-			$("#nextop1").hide();
-			$("#saudacoes").hide();
-			$(".jonas_cutscene").hide();
-			$(".jonas_cutscene1").show();
-			$("#dialogo_inicio").show();
-			$("#animacaozinha").hide();
-		}
-	}else if(tela == "#tela_menu"){
-		saudacoes = false;
-		if (first_time_menu == false) {
-			id_di = 15;
-			$("#di_men").html(dialogo[id_di]);
-			document.getElementById("casa").style.display = "none";
-			document.getElementById("escola").style.display = "none";
-			document.getElementById("supermercado").style.display = "none";
-			document.getElementById("sorveteria").style.display = "none";
-			document.getElementById("volta_menu").style.display = "none";
-			document.getElementById("fliperama").style.display = "none";
-			first_time_menu = true;
-		}else{
-			first_time_menu = true;
-		}
+	fecharModalAnimacao();  
+	$(tela_atual).hide();
+	tela_atual = tela;
+	index_dialogo = -1;
+	$(".marina_cutscene").hide();
+	$("#butt_voltar_cidade").hide();
+	temAnimacao = false;
+	$('.som').show();
+	if(tela == "#menu"){
+		$(".som").hide();
+		$(".somMenu").show();
+	}else if(tela == "#tela_casa"){
+		saudacoes_fim = false;
+		sauda_inicio = 0;
+		falas();
+		$("#seta").hide();
+	}else if(tela == "#tela_cidade"){
+		fases_completas = (fase_fliperama_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
+		liberar_cidade();
+		falas();
 	}else if(tela == "#tela_escola"){
+		$("#butt_voltar_cidade").show();
+		falas();
 		$("#game").hide();
-		$(".jonas_cutscene").show();
-		$("#dialogo_escola").show();
-		id_di = 18;
-		$("#di_esc").html(dialogo[id_di]);
-	}else if (tela == "#tela_supermercado1") {
-		if (first_time_super == false) {
-			id_di = 30;
-			$("#di_sup").html(dialogo[id_di]);
-			$("#dialogo_supermercado").show();
-			$(".jonas_cutscene").show();
-			$("#item1").hide();
-			$("#item2").hide();
-			$("#item3").hide();
-			$("#item4").hide();
-			$("#item5").hide();
-		}else{
-			$("#dialogo_supermercado").hide();
-			$(".jonas_cutscene").hide();
-			$("#item1").show();
-			$("#item2").show();
-			$("#item3").show();
-			$("#item4").show();
-			$("#item5").show();
-		}
+	}else if (tela == "#tela_supermercado") {
+		$("#butt_voltar_cidade").show();
+		$(".item_lista").hide();
+		falas();
 	}else if (tela == "#tela_fliperama") {
-		id_di = 35;
-		$(".jonas_cutscene").show();
-		$("#di_fli").html(dialogo[id_di]);
-	}else if(tela == "#tela_parque"){
-		$("#top").show();
+		$("#butt_voltar_cidade").show();
+		falas();
+	}else if(tela == "#tela_praca"){
+		$("#butt_voltar_cidade").show();
+		$(".marina_cutscene").show();
+		praca_parte = 'inicio';
+		falas();
 	}else if(tela == "#tela_sorveteria"){
-		id_di = 24;
-		$("#di_sov").html(dialogo[id_di]);
-		$("#dialogo_soverteria").show();
-		$(".jonas_cutscene").show();
+		$("#butt_voltar_cidade").show();
+		falas();
 	}else if(tela == "#tela_fliperama2"){
+		$("#butt_voltar_cidade").show();
 		$("#cores").show();
+	}else if(tela == "#tela_parque"){
+		$("#butt_voltar_cidade").show();
+		ambiental_parte = 'inicio';
+		ambiental_contador = 0;
+		var pontuacao = {
+			'vermelho' : 0,
+			'azul' : 0,
+			'amarelo' : 0,
+			'verde' : 0,
+			'erros' : 0
+		}
+		$('#lixo').show();	
+		finalizado = false;
+		falas();
 	}
 	// Mostra a Tela Escolhida
 	$(tela).show();
@@ -135,14 +122,8 @@ function trocarTela(tela,bg){
 	$("#myCanvas").addClass(bg);
 	// Altera os valores de Background e Tela Atual para os novos
 	bg_image = bg;
-	telaAtual = tela;
-
-	if (id_di == 15) {
-		$("#myCanvas").removeClass(bg);
-		$("#myCanvas").addClass("bg_blur");
-	}
-	console.log(id_di);
 }
+
 
 function animaNumero() {
 	var id = document.getElementById("idade").value;
@@ -162,117 +143,247 @@ function animaLetra() {
 	if (lastChar == "" || lastChar == ";" || lastChar == "," || lastChar == "." || lastChar == "/" || lastChar == "~" 
 		|| lastChar == "]" || lastChar == "´" || lastChar == "[" || lastChar == "=" || lastChar == "-" || lastChar == "'"
 		|| lastChar == " " || lastChar == "1" || lastChar == "2" || lastChar == "3"  || lastChar == "4" || lastChar == "5"
-		 || lastChar == "6" || lastChar == "7" || lastChar =="8" || lastChar =="9" || lastChar == "0") {
+		|| lastChar == "6" || lastChar == "7" || lastChar =="8" || lastChar =="9" || lastChar == "0") {
 		document.getElementById("pacote").src = "assets/images/jogador.png";
 	}else{
 		var letra = lastChar.toLowerCase();
 		document.getElementById("pacote").src = "./assets/images/alfabeto/" + letra + ".png";
 	}
 }
-
 function falas(){
-	id_di += 1;
-
-	if(id_di <= 14){
-		if(id_di == 11){
-			$(".jonas_cutscene").hide();
-			$(".jonas_cutscene1").show();
-			$("#di_ini").html(dialogo[id_di]);	
-		}else if(id_di == 12){
-			if (saudacoes == false) {
-				$("#saudacoes").show();
-				$("#dialogo_inicio").hide();
-				saudacoes = true;
-			} else {
-				$("#dialogo_inicio").show();
-				$("#di_ini").html(dialogo[id_di]);	
-			}
-		}else if(id_di == 14){
-			trocarTela('#tela_menu','bg_menu');
-			$("#di_ini").html(dialogo[id_di]);	
-		} else {
-			$("#di_ini").html(dialogo[id_di]);			
-		}	
-	}else if(id_di <= 16){
-
-		if (id_di == 16) {
-			$("#dialogo_menu").hide();
-			$("#myCanvas").removeClass("bg_blur");
-			$("#myCanvas").addClass("bg_menu");
-			document.getElementById("casa").style.display = "block";
-			document.getElementById("volta_menu").style.display = "block";
-			document.getElementById("escola").style.display = "block";
-			document.getElementById("supermercado").style.display = "block";
-			document.getElementById("sorveteria").style.display = "block";
-			document.getElementById("fliperama").style.display = "block";
-		}else{
-			$("#di_men").html(dialogo[id_di]);
-		}
-	}else if(id_di <= 23){
-		$("#di_esc").html(dialogo[id_di]);
-		if (id_di == 23) {
-			$("#dialogo_escola").hide();
-			$(".jonas_cutscene").hide();
-			$("#game").show();
-		}
-	}else if(id_di <= 29){
-		$("#di_sov").html(dialogo[id_di]);
-		if (id_di == 29) {
-			$("#dialogo_soverteria").hide();
-			$(".jonas_cutscene").hide();
-		}
-	}else if(id_di <=34){
-		$("#di_sup").html(dialogo[id_di]);
-		if (id_di == 34) {
-			$("#dialogo_supermercado").hide();
-			$(".jonas_cutscene").hide();
-			$("#item1").show();
-			$("#item2").show();
-			$("#item3").show();
-			$("#item4").show();
-			$("#item5").show();
-		}
-	}else if(id_di <= 42){
-		$("#di_fli").html(dialogo[id_di]);
-		if(id_di == 42){
-			trocarTela('#tela_fliperama2', 'bg_fliperama2');
-		}
-	}
-	console.log(id_di);
-}
-
- function isNumberKey(evt){
- 	var charCode = (evt.which) ? evt.which : event.keyCode
- 	if (charCode > 31 && (charCode < 48 || charCode > 57))
-    	return false;
- 	return true;
-}
-
-$("#tela_fliperama").show(function() { 
-   loadGame();
-});
-
-$("#main").show(function() { 
-   runme.call(this, this)
-});
-
-function f_saudacoes() {
-	sauda_inicio += 1;
-	if (sauda_inicio == 1) {
-		$(".jonas_cutscene1").hide();
-		$("#animacaozinha").show();
-	}else if (sauda_inicio == 4) {
-		$("#nextop1").show();
-	}
-}
-
-function nextop(){
+	$("#dialogo").hide();
+	$(".jonas_cutscene_center").hide();
 	$("#saudacoes").hide();
-	$("#animacaozinha").hide();
-	$(".jonas_cutscene").show();
-	$("#nextop1").hide();
-	id_di = 11;
-	sauda_inicio = 0;
+	$("#animacao").hide();
+	index_dialogo++;
+	switch(tela_atual){
+		case '#tela_casa':
+		if(primeira_vez_casa){
+			if(index_dialogo == dialogo[tela_atual]['primeira_vez'].length){
+				reiniciar_contador_fala();
+				primeira_vez_casa = false;
+				$(".jonas_cutscene_center").show();
+				$("#saudacoes").show();
+			}else{
+				$("#dialogo").show();
+				if(index_dialogo == 0){
+					nome = $("#nome").val();
+					idade = $("#idade").val();
+					$("#fala").html(dialogo[tela_atual]['primeira_vez'][index_dialogo] + ' ' + nome);
+				}else{
+					$("#fala").html(dialogo[tela_atual]['primeira_vez'][index_dialogo]);
+				}
+			}
+		}else{
+			if(saudacoes_fim){
+				if(index_dialogo == dialogo[tela_atual]['saida'].length){
+					reiniciar_contador_fala();
+					trocarTela('#tela_cidade','bg_menu');
+				}else{
+					$("#dialogo").show();
+					$("#fala").html(dialogo[tela_atual]['saida'][index_dialogo]);
+				}
+			}else{
+				if(index_dialogo == dialogo[tela_atual]['inicio'].length){
+					reiniciar_contador_fala();
+					$(".jonas_cutscene_center").show();
+					$("#saudacoes").show();
+				}else{
+					$("#dialogo").show();
+					$("#fala").html(dialogo[tela_atual]['inicio'][index_dialogo]);
+					saudacoes_fim = false;
+				}
+			}
+		}
+		break;
+		case '#tela_cidade':
+		primeira_vez_casa = false;
+		fases_completas = (fase_fliperama_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
+		if(!fases_completas){
+			if(primeira_vez_cidade){
+				if(index_dialogo == dialogo[tela_atual]['inicio'].length){
+					reiniciar_contador_fala();
+					liberar_cidade();
+					primeira_vez_cidade = false;
+				}else{
+					bloquear_cidade();
+					$("#dialogo").show();
+					$("#fala").html(dialogo[tela_atual]['inicio'][index_dialogo]);
+				}
+			}else{
+				liberar_cidade();
+			}
+		}else{
+			if(!fase_liberada){
+				if(index_dialogo == dialogo[tela_atual]['fase_liberada'].length){
+					reiniciar_contador_fala();
+					fase_liberada = true;
+					liberar_cidade();
+				}else{
+
+					bloquear_cidade();
+					$("#dialogo").show();
+					$("#fala").html(dialogo[tela_atual]['fase_liberada'][index_dialogo]);
+				}
+			}
+		}
+		break;
+		case '#tela_sorveteria':
+		if(index_dialogo == dialogo[tela_atual].length){
+			reiniciar_contador_fala();
+		}else{
+			$("#dialogo").show();
+			$("#fala").html(dialogo[tela_atual][index_dialogo]);
+		}
+		break;
+		case '#tela_fliperama':
+		if(index_dialogo == dialogo[tela_atual].length){
+			reiniciar_contador_fala();
+			reiniciar_fliperama();
+			trocarTela("#tela_fliperama2",'bg_fliperama2');
+		}else{
+			$("#dialogo").show();
+			$("#fala").html(dialogo[tela_atual][index_dialogo]);
+		}
+		break;
+		case '#tela_escola':
+		if(index_dialogo == dialogo[tela_atual].length){
+			$("#game").show();
+			reiniciar_contador_fala();
+		}else{
+			$("#dialogo").show();
+			$("#fala").html(dialogo[tela_atual][index_dialogo]);
+		}
+		break;
+		case '#tela_supermercado':
+		if(index_dialogo == dialogo[tela_atual].length){
+			reiniciar_contador_fala();
+			$(".item_lista").show();
+		}else{
+			$("#dialogo").show();
+			$("#fala").html(dialogo[tela_atual][index_dialogo]);
+		}
+		break;
+		case '#tela_praca':
+		$(".formulario_nome").hide();
+		$(".formulario_idade").hide();
+		if(index_dialogo == dialogo[tela_atual][praca_parte].length){
+			reiniciar_contador_fala();
+			switch(praca_parte){
+				case 'inicio':
+				executa_animacao('marina','qual_nome');
+				praca_parte = 'qual_nome';
+				break;
+				case 'qual_nome':
+				praca_parte = 'muito_bem_nome';
+				$(".marina_cutscene").hide();
+				$("#myCanvas").addClass('bg_praca_fundo');
+				$(".formulario_nome").show();
+				break;
+				case 'muito_bem_nome':
+				praca_parte = 'qual_idade';
+				executa_animacao('marina','qual_idade');
+				break;
+				case 'qual_idade':
+				praca_parte = 'muito_bem_idade';
+				$(".marina_cutscene").hide();
+				$("#myCanvas").addClass('bg_praca_fundo');
+				$(".formulario_idade").show();
+				break;
+				case 'muito_bem_idade':
+				praca_parte = 'prazer_conhecer';
+				executa_animacao('marina','prazer_conhecer');
+				$(".marina_cutscene").hide();
+				break;
+				case 'despedida':
+				$(".marina_cutscene").hide();
+				executa_animacao('jonas','tchau');
+				break;
+			}
+		}else{
+			$("#dialogo").show();
+			$("#fala").html(dialogo[tela_atual][praca_parte][index_dialogo]);
+		}
+		break;
+		case '#tela_parque' :
+		switch(ambiental_parte){
+			case 'inicio' :
+			if(index_dialogo == dialogo[tela_atual][ambiental_parte].length){
+				reiniciar_contador_fala();
+				ambiental_reiniciar();
+				$("#jogo_ambiental").show();
+				ambiental_play = true;
+			}else{
+				$("#dialogo").show();
+				$("#jogo_ambiental").hide();
+				ambiental_play = false;
+				$("#fala").html(dialogo[tela_atual][ambiental_parte][index_dialogo]);
+			}
+			break;
+			case 'erro_lixeira' :
+			if(index_dialogo == dialogo[tela_atual][ambiental_parte].length){
+				reiniciar_contador_fala();
+				$("#jogo_ambiental").show();
+				ambiental_parte = '';
+				ambiental_play = true;
+			}else{
+				$("#dialogo").show();
+				$("#jogo_ambiental").hide();
+				ambiental_play = false;
+				$("#fala").html(dialogo[tela_atual][ambiental_parte][index_dialogo]);
+			}
+			break;
+			case 'erro_chao' :
+			if(index_dialogo == dialogo[tela_atual][ambiental_parte].length){
+				reiniciar_contador_fala();
+				$("#jogo_ambiental").show();
+				ambiental_parte = '';
+				ambiental_play = true;
+			}else{
+				$("#dialogo").show();
+				$("#jogo_ambiental").hide();
+				ambiental_play = false;
+				$("#fala").html(dialogo[tela_atual][ambiental_parte][index_dialogo]);
+			}
+			break;
+			case 'final' :
+			if(index_dialogo == dialogo[tela_atual][ambiental_parte].length){
+				reiniciar_contador_fala();
+				trocarTela('#tela_cidade','bg_menu');
+			}else{
+				$("#dialogo").show();
+				$("#jogo_ambiental").hide();
+				ambiental_play = false;
+				$("#fala").html(dialogo[tela_atual][ambiental_parte][index_dialogo]);
+			}
+			break;
+		}
+		break;
+	}
+}
+function isNumberKey(evt){
+	var charCode = (evt.which) ? evt.which : event.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57))
+		return false;
+	return true;
+}
+function saudacao_executada(nome) {
+	saudacoes[nome] = true;
+	var saudacoes_finalizadas = true;
+	for(var saudacao in saudacoes){
+		if(!saudacoes[saudacao]){
+			saudacoes_finalizadas = false;
+		}
+	}
+	if (saudacoes_finalizadas) {
+		$("#seta").show();
+		saudacoes_fim = true;
+		fase_casa_completa = true;
+	}
+}
+function proxima_fala(){
+	$("#saudacoes").hide();
+	$("#seta").hide();
 	falas();
 }
 
@@ -280,13 +391,121 @@ function draw_score_cc(s){
 	$("#score_cc_text").html("Pontuação: " + s);
 }
 
-function voltarmenu(){
+function voltar_menu(){
+	liberar_cidade();
+	$('.som').hide();	
+	$('.somMenu').show();
+	$("#dialogo").hide();
 	first_time_inicio = false;
 }
 
-function sumir_candy(bc){
-	var r = bc - 3;
+function executa_animacao(pessoa, acao){
+	temAnimacao = true;
+	parar = false;
+	var canvas_id = 'animation';
+	var animacao_height = 0;
+	var animacao_width = 0; 
+	var quantidade_sprites = 0;
+	$('#nome_animacao').val(acao);
+	$("#quem_faz").val(pessoa);
+
+	$("#animacao").show();
+	$(".jonas_cutscene_center").hide();
+	$(".marina_cutscene").hide();
+	$(".item_lista").hide();
 	$("#viewport").hide();
 	$("#cores").hide();
-	$("#animation"+r).show();
+
+	var canvas = document.getElementById(canvas_id);
+	if (pessoa == 'jonas') {
+		canvas.width = 508;
+		canvas.height = 516;
+		$("#animation").css('left','257px');
+		$("#animation").css('top','47px');
+	}else if(pessoa == 'marina'){
+		canvas.width = 583;
+		canvas.height = 592;
+		$("#animation").css('left','257px');
+		$("#animation").css('top','-30px');
+	};
+
+	if(pessoa == 'jonas'){
+		animacao_height = 516;
+		switch(acao){
+			case 'oi':
+				animacao_width = 2032;
+				quantidade_sprites = 4;
+			break;
+			case 'bom_dia':
+				animacao_width = 6101;
+				quantidade_sprites = 12;
+			break;
+			case 'boa_tarde':
+				animacao_width = 6096;
+				quantidade_sprites = 12;
+			break;
+			case 'boa_noite':
+				animacao_width = 6604;
+				quantidade_sprites = 13;
+			break;
+			case 'maça':
+				animacao_width = 3048;
+				quantidade_sprites = 6;
+			break;
+			case 'agua':
+				animacao_width = 7112;
+				quantidade_sprites = 14;
+			break;
+			case 'ovo':
+				animacao_width = 3556;
+				quantidade_sprites = 7;
+			break;
+			case 'chocolate':
+				animacao_width = 7112;
+				quantidade_sprites = 14;
+			break;
+			case 'queijo':
+				animacao_width = 4572;
+				quantidade_sprites = 9;
+			break;
+			case 'amarelo':
+				animacao_width = 2032;
+				quantidade_sprites = 4;
+			break;
+			case 'verde':
+				animacao_width = 2032;
+				quantidade_sprites = 4;
+			break;
+			case 'azul':
+				animacao_width = 3048;
+				quantidade_sprites = 6;
+			break;
+			case 'vermelho':
+				animacao_width = 3556;
+				quantidade_sprites = 7;
+			break;
+			case 'tchau':
+				animacao_width = 3048;
+				quantidade_sprites = 6;
+			break;
+		}
+	}else if(pessoa  == 'marina'){
+		animacao_height = 592;
+		switch(acao){
+			case 'qual_nome':
+				animacao_width = 6996;
+				quantidade_sprites = 12;
+			break;
+			case 'qual_idade':
+				animacao_width = 7579;
+				quantidade_sprites = 13;
+			break;
+			case 'prazer_conhecer':
+				animacao_width = 4081;
+				quantidade_sprites = 7;
+			break;
+		}
+	}
+	local = "./assets/images/animacoes/"+pessoa+"/"+acao+"_sheet.png";
+	anima(pessoa, acao, animacao_width, animacao_height, quantidade_sprites, local, canvas_id, mostrarModalAnimacao);
 }

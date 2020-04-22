@@ -19,6 +19,10 @@ body{
   width: 1000px;
   height: 562px;
 }
+.formulario_idade , .formulario_nome{
+   position: absolute; 
+   top: 70px;
+}
 
 #formulario_inicio{
   width: 500px;
@@ -26,6 +30,62 @@ body{
   position: absolute;
   top: 20px;
   left: 220px;
+}
+
+#form_nome_libras{
+  width: 500px;
+  padding: 30px;
+  position: absolute;
+  top: 20px;
+  left: 220px;
+}
+
+#form_nome_libras input[type=text],input[type=number] {
+  font-family: 'AristaPro-Fat', sans-serif;
+  font-size: 47px;
+  border-radius: 51px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+#form_nome_libras input:disabled{
+  background-color: white !important;
+}
+#form_nome_libras input[type=text]:focus,input[type=number]:focus {
+  border: 3px solid #555;
+}
+
+#form_idade_libras{
+  width: 500px;
+  padding: 30px;
+  position: absolute;
+  top: 20px;
+  left: 220px;
+}
+
+#form_idade_libras input[type=text],input[type=number] {
+  font-family: 'AristaPro-Fat', sans-serif;
+  font-size: 47px;
+  border-radius: 51px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+#form_idade_libras input:disabled{
+  background-color: white !important;
+}
+#form_idade_libras input[type=text]:focus,input[type=number]:focus {
+  border: 3px solid #555;
 }
 
 .circulo_azul  img, .circulo_rosa img{
@@ -104,8 +164,11 @@ body{
   /*padding: 14px 40px;*/
   width: 193px;
   height: 51px;
-  left: 790px;
+  left: 720px;
   top: 15px;
+}
+.tela{
+  display: none;
 }
 
 .butt_pular:hover{
@@ -195,8 +258,15 @@ body{
   width: 316px;
   height: 471px;
 }
+.marina_cutscene{
+  position: absolute;
+  left: 257px;
+  top: -30px;
+  width: 586px;
+  height: 592px;
+}
 
-.jonas_cutscene1{
+.jonas_cutscene_center{
   position: absolute;
   left: 352px;
   top: 91px;
@@ -278,8 +348,6 @@ body{
 .som {
   display: inline-block;
   position: absolute;
-  top: 424px;
-  left: 828px;
   background-color: #5A9AF9; 
   background-repeat: no-repeat;
   background-position: center; 
@@ -287,6 +355,88 @@ body{
   cursor:  url(../assets/images/hover.png), auto;
   border-radius: 100%;
   box-shadow:  5px 10px #2b2b2b;
+  margin-left: 917px;
+  margin-top: 2px;
+  border: none;
+}
+.tecla_letra, .tecla_espaco, .tecla_apagar {
+  display: inline-block;
+  background-color: #FFF; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 55px;
+  cursor:  url(../assets/images/hover.png), auto;
+  border-radius: 100%;
+  border: none;
+  right: 10px;
+  left: 10px;
+  min-width: 64px;
+  min-height: 64px;
+  margin: 1px;
+  cursor:  url(../assets/images/hover.png), auto;
+}
+.teclado_libras{
+  position: absolute;
+  width: 912px; 
+  left: 40px; 
+  top: 180px;
+}
+.tecla_numero {
+  display: inline-block;
+  background-color: #FFF; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 70px;
+  cursor:  url(../assets/images/hover.png), auto;
+  border-radius: 100%;
+  border: none;
+  right: 10px;
+  left: 10px;
+  min-width: 85px;
+  min-height: 85px;
+  margin: 1px;
+  cursor:  url(../assets/images/hover.png), auto;
+}
+.tecla_espaco, .tecla_apagar{
+  font-family: 'AristaPro-Fat', sans-serif;
+  line-height: 51px;
+  font-size: 25px;
+  color: #616161;
+  border-radius: 20px;
+  cursor:  url(../assets/images/hover.png), auto;
+}
+.tecla_enviar{
+  top: 400px;
+  left: 890px;
+  position: absolute;
+  width: 47.81px;
+  height: 27.48px;
+  z-index: 1;
+  cursor:  url(../assets/images/hover.png), auto;
+}
+.tecla_espaco{
+  padding-left: 320px;
+  padding-right: 320px;
+  position: absolute;
+  top: 140px;
+}
+.tecla_apagar{
+  padding-left: 54px;
+  padding-right: 54px;  
+  position: absolute;
+  top: 140px;
+  left: 730px;
+}
+.tecla_apagar_idade{
+  top: 90px;
+}
+.somMenu{
+  top: 424px;
+  left: 828px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+
 }
 
 .somativo{

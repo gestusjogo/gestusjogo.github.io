@@ -1,140 +1,59 @@
-// JODO DA MEMÓRIA
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementById("close_escola");
-var sair = document.getElementById("sair_escola");
+//MODAL REPETIR ANIMACAO
+$("#fechar_modal_animacao").click(function(){
+  fecharModalAnimacao();
+});
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+$("#repetir_animacao").click(function(){
+  $('#modal_repetir_animacao').hide();
+  executa_animacao($('#quem_faz').val(), $('#nome_animacao').val());
+});
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-sair.onclick = function() {
-	trocarTela('#tela_menu', 'bg_menu');
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+function fecharModalAnimacao(){
+  $('#modal_repetir_animacao').hide();
+  $("#animacao").hide();
+  switch(tela_atual){
+    case '#tela_casa':
+      $(".jonas_cutscene_center").show();
+    break;
+    case '#tela_fliperama2':      
+      $("#viewport").show();
+      $("#cores").show();
+    break;
+    case '#tela_supermercado':
+      $(".item_lista").show();
+    break;
+    case '#tela_praca':
+      if(praca_parte == 'qual_nome'){
+        falas();
+        $(".marina_cutscene").show();
+      }else if(praca_parte == 'qual_idade'){
+        $(".marina_cutscene").show();
+        falas();
+      }else if(praca_parte == 'prazer_conhecer'){
+        $(".marina_cutscene").show();
+        praca_parte = 'despedida';
+        falas();
+      }else if(praca_parte == 'despedida'){
+        $("#modal_reiniciar_jogo").show();
+      }
+    break;
   }
 }
-
-// JODO DO SUPER MERCADO
-var modal1 = document.getElementById('voltar_mercado');
-var btn1 = document.getElementById("btn_voltar_mercado");
-var close1 = document.getElementById("close_mercado");
-var sair1 = document.getElementById("sair_mercado");
-
-btn1.onclick = function() {
-  modal1.style.display = "block";
-}
-
-close1.onclick = function() {
-  modal1.style.display = "none";
-}
-
-sair1.onclick = function() {
-	trocarTela('#tela_menu', 'bg_menu');
-  modal1.style.display = "none";
-  for (var i = itens_coletados.length - 1; i >= 0; i--) {
-    $(itens_coletados[i]).css("text-decoration", "none");
-  };
-  itens_coletados.length = 0;
-  document.getElementById("fim_super").style.display = "none";
-  document.getElementById("aprendi_super").style.zIndex = "1";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal1.style.display = "none";
+function mostrarModalAnimacao(){
+  if(temAnimacao){
+    $('#modal_repetir_animacao').show();
+  }else{
+    fecharModalAnimacao();
   }
 }
-
-// JODO DO FLIPERAMA
-var modal3 = document.getElementById('voltar_flip');
-var btn3 = document.getElementById("btn_voltar_flip");
-var close3 = document.getElementById("close_flip");
-var sair3 = document.getElementById("sair_flip");
-
-btn3.onclick = function() {
-  modal3.style.display = "block";
-}
-
-close3.onclick = function() {
-  modal3.style.display = "none";
-}
-
-sair3.onclick = function() {
-  trocarTela('#tela_menu', 'bg_menu');
-  modal3.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal3.style.display = "none";
-  }
-}
-
-// JODO DA SORVETERIA
-var modal4 = document.getElementById('voltar_sorveteria');
-var btn4 = document.getElementById("btn_voltar_sorveteria");
-var close4 = document.getElementById("close_sorveteria");
-var sair4 = document.getElementById("sair_sorveteria");
-
-btn4.onclick = function() {
-  modal4.style.display = "block";
-}
-
-close4.onclick = function() {
-  modal4.style.display = "none";
-}
-
-sair4.onclick = function() {
-	trocarTela('#tela_menu', 'bg_menu');
-  for (var i = erros_encontrados.length - 1; i >= 0; i--) {
-    $(erros_encontrados[i]).hide();
-  }
-  erros_encontrados.length = 0;
-  sair = false; 
-  document.getElementById("fim_erros").style.display = "none"
-  document.getElementById("x0").style.zIndex = "0"
-  document.getElementById("x1").style.zIndex = "0"
-  document.getElementById("x2").style.zIndex = "0"
-  document.getElementById("x3").style.zIndex = "0"
-  document.getElementById("x4").style.zIndex = "0"
-  document.getElementById("x5").style.zIndex = "0"
-  document.getElementById("x6").style.zIndex = "0"
-  document.getElementById("x7").style.zIndex = "0"
-  document.getElementById("x8").style.zIndex = "0"
-  document.getElementById("x9").style.zIndex = "0"
-  modal4.style.display = "none";
-}
-
-// JODO DO FLIPERAMA
-var modal5 = document.getElementById('voltar_flip1');
-var btn5 = document.getElementById("btn_voltar_flip1");
-var close5 = document.getElementById("close_flip1");
-var sair5 = document.getElementById("sair_flip1");
-
-btn5.onclick = function() {
-  modal5.style.display = "block";
-}
-
-close5.onclick = function() {
-  modal5.style.display = "none";
-}
-
-sair5.onclick = function() {
-  trocarTela('#tela_menu', 'bg_menu');
-  modal5.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal5.style.display = "none";
-  }
-}
+//MODAL VOLTAR CIDADE
+$("#butt_voltar_cidade").click(function(){
+  $("#modal_voltar_cidade").show();
+});
+$("#voltar_cidade").click(function(){
+  trocarTela('#tela_cidade', 'bg_menu');
+  $("#modal_voltar_cidade").hide();
+});
+$("#close_voltar_cidade").click(function(){
+  $("#modal_voltar_cidade").hide();  
+});

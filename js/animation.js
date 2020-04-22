@@ -11,7 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 (function() {
 	// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 	// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
@@ -42,30 +41,25 @@
         };
 }());
 
-function anima(num) {
+function anima(pessoa, acao, w, h, nof, local, canvas_id, metodo) {
 
-	att(num);
-
+	var stop = false;
 	var coin,
 		coinImage,
-		local,
-		w,
-		h,
-		nof,
 		c,
-		tpf,
-		canvas;					
+		tpf;					
 
 	function gameLoop () {
-	
-	  window.requestAnimationFrame(gameLoop);
-
-	  coin.update();
-	  coin.render();
+		if(!stop){
+		  window.requestAnimationFrame(gameLoop);
+		  coin.update();
+		  coin.render();
+		}else{
+			metodo();
+		}
 	}
 	
 	function sprite (options) {
-	
 		var that = {},
 			frameIndex = 0,
 			tickCount = 0,
@@ -80,25 +74,14 @@ function anima(num) {
 		that.update = function () {
 
             tickCount += 1;
-
             if (tickCount > ticksPerFrame) {
 				tickCount = 0;
                 // If the current frame index is in range
                 if (frameIndex < numberOfFrames - 1) {	
                     // Go to the next frame
                     frameIndex += 1;
-                    if (num == 1 || num == 2 || num == 3) {
-                    	if(frameIndex == 4){
-                    		sleep(700);
-                    	}
-                    }else if(num == 4){
-                    	if(frameIndex == 1){
-                    		sleep(700);
-                    	}
-                    }
                 } else {
-                	//Aqui que rola o loop
-                    // frameIndex = 0;
+                    stop = true;
                 }
             }
         };
@@ -123,107 +106,11 @@ function anima(num) {
 		
 		return that;
 	}
-	if (num < 4) {
-		c = "animation";
-	}else if (num == 4) {
-		c = "animation1";
-	}else if (num == 5) {
-		c = "animation2";
-	}else if (num == 6) {
-		c = "animation3";
-	}else if (num == 7) {
-		c = "animation5";
-	}else if (num == 8) {
-		c = "animation4";
-	}else if (num == 9) {
-		c = "animation6";
-	}else if (num == 10) {
-		c = "animation7";
-	}else if (num == 11) {
-		c = "animation8";
-	}else if (num == 12) {
-		c = "animation9";
-	}
 	// Get canvas
-	canvas = document.getElementById(c);
-	if (num == 1) {
-		canvas.width = 416;
-		canvas.height = 516;
-	}else{
-		canvas.width = 508;
-		canvas.height = 516;
-	}
+	var canvas = document.getElementById(canvas_id);
 	
 	// Create sprite sheet
-	coinImage = new Image();	
-	
-	if (num == 0) {
-		local = "./assets/images/animacoes/oisheet.png";
-		w = 2032;
-		h = 516;
-		nof = 4;
-	}else if (num == 1) {
-		local = "./assets/images/animacoes/bomdiasheet.png";
-		w = 6101;
-		h = 516;
-		nof = 12;
-	}else if (num == 2) {
-		local = "./assets/images/animacoes/boatardesheet.png";
-		w = 6096;
-		h = 516;
-		nof = 12;
-	}else if (num == 3) {
-		local = "./assets/images/animacoes/boanoitesheet.png";
-		w = 6604;
-		h = 516;
-		nof = 13;
-	}else if (num == 4) {
-		local = "./assets/images/animacoes/maçasheet.png";
-		w = 3048;
-		h = 516;
-		nof = 6;
-	}else if (num == 5) {
-		local = "./assets/images/animacoes/ovosheet.png";
-		w = 3556;
-		h = 516;
-		nof = 7;
-	}else if (num == 6) {
-		local = "./assets/images/animacoes/aguasheet.png";
-		w = 7112;
-		h = 516;
-		nof = 14;
-	}else if (num == 7) {
-		local = "./assets/images/animacoes/chocolatesheet.png";
-		w = 7112;
-		h = 516;
-		nof = 14;
-	}else if (num == 8) {
-		local = "./assets/images/animacoes/queijosheet.png";
-		w = 4572;
-		h = 516;
-		nof = 9;
-	}else if (num == 9) {
-		local = "./assets/images/animacoes/amerelosheet.png";
-		w = 2032;
-		h = 516;
-		nof = 4;
-	}else if (num == 10) {
-		local = "./assets/images/animacoes/verdesheet.png";
-		w = 2032;
-		h = 516;
-		nof = 4;
-	}else if (num == 11) {
-		local = "./assets/images/animacoes/azulsheet.png";
-		w = 3048;
-		h = 516;
-		nof = 6;
-	}else if (num == 12) {
-		local = "./assets/images/animacoes/vermelhosheet.png";
-		w = 3556;
-		h = 516;
-		nof = 7;
-	}
-
+	coinImage = new Image();
 	// Create sprite
 	coin = sprite({
 		context: canvas.getContext("2d"),
@@ -237,82 +124,4 @@ function anima(num) {
 	// Load sprite sheet
 	coinImage.addEventListener("load", gameLoop);
 	coinImage.src = local;
-
-}
-
-function sleep(miliseconds) {
-   var currentTime = new Date().getTime();
-
-   while (currentTime + miliseconds >= new Date().getTime()) {
-   }
-}
-
-function att(n){
-	aaa = n;
-}
-
-function aprendi(){
-	if (aaa == 4) {
-    	$("#animation1").hide();
-    	$("#item2").show();
-		$("#item3").show();
-		$("#item4").show();
-		$("#item5").show();
-    }else if (aaa == 5) {
-    	$("#animation2").hide();
-    	$("#item1").show();
-		$("#item3").show();
-		$("#item4").show();
-		$("#item5").show();
-    }else if (aaa == 6) {
-    	$("#animation3").hide();
-    	$("#item1").show();
-		$("#item2").show();
-		$("#item4").show();
-		$("#item5").show();
-    }else if (aaa == 7) {
-    	$("#animation5").hide();
-    	$("#item1").show();
-		$("#item2").show();
-		$("#item3").show();
-		$("#item5").show();
-    }else if (aaa == 8) {
-    	$("#animation4").hide();
-    	$("#item1").show();
-		$("#item2").show();
-		$("#item3").show();
-		$("#item4").show();
-    }
-}
-
-function aprendi_fli() {
-	if (aaa == 9) {
-    	$("#animation6").hide();
-    	$("#animation7").hide();
-		$("#animation8").hide();
-		$("#animation9").hide();
-    	$("#viewport").show();
-    	$("#cores").show();
-    }else if (aaa == 10) {
-    	$("#animation7").hide();
-    	$("#animation6").hide();
-    	$("#animation8").hide();
-		$("#animation9").hide();
-    	$("#viewport").show();
-    	$("#cores").show();
-    }else if (aaa == 11) {
-    	$("#animation7").hide();
-    	$("#animation6").hide();
-    	$("#animation8").hide();
-    	$("#animation9").hide();
-    	$("#viewport").show();
-    	$("#cores").show();
-    }else if (aaa == 12) {
-    	$("#animation7").hide();
-    	$("#animation6").hide();
-    	$("#animation8").hide();
-    	$("#animation9").hide();
-    	$("#viewport").show();
-    	$("#cores").show();
-    }
 }
