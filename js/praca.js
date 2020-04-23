@@ -14,6 +14,8 @@ $("#reiniciar_jogo").click(function(){
 	fase_escola_completa = false;
 	fase_liberada = false;
 	$("#modal_reiniciar_jogo").hide();
+	$("#nome").val('');
+	$("#idade").val('');
 });
 function teclado_libras_apagar(campo){
 	if(campo == 'nome'){

@@ -1,9 +1,9 @@
-var fase_fliperama_completa = false;
-var fase_supermercado_completa = false;
-var fase_casa_completa = false;
-var fase_sorveteria_completa = false;
-var fase_escola_completa = false;
-var fases_completas = false;
+var fase_fliperama_completa = true;
+var fase_supermercado_completa = true;
+var fase_casa_completa = true;
+var fase_sorveteria_completa = true;
+var fase_escola_completa = true;
+var fases_completas = true;
 $(document).ready(function(){
     $("#escola").mouseover(function(){
         $("#pin_escola").css("display", "block");
