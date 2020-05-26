@@ -19,7 +19,7 @@
 // ------------------------------------------------------------------------
 
 // The function gets called when the window is fully loaded
-
+var fim_fliperama = false;
 var score = 0;
 function reiniciar_fliperama(){
     score = 0;
@@ -133,14 +133,19 @@ window.onload = function() {
         render();
     }
     
+    var trocaJogador = true;
+    var contadorTempo = 3;
+    var pontuacao1 = 0;
+    var pontuacao2 = 0;
+
     // Update the game state
     function update(tframe) {
         var dt = (tframe - lastframe) / 1000;
         lastframe = tframe;
+        contadorTempo++;
         
         // Update the fps counter
         updateFps(dt);
-        
         if (gamestate == gamestates.ready) {
             // Game is ready for player input
             
@@ -172,7 +177,7 @@ window.onload = function() {
         } else if (gamestate == gamestates.resolve) {
             // Game is busy resolving and animating clusters
             animationtime += dt;
-            
+            contadorTempo = 0;
             if (animationstate == 0) {
                 // Clusters need to be found and removed
                 if (animationtime > animationtimetotal) {
@@ -183,10 +188,36 @@ window.onload = function() {
                         for (var i=0; i<clusters.length; i++) {
                             if(clusters[i].length == 3){
                                 score += 100;   
+                                if(multi_jogadores){
+                                    var pontos = $("."+jogador_atual).find("p:last-child").html();
+                                    pontos = parseInt(pontos)+100;
+                                    if(pontos < 1000){
+                                        pontos = "0"+pontos;
+                                    }
+                                    $("."+jogador_atual).find("p:last-child").html(pontos);
+                                }
+
                             }else if(clusters[i].length == 4){
                                 score += 125;   
+                                if(multi_jogadores){
+                                    var pontos = $("."+jogador_atual).find("p:last-child").html();
+                                    pontos = parseInt(pontos)+125;
+                                    if(pontos < 1000){
+                                        pontos = "0"+pontos;
+                                    }
+                                    $("."+jogador_atual).find("p:last-child").html(pontos);
+                                }
                             }else{
                                 score += 150;
+
+                                if(multi_jogadores){
+                                    var pontos = $("."+jogador_atual).find("p:last-child").html();
+                                    pontos = parseInt(pontos)+150;
+                                    if(pontos < 1000){
+                                        pontos = "0"+pontos;
+                                    }
+                                    $("."+jogador_atual).find("p:last-child").html(pontos);
+                                }
                             }
                             // Add extra points for longer clusters
                         }
@@ -259,13 +290,20 @@ window.onload = function() {
             findMoves();
             findClusters();
         }
-        if (score >= 2000) {
-            $("#fim_fliper").show();
-            fase_fliperama_completa = true;
+        pontuacao1 = parseInt($(".jogador1 p:last-child").html());
+        pontuacao2 = parseInt($(".jogador2 p:last-child").html());
+        if ((score >= 100 && !multi_jogadores) || (multi_jogadores && (pontuacao1 >= 100 || pontuacao2 >= 100 ))) {
             $(".cor").hide();
             $("#viewport").hide();
             $("#score_cc_text").hide(); 
             score = 0;
+            if(!fim_fliperama){
+                fim_fliperama = true;
+                falas();
+            }
+        }
+        if(contadorTempo == 2){
+            alterarJogador();
         }
     }
     

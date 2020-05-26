@@ -3,6 +3,7 @@ var fase_supermercado_completa = false;
 var fase_casa_completa = false;
 var fase_sorveteria_completa = false;
 var fase_escola_completa = false;
+var fase_ambiental_completa = false;
 var fases_completas = false;
 $(document).ready(function(){
     $("#escola").mouseover(function(){

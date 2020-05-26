@@ -1,5 +1,5 @@
 var array_letra;
-
+var fim_escola = false;
 $(document).ready(function(){
 	//array que armazenará os objetos com src e id de 1 a 8
 	var images = [];
@@ -139,13 +139,19 @@ $(document).ready(function(){
 					
 					//soma um ao contador de acertos
 					matches++;
+					if(multi_jogadores && modo_jogo == "versus"){
+						var pontos = $("."+jogador_atual).find("p:last-child").html();
+						pontos = parseInt(pontos);
+						$("."+jogador_atual).find("p:last-child").html(pontos+1);
+					}
 					
 					//verifica se o contador de acertos chegou a 8
 					if(matches >= 5){
 						//caso haja 8 acertos, chama a função que finaliza o jogo
+						fim_escola = true;
 						gameOver();
 					}
-				} 
+				}
 			} 
 		} else {
 			//em caso haver duas cartas no array de cartas viradas (terceiro click) remove a classe flipped das cartas no array de cartas viradas
@@ -156,6 +162,7 @@ $(document).ready(function(){
 			
 			//limpa o array de cartas viradas
 			flippedCards = [];
+			alterarJogador();
 		}
 	}
 	
@@ -209,13 +216,9 @@ $(document).ready(function(){
 	//função de fim do jogo
 	function gameOver(){
 		//joga a mensagem de fim do jogo para o plano da frente
-		modal.style.zIndex = "99";
-		fase_escola_completa = true;
-		
-		//adiciona o evento click à imagem de game over
-		modal.addEventListener('click',function(){
+		falas();
+		$("#butt_voltar_cidade").hide();
 			//chama a função que reinicia o jogo
 			startGame();
-		},false);
 	}
 }());

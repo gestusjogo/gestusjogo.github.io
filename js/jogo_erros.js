@@ -11,10 +11,18 @@ $("#x7").hide();
 $("#x8").hide();
 $("#x9").hide();
 
-var fim_erros = document.getElementById("fim_erros");
+var fim_sorveteria = false;
+var segundos = 0;
+var contar = false;
 
-fim_erros.style.display = "none"
-
+var tempo1 = 0;
+var tempo2 = 0;
+window.setInterval(function() {	
+	if(contar){
+		segundos++;
+		console.log(segundos);
+	}
+},1000);
 
 function erro_aqui(erro) {
 	var modal = document.getElementById('exibir_numero');
@@ -35,8 +43,31 @@ function erro_aqui(erro) {
 		document.getElementById("imagem_erro").src = "./assets/images/numeros/coloridos/" + nome +".png";
 		document.getElementById("numero_erro").innerHTML = nome;
   		modal.style.display = "block";
-  		if(erros_encontrados.length == 10) {
-  			sair = true;
+  		if(erros_encontrados.length == 2) {
+  			if(!multi_jogadores)
+  				sair = true;
+  			contar = false;
+  			if(jogador_atual.includes('1')){
+  				tempo1 = segundos;
+  				erros_encontrados = [];
+  				$("#x0").hide();
+  				$("#x1").hide();
+  				$("#x2").hide();
+  				$("#x3").hide();
+  				$("#x4").hide();
+  				$("#x5").hide();
+  				$("#x6").hide();
+  				$("#x7").hide();
+  				$("#x8").hide();
+  				$("#x9").hide();
+  				alterarJogador();
+  				falas();
+  				segundos = 0;
+  			}else if(jogador_atual.includes('2')){
+  				tempo2 = segundos;
+  				fim_sorveteria = true;
+  				falas();
+  			}
 		}
 	}
 
@@ -51,22 +82,17 @@ function erro_aqui(erro) {
 		modal.style.display = "none";
 		if(sair == true){
 			fimerros();
+			sair = false;
+			erros_encontrados = [];
 			fase_sorveteria_completa = true;
+			$("#fim_jogo").show();
+			$("#butt_voltar_cidade").hide();
 		}
 	}
 }
 
 function fimerros() {
-	//tela_sorveteria.classList.remove("bg_fim");
-	fim_erros.style.display = "block"
-	document.getElementById("x0").style.zIndex = "-1"
-	document.getElementById("x1").style.zIndex = "-1"
-	document.getElementById("x2").style.zIndex = "-1"
-	document.getElementById("x3").style.zIndex = "-1"
-	document.getElementById("x4").style.zIndex = "-1"
-	document.getElementById("x5").style.zIndex = "-1"
-	document.getElementById("x6").style.zIndex = "-1"
-	document.getElementById("x7").style.zIndex = "-1"
-	document.getElementById("x8").style.zIndex = "-1"
-	document.getElementById("x9").style.zIndex = "-1"
+	for(var i = 0; i < 10; i++){
+		$("#x"+i).hide();
+	}
 }

@@ -55,7 +55,7 @@
 			}else{
 				if(!finalizado){
 					$('#lixo').hide();	
-					console.log(pontuacao);
+					fase_ambiental_completa = true;
 					finalizado = !finalizado;
 					ambiental_parte = 'final';
 					falas();
@@ -107,7 +107,7 @@
 			distancia_inicio = divisor-getInfo('lixo','left');
 			distancia_fim = (divisor-(getInfo('lixo','left')+40))*-1;
 			if(distancia_inicio < distancia_fim){
-				var val = (movimento_lateral+distancia_inicio)+'px';
+				var val = (movimento_lateral+distancia_inicio + 1)+'px';
 				$("#lixo").css({'left' : val});
 			}else{
 				var val = (movimento_lateral-distancia_fim)+'px';
