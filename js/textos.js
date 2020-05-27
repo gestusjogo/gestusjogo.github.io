@@ -175,10 +175,6 @@ var dialogo = {
 			},
 			"juntos" : {
 				"inicio" : [
-					"Da última vez que vim aqui tirei uma foto.",
-					"Tentem achar 10 objetos que faltam aqui",
-					"Cliquem no local onde o item deveria estar.",
-					"Para cada objeto vou lhes ensinar o sinal do número",
 					"Vamos ver em quanto tempo vocês encontram todos?",
 					"Vamos lá!"
 				],
