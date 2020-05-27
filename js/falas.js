@@ -112,7 +112,7 @@ function falas(){
 		}
 		break;
 		case '#tela_sorveteria':
-		if(!fase_sorveteria_completa){
+		if(!fase_sorveteria_completa || repetir_fase){
 			if(multi_jogadores){
 				switch(modo_jogo){
 					case "versus" : 
@@ -120,7 +120,7 @@ function falas(){
 							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
 								reiniciar_contador_fala();
 								fase_sorveteria_completa = true;
-								repetir_sorveteria = false;
+								repetir_fase = false;
 								trocarTela('#tela_cidade','bg_menu');
 							}else{
 								$("#dialogo").show();
@@ -161,14 +161,14 @@ function falas(){
 						}
 					break;
 					case "juntos" : 
-						if(fim_fliperama){
+						if(fim_sorveteria){
 							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
 								reiniciar_contador_fala();
 								$("#butt_pular").hide();
 								$(".som").show();
+								fase_sorveteria_completa = true;
+								repetir_fase = false;
 								trocarTela('#tela_cidade','bg_menu');
-								fase_fliperama_completa = true;
-								repetir_fliperama = false;
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
@@ -181,9 +181,7 @@ function falas(){
 								reiniciar_contador_fala();
 								$("#butt_pular").hide();
 								$(".som").show();
-								reiniciar_fliperama();
 								$(".erros").show();
-								trocarTela("#tela_fliperama2",'bg_fliperama2');
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
@@ -221,6 +219,11 @@ function falas(){
 				reiniciar_contador_fala();
 				$("#butt_pular").hide();
 				$(".som").show();
+				repetir_fase = true;
+				fim_sorveteria = false;
+				if(multi_jogadores){
+					$('#modal_modo_jogo').show();
+				}
 			}else{
 				$("#dialogo").show();
 				$("#fala").html(dialogo[multi_jogadores]['repetir'][index_dialogo]);
@@ -229,7 +232,7 @@ function falas(){
 		}
 		break;
 		case '#tela_fliperama':
-		if(!fase_fliperama_completa || repetir_fliperama){
+		if(!fase_fliperama_completa || repetir_fase){
 			if(multi_jogadores){
 				switch(modo_jogo){
 					case "versus" : 
@@ -241,7 +244,7 @@ function falas(){
 								$(".pontuacao").removeClass("pontuacao_fliperama");
 								trocarTela('#tela_cidade','bg_menu');
 								fase_fliperama_completa = true;
-								repetir_fliperama = false;
+								repetir_fase = false;
 							}else{
 								$("#dialogo").show();
 								$(".pontuacao").hide();
@@ -283,7 +286,7 @@ function falas(){
 								$(".som").show();
 								trocarTela('#tela_cidade','bg_menu');
 								fase_fliperama_completa = true;
-								repetir_fliperama = false;
+								repetir_fase = false;
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
@@ -334,7 +337,7 @@ function falas(){
 				reiniciar_contador_fala();
 				$("#butt_pular").hide();
 				$(".som").show();
-				repetir_fliperama = true;
+				repetir_fase = true;
 				fim_fliperama = false;
 				$(".pontuacao .jogador1 p:last-child, .pontuacao .jogador2 p:last-child ").html("0000");
 				if(multi_jogadores){
@@ -350,7 +353,7 @@ function falas(){
 		}
 		break;
 		case '#tela_escola':
-		if(!fase_escola_completa || repetir_escola){
+		if(!fase_escola_completa || repetir_fase){
 			if(multi_jogadores){
 				switch(modo_jogo){
 					case "versus" : 
@@ -362,7 +365,7 @@ function falas(){
 								$(".pontuacao").removeClass("pontuacao_escola");
 								trocarTela('#tela_cidade','bg_menu');
 								fase_escola_completa = true;
-								repetir_escola = false;
+								repetir_fase = false;
 							}else{
 								$("#dialogo").show();
 								$(".pontuacao").hide();
@@ -406,7 +409,7 @@ function falas(){
 								$(".pontuacao").removeClass("pontuacao_escola");
 								trocarTela('#tela_cidade','bg_menu');
 								fase_escola_completa = true;
-								repetir_escola = false;
+								repetir_fase = false;
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
@@ -464,7 +467,7 @@ function falas(){
 				reiniciar_contador_fala();
 				$("#butt_pular").hide();
 				$(".som").show();
-				repetir_escola = true;
+				repetir_fase = true;
 				fim_escola = false;
 			}else{
 				$("#dialogo").show();

@@ -183,7 +183,9 @@ var dialogo = {
 					"Vamos lá!"
 				],
 				"resultado" : [
-					"Mandaram bem! Vocês conseguiram encontrar todos os itens em "
+					"Mandaram bem! Vocês conseguiram encontrar todos os itens!",
+					"Temos outros lugares para explorar!",
+					"Vamos lá!"
 				]
 			}
 		},

@@ -30,20 +30,26 @@ function erro_aqui(erro) {
 		  modal.style.display = "block";
 		  contar = false;
   		if(erros_encontrados.length == 2) {
+			erros_encontrados = [];
+			$(".imagem_erro").hide();
   			if(!multi_jogadores)
-  				sair = true;
-  			if(jogador_atual.includes('1')){
-  				tempo1 = segundos;
-  				erros_encontrados = [];
-  				$(".imagem_erro").hide();
-  				alterarJogador();
-  				falas();
-  				segundos = 0;
-  			}else if(jogador_atual.includes('2')){
-  				tempo2 = segundos;
-  				fim_sorveteria = true;
-  				falas();
-  			}
+				  sair = true;
+			if(modo_jogo == "versus"){
+				if(jogador_atual.includes('1')){
+					tempo1 = segundos;
+					alterarJogador();
+					falas();
+					segundos = 0;
+				}else if(jogador_atual.includes('2')){
+					tempo2 = segundos;
+					fim_sorveteria = true;
+					falas();
+					segundos = 0;
+			  }
+			}else{
+				fim_sorveteria = true;
+				falas();
+			}
 		}
 	}
 

@@ -21,8 +21,7 @@ var multi_jogadores = false;
 var jogador_atual = 'jogador1';
 var mostrarResultado = false;
 var modo_jogo = "";
-var repetir_escola = false;
-var repetir_fliperama = false;
+var repetir_fase = false;
 var saudacoes = {
 	'oi' : false,
 	'bom_dia' : false,
@@ -90,13 +89,13 @@ function pular_falas(){
 		break;
 		case "#tela_fliperama":
 			if(multi_jogadores){
-				repetir_fliperama = true;
+				repetir_fase = true;
 				switch(modo_jogo){
 					case "versus" :
 						if(fim_fliperama){
 							$(".pontuacao").removeClass("pontuacao_fliperama");
 							fase_fliperama_completa = true;
-							repetir_fliperama = false;
+							repetir_fase = false;
 							fim_fliperama = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
@@ -110,7 +109,7 @@ function pular_falas(){
 					case "juntos" :
 						if(fim_fliperama){
 							fase_fliperama_completa = true;
-							repetir_fliperama = false;
+							repetir_fase = false;
 							fim_fliperama = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
@@ -119,7 +118,7 @@ function pular_falas(){
 						}
 					break;
 					default:
-						repetir_fliperama = true;
+						repetir_fase = true;
 						fim_fliperama = false;
 						$(".pontuacao .jogador1 p:last-child, .pontuacao .jogador2 p:last-child ").html("0000");
 						$('#modal_modo_jogo').show();
@@ -131,13 +130,13 @@ function pular_falas(){
 		break;
 		case "#tela_escola":
 			if(multi_jogadores){
-				repetir_escola = true;
+				repetir_fase = true;
 				switch(modo_jogo){
 					case "versus" :
 						if(fim_escola){
 							$(".pontuacao").removeClass("pontuacao_escola");
 							fase_escola_completa = true;
-							repetir_escola = false;
+							repetir_fase = false;
 							fim_escola = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
@@ -150,7 +149,7 @@ function pular_falas(){
 					case "juntos" :
 						if(fim_escola){
 							fase_escola_completa = true;
-							repetir_escola = false;
+							repetir_fase = false;
 							fim_escola = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
@@ -181,10 +180,12 @@ function trocarTela(tela,bg){
 	$(".pontuacao").hide();
 	$(tela_atual).hide();
 	$("#tela_fliperama2").hide();
-	console.log(tela);
 	if(tela != "#tela_fliperama2"){
 		tela_atual = tela;
 		modo_jogo = null;
+		repetir_fase = false;
+		erros_encontrados = [];
+		$(".imagem_erro").hide();
 		if(jogador_atual.includes('2')){
 			alterarJogador();
 		}
