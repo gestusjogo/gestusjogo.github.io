@@ -79,10 +79,14 @@ $("#close_voltar_cidade").click(function(){
 $("#juntos").click(function(){
   $("#modal_modo_jogo").hide();
   modo_jogo = "juntos";
+  repetir_fase = true;
+  fim_fase = false;
   falas();
 });
 $("#versus").click(function(){
   $("#modal_modo_jogo").hide();
   modo_jogo = "versus";
+  repetir_fase = true;
+  fim_fase = false;
   falas();
 });

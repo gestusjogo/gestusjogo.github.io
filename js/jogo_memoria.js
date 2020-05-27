@@ -1,5 +1,4 @@
 var array_letra;
-var fim_escola = false;
 $(document).ready(function(){
 	//array que armazenará os objetos com src e id de 1 a 8
 	var images = [];
@@ -148,7 +147,7 @@ $(document).ready(function(){
 					//verifica se o contador de acertos chegou a 8
 					if(matches >= 5){
 						//caso haja 8 acertos, chama a função que finaliza o jogo
-						fim_escola = true;
+						fim_fase = true;
 						gameOver();
 					}
 				}

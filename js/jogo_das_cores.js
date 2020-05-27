@@ -19,7 +19,6 @@
 // ------------------------------------------------------------------------
 
 // The function gets called when the window is fully loaded
-var fim_fliperama = false;
 var score = 0;
 function reiniciar_fliperama(){
     score = 0;
@@ -297,8 +296,8 @@ window.onload = function() {
             $("#viewport").hide();
             $("#score_cc_text").hide(); 
             score = 0;
-            if(!fim_fliperama){
-                fim_fliperama = true;
+            if(!fim_fase){
+                fim_fase = true;
                 falas();
             }
         }

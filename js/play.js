@@ -22,6 +22,7 @@ var jogador_atual = 'jogador1';
 var mostrarResultado = false;
 var modo_jogo = "";
 var repetir_fase = false;
+var fim_fase = false;
 var saudacoes = {
 	'oi' : false,
 	'bom_dia' : false,
@@ -92,11 +93,11 @@ function pular_falas(){
 				repetir_fase = true;
 				switch(modo_jogo){
 					case "versus" :
-						if(fim_fliperama){
+						if(fim_fase){
 							$(".pontuacao").removeClass("pontuacao_fliperama");
 							fase_fliperama_completa = true;
 							repetir_fase = false;
-							fim_fliperama = false;
+							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
 							reiniciar_fliperama(); 
@@ -107,10 +108,10 @@ function pular_falas(){
 						}
 					break;
 					case "juntos" :
-						if(fim_fliperama){
+						if(fim_fase){
 							fase_fliperama_completa = true;
 							repetir_fase = false;
-							fim_fliperama = false;
+							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
 							reiniciar_fliperama(); 
@@ -119,7 +120,7 @@ function pular_falas(){
 					break;
 					default:
 						repetir_fase = true;
-						fim_fliperama = false;
+						fim_fase = false;
 						$(".pontuacao .jogador1 p:last-child, .pontuacao .jogador2 p:last-child ").html("0000");
 						$('#modal_modo_jogo').show();
 				}
@@ -133,11 +134,11 @@ function pular_falas(){
 				repetir_fase = true;
 				switch(modo_jogo){
 					case "versus" :
-						if(fim_escola){
+						if(fim_fase){
 							$(".pontuacao").removeClass("pontuacao_escola");
 							fase_escola_completa = true;
 							repetir_fase = false;
-							fim_escola = false;
+							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
 							$("#game").show();
@@ -147,10 +148,10 @@ function pular_falas(){
 						}
 					break;
 					case "juntos" :
-						if(fim_escola){
+						if(fim_fase){
 							fase_escola_completa = true;
 							repetir_fase = false;
-							fim_escola = false;
+							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
 							$("#game").show();
@@ -161,6 +162,34 @@ function pular_falas(){
 				}
 			}else{
 				$("#game").show();
+			}
+		break;
+		case "#tela_sorveteria":
+			if(multi_jogadores){
+				switch(modo_jogo){
+					case "versus" :
+						if(fim_fase){
+							fase_sorveteria_completa = true;
+							repetir_fase = false;
+							trocarTela('#tela_cidade','bg_menu');
+						}else{
+							contar = true;
+							window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
+							$(".erros").show();
+						}
+					break;
+					case "juntos" :
+						if(fim_fase){
+							fase_sorveteria_completa = true;
+							repetir_fase = false;
+							trocarTela('#tela_cidade','bg_menu');
+						}else{
+							$(".erros").show();
+						}
+					break;
+					default:
+						$('#modal_modo_jogo').show();
+				}
 			}
 		break;
 		case "#tela_supermercado":
@@ -181,9 +210,12 @@ function trocarTela(tela,bg){
 	$(tela_atual).hide();
 	$("#tela_fliperama2").hide();
 	if(tela != "#tela_fliperama2"){
+		contar = false;
+		segundos = 0;
 		tela_atual = tela;
 		modo_jogo = null;
 		repetir_fase = false;
+		fim_fase = false;
 		erros_encontrados = [];
 		$(".imagem_erro").hide();
 		if(jogador_atual.includes('2')){

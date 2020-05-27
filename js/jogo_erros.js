@@ -1,8 +1,6 @@
 var erros_encontrados = [];
 var sair = false; 
 $(".imagem_erro").hide();
-
-var fim_sorveteria = false;
 var segundos = 0;
 var contar = false;
 
@@ -42,12 +40,12 @@ function erro_aqui(erro) {
 					segundos = 0;
 				}else if(jogador_atual.includes('2')){
 					tempo2 = segundos;
-					fim_sorveteria = true;
+					fim_fase = true;
 					falas();
 					segundos = 0;
 			  }
 			}else{
-				fim_sorveteria = true;
+				fim_fase = true;
 				falas();
 			}
 		}
