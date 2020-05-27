@@ -1,15 +1,6 @@
 var erros_encontrados = [];
 var sair = false; 
-$("#x0").hide();
-$("#x1").hide();
-$("#x2").hide();
-$("#x3").hide();
-$("#x4").hide();
-$("#x5").hide();
-$("#x6").hide();
-$("#x7").hide();
-$("#x8").hide();
-$("#x9").hide();
+$(".imagem_erro").hide();
 
 var fim_sorveteria = false;
 var segundos = 0;
@@ -17,13 +8,7 @@ var contar = false;
 
 var tempo1 = 0;
 var tempo2 = 0;
-window.setInterval(function() {	
-	if(contar){
-		segundos++;
-		console.log(segundos);
-	}
-},1000);
-
+window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
 function erro_aqui(erro) {
 	var modal = document.getElementById('exibir_numero');
 	var fechar = document.getElementById("close_numero");
@@ -42,24 +27,15 @@ function erro_aqui(erro) {
 		var nome = erros_encontrados.length;
 		document.getElementById("imagem_erro").src = "./assets/images/numeros/coloridos/" + nome +".png";
 		document.getElementById("numero_erro").innerHTML = nome;
-  		modal.style.display = "block";
+		  modal.style.display = "block";
+		  contar = false;
   		if(erros_encontrados.length == 2) {
   			if(!multi_jogadores)
   				sair = true;
-  			contar = false;
   			if(jogador_atual.includes('1')){
   				tempo1 = segundos;
   				erros_encontrados = [];
-  				$("#x0").hide();
-  				$("#x1").hide();
-  				$("#x2").hide();
-  				$("#x3").hide();
-  				$("#x4").hide();
-  				$("#x5").hide();
-  				$("#x6").hide();
-  				$("#x7").hide();
-  				$("#x8").hide();
-  				$("#x9").hide();
+  				$(".imagem_erro").hide();
   				alterarJogador();
   				falas();
   				segundos = 0;
@@ -80,6 +56,10 @@ function erro_aqui(erro) {
 
 	fechar.onclick = function() {
 		modal.style.display = "none";
+		if($("#dialogo").css('display') != "block"){
+			contar = true;
+			window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
+		}
 		if(sair == true){
 			fimerros();
 			sair = false;

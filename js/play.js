@@ -180,10 +180,14 @@ function trocarTela(tela,bg){
 	fecharModalAnimacao();  
 	$(".pontuacao").hide();
 	$(tela_atual).hide();
+	$("#tela_fliperama2").hide();
 	console.log(tela);
 	if(tela != "#tela_fliperama2"){
 		tela_atual = tela;
 		modo_jogo = null;
+		if(jogador_atual.includes('2')){
+			alterarJogador();
+		}
 	}
 	index_dialogo = -1;
 	$(".marina_cutscene").hide();

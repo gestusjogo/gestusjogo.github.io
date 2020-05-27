@@ -157,11 +157,13 @@ var dialogo = {
 			"versus" : {
 				"jogador1" : [
 					"Vamos ver quem consegue encontrar todos os itens em menor tempo?",
-					"Vamos começar com o jogador 1! Jogador 2 vire de costas ou feche os olhos!",
+					"Não se esqueçam de imitar o sinal do número",
+					"Fiquem tranquilos, o tempo não é contado enquanto o sinal estiver na tela",
+					"Vamos começar com o jogador 1! Jogador 2 vire de costas ou feche os olhos. Sem espiar!",
 					"Vamos lá!"
 				],
 				"jogador2" : [
-					"Agora é a vez do jogador 2! Jogador 1 vire de costas ou feche os olhos!",
+					"Agora é a vez do jogador 2! Jogador 1 vire de costas ou feche os olhos. Sem espiar!",
 					"Vamos lá!"
 				],
 				"resultado" : [
@@ -253,7 +255,7 @@ var dialogo = {
 			"Nossa, tenho que comprar algumas coisas",
 			"Vou dar para vocês uma lista dos produtos.",
 			"Que tal acharmos esses itens no mercado?",
-			"É só clicar neles que eu ensino o sinal deles"
+			"É só clicar neles que eu ensino o sinal"
 		],
 		'#tela_escola' : {
 			"inicio" : [

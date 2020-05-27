@@ -127,6 +127,9 @@ function falas(){
 								$(".pontuacao").hide();
 								if(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo] == "resultado"){
 									var resultado = "";
+									tempo1 = parseInt(tempo1/1000) + 1;
+									tempo2 = parseInt(tempo2/1000) + 1;
+									console.log(tempo2);
 									if(tempo1 < tempo2){
 										resultado = ("Jogador 1 venceu com "+tempo1+" segundos! O Jogador 2 perdeu com "+tempo2+" segundos");
 									}else if(tempo2 < tempo1){
@@ -139,17 +142,21 @@ function falas(){
 									$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
 								}
 								$("#butt_pular").show();
+								$(".erros").hide();
 							}
 						}else{
 							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo][jogador_atual].length){
 								reiniciar_contador_fala();
 								$("#butt_pular").hide();
-				  				contar = true;
+								contar = true;
+								window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
+								$(".erros").show();
 								$(".som").show();
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo][jogador_atual][index_dialogo]);
 								$("#butt_pular").show();
+								$(".erros").hide();
 							}
 						}
 					break;
@@ -167,6 +174,7 @@ function falas(){
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
 								$("#game").hide();
 								$("#butt_pular").show();
+								$(".erros").hide();
 							}
 						}else{
 							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
@@ -174,11 +182,13 @@ function falas(){
 								$("#butt_pular").hide();
 								$(".som").show();
 								reiniciar_fliperama();
+								$(".erros").show();
 								trocarTela("#tela_fliperama2",'bg_fliperama2');
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
 								$("#butt_pular").show();
+								$(".erros").hide();
 							}
 						}
 					break;
@@ -192,13 +202,13 @@ function falas(){
 							$("#dialogo").show();
 							$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
 							$("#butt_pular").show();
+							$(".erros").hide();
 						}
 				}
 			}else{
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual].length){
 					reiniciar_contador_fala();
 					$("#butt_pular").hide();
-	  				contar = true;
 					$(".som").show();
 				}else{
 					$("#dialogo").show();
