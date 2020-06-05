@@ -197,7 +197,8 @@ function pular_falas(){
 		break;
 		case "#tela_parque":
 			if(multi_jogadores){
-				ambiental_reiniciar();
+				ambiental_reiniciar_multiplayer(1);
+				ambiental_reiniciar_multiplayer(2);
 				$("#jogo_ambiental_multiplayer").show();			
 			}else{
 				ambiental_reiniciar();
@@ -276,14 +277,14 @@ function trocarTela(tela,bg){
 		ambiental_parte = 'inicio';
 		ambiental_contador = 0;
 		if(multi_jogadores){
-			var pontuacao1_ambiental = {
+			var pontuacao_jogador1 = {
 				'vermelho' : 0,
 				'azul' : 0,
 				'amarelo' : 0,
 				'verde' : 0,
 				'erros' : 0
 			}
-			var pontuacao2_ambiental = {
+			var pontuacao_jogador2 = {
 				'vermelho' : 0,
 				'azul' : 0,
 				'amarelo' : 0,

@@ -548,10 +548,12 @@ function falas(){
 			if(!fase_ambiental_completa){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 					reiniciar_contador_fala();
-					ambiental_reiniciar();
 					if(multi_jogadores){
+						ambiental_reiniciar_multiplayer(1);
+						ambiental_reiniciar_multiplayer(2);
 						$("#jogo_ambiental_multiplayer").show();
 					}else{
+						ambiental_reiniciar();
 						$("#jogo_ambiental").show();
 					}
 					ambiental_play = true;
