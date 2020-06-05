@@ -549,13 +549,21 @@ function falas(){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 					reiniciar_contador_fala();
 					ambiental_reiniciar();
-					$("#jogo_ambiental_multiplayer").show();
+					if(multi_jogadores){
+						$("#jogo_ambiental_multiplayer").show();
+					}else{
+						$("#jogo_ambiental").show();
+					}
 					ambiental_play = true;
 					$("#butt_pular").hide();
 					$(".som").show();
 				}else{
 					$("#dialogo").show();
-					$("#jogo_ambiental").hide();
+					if(multi_jogadores){
+						$("#jogo_ambiental_multiplayer").hide();
+					}else{
+						$("#jogo_ambiental").hide();
+					}
 					ambiental_play = false;
 					$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 					$("#butt_pular").show();
@@ -576,12 +584,20 @@ function falas(){
 			case 'erro_lixeira' :
 			if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 				reiniciar_contador_fala();
-				$("#jogo_ambiental").show();
+				if(multi_jogadores){
+					$("#jogo_ambiental_multiplayer").show();
+				}else{
+					$("#jogo_ambiental").show();
+				}
 				ambiental_parte = '';
 				ambiental_play = true;
 			}else{
 				$("#dialogo").show();
-				$("#jogo_ambiental").hide();
+				if(multi_jogadores){
+					$("#jogo_ambiental_multiplayer").hide();
+				}else{
+					$("#jogo_ambiental").hide();
+				}
 				ambiental_play = false;
 				$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 			}
@@ -589,12 +605,20 @@ function falas(){
 			case 'erro_chao' :
 			if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 				reiniciar_contador_fala();
-				$("#jogo_ambiental").show();
+				if(multi_jogadores){
+					$("#jogo_ambiental_multiplayer").show();
+				}else{
+					$("#jogo_ambiental").show();
+				}
 				ambiental_parte = '';
 				ambiental_play = true;
 			}else{
 				$("#dialogo").show();
-				$("#jogo_ambiental").hide();
+				if(multi_jogadores){
+					$("#jogo_ambiental_multiplayer").hide();
+				}else{
+					$("#jogo_ambiental").hide();
+				}
 				ambiental_play = false;
 				$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 			}
@@ -605,7 +629,11 @@ function falas(){
 				trocarTela('#tela_cidade','bg_menu');
 			}else{
 				$("#dialogo").show();
-				$("#jogo_ambiental").hide();
+				if(multi_jogadores){
+					$("#jogo_ambiental_multiplayer").hide();
+				}else{
+					$("#jogo_ambiental").hide();
+				}
 				ambiental_play = false;
 				$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 			}

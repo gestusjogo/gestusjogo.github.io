@@ -196,8 +196,13 @@ function pular_falas(){
 			$(".item_lista").show();
 		break;
 		case "#tela_parque":
-			ambiental_reiniciar();
-			$("#jogo_ambiental").show();
+			if(multi_jogadores){
+				ambiental_reiniciar();
+				$("#jogo_ambiental_multiplayer").show();			
+			}else{
+				ambiental_reiniciar();
+				$("#jogo_ambiental").show();
+			}
 			ambiental_play = true;
 		break;
 	}
@@ -270,14 +275,33 @@ function trocarTela(tela,bg){
 		$("#butt_voltar_cidade").show();
 		ambiental_parte = 'inicio';
 		ambiental_contador = 0;
-		var pontuacao = {
-			'vermelho' : 0,
-			'azul' : 0,
-			'amarelo' : 0,
-			'verde' : 0,
-			'erros' : 0
+		if(multi_jogadores){
+			var pontuacao1_ambiental = {
+				'vermelho' : 0,
+				'azul' : 0,
+				'amarelo' : 0,
+				'verde' : 0,
+				'erros' : 0
+			}
+			var pontuacao2_ambiental = {
+				'vermelho' : 0,
+				'azul' : 0,
+				'amarelo' : 0,
+				'verde' : 0,
+				'erros' : 0
+			}
+			$('#lixo1').show();	
+			$('#lixo2').show();	
+		}else{
+			var pontuacao = {
+				'vermelho' : 0,
+				'azul' : 0,
+				'amarelo' : 0,
+				'verde' : 0,
+				'erros' : 0
+			}
+			$('#lixo').show();	
 		}
-		$('#lixo').show();	
 		finalizado = false;
 		falas();
 	}

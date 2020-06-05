@@ -6,165 +6,171 @@ function addEvent(obj, evt, fn) {
         obj.attachEvent("on" + evt, fn);
     }
 }	
-var cor_lixo = '';
-var altura_lixeira = 0;
-var movimento_lateral = 0;
-var ambiental_contador = 0;
+var cor_lixo_jogador1 = '';
+var altura_lixeira_jogador1 = 0;
+var movimento_lateral_jogador1 = 0;
+var ambiental_contador_jogador1 = 0;
 var ambiental_parte = 'inicio';
 var lixos = ['vermelho','azul','amarelo','verde'];
-var lixeiras = {
+var lixeiras_jogador1 = {
     'lixeira_vermelho' : {
-        'min' : getInfo('lixeira_vermelho','left'),
-        'max' : getInfo('lixeira_vermelho','left') + 150
+        'min' : getInfo('.parte_jogador1 #lixeira_vermelho','left'),
+        'max' : getInfo('.parte_jogador1 #lixeira_vermelho','left') + 75
     },
     'lixeira_azul' : {
-        'min' : getInfo('lixeira_azul','left'),
-        'max' : getInfo('lixeira_azul','left') + 150
+        'min' : getInfo('.parte_jogador1 #lixeira_azul','left'),
+        'max' : getInfo('.parte_jogador1 #lixeira_azul','left') + 75
     },
     'lixeira_amarelo' : {
-        'min' : getInfo('lixeira_amarelo','left'),
-        'max' : getInfo('lixeira_amarelo','left') + 150
+        'min' : getInfo('.parte_jogador1 #lixeira_amarelo','left'),
+        'max' : getInfo('.parte_jogador1 #lixeira_amarelo','left') + 75
     },
     'lixeira_verde' : {
-        'min' : getInfo('lixeira_verde','left'),
-        'max' : getInfo('lixeira_verde','left') + 150
+        'min' : getInfo('.parte_jogador1 #lixeira_verde','left'),
+        'max' : getInfo('.parte_jogador1 #lixeira_verde','left') + 75
     }
 }
-var pontuacao = {
+var pontuacao_jogador1 = {
     'vermelho' : 0,
     'azul' : 0,
     'amarelo' : 0,
     'verde' : 0,
     'erros' : 0
 }
-var velocidade_caida = 2;
+var velocidade_caida_jogador1 = 2;
 ambiental_play = false;
 var finalizado = false;
 addEvent(window,"load",function(e) { 
     setInterval(function(){
-        if(ambiental_contador <= 4){
-            if(getInfo('lixo','marginTop') <= 350){
+        if(ambiental_contador_jogador1 <= 4){
+            if(getInfo('#lixo1','marginTop') <= 390){
                 if(ambiental_play){
-                    va = altura_lixeira+'px';
-                    $("#lixo").css({'marginTop' : va});
-                    altura_lixeira += velocidade_caida;
+                    va = altura_lixeira_jogador1+'px';
+                    $("#lixo1").css({'marginTop' : va});
+                    altura_lixeira_jogador1 += velocidade_caida_jogador1;
                 }
             }else{
-                ondeCaiu();	
+                ondeCaiu(1);	
             }
         }else{
             if(!finalizado){
-                $('#lixo').hide();	
+                $('#lixo1').hide();	
                 fase_ambiental_completa = true;
                 finalizado = !finalizado;
                 ambiental_parte = 'final';
                 falas();
             }
         }
-        velocidade_caida = 2;
+        velocidade_caida_jogador1 = 2;
     }, 24);
 });	
 $(document).keydown(function(event){
     if(event.which == 40){
-        velocidade_caida = 10;
+        velocidade_caida_jogador1 = 10;
     }
     if(event.which == 32){
         ambiental_play = !ambiental_play;
     }
     if(event.which == 39){
-        movimento_lateral += 20;
+        movimento_lateral_jogador1 += 20;
     }else if(event.which == 37){
-        movimento_lateral -= 20;
+        movimento_lateral_jogador1 -= 20;
     }
-    movimento_lateral = limitacoes(movimento_lateral);
-    va = movimento_lateral+'px';	
-    $("#lixo").animate({ left: va}, 10, function(){
-        semMeios();
+    movimento_lateral_jogador1 = limitacoes(1,movimento_lateral_jogador1);
+    va = movimento_lateral_jogador1+'px';	
+    $("#lixo1").animate({ left: va}, 10, function(){
+        semMeios(1);
     });		
 });
-function semMeios(){
+function semMeios(jogador){
     var inicio = 0;
     var fim = 0;
     var divisor = 0;
     var distancia_inicio = 0;
     var distancia_fim = 0;
-    for(var i = 0; i < lixos.length; i++){
-        if(getInfo('lixo','left') > lixeiras['lixeira_'+lixos[i]]['min'] && getInfo('lixo','left') < lixeiras['lixeira_'+lixos[i]]['max']){
-            inicio = lixos[i];
-            divisor = getInfo('lixeira_'+lixos[i],'left') + 150;
-            break;
+    if(jogador == 1){
+        for(var i = 0; i < lixos.length; i++){
+            if(getInfo('#lixo1','left') > lixeiras_jogador1['lixeira_'+lixos[i]]['min'] && getInfo('#lixo1','left') < lixeiras_jogador1['lixeira_'+lixos[i]]['max']){
+                inicio = lixos[i];
+                divisor = getInfo('.parte_jogador1 #lixeira_'+lixos[i],'left') + 75;
+                break;
+            }
         }
-    }
-    for(var i = 0; i < lixos.length; i++){
-        if((getInfo('lixo','left')+40) > lixeiras['lixeira_'+lixos[i]]['min'] && (getInfo('lixo','left')+40) < lixeiras['lixeira_'+lixos[i]]['max']){
-            fim = lixos[i];
-            if(inicio == 0)
-                divisor = getInfo('lixeira_'+lixos[i],'left');
-            break;
+        for(var i = 0; i < lixos.length; i++){
+            if((getInfo('#lixo1','left')+20) > lixeiras_jogador1['lixeira_'+lixos[i]]['min'] && (getInfo('#lixo1','left')+20) < lixeiras_jogador1['lixeira_'+lixos[i]]['max']){
+                fim = lixos[i];
+                if(inicio == 0)
+                    divisor = getInfo('.parte_jogador1 #lixeira_'+lixos[i],'left');
+                break;
+            }
         }
-    }
-    if(inicio != fim && divisor != 0){
-        distancia_inicio = divisor-getInfo('lixo','left');
-        distancia_fim = (divisor-(getInfo('lixo','left')+40))*-1;
-        if(distancia_inicio < distancia_fim){
-            var val = (movimento_lateral+distancia_inicio + 1)+'px';
-            $("#lixo").css({'left' : val});
-        }else{
-            var val = (movimento_lateral-distancia_fim)+'px';
-            $("#lixo").css({'left' : val});
+        if(inicio != fim && divisor != 0){
+            distancia_inicio = divisor-getInfo('#lixo1','left');
+            distancia_fim = (divisor-(getInfo('#lixo1','left')+20))*-1;
+            if(distancia_inicio < distancia_fim){
+                var val = (movimento_lateral_jogador1+distancia_inicio + 1)+'px';
+                $("#lixo1").css({'left' : val});
+            }else{
+                var val = (movimento_lateral_jogador1-distancia_fim)+'px';
+                $("#lixo1").css({'left' : val});
+            }
         }
     }
 }
 function ambiental_reiniciar(){
-    var inicioAleatoria = Math.floor(Math.random() * 940);	
-    movimento_lateral = inicioAleatoria;
-    va = movimento_lateral+'px';
-    if(cor_lixo != ''){
-        $('#lixo').removeClass("lixo_"+cor_lixo);
+    var inicioAleatorio = Math.floor(Math.random() * 468);	
+    movimento_lateral_jogador1 = inicioAleatorio;
+    va = movimento_lateral_jogador1+'px';
+    if(cor_lixo_jogador1 != ''){
+        $('#lixo1').removeClass("lixo_"+cor_lixo_jogador1);
     }
-    cor_lixo = lixos[Math.floor(Math.random() * 4)];
-    $('#lixo').addClass("lixo_"+cor_lixo);
-    $("#lixo").css({'marginTop' : '0px', 'left' : va});
+    cor_lixo_jogador1 = lixos[Math.floor(Math.random() * 4)];
+    $('#lixo1').addClass("lixo_"+cor_lixo_jogador1);
+    $("#lixo1").css({'marginTop' : '0px', 'left' : va});
     semMeios();
-    altura_lixeira = 0;
-    ambiental_contador++;	
+    altura_lixeira_jogador1 = 0;
+    ambiental_contador_jogador1++;	
 }
 function ambiental_repetir(){
-    var inicioAleatoria = Math.floor(Math.random() * 940);	
-    movimento_lateral = inicioAleatoria;
-    va = movimento_lateral+'px';
-    $("#lixo").css({'marginTop' : '0px', 'left' : va});
+    var inicioAleatorio = Math.floor(Math.random() * 468);	
+    movimento_lateral_jogador1 = inicioAleatorio;
+    va = movimento_lateral_jogador1+'px';
+    $("#lixo1").css({'marginTop' : '0px', 'left' : va});
     semMeios();
-    altura_lixeira = 0;		
+    altura_lixeira_jogador1 = 0;		
 }
-function limitacoes(val){
-    if(val <= 0){
-        val = 0;
-    }else if(val >= 960){
-        val = 960;
-    }
+function limitacoes(jogador,val){
+    if(jogador == 1){
+        if(val <= 0){
+            val = 0;
+        }else if(val >= 478){
+            val = 478;
+        }
+}
     return val;
 }
-function ondeCaiu(){
+function ondeCaiu(jogador){
     var dentro = false;
-    var local = getInfo('lixo','left');
+    var local = getInfo('#lixo1','left');
     for(var i = 0; i < lixos.length; i++){
-        if(local > lixeiras['lixeira_'+lixos[i]]['min'] && local < lixeiras['lixeira_'+lixos[i]]['max']){
-            if($('#lixo').hasClass('lixo_'+lixos[i])){
-                pontuacao[lixos[i]]++;
-                dentro = true;
-            }else{
-                ambiental_parte = 'erro_lixeira';
-                falas();
+        if(jogador == 1){
+            if(local > lixeiras_jogador1['lixeira_'+lixos[i]]['min'] && local < lixeiras_jogador1['lixeira_'+lixos[i]]['max']){
+                if($('#lixo1').hasClass('lixo_'+lixos[i])){
+                    pontuacao_jogador1[lixos[i]]++;
+                    dentro = true;
+                }else{
+                    ambiental_parte = 'erro_lixeira';
+                }
             }
         }
     }
     if(!dentro){
         if(ambiental_parte != 'erro_lixeira'){
             ambiental_parte = 'erro_chao';
-            falas();
         }
-        pontuacao['erros']++;
+        if(jogador == 1){
+            pontuacao_jogador1['erros']++;
+        }
         ambiental_repetir();
     }else{
         ambiental_reiniciar();
@@ -172,5 +178,5 @@ function ondeCaiu(){
 
 }
 function getInfo(lixeira, attr){
-    return Number($('#'+lixeira).css(attr).replace('px',''));
+    return Number($(lixeira).css(attr).replace('px',''));
 }
