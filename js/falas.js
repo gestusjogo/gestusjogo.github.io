@@ -549,7 +549,7 @@ function falas(){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 					reiniciar_contador_fala();
 					ambiental_reiniciar();
-					$("#jogo_ambiental").show();
+					$("#jogo_ambiental_multiplayer").show();
 					ambiental_play = true;
 					$("#butt_pular").hide();
 					$(".som").show();

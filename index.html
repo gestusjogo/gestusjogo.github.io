@@ -109,7 +109,7 @@
 				<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
 
 				<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>
-				<button class="btn_jogadores btn_j2" onclick=" multi_jogadores = true;return trocarTela('#tela_sorveteria', 'bg_sorveteria')"> 2 jogadores </button>
+				<button class="btn_jogadores btn_j2" onclick=" multi_jogadores = true;return trocarTela('#tela_parque', 'bg_praca')"> 2 jogadores </button>
 			</div>
 
 			<div class="tela" id="tela_ajuda">
@@ -386,6 +386,33 @@
 						<div id="lixeira_vermelho" class="lixeira lixo_vermelho"></div>
 						<div id="lixeira_amarelo" class="lixeira lixo_amarelo"></div>
 						<div id="lixeira_azul" class="lixeira lixo_azul"></div>
+					</div>
+				</div>
+				<div id="jogo_ambiental_multiplayer" style="position: initial; display: none">
+					<div class="parte_jogador1">
+						<div class="lixo" id="lixo1">
+							<div id="lixo_inicio"></div>
+							<div id="lixo_fim"></div>
+						</div>
+						<div id="lixeiras">
+							<div id="lixeira_verde" class="lixeira_multiplayer lixo_verde"></div>
+							<div id="lixeira_vermelho" class="lixeira_multiplayer lixo_vermelho"></div>
+							<div id="lixeira_amarelo" class="lixeira_multiplayer lixo_amarelo"></div>
+							<div id="lixeira_azul" class="lixeira_multiplayer lixo_azul"></div>
+						</div>
+					</div>
+					<div id="divisor" style="width: 4px; height: 562px; position: absolute; left: 498px;background-color: black;"></div>
+					<div class="parte_jogador2">
+						<div class="lixo" id="lixo2">
+							<div id="lixo_inicio"></div>
+							<div id="lixo_fim"></div>
+						</div>
+						<div id="lixeiras">
+							<div id="lixeira_verde" class="lixeira_multiplayer lixo_verde"></div>
+							<div id="lixeira_vermelho" class="lixeira_multiplayer lixo_vermelho"></div>
+							<div id="lixeira_amarelo" class="lixeira_multiplayer lixo_amarelo"></div>
+							<div id="lixeira_azul" class="lixeira_multiplayer lixo_azul"></div>
+						</div>
 					</div>
 				</div>
 			</div>

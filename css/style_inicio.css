@@ -204,3 +204,85 @@
 	right: 0;
 	position: absolute;
 }
+
+/*MULIPLAYER*/
+
+
+.lixo{
+	width: 30px; height: 30px; 
+	color: white; 
+	text-align: center;
+	position: absolute;
+	z-index: 2;
+}
+.lixeira_multiplayer{
+	width: 75px;
+	height: 100%;
+	position: absolute;
+	float: left;
+}
+.lixo_verde{
+	background-color: green !important;
+}
+.lixo_vermelho{
+	background-color: red !important;
+}
+.lixo_amarelo{
+	background-color: yellow !important;
+}
+.lixo_azul{
+	background-color: blue !important;
+}
+
+.parte_jogador1 #lixeira_verde{
+	background-color: green !important;
+	left: 380px;
+}
+.parte_jogador1 #lixeira_vermelho{
+	background-color: red !important;
+	left: 40px;
+}
+.parte_jogador1 #lixeira_amarelo{
+	background-color: yellow !important;
+	left: 270px;
+}
+.parte_jogador1 #lixeira_azul{
+	background-color: blue !important;
+	left: 155px;
+}
+.parte_jogador2{
+	border-left: solid black;
+}
+.parte_jogador2 #lixeira_verde{
+	background-color: green !important;
+	left: 880px;
+}
+.parte_jogador2 #lixeira_vermelho{
+	background-color: red !important;
+	left: 535px;
+}
+.parte_jogador2 #lixeira_amarelo{
+	background-color: yellow !important;
+	left: 765px;
+}
+.parte_jogador2 #lixeira_azul{
+	background-color: blue !important;
+	left: 650px;
+}
+#lixeiras{
+	height: 150px; 
+	bottom: 0; 
+	position: absolute;
+	z-index: 1;
+}
+#lixo_inicio{
+	width: 0.010px; 
+	height: 0.010px; 
+	position: absolute;
+}
+#lixo_fim{
+	width: 0.010px; 
+	height: 0.010px; 
+	right: 0;
+	position: absolute;
+}
