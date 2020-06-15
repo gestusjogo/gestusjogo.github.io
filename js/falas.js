@@ -543,103 +543,192 @@ function falas(){
 		}
 		break;
 		case '#tela_parque' :
-		switch(ambiental_parte){
-			case 'inicio' :
-			if(!fase_ambiental_completa){
-				if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-					reiniciar_contador_fala();
-					if(multi_jogadores){
-						ambiental_reiniciar_multiplayer(1);
-						ambiental_reiniciar_multiplayer(2);
-						$("#jogo_ambiental_multiplayer").show();
-					}else{
-						ambiental_reiniciar();
-						$("#jogo_ambiental").show();
+
+		if(!fase_ambiental_completa || repetir_fase){
+			if(multi_jogadores){
+				switch(modo_jogo){
+					case "versus" : 
+						ambiental_play = true;
+						if(fim_fase){
+							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
+								reiniciar_contador_fala();
+								$("#butt_pular").hide();
+								$(".som").show();
+								trocarTela('#tela_cidade','bg_menu');
+								fase_ambiental_completa = true;
+								repetir_fase = false;
+							}else{
+								$("#dialogo").show();
+								if(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo] == "resultado"){
+									$("#fala").html("O "+vencedor_ambiental+" colocou todos os lixos no local correto em menor tempo!");
+								}else{
+									$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
+								}
+								$("#jogo_ambiental_multiplayer").hide();
+								$("#butt_pular").show();
+							}
+						}else{
+							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
+								reiniciar_contador_fala();
+								$("#butt_pular").hide();
+								$(".som").show();
+								iniciar_ambiental_multiplayer();
+							}else{
+								$("#dialogo").show();
+								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
+								$("#butt_pular").show();
+							}
+						}
+					break;
+					case "juntos" : 
+						ambiental_play = true;	
+						if(fim_fase){
+							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
+								reiniciar_contador_fala();
+								$("#butt_pular").hide();
+								$(".som").show();
+								trocarTela('#tela_cidade','bg_menu');
+								fase_ambiental_completa = true;
+								repetir_fase = false;
+							}else{
+								$("#dialogo").show();
+								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
+								$("#jogo_ambiental_multiplayer").hide();
+								$("#butt_pular").show();
+							}
+						}else{
+							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
+								reiniciar_contador_fala();
+								$("#butt_pular").hide();
+								$(".som").show();
+								iniciar_ambiental_multiplayer();
+							}else{
+								$("#dialogo").show();
+								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
+								$("#butt_pular").show();
+							}
+						}
+					break;
+					default:
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+							reiniciar_contador_fala();
+							$("#butt_pular").hide();
+							$(".som").show();
+							$('#modal_modo_jogo').show();
+						}else{
+							$("#dialogo").show();
+							$("#jogo_ambiental_multiplayer").hide();
+							ambiental_play = false;
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+							$("#butt_pular").show();
+						}
 					}
-					ambiental_play = true;
-					$("#butt_pular").hide();
-					$(".som").show();
 				}else{
-					$("#dialogo").show();
-					if(multi_jogadores){
-						$("#jogo_ambiental_multiplayer").hide();
-					}else{
-						$("#jogo_ambiental").hide();
+					switch(ambiental_parte){
+						case 'inicio' :
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+							reiniciar_contador_fala();
+							if(multi_jogadores){
+								ambiental_reiniciar_multiplayer(1);
+								ambiental_reiniciar_multiplayer(2);
+								$('#lixo1').show();	
+								$('#lixo2').show();	
+								$("#jogo_ambiental_multiplayer").show();
+							}else{
+								ambiental_reiniciar();
+								$("#jogo_ambiental").show();
+							}
+							ambiental_play = true;
+							$("#butt_pular").hide();
+							$(".som").show();
+						}else{
+							$("#dialogo").show();
+							if(multi_jogadores){
+								$("#jogo_ambiental_multiplayer").hide();
+							}else{
+								$("#jogo_ambiental").hide();
+							}
+							ambiental_play = false;
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+							$("#butt_pular").show();
+						}
+						break;
+						case 'erro_lixeira' :
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+							reiniciar_contador_fala();
+							if(multi_jogadores){
+								$("#jogo_ambiental_multiplayer").show();
+							}else{
+								$("#jogo_ambiental").show();
+							}
+							ambiental_parte = '';
+							ambiental_play = true;
+						}else{
+							$("#dialogo").show();
+							if(multi_jogadores){
+								$("#jogo_ambiental_multiplayer").hide();
+							}else{
+								$("#jogo_ambiental").hide();
+							}
+							ambiental_play = false;
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+						}
+						break;
+						case 'erro_chao' :
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+							reiniciar_contador_fala();
+							if(multi_jogadores){
+								$("#jogo_ambiental_multiplayer").show();
+							}else{
+								$("#jogo_ambiental").show();
+							}
+							ambiental_parte = '';
+							ambiental_play = true;
+						}else{
+							$("#dialogo").show();
+							if(multi_jogadores){
+								$("#jogo_ambiental_multiplayer").hide();
+							}else{
+								$("#jogo_ambiental").hide();
+							}
+							ambiental_play = false;
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+						}
+						break;
+						case 'final' :
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+							reiniciar_contador_fala();
+							trocarTela('#tela_cidade','bg_menu');
+						}else{
+							$("#dialogo").show();
+							if(multi_jogadores){
+								$("#jogo_ambiental_multiplayer").hide();
+							}else{
+								$("#jogo_ambiental").hide();
+							}
+							ambiental_play = false;
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+						}
+						break;
 					}
-					ambiental_play = false;
-					$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
-					$("#butt_pular").show();
-				}
-			}else{
-				if(index_dialogo == dialogo[multi_jogadores]['repetir'].length){
-					reiniciar_contador_fala();
-					$(".item_lista").show();
-					$("#butt_pular").hide();
-					$(".som").show();
-				}else{
-					$("#dialogo").show();
-					$("#fala").html(dialogo[multi_jogadores]['repetir'][index_dialogo]);
-					$("#butt_pular").show();
-				}
 			}
-			break;
-			case 'erro_lixeira' :
-			if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-				reiniciar_contador_fala();
+		}else{
+			if(index_dialogo == dialogo[multi_jogadores]['repetir'].length){
 				if(multi_jogadores){
-					$("#jogo_ambiental_multiplayer").show();
+					$('#modal_modo_jogo').show();
 				}else{
 					$("#jogo_ambiental").show();
 				}
-				ambiental_parte = '';
-				ambiental_play = true;
-			}else{
-				$("#dialogo").show();
-				if(multi_jogadores){
-					$("#jogo_ambiental_multiplayer").hide();
-				}else{
-					$("#jogo_ambiental").hide();
-				}
-				ambiental_play = false;
-				$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
-			}
-			break;
-			case 'erro_chao' :
-			if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 				reiniciar_contador_fala();
-				if(multi_jogadores){
-					$("#jogo_ambiental_multiplayer").show();
-				}else{
-					$("#jogo_ambiental").show();
-				}
-				ambiental_parte = '';
-				ambiental_play = true;
+				$("#butt_pular").hide();
+				$(".som").show();
+				repetir_fase = true;
+				fim_fase = false;
 			}else{
 				$("#dialogo").show();
-				if(multi_jogadores){
-					$("#jogo_ambiental_multiplayer").hide();
-				}else{
-					$("#jogo_ambiental").hide();
-				}
-				ambiental_play = false;
-				$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+				$("#fala").html(dialogo[multi_jogadores]['repetir'][index_dialogo]);
+				$("#butt_pular").show();
 			}
-			break;
-			case 'final' :
-			if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-				reiniciar_contador_fala();
-				trocarTela('#tela_cidade','bg_menu');
-			}else{
-				$("#dialogo").show();
-				if(multi_jogadores){
-					$("#jogo_ambiental_multiplayer").hide();
-				}else{
-					$("#jogo_ambiental").hide();
-				}
-				ambiental_play = false;
-				$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
-			}
-			break;
 		}
 		break;
 	}

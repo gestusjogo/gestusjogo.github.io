@@ -71,6 +71,9 @@ $(".voltar_cidade").click(function(){
   repetir_escola = false;
   $("#fim_jogo").hide();
   $("#modal_voltar_cidade").hide();
+  if(jogando_ambiental != null){
+    parar_ambiental_multiplayer();
+  }
 });
 $("#close_voltar_cidade").click(function(){
   $("#modal_voltar_cidade").hide();  

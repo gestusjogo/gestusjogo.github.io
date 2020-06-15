@@ -93,8 +93,19 @@ var dialogo = {
 		],
 		'#tela_parque' : {
 			'inicio' : [
-				"Esse parque está imundo! Estou vendo 10 objetos por aqui.",
-				"Utilizando as setas do teclado vamos colocar os lixos em sua lixeira correta!",
+				'Nossa, eu adorava vir a esse parque, mas ele está tão sujo.',
+				'O que será que aconteceu? Será que as pessoas não percebem que isso prejudica o meio ambiente?',
+				'Todos devemos fazer a nossa parte para preservar o meio ambiente',
+				'E com pequenas ações todo mundo pode ajudar.',
+				'Que tal se a gente ajudasse as pessoas a cuidar do parque?',
+				'Jogar o lixo no canto certo é uma ação que ajuda bastante na preservação',
+				'E a separação desse lixo pela coleta seletiva também é uma maneira de ajudar.',
+				'Quando separamos o lixo em garantimos que eles cheguem ao destino adequado',
+				'E chegando no destino adequado, ele pode ser reciclado com mais facilidade',
+				'Ah, você sabia que coleta seletiva divide em cores para facilitar o tipo de lixo?',
+				'Vermelho é para o plástico. Azul é para o papel. Amarelo é para o metal e verde é para o vidro.',
+				'Agora que você já sabe disso. Vamos começar a separar os lixos?',
+				'Você pode usar as teclas do seu computador para jogar o lixo no canto certo',
 				"Clicando na seta direita o lixo vai para a direita",
 				"Clicando na seta esquerda o lixo vai para a esquerda",
 				"Clicando na seta baixo o lixo vai descer mais rápido",
@@ -289,18 +300,58 @@ var dialogo = {
 		},
 		'#tela_parque' : {
 			'inicio' : [
-				"Esse parque está imundo! Estou vendo 10 objetos por aqui.",
-				"Utilizando as setas do teclado vamos colocar os lixos em sua lixeira correta!",
+				'Nossa, eu adorava vir a esse parque, mas ele está tão sujo.',
+				'O que será que aconteceu? Será que as pessoas não percebem que isso prejudica o meio ambiente?',
+				'Todos devemos fazer a nossa parte para preservar o meio ambiente',
+				'E com pequenas ações todo mundo pode ajudar.',
+				'Que tal se a gente ajudasse as pessoas a cuidar do parque?',
+				'Jogar o lixo no canto certo é uma ação que ajuda bastante na preservação',
+				'E a separação desse lixo pela coleta seletiva também é uma maneira de ajudar.',
+				'Quando separamos o lixo em garantimos que eles cheguem ao destino adequado',
+				'E chegando no destino adequado, ele pode ser reciclado com mais facilidade',
+				'Ah, você sabia que coleta seletiva divide em cores para facilitar o tipo de lixo?',
+				'Vermelho é para o plástico. Azul é para o papel. Amarelo é para o metal e verde é para o vidro.',
+				'Agora que vocês já sabem disso. Vamos começar a separar os lixos?',
+				'Vocês podem usar as teclas do seu computador para jogar o lixo no canto certo',
+			],
+			'versus' : {
+				"inicio" : [
+				"Vamos ver quem consegue colocar todos os lixos no local correto primeiro?",
+				"Jogador 1 você joga na parte da esquerda",
+				"Clicando na tecla D o lixo vai para a direita",
+				"Clicando na tecla A o lixo vai para a esquerda",
+				"Clicando na tecla S o lixo vai cair mais rápido",
+				"Jogador 2 você joga na parte da direita",
 				"Clicando na seta direita o lixo vai para a direita",
 				"Clicando na seta esquerda o lixo vai para a esquerda",
-				"Clicando na seta baixo o lixo vai descer mais rápido",
-			],
-			'erro_lixeira' : [
-				"Vocês erraram! Coloque esse lixo na lixeira correta!"
-			],
-			'erro_chao' : [
-				"Vocês erraram! Não devemos deixar nenhum lixo no chão! Coloque esse lixo na lixeira correta!"
-			],
+				"Clicando na seta baixo o lixo vai cair mais rápido",
+				"Vamos lá!"
+				],
+				'resultado' : [
+					'Uau! Olha como esse parque ficou mais bonito!',
+					"resultado",
+					"Temos outros lugares para explorar! Vamos lá!"
+				]
+			},
+			'juntos' : {
+				'inicio' : [
+					"Temos que colocar todos os lixos no local correto",
+					"Jogador 1 você joga na parte da esquerda",
+					"Clicando na tecla D o lixo vai para a direita",
+					"Clicando na tecla A o lixo vai para a esquerda",
+					"Clicando na tecla S o lixo vai cair mais rápido",
+					"Jogador 2 você joga na parte da direita",
+					"Clicando na seta direita o lixo vai para a direita",
+					"Clicando na seta esquerda o lixo vai para a esquerda",
+					"Clicando na seta baixo o lixo vai cair mais rápido",
+					"Vamos lá!"
+				],
+				'resultado' : [
+					'Uau! Olha como esse parque ficou mais bonito!',
+					"Vocês trabalharam muito bem juntos!",
+					"Temos outros lugares para explorar! Vamos lá!"
+				]
+			},
 			'final' : [
 				"Uau! Olha como esse parque ficou mais bonito!",
 				"Vou lhes ensinar ..."

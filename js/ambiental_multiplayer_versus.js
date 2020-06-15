@@ -19,6 +19,9 @@ var lixos = ['vermelho','azul','amarelo','verde'];
 
 var tecla_jogador1 = null;
 var tecla_jogador2 = null;
+var jogando_ambiental = null;
+
+var vencedor_ambiental = '';
 
 var lixeiras_jogador1 = {
     'lixeira_vermelho' : {
@@ -56,7 +59,6 @@ var lixeiras_jogador2 = {
         'max' : getInfo_multiplayer('.parte_jogador2 #lixeira_verde','left') + 75
     }
 }
-console.log(lixeiras_jogador2);
 var pontuacao_jogador1 = {
     'vermelho' : 0,
     'azul' : 0,
@@ -72,87 +74,116 @@ var pontuacao_jogador2 = {
     'erros' : 0
 }
 var velocidade_caida_jogador1 = 2;
+var velocidade_caida_jogador2 = 2;
 ambiental_play = false;
 var finalizado = false;
-addEvent(window,"load",function(e) { 
-    setInterval(function(){
-        if(ambiental_contador_jogador1 <= 4){
-                $('#lixo1').show();	
-                if(getInfo_multiplayer('#lixo1','marginTop') <= 420){
-                if(ambiental_play){
-                    va = altura_lixeira_jogador1+'px';
-                    $("#lixo1").css({'marginTop' : va});
-                    altura_lixeira_jogador1 += velocidade_caida_jogador1;
-                }
-            }else{
-                ondeCaiu_multiplayer(1);	
-            }
-        }else{
-            if(!finalizado){
-                $('#lixo1').hide();	
-                fase_ambiental_completa = true;
-                finalizado = !finalizado;
-                ambiental_parte = 'final';
-                falas();
-            }
-        }
-        if(ambiental_contador_jogador2 <= 4){
-            $('#lixo2').show();	
-            if(getInfo_multiplayer('#lixo2','marginTop') <= 420){
-                if(ambiental_play){
-                    va = altura_lixeira_jogador2+'px';
-                    $("#lixo2").css({'marginTop' : va});
-                    altura_lixeira_jogador2 += velocidade_caida_jogador2;
-                }
-            }else{
-                ondeCaiu_multiplayer(2);	
-            }
-        }else{
-            if(!finalizado){
-                $('#lixo2').hide();	
-                fase_ambiental_completa = true;
-                finalizado = !finalizado;
-                ambiental_parte = 'final';
-                falas();
-            }
-        }
-        velocidade_caida_jogador1 = 2;
-        velocidade_caida_jogador2 = 2;
-        if(tecla_jogador2 == 40 || tecla_jogador2 == 39 || tecla_jogador2 == 37){
-            if(tecla_jogador2 == 40){
-                velocidade_caida_jogador2 = 10;
-            }
-            if(tecla_jogador2 == 39){
-                movimento_lateral_jogador2 += 10;
-            }
-            if(tecla_jogador2 == 37){
-                movimento_lateral_jogador2 -= 10;
-            }
-            movimento_lateral_jogador2 = limitacoes_multiplayer(2,movimento_lateral_jogador2);
-            va2 = movimento_lateral_jogador2+'px';	
-            $("#lixo2").animate({ left: va2}, 10, function(){
-                semMeios_multiplayer(2);
-            });		
-        }
+function parar_ambiental_multiplayer(){
+    clearInterval(jogando_ambiental);
+    jogando_ambiental = null;
+    ambiental_contador_jogador1 = 1;
+    ambiental_contador_jogador2 = 1;
+    finalizado = false;
+}
 
-        if(tecla_jogador1 == 83 || tecla_jogador1 == 68 || tecla_jogador1 == 65){
-            if(tecla_jogador1 == 83){
-                velocidade_caida_jogador1 = 10;
+function iniciar_ambiental_multiplayer(){
+        ambiental_reiniciar_multiplayer(1);
+        ambiental_reiniciar_multiplayer(2);
+        ambiental_contador_jogador1 = 1;
+        ambiental_contador_jogador2 = 1;
+        finalizado = false;
+        $('#lixo1').show();	
+        $('#lixo2').show();	
+        $("#jogo_ambiental_multiplayer").show();
+        jogando_ambiental = setInterval(function(){
+            console.log(ambiental_contador_jogador1);
+            console.log(ambiental_contador_jogador2);
+            if(ambiental_contador_jogador1 <= 4){
+                    $('#lixo1').show();	
+                    if(getInfo_multiplayer('#lixo1','marginTop') <= 420){
+                    if(ambiental_play){
+                        va = altura_lixeira_jogador1+'px';
+                        $("#lixo1").css({'marginTop' : va});
+                        altura_lixeira_jogador1 += velocidade_caida_jogador1;
+                    }
+                }else{
+                    ondeCaiu_multiplayer(1);	
+                }
+            }else{
+                if(!finalizado){
+                    $('#lixo1').hide();	
+                    fase_ambiental_completa = true;
+                    if(vencedor_ambiental == ''){
+                        vencedor_ambiental = 'Jogador 1';
+                    }
+                    finalizado = !finalizado;
+                    ambiental_parte = 'final';
+                    fim_fase = true;
+                    falas();
+                    parar_ambiental_multiplayer();
+                }
             }
-            if(tecla_jogador1 == 68){
-                movimento_lateral_jogador1 += 10;
+            if(ambiental_contador_jogador2 <= 4){
+                $('#lixo2').show();	
+                if(getInfo_multiplayer('#lixo2','marginTop') <= 420){
+                    if(ambiental_play){
+                        va = altura_lixeira_jogador2+'px';
+                        $("#lixo2").css({'marginTop' : va});
+                        altura_lixeira_jogador2 += velocidade_caida_jogador2;
+                    }
+                }else{
+                    ondeCaiu_multiplayer(2);	
+                }
+            }else{
+                if(!finalizado){
+                    $('#lixo2').hide();	
+                    fase_ambiental_completa = true;
+                    if(vencedor_ambiental == ''){
+                        vencedor_ambiental = 'Jogador 2';
+                    }
+                    finalizado = !finalizado;
+                    ambiental_parte = 'final';
+                    fim_fase = true;
+                    falas();
+                    parar_ambiental_multiplayer();
+                }
             }
-            if(tecla_jogador1 == 65){
-                movimento_lateral_jogador1 -= 10;
+            velocidade_caida_jogador1 = 2;
+            velocidade_caida_jogador2 = 2;
+            if(tecla_jogador2 == 40 || tecla_jogador2 == 39 || tecla_jogador2 == 37){
+                if(tecla_jogador2 == 40){
+                    velocidade_caida_jogador2 = 10;
+                }
+                if(tecla_jogador2 == 39){
+                    movimento_lateral_jogador2 += 10;
+                }
+                if(tecla_jogador2 == 37){
+                    movimento_lateral_jogador2 -= 10;
+                }
+                movimento_lateral_jogador2 = limitacoes_multiplayer(2,movimento_lateral_jogador2);
+                va2 = movimento_lateral_jogador2+'px';	
+                $("#lixo2").animate({ left: va2}, 10, function(){
+                    semMeios_multiplayer(2);
+                });		
             }
-            movimento_lateral_jogador1 = limitacoes_multiplayer(1,movimento_lateral_jogador1);
-            va1 = movimento_lateral_jogador1+'px';	
-            $("#lixo1").animate({ left: va1}, 10, function(){
-                semMeios_multiplayer(1);
-            });		
-        }
-    }, 24);
-});	
+
+            if(tecla_jogador1 == 83 || tecla_jogador1 == 68 || tecla_jogador1 == 65){
+                if(tecla_jogador1 == 83){
+                    velocidade_caida_jogador1 = 10;
+                }
+                if(tecla_jogador1 == 68){
+                    movimento_lateral_jogador1 += 10;
+                }
+                if(tecla_jogador1 == 65){
+                    movimento_lateral_jogador1 -= 10;
+                }
+                movimento_lateral_jogador1 = limitacoes_multiplayer(1,movimento_lateral_jogador1);
+                va1 = movimento_lateral_jogador1+'px';	
+                $("#lixo1").animate({ left: va1}, 10, function(){
+                    semMeios_multiplayer(1);
+                });		
+            }
+        }, 24);
+}
 $(document).keyup(function(event){
     if(event.which == tecla_jogador1){
         tecla_jogador1 = null;
@@ -250,7 +281,8 @@ function ambiental_reiniciar_multiplayer(jogador){
         $("#lixo1").css({'marginTop' : '0px', 'left' : va});
         semMeios_multiplayer(1);
         altura_lixeira_jogador1 = 0;
-        ambiental_contador_jogador1++;	
+        ambiental_contador_jogador1++;
+
     }else{
         var inicioAleatorio = 502 + Math.floor(Math.random() * 468);	
         movimento_lateral_jogador2 = inicioAleatorio;
@@ -263,7 +295,7 @@ function ambiental_reiniciar_multiplayer(jogador){
         $("#lixo2").css({'marginTop' : '0px', 'left' : va});
         semMeios_multiplayer(2);
         altura_lixeira_jogador2 = 0;
-        ambiental_contador_jogador2++;	
+        ambiental_contador_jogador2++;
     }
 }
 function ambiental_repetir_multiplayer(jogador){

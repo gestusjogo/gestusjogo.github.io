@@ -197,9 +197,28 @@ function pular_falas(){
 		break;
 		case "#tela_parque":
 			if(multi_jogadores){
-				ambiental_reiniciar_multiplayer(1);
-				ambiental_reiniciar_multiplayer(2);
-				$("#jogo_ambiental_multiplayer").show();			
+				switch(modo_jogo){
+					case "versus" :
+						if(fim_fase){
+							fase_ambiental_completa = true;
+							repetir_fase = false;
+							trocarTela('#tela_cidade','bg_menu');
+						}else{
+							iniciar_ambiental_multiplayer();
+						}
+					break;
+					case "juntos" :
+						if(fim_fase){
+							fase_ambiental_completa = true;
+							repetir_fase = false;
+							trocarTela('#tela_cidade','bg_menu');
+						}else{
+							iniciar_ambiental_multiplayer();
+						}
+					break;
+					default:
+						$('#modal_modo_jogo').show();
+				}		
 			}else{
 				ambiental_reiniciar();
 				$("#jogo_ambiental").show();
@@ -319,6 +338,10 @@ function trocarTela(tela,bg){
 
 function animaNumero() {
 	var id = document.getElementById("idade").value;
+	if(id.length > 3){
+		id = id.substr(0,3);
+	}
+	document.getElementById("idade").value = id;
 	var lastChar = id.substr(id.length - 1);
 	if (lastChar == "" || lastChar == ";" || lastChar == "," || lastChar == "." || lastChar == "/" || lastChar == "~" 
 		|| lastChar == "]" || lastChar == "´" || lastChar == "[" || lastChar == "=" || lastChar == "-" || lastChar == "'"
@@ -331,6 +354,11 @@ function animaNumero() {
 
 function animaLetra() {
 	var id = document.getElementById("nome").value;
+	id = removeAcento(id);
+	if(id.length > 20){
+		id = id.substr(0,20);
+	}
+	document.getElementById("nome").value = id;
 	var lastChar = id.substr(id.length - 1);
 	if (lastChar == "" || lastChar == ";" || lastChar == "," || lastChar == "." || lastChar == "/" || lastChar == "~" 
 		|| lastChar == "]" || lastChar == "´" || lastChar == "[" || lastChar == "=" || lastChar == "-" || lastChar == "'"
@@ -347,6 +375,24 @@ function isNumberKey(evt){
 	if (charCode > 31 && (charCode < 48 || charCode > 57))
 		return false;
 	return true;
+}
+function removeAcento (text){       
+    text = text.toLowerCase();                                                         
+    text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+    text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+    text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+    text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+    text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+    return text;                 
+}
+
+function isLetterKey(evt){
+	var vogal = removeAcento(evt.key);
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	if((vogal == 'a' || vogal == 'e' || vogal == 'i' || vogal == 'o' || vogal == 'u') || (charCode >= 97 && charCode <= 122 || charCode == 231))
+		return true;
+	return false;
+
 }
 function saudacao_executada(nome) {
 	saudacoes[nome] = true;

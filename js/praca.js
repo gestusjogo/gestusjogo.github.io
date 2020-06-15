@@ -49,7 +49,7 @@ $(".tecla_letra").click(function(){
 });
 
 $( ".tecla_letra" ).each(function() {
-  $( this ).css('background-image',"url('assets/images/alfabeto/teclado/"+$(this).val()+".png')");
+  $( this ).css('background-image',"url('assets/images/alfabeto/teclado/"+$(this).val().toUpperCase()+".png')");
 });
 $( ".tecla_numero" ).each(function() {
   $( this ).css('background-image',"url('assets/images/numeros/teclado/"+$(this).val()+".png')");

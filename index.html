@@ -108,7 +108,8 @@
 			<div class="tela" id="tela_escolher_player">
 				<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
 
-				<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>
+				<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela_praca','bg_praca')"> 1 jogador </button>
+				<!--<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>-->
 				<button class="btn_jogadores btn_j2" onclick=" multi_jogadores = true;return trocarTela('#tela_parque', 'bg_praca')"> 2 jogadores </button>
 			</div>
 
@@ -128,8 +129,8 @@
 					<div class="circulo_azul">
 						<img id="pacote" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome" placeholder="Nome" onkeyup="animaLetra()">
-					<input type="text" name="idade" id="idade" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
+					<input type="text" name="nome" id="nome" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra()">
+					<input type="text" name="idade" id="idade" placeholder="Idade" min="1" max="3" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
 					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_casa','bg_casa')">
 				</form>
 			</div>
@@ -350,6 +351,7 @@
 						<button class="tecla_letra" value='x'></button>
 						<button class="tecla_letra" value='y'></button>
 						<button class="tecla_letra" value='z'></button>
+						<button class="tecla_letra" value='ç'></button>
 						<button class="tecla_espaco">Espaço</button>
 						<button class="tecla_apagar" onclick="teclado_libras_apagar('nome')">Apagar</button>
 					</div>
@@ -426,6 +428,6 @@
 		<script type="text/javascript" src="js/modal.js"></script>
 		<script type="text/javascript" src="js/praca.js"></script>
 		<script type="text/javascript" src="js/ambiental.js"></script>
-		<script type="text/javascript" src="js/ambiental_multiplayer.js"></script>
+		<script type="text/javascript" src="js/ambiental_multiplayer_versus.js"></script>
 	</body>
 	</html>
