@@ -83,9 +83,12 @@ function parar_ambiental_multiplayer(){
     ambiental_contador_jogador1 = 1;
     ambiental_contador_jogador2 = 1;
     finalizado = false;
+    $("#jogo_ambiental_multiplayer").hide();
+    console.log('par');
 }
 
 function iniciar_ambiental_multiplayer(){
+        vencedor_ambiental = '';
         ambiental_reiniciar_multiplayer(1);
         ambiental_reiniciar_multiplayer(2);
         ambiental_contador_jogador1 = 1;
@@ -95,8 +98,7 @@ function iniciar_ambiental_multiplayer(){
         $('#lixo2').show();	
         $("#jogo_ambiental_multiplayer").show();
         jogando_ambiental = setInterval(function(){
-            console.log(ambiental_contador_jogador1);
-            console.log(ambiental_contador_jogador2);
+            console.log(vencedor_ambiental);
             if(ambiental_contador_jogador1 <= 4){
                     $('#lixo1').show();	
                     if(getInfo_multiplayer('#lixo1','marginTop') <= 420){
@@ -114,12 +116,18 @@ function iniciar_ambiental_multiplayer(){
                     fase_ambiental_completa = true;
                     if(vencedor_ambiental == ''){
                         vencedor_ambiental = 'Jogador 1';
+                        if(modo_jogo == 'versus'){
+                            parar_ambiental_multiplayer();
+                            finalizado = !finalizado;
+                            falas();
+                        }
+                    }else if(vencedor_ambiental == 'Jogador 2'){
+                        parar_ambiental_multiplayer();
+                        finalizado = !finalizado;
+                        falas();
                     }
-                    finalizado = !finalizado;
                     ambiental_parte = 'final';
                     fim_fase = true;
-                    falas();
-                    parar_ambiental_multiplayer();
                 }
             }
             if(ambiental_contador_jogador2 <= 4){
@@ -139,12 +147,18 @@ function iniciar_ambiental_multiplayer(){
                     fase_ambiental_completa = true;
                     if(vencedor_ambiental == ''){
                         vencedor_ambiental = 'Jogador 2';
+                        if(modo_jogo == 'versus'){
+                            parar_ambiental_multiplayer();
+                            finalizado = !finalizado;
+                            falas();
+                        }
+                    }else if(vencedor_ambiental == 'Jogador 1'){
+                        parar_ambiental_multiplayer();
+                        finalizado = !finalizado;
+                        falas();
                     }
-                    finalizado = !finalizado;
                     ambiental_parte = 'final';
                     fim_fase = true;
-                    falas();
-                    parar_ambiental_multiplayer();
                 }
             }
             velocidade_caida_jogador1 = 2;
