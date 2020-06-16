@@ -506,3 +506,13 @@ function executa_animacao(pessoa, acao){
 	local = "./assets/images/animacoes/"+pessoa+"/"+acao+"_sheet.png";
 	anima(pessoa, acao, animacao_width, animacao_height, quantidade_sprites, local, canvas_id, mostrarModalAnimacao);
 }
+function getDados(campo){
+	campo = $(campo).closest('#formulario_inicio');
+	var nome = $(campo).find('input[name="nome"]').val();
+	var idade = $(campo).find('input[name="idade"]').val();
+	var data = new Date();
+	armazenar_dados(nome, idade, data.getDate()+'/'+(data.getMonth()+1)+'/'+data.getFullYear());
+}
+function armazenar_dados(nome, idade, data){
+	document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbxEpZk4L4EhAkRqlLWlVARPcgHqIp_rnumhoA3bnrjwjKP5rVRr/exec?nome='+nome+'&idade='+idade+'&data='+data;
+}

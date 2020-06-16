@@ -126,7 +126,7 @@
 					</div>
 					<input type="text" name="nome" id="nome_j1" placeholder="Nome" onkeyup="animaLetra_j1()">
 					<input type="text" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
-					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="return trocarTela('#tela_j2','bg_j2')">
+					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="getDados(this);return trocarTela('#tela_j2','bg_j2')">
 				</form>
 			</div>
 
@@ -139,7 +139,7 @@
 					</div>
 					<input type="text" name="nome" id="nome_j2" placeholder="Nome" onkeyup="animaLetra_j2()">
 					<input type="text" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
-					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_casa','bg_casa')">
+					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="getDados(this);return trocarTela('#tela_casa','bg_casa')">
 				</form>
 			</div>
 
@@ -386,10 +386,5 @@
 		<script type="text/javascript" src="js/modal.js"></script>
 		<script type="text/javascript" src="js/praca.js"></script>
 		<script type="text/javascript" src="js/ambiental.js"></script>
-		<script>
-			function armazenar_dados(nome, idade, data){
-				document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbxEpZk4L4EhAkRqlLWlVARPcgHqIp_rnumhoA3bnrjwjKP5rVRr/exec?nome='+nome+'&idade='+idade+'&data='+data;
-			}
-		</script>
 	</body>
 	</html>
