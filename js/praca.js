@@ -31,7 +31,10 @@ function teclado_libras_enviar(campo){
 	if(campo == 'nome'){
 		if($("#nome_libras").val() == nome){
 			falas();
-		} 
+		}else{
+			praca_parte = 'erro_nome';
+			falas();
+		}
 	}else{
 		if($("#idade_libras").val() == idade){
 			falas();

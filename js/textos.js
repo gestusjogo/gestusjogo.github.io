@@ -59,12 +59,24 @@ var dialogo = {
 				"Ela está perguntando o seu nome.",
 				"Aperte nas letras do alfabeto e diga seu nome"
 			],
+			'erro_nome' : [
+				"Esse não foi o nome que você me disse",
+				"Digite %nome% usando o teclado de libras",
+				"Uma dica, ele está em ordem alfabética com o ç no final",
+				"Tente novamente"
+			],
 			'muito_bem_nome' : [
 				"Muito bem!"
 			],
 			'qual_idade' :[
-				"Agora ela quer saber a sua idade.",
-				"Aperte nos números e dia a sua idade"
+				"Agora ela quer saber a idade de vocês.",
+				"Apertem nos números e dia a sua idade um de cada vez"
+			],
+			'erro_idade' : [
+				"Essa não foi a sua idade que você me disse",
+				"Digite %idade% usando o teclado de libras",
+				"Uma dica, ele está em ordem",
+				"Tente novamente"
 			],
 			'muito_bem_idade' : [
 				"Muito bem!"
@@ -241,12 +253,24 @@ var dialogo = {
 				"Ela está perguntando o nome de vocês.",
 				"Apertem nas letras do alfabeto e diga seu nome um de cada vez"
 			],
+			'erro_nome' : [
+				"Esse não foi o nome que você me disse",
+				"Digite %nome% usando o teclado de libras",
+				"Uma dica, ele está em ordem alfabética com o ç no final",
+				"Tente novamente"
+			],
 			'muito_bem_nome' : [
 				"Muito bem!"
 			],
 			'qual_idade' :[
 				"Agora ela quer saber a idade de vocês.",
 				"Apertem nos números e dia a sua idade um de cada vez"
+			],
+			'erro_idade' : [
+				"Essa não foi a sua idade que você me disse",
+				"Digite %idade% usando o teclado de libras",
+				"Uma dica, ele está em ordem",
+				"Tente novamente"
 			],
 			'muito_bem_idade' : [
 				"Muito bem!"

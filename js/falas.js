@@ -511,6 +511,12 @@ function falas(){
 				executa_animacao('marina','qual_nome');
 				praca_parte = 'qual_nome';
 				break;
+				case 'erro_nome':
+				praca_parte = 'qual_nome';
+				$(".marina_cutscene").hide();
+				$("#myCanvas").addClass('bg_praca_fundo');
+				$(".formulario_nome").show();
+				break;
 				case 'qual_nome':
 				praca_parte = 'muito_bem_nome';
 				$(".marina_cutscene").hide();
@@ -539,7 +545,15 @@ function falas(){
 			}
 		}else{
 			$("#dialogo").show();
-			$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo]);
+			if((praca_parte == 'erro_nome' || praca_parte == 'erro_idade') && dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%")){
+				if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome%")){
+					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome%",nome));
+				}else if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%idade%")){
+					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%idade%",idade));
+				}
+			}else{
+				$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo]);
+			}
 		}
 		break;
 		case '#tela_parque' :
