@@ -376,7 +376,7 @@
 					</div>
 				</div>
 			</div>
-
+			<iframe id="envio" style="display: none;"></iframe>
 		</div>
 		<!-- ARQUIVOS JS -->
 		<script type="text/javascript" src="js/textos.js"></script>
@@ -386,5 +386,10 @@
 		<script type="text/javascript" src="js/modal.js"></script>
 		<script type="text/javascript" src="js/praca.js"></script>
 		<script type="text/javascript" src="js/ambiental.js"></script>
+		<script>
+			function armazenar_dados(nome, idade, data){
+				document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbxEpZk4L4EhAkRqlLWlVARPcgHqIp_rnumhoA3bnrjwjKP5rVRr/exec?nome='+nome+'&idade='+idade+'&data='+data;
+			}
+		</script>
 	</body>
 	</html>

@@ -49,11 +49,6 @@ function bloquear_cidade(){
 function reiniciar_contador_fala(){
 	index_dialogo = -1;
 }
-function triste() {
-	var nome = document.forms["formulario_inicio"]["nome"].value;
-	var idade = document.forms["formulario_inicio"]["idade"].value;
-	alert("Seu nome é "+ nome + " e você tem "+ idade + " anos!");
-}
 
 function trocarTela(tela,bg){
 	// Esconde a Tela Atual
@@ -169,6 +164,8 @@ function falas(){
 				if(index_dialogo == 0){
 					nome = $("#nome").val();
 					idade = $("#idade").val();
+					var data = new Date();
+					armazenar_dados(nome, idade, data.getDate()+'/'+(data.getMonth()+1)+'/'+data.getFullYear());
 					$("#fala").html(dialogo[tela_atual]['primeira_vez'][index_dialogo] + ' ' + nome);
 				}else{
 					$("#fala").html(dialogo[tela_atual]['primeira_vez'][index_dialogo]);
