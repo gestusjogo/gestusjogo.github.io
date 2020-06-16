@@ -76,6 +76,7 @@ function falas(){
 		case '#tela_cidade':
 		primeira_vez_casa = false;
 		fases_completas = (fase_fliperama_completa && fase_ambiental_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
+		fases_completas = true;
 		if(!fases_completas){
 			if(primeira_vez_cidade){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
@@ -504,55 +505,151 @@ function falas(){
 		case '#tela_praca':
 		$(".formulario_nome").hide();
 		$(".formulario_idade").hide();
-		if(index_dialogo == dialogo[multi_jogadores][tela_atual][praca_parte].length){
-			reiniciar_contador_fala();
-			switch(praca_parte){
-				case 'inicio':
-				executa_animacao('marina','qual_nome');
-				praca_parte = 'qual_nome';
-				break;
-				case 'erro_nome':
-				praca_parte = 'qual_nome';
-				$(".marina_cutscene").hide();
-				$("#myCanvas").addClass('bg_praca_fundo');
-				$(".formulario_nome").show();
-				break;
-				case 'qual_nome':
-				praca_parte = 'muito_bem_nome';
-				$(".marina_cutscene").hide();
-				$("#myCanvas").addClass('bg_praca_fundo');
-				$(".formulario_nome").show();
-				break;
-				case 'muito_bem_nome':
-				praca_parte = 'qual_idade';
-				executa_animacao('marina','qual_idade');
-				break;
-				case 'qual_idade':
-				praca_parte = 'muito_bem_idade';
-				$(".marina_cutscene").hide();
-				$("#myCanvas").addClass('bg_praca_fundo');
-				$(".formulario_idade").show();
-				break;
-				case 'muito_bem_idade':
-				praca_parte = 'prazer_conhecer';
-				executa_animacao('marina','prazer_conhecer');
-				$(".marina_cutscene").hide();
-				break;
-				case 'despedida':
-				$(".marina_cutscene").hide();
-				executa_animacao('jonas','tchau');
-				break;
-			}
-		}else{
-			$("#dialogo").show();
-			if((praca_parte == 'erro_nome' || praca_parte == 'erro_idade') && dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%")){
-				if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome%")){
-					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome%",nome));
-				}else if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%idade%")){
-					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%idade%",idade));
+		if(multi_jogadores){
+			if(index_dialogo == dialogo[multi_jogadores][tela_atual][praca_parte].length){
+				reiniciar_contador_fala();
+				switch(praca_parte){
+					case 'inicio':
+					executa_animacao('marina','qual_nome');
+					praca_parte = 'qual_nome';
+					break;
+					case 'erro_nome':
+					praca_parte = 'muito_bem_nome';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_nome").show();
+					break;
+					case 'qual_nome':
+					praca_parte = 'muito_bem_nome';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_nome").show();
+					break;
+					case 'muito_bem_nome':
+					praca_parte = 'qual_idade';
+					executa_animacao('marina','qual_idade');
+					break;
+					case 'erro_idade':
+					praca_parte = 'muito_bem_idade';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_idade").show();
+					break;
+					case 'qual_idade':
+					praca_parte = 'muito_bem_idade';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_idade").show();
+					break;
+					case 'muito_bem_idade':
+					if(jogador_atual.includes(2)){
+						praca_parte = 'prazer_conhecer';
+						executa_animacao('marina','prazer_conhecer');
+						$(".marina_cutscene").hide();
+					}else{
+						alterarJogador();
+						praca_parte = 'fim_jogador_1';
+						$(".marina_cutscene").hide();
+						falas();
+					}
+					break;
+					case 'fim_jogador_1':
+						praca_parte = 'qual_nome';
+						$("#nome_libras").val('');
+						$("#idade_libras").val('');
+						executa_animacao('marina','qual_nome');
+						falas();
+					break;
+					case 'despedida':
+					$(".marina_cutscene").hide();
+					executa_animacao('jonas','tchau');
+					break;
 				}
 			}else{
-				$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo]);
+				$("#dialogo").show();
+				console.log(nome);
+				console.log(nome2);
+				if((praca_parte == 'erro_nome' || praca_parte == 'erro_idade') && dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%")){
+					if(jogador_atual.includes(1)){
+						if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome%")){
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome%",nome));
+						}else if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%idade%")){
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%idade%",idade));
+						}
+					}else if(jogador_atual.includes(2)){
+						if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome%")){
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome%",nome2));
+						}else if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%idade%")){
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%idade%",idade2));
+						}
+					}
+				}else if(praca_parte == 'fim_jogador_1' && dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%")){
+					if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome_j1%")){
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome_j1%",nome));
+					}else if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome_j2%")){
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome_j2%",nome2));
+					}
+				}else{
+					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo]);
+				}
+			}
+		}else{
+			if(index_dialogo == dialogo[multi_jogadores][tela_atual][praca_parte].length){
+				reiniciar_contador_fala();
+				switch(praca_parte){
+					case 'inicio':
+					executa_animacao('marina','qual_nome');
+					praca_parte = 'qual_nome';
+					break;
+					case 'erro_nome':
+					praca_parte = 'qual_nome';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_nome").show();
+					break;
+					case 'qual_nome':
+					praca_parte = 'muito_bem_nome';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_nome").show();
+					break;
+					case 'muito_bem_nome':
+					praca_parte = 'qual_idade';
+					executa_animacao('marina','qual_idade');
+					break;
+					case 'erro_idade':
+					praca_parte = 'qual_idade';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_idade").show();
+					break;
+					case 'qual_idade':
+					praca_parte = 'muito_bem_idade';
+					$(".marina_cutscene").hide();
+					$("#myCanvas").addClass('bg_praca_fundo');
+					$(".formulario_idade").show();
+					break;
+					case 'muito_bem_idade':
+					praca_parte = 'prazer_conhecer';
+					executa_animacao('marina','prazer_conhecer');
+					$(".marina_cutscene").hide();
+					break;
+					case 'despedida':
+					$(".marina_cutscene").hide();
+					executa_animacao('jonas','tchau');
+					break;
+				}
+			}else{
+				$("#dialogo").show();
+				if((praca_parte == 'erro_nome' || praca_parte == 'erro_idade') && dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%")){
+					if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome%")){
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%nome%",nome));
+					}else if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%idade%")){
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].replace("%idade%",idade));
+					}
+				}else{
+					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo]);
+				}
 			}
 		}
 		break;

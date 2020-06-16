@@ -382,6 +382,12 @@ body{
   left: 113px; 
   top: 140px;
 }
+.teclado_libras_numero{
+  position: absolute;
+  width: 912px; 
+  left: 40px; 
+  top: 180px;
+}
 .tecla_numero {
   display: inline-block;
   background-color: #FFF; 

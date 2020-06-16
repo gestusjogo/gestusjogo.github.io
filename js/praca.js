@@ -28,17 +28,38 @@ function teclado_libras_apagar(campo){
 }
 function teclado_libras_enviar(campo){
 	$("#myCanvas").removeClass('bg_praca_fundo');
-	if(campo == 'nome'){
-		if($("#nome_libras").val() == nome){
-			falas();
+	if(jogador_atual.includes(1)){
+		if(campo == 'nome'){
+			if($("#nome_libras").val() == nome){
+				falas();
+			}else{
+				praca_parte = 'erro_nome';
+				falas();
+			}
 		}else{
-			praca_parte = 'erro_nome';
-			falas();
+			if($("#idade_libras").val() == idade){
+				falas();
+			}else{
+				praca_parte = 'erro_idade';
+				falas();
+			}
 		}
-	}else{
-		if($("#idade_libras").val() == idade){
-			falas();
-		} 
+	}else if(jogador_atual.includes(2)){
+		if(campo == 'nome'){
+			if($("#nome_libras").val() == nome2){
+				falas();
+			}else{
+				praca_parte = 'erro_nome';
+				falas();
+			}
+		}else{
+			if($("#idade_libras").val() == idade2){
+				falas();
+			}else{
+				praca_parte = 'erro_idade';
+				falas();
+			}
+		}
 	}
 }
 $(".tecla_espaco").click(function(){

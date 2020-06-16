@@ -107,10 +107,8 @@
 
 			<div class="tela" id="tela_escolher_player">
 				<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
-
-				<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela_praca','bg_praca')"> 1 jogador </button>
-				<!--<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>-->
-				<button class="btn_jogadores btn_j2" onclick=" multi_jogadores = true;return trocarTela('#tela_parque', 'bg_praca')"> 2 jogadores </button>
+				<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>
+				<button class="btn_jogadores btn_j2" onclick=" multi_jogadores = true;return trocarTela('#tela_j1','bg_fundo')"> 2 jogadores </button>
 			</div>
 
 			<div class="tela" id="tela_ajuda">
@@ -164,10 +162,10 @@
 			<!-- tela inicio -->
 			<div class="tela" id="tela_casa">
 				<div id="saudacoes" style="display: none">
-					<div id="ini_oi" onclick="saudacao_executada('oi'); executa_animacao('jonas','oi');">Oi</div>
-					<div id="ini_bd" onclick="saudacao_executada('bom_dia'); executa_animacao('jonas','bom_dia');">Bom dia</div>
-					<div id="ini_bt" onclick="saudacao_executada('boa_tarde'); executa_animacao('jonas','boa_tarde');">Boa tarde</div>
-					<div id="ini_bn" onclick="saudacao_executada('boa_noite'); executa_animacao('jonas','boa_noite');">Boa noite</div>
+					<div id="ini_oi" onclick="if(fim_animacao){saudacao_executada('oi'); executa_animacao('jonas','oi');}">Oi</div>
+					<div id="ini_bd" onclick="if(fim_animacao){saudacao_executada('bom_dia'); executa_animacao('jonas','bom_dia');}">Bom dia</div>
+					<div id="ini_bt" onclick="if(fim_animacao){saudacao_executada('boa_tarde'); executa_animacao('jonas','boa_tarde');}">Boa tarde</div>
+					<div id="ini_bn" onclick="if(fim_animacao){saudacao_executada('boa_noite'); executa_animacao('jonas','boa_noite');}">Boa noite</div>
 				</div>
 				<div class="bounce">	
 					<img id="seta" class="arrow2" onclick="proxima_fala();" src="assets/images/arrow.png">
@@ -361,7 +359,7 @@
 					<form name="formulario" id="form_idade_libras">
 						<input type="text" name="nome" id="idade_libras" placeholder="Idade" disabled="">
 					</form>
-					<div class="teclado_libras">
+					<div class="teclado_libras_numero">
 						<button class="tecla_numero" value='0'></button>
 						<button class="tecla_numero" value='1'></button>
 						<button class="tecla_numero" value='2'></button>

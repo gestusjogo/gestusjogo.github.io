@@ -69,8 +69,8 @@ var dialogo = {
 				"Muito bem!"
 			],
 			'qual_idade' :[
-				"Agora ela quer saber a idade de vocês.",
-				"Apertem nos números e dia a sua idade um de cada vez"
+				"Agora ela quer saber a sua idade",
+				"Apertem nos números e diga a sua idade"
 			],
 			'erro_idade' : [
 				"Essa não foi a sua idade que você me disse",
@@ -82,7 +82,6 @@ var dialogo = {
 				"Muito bem!"
 			],
 			'despedida' : [
-				"Muito bem!",
 				"Ela disse que foi um prazer te conhecer",
 				"Viu só? Você conseguiu.",
 				"Foi bem divertido. Não foi?",
@@ -247,11 +246,12 @@ var dialogo = {
 				"O nome dela é Marina",
 				"Ela é surda e só se comunica em LIBRAS",
 				"Podem conversar com ela.",
-				"Eu vou lhes ajudar a entender o que ela diz."
+				"Eu vou ajudar vocês a entender o que ela diz.",
+				"Vamos com o Jogador 1"
 			],
 			'qual_nome' :[
-				"Ela está perguntando o nome de vocês.",
-				"Apertem nas letras do alfabeto e diga seu nome um de cada vez"
+				"Ela está perguntando o seu nome.",
+				"Aperte nas letras do alfabeto e diga seu nome"
 			],
 			'erro_nome' : [
 				"Esse não foi o nome que você me disse",
@@ -263,8 +263,8 @@ var dialogo = {
 				"Muito bem!"
 			],
 			'qual_idade' :[
-				"Agora ela quer saber a idade de vocês.",
-				"Apertem nos números e dia a sua idade um de cada vez"
+				"Agora ela quer saber a sua idade",
+				"Apertem nos números e diga a sua idade"
 			],
 			'erro_idade' : [
 				"Essa não foi a sua idade que você me disse",
@@ -275,13 +275,16 @@ var dialogo = {
 			'muito_bem_idade' : [
 				"Muito bem!"
 			],
+			'fim_jogador_1' : [
+				"Mandou bem %nome_j1%",
+				"Agora é sua vez %nome_j2%"
+			],
 			'despedida' : [
-				"Muito bem!",
 				"Ela disse que foi um prazer conhecer vocês",
 				"Viu só? Vocês conseguiram.",
 				"Foi bem divertido. Não foi?",
 				"Agora está na hora de me despedir",
-				"E vou lhes ensinar como diz tchau em LIBRAS"
+				"E vou ensinar como diz tchau em LIBRAS"
 			]
 		},
 		'#tela_supermercado' : [
