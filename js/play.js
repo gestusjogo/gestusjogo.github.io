@@ -29,6 +29,7 @@ var saudacoes = {
 	'boa_tarde' : false,
 	'boa_noite' : false
 };
+var fim_animacao = true;
 function alterarJogador(){
 	$("."+jogador_atual).removeClass('jogador_atual');
 	if(jogador_atual.includes('1')){
@@ -531,5 +532,6 @@ function executa_animacao(pessoa, acao){
 		}
 	}
 	local = "./assets/images/animacoes/"+pessoa+"/"+acao+"_sheet.png";
+	fim_animacao = false;
 	anima(pessoa, acao, animacao_width, animacao_height, quantidade_sprites, local, canvas_id, fecharModalAnimacao);
 }

@@ -14,7 +14,10 @@ $("#voltar_menu").click(function(){
 function fecharModalAnimacao(){
   switch(tela_atual){
     case '#tela_casa':
-      $(".jonas_cutscene_center").show();
+      if($("#dialogo").css('display') != "block"){
+        $(".jonas_cutscene_center").show();
+      }
+      fim_animacao = true;
       if (saudacoes_finalizadas) {
         $("#seta").show();
         saudacoes_fim = true;
