@@ -389,9 +389,11 @@ function removeAcento (text){
 }
 
 function isLetterKey(evt){
+	console.log(evt.key);
+	console.log(evt.keyCode);
 	var vogal = removeAcento(evt.key);
 	var charCode = (evt.which) ? evt.which : event.keyCode;
-	if((vogal == 'a' || vogal == 'e' || vogal == 'i' || vogal == 'o' || vogal == 'u') || (charCode >= 97 && charCode <= 122 || charCode == 231))
+	if((vogal == 'a' || vogal == 'e' || vogal == 'i' || vogal == 'o' || vogal == 'u') || ((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) || (charCode == 231 || charCode == 199)))
 		return true;
 	return false;
 
