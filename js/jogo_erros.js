@@ -46,7 +46,8 @@ function erro_aqui(erro) {
 			  }
 			}else{
 				fim_fase = true;
-				falas();
+  				if(multi_jogadores)
+			  		falas();
 			}
 		}
 	}
@@ -68,9 +69,8 @@ function erro_aqui(erro) {
 			fimerros();
 			sair = false;
 			erros_encontrados = [];
-			fase_sorveteria_completa = true;
-			$("#fim_jogo").show();
-			$("#butt_voltar_cidade").hide();
+			fim_fase = true;
+			falas();
 		}
 	}
 }

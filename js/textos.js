@@ -33,13 +33,20 @@ var dialogo = {
 				"Agora posso te apresentar minha irmã. Ela está nos esperando na praça, vamos lá!"
 			]
 		},
-		'#tela_sorveteria' : [
-			"Da última vez que vim aqui tirei uma foto.",
-			"Tente achar 10 objetos que faltam aqui",
-			"Clique no local onde o item deveria estar.",
-			"Para cada objeto vou te ensinar o sinal do número",
-			"Vamos começar?"
-		],
+		'#tela_sorveteria' : {
+			"inicio" : [
+				"Da última vez que vim aqui tirei uma foto.",
+				"Tente achar 10 objetos que faltam aqui",
+				"Clique no local onde o item deveria estar.",
+				"Para cada objeto vou te ensinar o sinal do número",
+				"Vamos começar?"
+			],
+			"resultado" : [
+				"Mandou bem! Você conseguiu encontrar todos os itens!",
+				"Temos outros lugares para explorar!",
+				"Vamos lá!"
+			]
+		},
 		'#tela_fliperama' : [
 			"Eu amo jogos e você?",
 			"Vamos aprender as cores enquanto nos divertimos?",
@@ -103,13 +110,20 @@ var dialogo = {
 				"Vamos lá!"
 			]
 		},
-		'#tela_escola' : [
-			"O alfabeto em LIBRAS é muito importante",
-			"Eu aprendi com um jogo da memória",
-			"Tente imitar o que aparece nas cartas",
-			"As setinhas que aparecem são movimentos das mãos",
-			"Vamos lá!"
-		],
+		'#tela_escola' : {
+			"inicio" : [
+				"O alfabeto em LIBRAS é muito importante",
+				"Eu aprendi com um jogo da memória",
+				"Tente imitar o que aparece nas cartas",
+				"As setinhas que aparecem são movimentos das mãos",
+				"Vamos lá!"
+			],
+			"resultado" : [
+				"Mandou bem! Você conseguiu encontrar todos os pares!",
+				"Temos outros lugares para explorar!",
+				"Vamos lá!"
+			]
+		},
 		'#tela_parque' : {
 			'inicio' : [
 				'Nossa, eu adorava vir a esse parque, mas ele está tão sujo.',

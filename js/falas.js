@@ -211,14 +211,32 @@ function falas(){
 						}
 				}
 			}else{
-				if(index_dialogo == dialogo[multi_jogadores][tela_atual].length){
-					reiniciar_contador_fala();
-					$("#butt_pular").hide();
-					$(".som").show();
+				if(fim_fase){
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['resultado'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
+						fase_sorveteria_completa = true;
+						repetir_fase = false;
+						trocarTela('#tela_cidade','bg_menu');
+					}else{
+						$("#dialogo").show();
+						$(".erros").hide();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['resultado'][index_dialogo]);
+						$("#butt_pular").show();
+					}
 				}else{
-					$("#dialogo").show();
-					$("#fala").html(dialogo[multi_jogadores][tela_atual][index_dialogo]);
-					$("#butt_pular").show();
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
+						$(".erros").show();
+					}else{
+						$("#dialogo").show();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
+						$("#butt_pular").show();
+						$(".erros").hide();
+					}
 				}
 			}
 		}else{
@@ -230,6 +248,8 @@ function falas(){
 				fim_fase = false;
 				if(multi_jogadores){
 					$('#modal_modo_jogo').show();
+				}else{
+					$(".erros").show();
 				}
 			}else{
 				$("#dialogo").show();
@@ -364,104 +384,116 @@ function falas(){
 			if(multi_jogadores){
 				switch(modo_jogo){
 					case "versus" : 
-						if(fim_fase){
-							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
-								reiniciar_contador_fala();
-								$("#butt_pular").hide();
-								$(".som").show();
-								$(".pontuacao").removeClass("pontuacao_escola");
-								trocarTela('#tela_cidade','bg_menu');
-								fase_escola_completa = true;
-								repetir_fase = false;
-							}else{
-								$("#dialogo").show();
-								$(".pontuacao").hide();
-								if(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo] == "resultado"){
-									var pontos1 = parseInt($(".jogador1").find("p:last-child").html());
-									var pontos2 = parseInt($(".jogador2").find("p:last-child").html());
-									if(pontos1 > pontos2){
-										$("#fala").html("O jogador 1 venceu com "+pontos1+" pontos!");
-									}else{
-										$("#fala").html("O jogador 2 venceu com "+pontos2+" pontos!");
-									}
-								}else{
-									$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
-								}
-								$("#game").hide();
-								$("#butt_pular").show();
-							}
-						}else{
-							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
-								reiniciar_contador_fala();
-								$("#butt_pular").hide();
-								$(".som").show();
-								$("#game").show();
-								$(".pontuacao").show();
-								$(".pontuacao").addClass("pontuacao_escola");
-								$(".pontuacao .jogador1 p:last-child, .pontuacao .jogador2 p:last-child ").html(0);
-							}else{
-								$("#dialogo").show();
-								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
-								$("#butt_pular").show();
-							}
-						}
-					break;
-					case "juntos" : 
-						if(fim_fase){
-							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
-								reiniciar_contador_fala();
-								$("#butt_pular").hide();
-								$(".som").show();
-								$(".pontuacao").hide();
-								$(".pontuacao").removeClass("pontuacao_escola");
-								trocarTela('#tela_cidade','bg_menu');
-								fase_escola_completa = true;
-								repetir_fase = false;
-							}else{
-								$("#dialogo").show();
-								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
-								$("#game").hide();
-								$("#butt_pular").show();
-							}
-						}else{
-							if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
-								reiniciar_contador_fala();
-								$("#butt_pular").hide();
-								$(".som").show();
-								$("#game").show();
-							}else{
-								$("#dialogo").show();
-								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
-								$("#butt_pular").show();
-							}
-						}
-					break;
-					default:
-						if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
+					if(fim_fase){
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
 							reiniciar_contador_fala();
 							$("#butt_pular").hide();
 							$(".som").show();
-							$('#modal_modo_jogo').show();
+							$(".pontuacao").removeClass("pontuacao_escola");
+							trocarTela('#tela_cidade','bg_menu');
+							fase_escola_completa = true;
+							repetir_fase = false;
 						}else{
 							$("#dialogo").show();
-							$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
+							$(".pontuacao").hide();
+							if(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo] == "resultado"){
+								var pontos1 = parseInt($(".jogador1").find("p:last-child").html());
+								var pontos2 = parseInt($(".jogador2").find("p:last-child").html());
+								if(pontos1 > pontos2){
+									$("#fala").html("O jogador 1 venceu com "+pontos1+" pontos!");
+								}else{
+									$("#fala").html("O jogador 2 venceu com "+pontos2+" pontos!");
+								}
+							}else{
+								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
+							}
+							$("#game").hide();
 							$("#butt_pular").show();
 						}
-				}
-			}else{
-				if(index_dialogo == dialogo[multi_jogadores][tela_atual].length){
-					reiniciar_contador_fala();
-					$("#butt_pular").hide();
-					$(".som").show();
-					if(multi_jogadores){
+					}else{
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
+							reiniciar_contador_fala();
+							$("#butt_pular").hide();
+							$(".som").show();
+							$("#game").show();
+							$(".pontuacao").show();
+							$(".pontuacao").addClass("pontuacao_escola");
+							$(".pontuacao .jogador1 p:last-child, .pontuacao .jogador2 p:last-child ").html(0);
+						}else{
+							$("#dialogo").show();
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
+							$("#butt_pular").show();
+						}
+					}
+					break;
+					case "juntos" : 
+					if(fim_fase){
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'].length){
+							reiniciar_contador_fala();
+							$("#butt_pular").hide();
+							$(".som").show();
+							$(".pontuacao").hide();
+							$(".pontuacao").removeClass("pontuacao_escola");
+							trocarTela('#tela_cidade','bg_menu');
+							fase_escola_completa = true;
+							repetir_fase = false;
+						}else{
+							$("#dialogo").show();
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
+							$("#game").hide();
+							$("#butt_pular").show();
+						}
+					}else{
+						if(index_dialogo == dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'].length){
+							reiniciar_contador_fala();
+							$("#butt_pular").hide();
+							$(".som").show();
+							$("#game").show();
+						}else{
+							$("#dialogo").show();
+							$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
+							$("#butt_pular").show();
+						}
+					}
+					break;
+					default:
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
 						$('#modal_modo_jogo').show();
 					}else{
-						$("#game").show();
+						$("#dialogo").show();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
+						$("#butt_pular").show();
+					}
+				}
+			}else{
+				if(fim_fase){
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['resultado'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
+						fase_escola_completa = true;
+						repetir_fase = false;
+						trocarTela('#tela_cidade','bg_menu');
+					}else{
+						$("#game").hide();
+						$("#dialogo").show();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['resultado'][index_dialogo]);
+						$("#butt_pular").show();
 					}
 				}else{
-					$("#dialogo").show();
-					$("#fala").html(dialogo[multi_jogadores][tela_atual][index_dialogo]);
-					$("#butt_pular").show();
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
+						$("#game").show();
+					}else{
+						$("#dialogo").show();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
+						$("#butt_pular").show();
+					}
 				}
 			}
 		}else{
