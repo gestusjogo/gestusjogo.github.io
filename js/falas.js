@@ -93,6 +93,8 @@ function falas(){
 				}
 			}else{
 				liberar_cidade();
+				$("#butt_pular").hide();
+				$(".som").show();
 			}
 		}else{
 			if(!fase_liberada){
@@ -109,6 +111,10 @@ function falas(){
 					$("#fala").html(dialogo[multi_jogadores][tela_atual]['fase_liberada'][index_dialogo]);
 					$("#butt_pular").show();
 				}
+			}else{
+				liberar_cidade();
+				$("#butt_pular").hide();
+				$(".som").show();
 			}
 		}
 		break;
@@ -478,23 +484,41 @@ function falas(){
 		}
 		break;
 		case '#tela_supermercado':
-		if(!fase_supermercado_completa){
-			if(index_dialogo == dialogo[multi_jogadores][tela_atual].length){
-				reiniciar_contador_fala();
-				$(".item_lista").show();
-				$("#butt_pular").hide();
-				$(".som").show();
+		if(!fase_supermercado_completa || repetir_fase){
+			if(fim_fase){
+				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['resultado'].length){
+					reiniciar_contador_fala();
+					$("#butt_pular").hide();
+					$(".som").show();
+					fase_supermercado_completa = true;
+					repetir_fase = false;
+					trocarTela('#tela_cidade','bg_menu');
+				}else{
+					$(".item_lista").hide();
+					$("#dialogo").show();
+					$("#fala").html(dialogo[multi_jogadores][tela_atual]['resultado'][index_dialogo]);
+					$("#butt_pular").show();
+				}
 			}else{
-				$("#dialogo").show();
-				$("#fala").html(dialogo[multi_jogadores][tela_atual][index_dialogo]);
-				$("#butt_pular").show();
+				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
+					reiniciar_contador_fala();
+					$("#butt_pular").hide();
+					$(".som").show();
+					$(".item_lista").show();
+				}else{
+					$("#dialogo").show();
+					$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
+					$("#butt_pular").show();
+				}
 			}
 		}else{
 			if(index_dialogo == dialogo[multi_jogadores]['repetir'].length){
 				reiniciar_contador_fala();
-				$(".item_lista").show();
 				$("#butt_pular").hide();
 				$(".som").show();
+				$(".item_lista").show();
+				repetir_fase = true;
+				fim_fase = false;
 			}else{
 				$("#dialogo").show();
 				$("#fala").html(dialogo[multi_jogadores]['repetir'][index_dialogo]);

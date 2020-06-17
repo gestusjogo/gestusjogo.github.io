@@ -89,12 +89,20 @@ var dialogo = {
 				"E vou ensinar como diz tchau em LIBRAS"
 			]
 		},
-		'#tela_supermercado' : [
-			"Nossa, tenho que comprar algumas coisas",
-			"Vou te dar uma lista dos produtos.",
-			"Que tal acharmos esses itens no mercado?",
-			"É só clicar neles que te ensino o sinal deles"
-		],
+		'#tela_supermercado' : {
+			"inicio" : [
+				"Nossa, tenho que comprar algumas coisas",
+				"Vou te dar uma lista dos produtos.",
+				"Que tal acharmos esses itens no mercado?",
+				"É só clicar neles que te ensino o sinal deles",
+				"Vamos lá!"
+			],
+			"resultado" : [
+				"Mandou bem! Você conseguiu encontrar todos os itens!",
+				"Temos outros lugares para explorar!",
+				"Vamos lá!"
+			]
+		},
 		'#tela_escola' : [
 			"O alfabeto em LIBRAS é muito importante",
 			"Eu aprendi com um jogo da memória",
@@ -287,12 +295,20 @@ var dialogo = {
 				"E vou ensinar como diz tchau em LIBRAS"
 			]
 		},
-		'#tela_supermercado' : [
-			"Nossa, tenho que comprar algumas coisas",
-			"Vou dar para vocês uma lista dos produtos.",
-			"Que tal acharmos esses itens no mercado?",
-			"É só clicar neles que eu ensino o sinal"
-		],
+		'#tela_supermercado' : {
+			"inicio" : [
+				"Nossa, tenho que comprar algumas coisas",
+				"Vou lhes dar uma lista dos produtos.",
+				"Que tal acharmos esses itens no mercado?",
+				"É só clicar neles que ensino o sinal deles",
+				"Vamos lá!"
+			],
+			"resultado" : [
+				"Mandaram bem! Vocês conseguiram encontrar todos os itens!",
+				"Temos outros lugares para explorar!",
+				"Vamos lá!"
+			]
+		},
 		'#tela_escola' : {
 			"inicio" : [
 				"O alfabeto em LIBRAS é muito importante",

@@ -31,10 +31,9 @@ function fecharModalAnimacao(){
     case '#tela_supermercado':
       $(".item_lista").show();
       if(itens_coletados.length == 5) {
-        sair_super = true;
-        fase_supermercado_completa = true;
-        $("#fim_jogo").show();
-        $("#butt_voltar_cidade").hide();
+        fim_fase = true;
+        itens_coletados = [];
+        falas();
       }
     break;
     case '#tela_praca':
