@@ -47,14 +47,22 @@ var dialogo = {
 				"Vamos lá!"
 			]
 		},
-		'#tela_fliperama' : [
-			"Eu amo jogos e você?",
-			"Vamos aprender as cores enquanto nos divertimos?",
-			"Nesse jogo seu objetivo é combinar cores iguais",
-			"Junte três cores na mesma linha ou coluna",
-			"Também posso te ensinar o sinal dessas cores",
-			"Basta clicar no botão da cor selecionada"
-		],
+		'#tela_fliperama' : {
+			"inicio" : [
+				"Eu amo jogos e você?",
+				"Vamos aprender as cores enquanto nos divertimos?",
+				"Nesse jogo seu objetivo é combinar cores iguais",
+				"Junte três cores na mesma linha ou coluna",
+				"Também posso te ensinar o sinal dessas cores",
+				"Basta clicar no botão da cor selecionada",
+				"Vamos lá!"
+			],
+			"resultado" : [
+				"Mandou bem! Você conseguiu fazer todos os pontos!",
+				"Temos outros lugares para explorar!",
+				"Vamos lá!"
+			]
+		},
 		'#tela_praca' : {
 			'inicio' :[
 				"O nome dela é Marina",
@@ -257,7 +265,7 @@ var dialogo = {
 					"Vamos lá!"
 				],
 				"resultado" : [
-					"Mandaram bem! Vocês conseguiram encontrar todos os pares!",
+					"Mandaram bem! Vocês conseguiram fazer todos os pontos!",
 					"Temos outros lugares para explorar!",
 					"Vamos lá!"
 				]

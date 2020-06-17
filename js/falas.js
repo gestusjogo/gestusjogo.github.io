@@ -76,7 +76,6 @@ function falas(){
 		case '#tela_cidade':
 		primeira_vez_casa = false;
 		fases_completas = (fase_fliperama_completa && fase_ambiental_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
-		fases_completas = true;
 		if(!fases_completas){
 			if(primeira_vez_cidade){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
@@ -347,16 +346,31 @@ function falas(){
 						}
 				}
 			}else{
-				if(index_dialogo == dialogo[multi_jogadores][tela_atual].length){
-					reiniciar_contador_fala();
-					reiniciar_fliperama();
-					trocarTela("#tela_fliperama2",'bg_fliperama2');
-					$("#butt_pular").hide();
-					$(".som").show();
+				if(fim_fase){
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['resultado'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
+						fase_fliperama_completa = true;
+						repetir_fase = false;
+						trocarTela('#tela_cidade','bg_menu');
+					}else{
+						$("#dialogo").show();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['resultado'][index_dialogo]);
+						$("#butt_pular").show();
+					}
 				}else{
-					$("#dialogo").show();
-					$("#fala").html(dialogo[multi_jogadores][tela_atual][index_dialogo]);
-					$("#butt_pular").show();
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
+						reiniciar_contador_fala();
+						$("#butt_pular").hide();
+						$(".som").show();
+						reiniciar_fliperama();
+						trocarTela("#tela_fliperama2",'bg_fliperama2');
+					}else{
+						$("#dialogo").show();
+						$("#fala").html(dialogo[multi_jogadores][tela_atual]['inicio'][index_dialogo]);
+						$("#butt_pular").show();
+					}
 				}
 			}
 		}else{
@@ -370,6 +384,7 @@ function falas(){
 				if(multi_jogadores){
 					$('#modal_modo_jogo').show();
 				}else{
+					reiniciar_fliperama();
 					trocarTela("#tela_fliperama2",'bg_fliperama2');
 				}
 			}else{

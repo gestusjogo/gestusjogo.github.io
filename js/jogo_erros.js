@@ -27,7 +27,7 @@ function erro_aqui(erro) {
 		document.getElementById("numero_erro").innerHTML = nome;
 		  modal.style.display = "block";
 		  contar = false;
-  		if(erros_encontrados.length == 2) {
+  		if(erros_encontrados.length == 10) {
 			erros_encontrados = [];
 			$(".imagem_erro").hide();
   			if(!multi_jogadores)

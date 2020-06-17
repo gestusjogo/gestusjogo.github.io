@@ -266,7 +266,6 @@ function trocarTela(tela,bg){
 		$("#seta").hide();
 	}else if(tela == "#tela_cidade"){
 		fases_completas = (fase_fliperama_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
-		fases_completas = true;
 		if(!primeira_vez_cidade){
 			liberar_cidade();
 		}

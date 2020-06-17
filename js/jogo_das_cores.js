@@ -291,7 +291,7 @@ window.onload = function() {
         }
         pontuacao1 = parseInt($(".jogador1 p:last-child").html());
         pontuacao2 = parseInt($(".jogador2 p:last-child").html());
-        if ((score >= 100 && !multi_jogadores) || (multi_jogadores && (pontuacao1 >= 100 || pontuacao2 >= 100 ))) {
+        if ((score >= 2000 && !multi_jogadores) || (multi_jogadores && (pontuacao1 >= 2000 || pontuacao2 >= 2000 ))) {
             $(".cor").hide();
             $("#viewport").hide();
             $("#score_cc_text").hide(); 
