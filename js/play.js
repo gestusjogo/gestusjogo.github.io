@@ -423,6 +423,33 @@ function voltar_menu(){
 	first_time_inicio = false;
 }
 
+function validacoes(jogador){
+	if(multi_jogadores){
+		if(jogador == "1"){
+			if($("#nome_j1").val().length > 0 && $("#idade_j1").val().length > 0){
+				return true;
+			}else{
+				swal("Ops, você esqueceu alguma coisa","Acho que você esqueceu de colocar seu nome ou sua idade.");
+				return false;
+			}
+		}else{
+			if($("#nome_j2").val().length > 0 && $("#idade_j2").val().length > 0){
+				return true;
+			}else{
+				swal("Ops, você esqueceu alguma coisa","Acho que você esqueceu de colocar seu nome ou sua idade.");
+				return false;				
+			}
+		}
+	}else{
+		if($("#nome").val().length > 0 && $("#idade").val().length > 0){
+			return true;
+		}else{
+			swal("Ops, você esqueceu alguma coisa","Acho que você esqueceu de colocar seu nome ou sua idade.");
+			return false;			
+		}
+	}
+}
+
 function executa_animacao(pessoa, acao){
 	temAnimacao = true;
 	parar = false;
