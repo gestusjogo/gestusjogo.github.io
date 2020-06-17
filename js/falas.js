@@ -135,7 +135,6 @@ function falas(){
 									var resultado = "";
 									tempo1 = parseInt(tempo1/1000) + 1;
 									tempo2 = parseInt(tempo2/1000) + 1;
-									console.log(tempo2);
 									if(tempo1 < tempo2){
 										resultado = ("Jogador 1 venceu com "+tempo1+" segundos! O Jogador 2 perdeu com "+tempo2+" segundos");
 									}else if(tempo2 < tempo1){
@@ -155,7 +154,7 @@ function falas(){
 								reiniciar_contador_fala();
 								$("#butt_pular").hide();
 								contar = true;
-								window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
+								window.setInterval(function() {	if(contar){ segundos++; }else{ window.clearInterval(true); } },1);
 								$(".erros").show();
 								$(".som").show();
 							}else{
@@ -638,8 +637,6 @@ function falas(){
 				}
 			}else{
 				$("#dialogo").show();
-				console.log(nome);
-				console.log(nome2);
 				if((praca_parte == 'erro_nome' || praca_parte == 'erro_idade') && dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%")){
 					if(jogador_atual.includes(1)){
 						if(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo].includes("%nome%")){

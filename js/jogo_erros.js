@@ -6,7 +6,7 @@ var contar = false;
 
 var tempo1 = 0;
 var tempo2 = 0;
-window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
+window.setInterval(function() {	if(contar){ segundos++; }else{ window.clearInterval(true); } },1);
 function erro_aqui(erro) {
 	var modal = document.getElementById('exibir_numero');
 	var fechar = document.getElementById("close_numero");
@@ -63,7 +63,7 @@ function erro_aqui(erro) {
 		modal.style.display = "none";
 		if($("#dialogo").css('display') != "block"){
 			contar = true;
-			window.setInterval(function() {	if(contar){ segundos++;	console.log(segundos); }else{ window.clearInterval(true); } },1);
+			window.setInterval(function() {	if(contar){ segundos++; }else{ window.clearInterval(true); } },1);
 		}
 		if(sair == true){
 			fimerros();

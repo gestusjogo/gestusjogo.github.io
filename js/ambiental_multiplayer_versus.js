@@ -84,7 +84,6 @@ function parar_ambiental_multiplayer(){
     ambiental_contador_jogador2 = 1;
     finalizado = false;
     $("#jogo_ambiental_multiplayer").hide();
-    console.log('par');
 }
 
 function iniciar_ambiental_multiplayer(){
@@ -98,7 +97,6 @@ function iniciar_ambiental_multiplayer(){
         $('#lixo2').show();	
         $("#jogo_ambiental_multiplayer").show();
         jogando_ambiental = setInterval(function(){
-            console.log(vencedor_ambiental);
             if(ambiental_contador_jogador1 <= 4){
                     $('#lixo1').show();	
                     if(getInfo_multiplayer('#lixo1','marginTop') <= 420){
