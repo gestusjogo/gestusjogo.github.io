@@ -29,11 +29,11 @@ function teclado_libras_apagar(campo){
 function teclado_libras_enviar(campo){
 	$("#myCanvas").removeClass('bg_praca_fundo');
 	if(campo == 'nome'){
-		if($("#nome_libras").val() == nome){
+		if($("#nome_libras").val().toLowerCase() == nome){
 			falas();
 		} 
 	}else{
-		if($("#idade_libras").val() == idade){
+		if($("#idade_libras").val().toLowerCase() == idade){
 			falas();
 		} 
 	}
