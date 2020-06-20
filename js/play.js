@@ -162,8 +162,8 @@ function falas(){
 			}else{
 				$("#dialogo").show();
 				if(index_dialogo == 0){
-					nome = $("#nome").val();
-					idade = $("#idade").val();
+					nome = $("#nome").val().toLowerCase();
+					idade = $("#idade").val().toLowerCase();
 					var data = new Date();
 					armazenar_dados(nome, idade, data.getDate()+'/'+(data.getMonth()+1)+'/'+data.getFullYear());
 					$("#fala").html(dialogo[tela_atual]['primeira_vez'][index_dialogo] + ' ' + nome);
