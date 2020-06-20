@@ -24,9 +24,9 @@ var saudacoes = {
 	'boa_noite' : false
 };
 $(document).ready(function () {
-	swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.").then(() => {
-		$('.somMenu').click();
-	});
+	//swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.").then(() => {
+	//	$('.somMenu').click();
+	//});
 	$("#menu").show();
 	$('.som').hide();
 	$('.somMenu').show();
