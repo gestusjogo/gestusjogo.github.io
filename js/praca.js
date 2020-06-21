@@ -30,14 +30,14 @@ function teclado_libras_enviar(campo){
 	$("#myCanvas").removeClass('bg_praca_fundo');
 	if(jogador_atual.includes(1)){
 		if(campo == 'nome'){
-			if($("#nome_libras").val() == nome){
+			if($("#nome_libras").val().toLowerCase() == nome){
 				falas();
 			}else{
 				praca_parte = 'erro_nome';
 				falas();
 			}
 		}else{
-			if($("#idade_libras").val() == idade){
+			if($("#idade_libras").val().toLowerCase() == idade){
 				falas();
 			}else{
 				praca_parte = 'erro_idade';
@@ -46,14 +46,14 @@ function teclado_libras_enviar(campo){
 		}
 	}else if(jogador_atual.includes(2)){
 		if(campo == 'nome'){
-			if($("#nome_libras").val() == nome2){
+			if($("#nome_libras").val().toLowerCase() == nome2){
 				falas();
 			}else{
 				praca_parte = 'erro_nome';
 				falas();
 			}
 		}else{
-			if($("#idade_libras").val() == idade2){
+			if($("#idade_libras").val().toLowerCase() == idade2){
 				falas();
 			}else{
 				praca_parte = 'erro_idade';

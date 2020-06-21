@@ -152,7 +152,7 @@
 					</div>
 					<input type="text" autocomplete="off" name="nome" id="nome_j1" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j1()">
 					<input type="text" autocomplete="off" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
-					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="if(validacoes(1)) return trocarTela('#tela_j2','bg_j2')">
+					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="if(validacoes(1)){ getDados(this);return trocarTela('#tela_j2','bg_j2')}">
 				</form>
 			</div>
 
@@ -165,7 +165,7 @@
 					</div>
 					<input type="text" autocomplete="off" name="nome" id="nome_j2" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j2()">
 					<input type="text" autocomplete="off" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
-					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="if(validacoes(2)) return trocarTela('#tela_casa','bg_casa')">
+					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="if(validacoes(2)){getDados(this);return trocarTela('#tela_casa','bg_casa')}">
 				</form>
 			</div>
 

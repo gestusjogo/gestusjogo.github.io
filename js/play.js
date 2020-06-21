@@ -42,9 +42,9 @@ function alterarJogador(){
 
 
 $(document).ready(function () {
-	swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.").then(() => {
+	//swal("Ei, psiu!","Se você estiver acessando pelo celular é melhor você tentar pelo compudator, esse joguinho não foi feito pra celular.").then(() => {
 		$('.somMenu').click();
-	});
+	//});
 	$("#menu").show();
 	$('.som').hide();
 	$('.somMenu').show();
@@ -600,9 +600,21 @@ function executa_animacao(pessoa, acao){
 		}
 	}
 	local = "./assets/images/animacoes/"+pessoa+"/"+acao+"_sheet.png";
-	fim_animacao = false;
+  fim_animacao = false;
 	anima(pessoa, acao, animacao_width, animacao_height, quantidade_sprites, local, canvas_id, fecharModalAnimacao);
 }
+
+function getDados(campo){
+	campo = $(campo).closest('#formulario_inicio');
+	var nome = $(campo).find('input[name="nome"]').val().toLowerCase();
+	var idade = $(campo).find('input[name="idade"]').val().toLowerCase();
+	var data = new Date();
+	armazenar_dados(nome, idade, data.getDate()+'/'+(data.getMonth()+1)+'/'+data.getFullYear());
+}
+function armazenar_dados(nome, idade, data){
+	document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbxEpZk4L4EhAkRqlLWlVARPcgHqIp_rnumhoA3bnrjwjKP5rVRr/exec?nome='+nome+'&idade='+idade+'&data='+data;
+}
+
 function pular_feedback(){
 	$("#modal_feedback").hide();
 	$("#modal_reiniciar_jogo").show();
