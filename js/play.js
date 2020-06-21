@@ -126,8 +126,14 @@ function pular_falas(){
 						$('#modal_modo_jogo').show();
 				}
 			}else{
-				reiniciar_fliperama(); 
-				trocarTela("#tela_fliperama2",'bg_fliperama2');
+				if(fim_fase){
+					fase_fliperama_completa = true;
+					fim_fase = false;
+					trocarTela('#tela_cidade','bg_menu');
+				}else{
+					reiniciar_fliperama(); 
+					trocarTela("#tela_fliperama2",'bg_fliperama2');						
+				}
 			}
 		break;
 		case "#tela_escola":
@@ -159,10 +165,16 @@ function pular_falas(){
 						}
 					break;
 					default:
-						$('#modal_modo_jogo').show();
+					$('#modal_modo_jogo').show();
 				}
 			}else{
-				$("#game").show();
+				if(fim_fase){
+					fase_escola_completa = true;
+					fim_fase = false;
+					trocarTela('#tela_cidade','bg_menu');
+				}else{
+					$("#game").show();
+				}
 			}
 		break;
 		case "#tela_sorveteria":
@@ -191,10 +203,24 @@ function pular_falas(){
 					default:
 						$('#modal_modo_jogo').show();
 				}
+			}else{
+				if(fim_fase){
+					fase_sorveteria_completa = true;
+					repetir_fase = false;
+					trocarTela('#tela_cidade','bg_menu');
+				}else{
+					$(".erros").show();
+				}
 			}
 		break;
 		case "#tela_supermercado":
-			$(".item_lista").show();
+			if(fim_fase){
+				fase_supermercado_completa = true;
+				repetir_fase = false;
+				trocarTela('#tela_cidade','bg_menu');
+			}else{
+				$(".item_lista").show();
+			}
 		break;
 		case "#tela_parque":
 			if(multi_jogadores){
@@ -221,10 +247,16 @@ function pular_falas(){
 						$('#modal_modo_jogo').show();
 				}		
 			}else{
-				ambiental_reiniciar();
-				$("#jogo_ambiental").show();
+				if(fim_fase){
+					fase_ambiental_completa = true;
+					repetir_fase = false;
+					trocarTela('#tela_cidade','bg_menu');
+				}else{
+					ambiental_reiniciar();
+					$("#jogo_ambiental").show();
+					ambiental_play = true;
+				}
 			}
-			ambiental_play = true;
 		break;
 	}
 }
@@ -266,6 +298,7 @@ function trocarTela(tela,bg){
 		$("#seta").hide();
 	}else if(tela == "#tela_cidade"){
 		fases_completas = (fase_fliperama_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
+		fases_completas = true;
 		if(!primeira_vez_cidade){
 			liberar_cidade();
 		}
@@ -391,7 +424,7 @@ function removeAcento (text){
 function isLetterKey(evt){
 	var vogal = removeAcento(evt.key);
 	var charCode = (evt.which) ? evt.which : event.keyCode;
-	if((vogal == 'a' || vogal == 'e' || vogal == 'i' || vogal == 'o' || vogal == 'u') || ((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) || (charCode == 231 || charCode == 199)))
+	if(charCode == 32 || (vogal == 'a' || vogal == 'e' || vogal == 'i' || vogal == 'o' || vogal == 'u') || ((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) || (charCode == 231 || charCode == 199)))
 		return true;
 	return false;
 
@@ -560,4 +593,15 @@ function executa_animacao(pessoa, acao){
 	local = "./assets/images/animacoes/"+pessoa+"/"+acao+"_sheet.png";
 	fim_animacao = false;
 	anima(pessoa, acao, animacao_width, animacao_height, quantidade_sprites, local, canvas_id, fecharModalAnimacao);
+}
+function pular_feedback(){
+	$("#modal_feedback").hide();
+	$("#modal_reiniciar_jogo").show();
+}
+
+function deixar_feedback(){
+	feedback = $(".feedback_textarea").val();
+	console.log(feedback);
+	document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbzpH5SiikbsxRBjrAgPCqoM3ZjJ9EtIccz6bzKcdZhVTu0j03w/exec?feedback='+feedback;
+	pular_feedback();
 }

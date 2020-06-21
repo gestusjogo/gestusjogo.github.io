@@ -8,6 +8,7 @@ function falas(){
 	index_dialogo++;
 	switch(tela_atual){
 		case '#tela_casa':
+		fim_animacao = true;
 		if(!fase_casa_completa){
 			if(primeira_vez_casa){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['primeira_vez'].length){
@@ -76,6 +77,7 @@ function falas(){
 		case '#tela_cidade':
 		primeira_vez_casa = false;
 		fases_completas = (fase_fliperama_completa && fase_ambiental_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
+		fases_completas = true;
 		if(!fases_completas){
 			if(primeira_vez_cidade){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){
@@ -670,7 +672,7 @@ function falas(){
 					praca_parte = 'qual_nome';
 					break;
 					case 'erro_nome':
-					praca_parte = 'qual_nome';
+					praca_parte = 'muito_bem_nome';
 					$(".marina_cutscene").hide();
 					$("#myCanvas").addClass('bg_praca_fundo');
 					$(".formulario_nome").show();
@@ -686,7 +688,7 @@ function falas(){
 					executa_animacao('marina','qual_idade');
 					break;
 					case 'erro_idade':
-					praca_parte = 'qual_idade';
+					praca_parte = 'muito_bem_idade';
 					$(".marina_cutscene").hide();
 					$("#myCanvas").addClass('bg_praca_fundo');
 					$(".formulario_idade").show();

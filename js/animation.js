@@ -118,7 +118,7 @@ function anima(pessoa, acao, w, h, nof, local, canvas_id, metodo) {
 		height: h,
 		image: coinImage,
 		numberOfFrames: nof,
-		ticksPerFrame: 8
+		ticksPerFrame: 10
 	});
 	
 	// Load sprite sheet

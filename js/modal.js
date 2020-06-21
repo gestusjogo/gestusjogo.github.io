@@ -14,6 +14,7 @@ $("#voltar_menu").click(function(){
   fase_sorveteria_completa = false;
   fase_escola_completa = false;
   fase_ambiental_completa = false;
+  document.getElementById("pacote").src = "assets/images/jogador.png";
   return trocarTela('#menu','bg_inicio');
 });
 
@@ -54,7 +55,7 @@ function fecharModalAnimacao(){
         praca_parte = 'despedida';
         falas();
       }else if(praca_parte == 'despedida'){
-        $("#modal_reiniciar_jogo").show();
+        $("#modal_feedback").show();
       }
     break;
   }

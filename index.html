@@ -55,7 +55,7 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div id="modal_modo_jogo" class="modal">
 				<div class="modal-content">
 					<p class="text-center text-modal">Escolham o modo de jogo:</p>
@@ -65,13 +65,23 @@
 					</div>
 				</div>
 			</div>
-
+			<div id="modal_feedback" class="modal">
+				<div class="modal-content" style="height: 300px;">
+					<p class="text-center text-modal" style="margin: 16px;">O que achou do jogo?</p>
+					<textarea class="feedback_textarea" maxlength="1000"></textarea>						
+					<div class="btns_confirmacao" style="margin-top: 10px;">
+						<input type="button" id="feedback" style="font-size: 31px;" onclick="deixar_feedback()" class="btn_alertas btn_alertas_sim" value="Enviar">
+						<input type="button" id="pular_feedback" onclick="pular_feedback()" style="font-size: 31px;" class="btn_alertas btn_alertas_sim" value="Pular" style="margin-top: 20px;">
+					</div>
+				</div>
+			</div>
+			
 			<div id="modal_reiniciar_jogo" class="modal">
 				<div class="modal-content">
-					<p class="text-center text-modal">Obrigado por jogar!</p>
+					<p class="text-center text-modal"  style="margin: 16px;">Obrigado por jogar!</p>
 					<div class="btns_confirmacao">
-						<input type="button" id="voltar_para_cidade" style="margin-top: -30px;margin-bottom: 20px;" class="btn_alertas btn_alertas_sim" value="Voltar para cidade">	
-						<input type="button" id="reiniciar_jogo" class="btn_alertas btn_alertas_sim" value="Reiniciar jogo">
+						<input type="button" id="reiniciar_jogo" style="margin-top: -30px;margin-bottom: 20px;" class="btn_alertas btn_alertas_sim" value="Reiniciar jogo">
+						<input type="button" id="voltar_para_cidade" class="btn_alertas btn_alertas_sim" value="Voltar para cidade">	
 					</div>
 				</div>
 			</div>
@@ -127,8 +137,8 @@
 					<div class="circulo_azul">
 						<img id="pacote" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra()">
-					<input type="text" name="idade" id="idade" placeholder="Idade" min="1" max="3" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
+					<input type="text" autocomplete="off" name="nome" id="nome" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra()">
+					<input type="text" autocomplete="off" name="idade" id="idade" placeholder="Idade" min="1" max="3" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
 					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="if(validacoes()) return trocarTela('#tela_casa','bg_casa')">
 				</form>
 			</div>
@@ -140,8 +150,8 @@
 					<div class="circulo_rosa">
 						<img id="pacote_j1" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome_j1" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j1()">
-					<input type="text" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
+					<input type="text" autocomplete="off" name="nome" id="nome_j1" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j1()">
+					<input type="text" autocomplete="off" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
 					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="if(validacoes(1)) return trocarTela('#tela_j2','bg_j2')">
 				</form>
 			</div>
@@ -153,8 +163,8 @@
 					<div class="circulo_azul">
 						<img id="pacote_j2" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome_j2" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j2()">
-					<input type="text" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
+					<input type="text" autocomplete="off" name="nome" id="nome_j2" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j2()">
+					<input type="text" autocomplete="off" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
 					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="if(validacoes(2)) return trocarTela('#tela_casa','bg_casa')">
 				</form>
 			</div>
@@ -416,7 +426,7 @@
 					</div>
 				</div>
 			</div>
-
+			<iframe id="envio" style="display: none;"></iframe>
 		</div>
 		<!-- ARQUIVOS JS -->
 		<script type="text/javascript" src="js/textos.js"></script>
