@@ -459,7 +459,7 @@ function voltar_menu(){
 	fase_casa_completa = false;
 	fase_sorveteria_completa = false;
 	fase_escola_completa = false;
-	fase_ambiental_completa = false;
+	fase_ambiental_completa = true;
 	document.getElementById("pacote").src = "assets/images/jogador.png";
 	document.getElementById("pacote_j1").src = "assets/images/jogador.png";
 	document.getElementById("pacote_j2").src = "assets/images/jogador.png";

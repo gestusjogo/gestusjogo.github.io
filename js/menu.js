@@ -3,7 +3,7 @@ var fase_supermercado_completa = false;
 var fase_casa_completa = false;
 var fase_sorveteria_completa = false;
 var fase_escola_completa = false;
-var fase_ambiental_completa = false;
+var fase_ambiental_completa = true;
 var fases_completas = false;
 $(document).ready(function(){
     $("#escola").mouseover(function(){
@@ -42,13 +42,13 @@ $(document).ready(function(){
     $("#casa").mouseout(function(){
         $("#pin_casa").css("display", "none");
     });
-    $("#parque").mouseover(function(){
+    /*$("#parque").mouseover(function(){
         $("#pin_parque").css("display", "block");
     });
 
     $("#parque").mouseout(function(){
         $("#pin_parque").css("display", "none");
-    });
+    });*/
     $("#praca").mouseover(function(){
         $("#pin_praca").css("display", "block");
     });
