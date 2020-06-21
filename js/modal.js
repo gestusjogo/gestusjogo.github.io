@@ -8,13 +8,6 @@ $("#voltar_menu").click(function(){
   voltar_menu();
   primeira_vez_casa = true;
   primeira_vez_cidade = true;
-  fase_fliperama_completa = false;
-  fase_supermercado_completa = false;
-  fase_casa_completa = false;
-  fase_sorveteria_completa = false;
-  fase_escola_completa = false;
-  fase_ambiental_completa = false;
-  document.getElementById("pacote").src = "assets/images/jogador.png";
   return trocarTela('#menu','bg_inicio');
 });
 

@@ -77,7 +77,6 @@ function falas(){
 		case '#tela_cidade':
 		primeira_vez_casa = false;
 		fases_completas = (fase_fliperama_completa && fase_ambiental_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
-		fases_completas = true;
 		if(!fases_completas){
 			if(primeira_vez_cidade){
 				if(index_dialogo == dialogo[multi_jogadores][tela_atual]['inicio'].length){

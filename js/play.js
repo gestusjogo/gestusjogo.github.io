@@ -298,7 +298,6 @@ function trocarTela(tela,bg){
 		$("#seta").hide();
 	}else if(tela == "#tela_cidade"){
 		fases_completas = (fase_fliperama_completa && fase_supermercado_completa && fase_casa_completa && fase_sorveteria_completa && fase_escola_completa);
-		fases_completas = true;
 		if(!primeira_vez_cidade){
 			liberar_cidade();
 		}
@@ -449,11 +448,21 @@ function draw_score_cc(s){
 }
 
 function voltar_menu(){
-	liberar_cidade();
 	$('.som').hide();	
 	$('.somMenu').show();
 	$("#dialogo").hide();
+	$("#modal_feedback").hide();
+	$("#modal_reiniciar_jogo").hide();
 	first_time_inicio = false;
+	fase_fliperama_completa = false;
+	fase_supermercado_completa = false;
+	fase_casa_completa = false;
+	fase_sorveteria_completa = false;
+	fase_escola_completa = false;
+	fase_ambiental_completa = false;
+	document.getElementById("pacote").src = "assets/images/jogador.png";
+	document.getElementById("pacote_j1").src = "assets/images/jogador.png";
+	document.getElementById("pacote_j2").src = "assets/images/jogador.png";
 }
 
 function validacoes(jogador){
