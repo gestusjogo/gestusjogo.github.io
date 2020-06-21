@@ -3,10 +3,29 @@ body{
   font-family: "Arial";
   cursor: url(../assets/images/cursor.png), auto;
 }
-
+*{
+  outline: 0px transparent !important;
+}
+.erros:focus{
+  outline: 1px solid black !important;
+}
 @font-face { 
   font-family: AristaPro-Fat; 
   src: url('../assets/fonts/AristaPro-Fat.otf'); 
+}
+.feedback_textarea{
+  width: 100%;
+  height: 150px;
+  font-family: 'AristaPro-Fat', sans-serif;
+  font-size: 27px;
+  border-radius: 51px;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
 }
 
 #myCanvas{
@@ -148,7 +167,7 @@ body{
   left: 20px;
 }
 
-.butt_pular{
+#butt_pular{
   position: absolute;
   background-color: #8ED77C; /* Green */
   border: none;
@@ -164,8 +183,9 @@ body{
   /*padding: 14px 40px;*/
   width: 193px;
   height: 51px;
-  left: 720px;
+  left: 790px;
   top: 15px;
+  display: none;
 }
 .tela{
   display: none;
@@ -370,12 +390,18 @@ body{
   border: none;
   right: 10px;
   left: 10px;
-  min-width: 64px;
-  min-height: 64px;
+  min-width: 80px;
+  min-height: 80px;
   margin: 1px;
   cursor:  url(../assets/images/hover.png), auto;
 }
 .teclado_libras{
+  position: absolute;
+  width: 774px; 
+  left: 113px; 
+  top: 140px;
+}
+.teclado_libras_numero{
   position: absolute;
   width: 912px; 
   left: 40px; 
@@ -415,17 +441,17 @@ body{
   cursor:  url(../assets/images/hover.png), auto;
 }
 .tecla_espaco{
-  padding-left: 320px;
-  padding-right: 320px;
+  padding-left: 260px;
+  padding-right: 260px;
   position: absolute;
-  top: 140px;
+  top: 252px;
 }
 .tecla_apagar{
-  padding-left: 54px;
-  padding-right: 54px;  
+  padding-left: 43px;
+  padding-right: 43px;  
   position: absolute;
-  top: 140px;
-  left: 730px;
+  top: 252px;
+  left: 610px;
 }
 .tecla_apagar_idade{
   top: 90px;
@@ -583,56 +609,51 @@ body{
   top: 47px;
 }
 
-#animation1{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+*{
+  -webkit-touch-callout: none;  /* iPhone OS, Safari */
+  -webkit-user-select: none;    /* Chrome, Safari 3 */
+  -khtml-user-select: none;     /* Safari 2 */
+  -moz-user-select: none;       /* Firefox */
+  -ms-user-select: none;        /* IE10+ */
+  user-select: none;  
 }
 
-#animation2{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.jogador_atual {
+  border: solid black !important;
 }
 
-#animation3{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.pontuacao{
+  display: none;
 }
 
-#animation4{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.pontuacao_escola .jogador1{
+  left: 5%;
+}
+.pontuacao_escola .jogador2{
+  left: 81%;
+}
+.pontuacao_escola .jogador1 p, .pontuacao_escola .jogador2 p{
+  margin-bottom: 40px;
+}
+.pontuacao_escola .jogador1 p:last-child, .pontuacao_escola .jogador2 p:last-child{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 90px;
+  text-align: center;
 }
 
-#animation5{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.pontuacao_fliperama .jogador1{
+  left: 13%;
 }
-
-#animation6{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.pontuacao_fliperama .jogador2{
+  left: 73%;
 }
-
-#animation7{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.pontuacao_fliperama .jogador1 p, .pontuacao_fliperama .jogador2 p{
+  margin-bottom: 40px;
 }
-
-#animation8{
-  position: absolute;
-  left: 257px;
-  top: 47px;
-}
-
-#animation9{
-  position: absolute;
-  left: 257px;
-  top: 47px;
+.pontuacao_fliperama .jogador1 p:last-child, .pontuacao_fliperama .jogador2 p:last-child{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 50px;
+  text-align: center;
 }

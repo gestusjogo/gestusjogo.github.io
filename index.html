@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="js/textos.js"></script>
 	<script type='text/javascript' src='js/jogo_das_cores.js'></script>
 	<script type='text/javascript' src='js/animation.js'></script>
+	<script type='text/javascript' src='js/falas.js'></script>
 	<!-- ARQUIVOS CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
@@ -27,6 +28,9 @@
 <body>
 	<div id="myCanvas" class="bg_inicio">
 		<button class="som somativo somaqui"></button>
+		<div id="fim_jogo" style="background-image: url('assets/images/fim.png'); height: 100%; ">
+			<center><input type="button" style="margin-top: 350px;" class="voltar_cidade btn_alertas btn_alertas_sim" value=" Voltar para a cidade "></center>
+		</div>
 		<audio id="myAudio" autoplay>
 			<source src="./assets/musica.mp3" type="audio/mpeg">
 			</audio>
@@ -36,30 +40,54 @@
 					<p class="text-center text-modal">Você tem certeza que deseja parar de jogar?</p>
 					<div class="btns_confirmacao">
 						<input type="button" id="close_voltar_cidade" class="btn_alertas btn_alertas_nao" value=" Não ">	
-						<input type="button" id="voltar_cidade" class="btn_alertas btn_alertas_sim" value=" Sim ">
+						<input type="button" class="voltar_cidade btn_alertas btn_alertas_sim" value=" Sim ">
 					</div>
 				</div>
 			</div>
+			<button id="butt_pular" onclick="pular_falas()">PULAR</button>
 			<!-- Modal repetir animação -->
-			<div id="modal_repetir_animacao" class="modal">
+			<div id="modal_voltar_menu" class="modal">
 				<div class="modal-content">
-					<p class="text-center text-modal">Deseja repetir a animação?</p>
+					<p class="text-center text-modal">Você tem certeza que deseja voltar ao menu?</p>
 					<div class="btns_confirmacao">
-						<input type="button" id="fechar_modal_animacao" class="btn_alertas btn_alertas_nao" value=" Não ">	
-						<input type="button" id="repetir_animacao" class="btn_alertas btn_alertas_sim" value=" Sim ">
-						<input type="hidden" id="nome_animacao">
-						<input type="hidden" id="quem_faz">
+						<input type="button" id="fechar_modal_menu" class="btn_alertas btn_alertas_nao" value=" Não ">	
+						<input type="button" id="voltar_menu" class="btn_alertas btn_alertas_sim" value=" Sim ">
 					</div>
 				</div>
 			</div>
+			
+			<div id="modal_modo_jogo" class="modal">
+				<div class="modal-content">
+					<p class="text-center text-modal">Escolham o modo de jogo:</p>
+					<div class="btns_confirmacao">
+						<input type="button" id="juntos" class="btn_alertas btn_alertas_nao" value="Juntos ">	
+						<input type="button" id="versus" class="btn_alertas btn_alertas_sim" value="Versus">
+					</div>
+				</div>
+			</div>
+			<div id="modal_feedback" class="modal">
+				<div class="modal-content" style="height: 300px;">
+					<p class="text-center text-modal" style="margin: 16px;">O que achou do jogo?</p>
+					<textarea class="feedback_textarea" maxlength="1000"></textarea>						
+					<div class="btns_confirmacao" style="margin-top: 10px;">
+						<input type="button" id="feedback" style="font-size: 31px;" onclick="deixar_feedback()" class="btn_alertas btn_alertas_sim" value="Enviar">
+						<input type="button" id="pular_feedback" onclick="pular_feedback()" style="font-size: 31px;" class="btn_alertas btn_alertas_sim" value="Pular" style="margin-top: 20px;">
+					</div>
+				</div>
+			</div>
+			
 			<div id="modal_reiniciar_jogo" class="modal">
 				<div class="modal-content">
-					<p class="text-center text-modal">Obrigado por jogar!</p>
+					<p class="text-center text-modal"  style="margin: 16px;">Obrigado por jogar!</p>
 					<div class="btns_confirmacao">
-						<input type="button" id="voltar_para_cidade" style="margin-top: -30px;margin-bottom: 20px;" class="btn_alertas btn_alertas_sim" value="Voltar para cidade">	
-						<input type="button" id="reiniciar_jogo" class="btn_alertas btn_alertas_sim" value="Reiniciar jogo">
+						<input type="button" id="reiniciar_jogo" style="margin-top: -30px;margin-bottom: 20px;" class="btn_alertas btn_alertas_sim" value="Reiniciar jogo">
+						<input type="button" id="voltar_para_cidade" class="btn_alertas btn_alertas_sim" value="Voltar para cidade">	
 					</div>
 				</div>
+			</div>
+			<div class="pontuacao">
+				<div class="jogador1 jogador_atual" style="position: absolute;top: 20%; font-family: AristaPro-Fat; src: url('../assets/fonts/AristaPro-Fat.otf'); border: solid transparent;padding: 10px;  font-size: 2.2vw"><p>Jogador 1</p><p style="margin: auto; text-align: center;">0</p></div>
+				<div class="jogador2" style="position: absolute;top: 20%; font-family: AristaPro-Fat; src: url('../assets/fonts/AristaPro-Fat.otf'); border: solid transparent;padding: 10px;  font-size: 2.2vw"><p>Jogador 2</p><p style="margin: auto; text-align: center;">0</p></div>
 			</div>
 			<!-- Botão voltar cidade -->
 			<button class="butt_voltar" id="butt_voltar_cidade" style="display: none"> VOLTAR </button>
@@ -82,7 +110,6 @@
 			<!-- Tela menu -->
 			<div id="menu">
 				<button class="button_menu play_game" onclick="trocarTela('#tela_escolher_player','bg_fundo')"></button>
-				<!--<button class="button_menu play_game" onclick="trocarTela('#tela_parque','bg_praca')"></button>-->
 				<button class="button_menu som somMenu somativo somaqui"></button>
 				<button class="button_menu ajuda" onclick="return trocarTela('#tela_ajuda','bg_ajuda')"></button>
 				<button class="button_menu infor" onclick="return trocarTela('#tela_infor','bg_infor')"></button>
@@ -90,9 +117,8 @@
 
 			<div class="tela" id="tela_escolher_player">
 				<button class="butt_voltar" onclick="return trocarTela('#menu','bg_inicio')"> VOLTAR </button>
-
-				<button class="btn_jogadores btn_j1" onclick="return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>
-				<button class="btn_jogadores btn_j2" onclick="return trocarTela('#tela_j1','bg_j1')"> 2 jogadores </button>
+				<button class="btn_jogadores btn_j1" onclick=" multi_jogadores = false;return trocarTela('#tela1','bg_fundo')"> 1 jogador </button>
+				<button class="btn_jogadores btn_j2" onclick=" multi_jogadores = true;return trocarTela('#tela_j1','bg_fundo')"> 2 jogadores </button>
 			</div>
 
 			<div class="tela" id="tela_ajuda">
@@ -111,9 +137,9 @@
 					<div class="circulo_azul">
 						<img id="pacote" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome" placeholder="Nome" onkeyup="animaLetra()">
-					<input type="text" name="idade" id="idade" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
-					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="return trocarTela('#tela_casa','bg_casa')">
+					<input type="text" autocomplete="off" name="nome" id="nome" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra()">
+					<input type="text" autocomplete="off" name="idade" id="idade" placeholder="Idade" min="1" max="3" onkeypress="return isNumberKey(event)" onkeyup="animaNumero()">
+					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="if(validacoes()) return trocarTela('#tela_casa','bg_casa')">
 				</form>
 			</div>
 
@@ -124,9 +150,9 @@
 					<div class="circulo_rosa">
 						<img id="pacote_j1" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome_j1" placeholder="Nome" onkeyup="animaLetra_j1()">
-					<input type="text" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
-					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="getDados(this);return trocarTela('#tela_j2','bg_j2')">
+					<input type="text" autocomplete="off" name="nome" id="nome_j1" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j1()">
+					<input type="text" autocomplete="off" name="idade" id="idade_j1" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j1()">
+					<input type="button" value="Próximo" class="btn_jogadores proximo" onclick="if(validacoes(1)){ getDados(this);return trocarTela('#tela_j2','bg_j2')}">
 				</form>
 			</div>
 
@@ -137,21 +163,19 @@
 					<div class="circulo_azul">
 						<img id="pacote_j2" src="assets/images/jogador.png">
 					</div>
-					<input type="text" name="nome" id="nome_j2" placeholder="Nome" onkeyup="animaLetra_j2()">
-					<input type="text" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
-					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="getDados(this);return trocarTela('#tela_casa','bg_casa')">
+					<input type="text" autocomplete="off" name="nome" id="nome_j2" placeholder="Nome" onkeypress="return isLetterKey(event)" onkeyup="animaLetra_j2()">
+					<input type="text" autocomplete="off" name="idade" id="idade_j2" placeholder="Idade" min="1" onkeypress="return isNumberKey(event)" onkeyup="animaNumero_j2()">
+					<input type="button" value="Jogar" id="play" class="btn_jogadores play" onclick="if(validacoes(2)){getDados(this);return trocarTela('#tela_casa','bg_casa')}">
 				</form>
 			</div>
 
 			<!-- tela inicio -->
 			<div class="tela" id="tela_casa">
-				<button class="butt_pular" onclick="return trocarTela('#tela_cidade','bg_menu')">PULAR</button>
-
 				<div id="saudacoes" style="display: none">
-					<div id="ini_oi" onclick="saudacao_executada('oi'); executa_animacao('jonas','oi');">Oi</div>
-					<div id="ini_bd" onclick="saudacao_executada('bom_dia'); executa_animacao('jonas','bom_dia');">Bom dia</div>
-					<div id="ini_bt" onclick="saudacao_executada('boa_tarde'); executa_animacao('jonas','boa_tarde');">Boa tarde</div>
-					<div id="ini_bn" onclick="saudacao_executada('boa_noite'); executa_animacao('jonas','boa_noite');">Boa noite</div>
+					<div id="ini_oi" onclick="if(fim_animacao){saudacao_executada('oi'); executa_animacao('jonas','oi');}">Oi</div>
+					<div id="ini_bd" onclick="if(fim_animacao){saudacao_executada('bom_dia'); executa_animacao('jonas','bom_dia');}">Bom dia</div>
+					<div id="ini_bt" onclick="if(fim_animacao){saudacao_executada('boa_tarde'); executa_animacao('jonas','boa_tarde');}">Boa tarde</div>
+					<div id="ini_bn" onclick="if(fim_animacao){saudacao_executada('boa_noite'); executa_animacao('jonas','boa_noite');}">Boa noite</div>
 				</div>
 				<div class="bounce">	
 					<img id="seta" class="arrow2" onclick="proxima_fala();" src="assets/images/arrow.png">
@@ -161,7 +185,7 @@
 
 			<!-- tela cidade -->
 			<div class="tela" id="tela_cidade">
-				<button class="butt_voltar" id="volta_menu" onclick="return trocarTela('#menu','bg_inicio'), voltar_menu();"> MENU </button>
+				<button class="butt_voltar" id="volta_menu" onclick="$('#modal_voltar_menu').show();"> MENU </button>
 				<input type="button" class="pin" id="escola" onclick="return trocarTela('#tela_escola', 'bg_escola')">
 				<img id="pin_escola" src="assets/images/pin.png">
 				<input type="button" class="pin" id="supermercado" onclick="trocarTela('#tela_supermercado', 'bg_supermercado1')">
@@ -174,7 +198,7 @@
 				<img id="pin_casa" src="assets/images/pin.png">
 				<input type="button" class="pin" id="praca" style="display: none" onclick="return trocarTela('#tela_praca','bg_praca')">
 				<img id="pin_praca" src="assets/images/pin.png">
-				<input type="button" class="pin" id="parque" style="display: none" onclick="return trocarTela('#tela_parque','bg_praca')">
+				<input type="button" class="pin" id="parque" onclick="return trocarTela('#tela_parque','bg_praca')">
 				<img id="pin_parque" src="assets/images/pin.png">
 			</div>
 
@@ -271,18 +295,16 @@
 				<input type="button" id="erro7" class="erros" onclick="erro_aqui('#x7')">
 				<input type="button" id="erro8" class="erros" onclick="erro_aqui('#x8')">
 				<input type="button" id="erro9" class="erros" onclick="erro_aqui('#x9')">
-				<img id="x0" src="assets/images/cross.png" >
-				<img id="x1" src="assets/images/cross.png" >
-				<img id="x2" src="assets/images/cross.png" >
-				<img id="x3" src="assets/images/cross.png" >
-				<img id="x4" src="assets/images/cross.png" >
-				<img id="x5" src="assets/images/cross.png" >
-				<img id="x6" src="assets/images/cross.png" >
-				<img id="x7" src="assets/images/cross.png" >
-				<img id="x8" src="assets/images/cross.png" >
-				<img id="x9" src="assets/images/cross.png" >
-
-				<img id="fim_erros" src="assets/images/fim.png" />
+				<img class="imagem_erro" id="x0" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x1" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x2" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x3" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x4" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x5" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x6" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x7" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x8" src="assets/images/cross.png" >
+				<img class="imagem_erro" id="x9" src="assets/images/cross.png" >
 			</div>
 
 			<!-- tela fliperama -->
@@ -311,32 +333,33 @@
 						<input type="text" name="nome" id="nome_libras" placeholder="Nome" disabled="">
 					</form>
 					<div class="teclado_libras">
-						<button class="tecla_letra" value='A'></button>
-						<button class="tecla_letra" value='B'></button>
-						<button class="tecla_letra" value='C'></button>
-						<button class="tecla_letra" value='D'></button>
-						<button class="tecla_letra" value='E'></button>
-						<button class="tecla_letra" value='F'></button>
-						<button class="tecla_letra" value='G'></button>
-						<button class="tecla_letra" value='H'></button>
-						<button class="tecla_letra" value='I'></button>
-						<button class="tecla_letra" value='J'></button>
-						<button class="tecla_letra" value='K'></button>
-						<button class="tecla_letra" value='L'></button>
-						<button class="tecla_letra" value='M'></button>
-						<button class="tecla_letra" value='N'></button>
-						<button class="tecla_letra" value='O'></button>
-						<button class="tecla_letra" value='P'></button>
-						<button class="tecla_letra" value='Q'></button>
-						<button class="tecla_letra" value='R'></button>
-						<button class="tecla_letra" value='S'></button>
-						<button class="tecla_letra" value='T'></button>
-						<button class="tecla_letra" value='U'></button>
-						<button class="tecla_letra" value='V'></button>
-						<button class="tecla_letra" value='W'></button>
-						<button class="tecla_letra" value='X'></button>
-						<button class="tecla_letra" value='Y'></button>
-						<button class="tecla_letra" value='Z'></button>
+						<button class="tecla_letra" value='a'></button>
+						<button class="tecla_letra" value='b'></button>
+						<button class="tecla_letra" value='c'></button>
+						<button class="tecla_letra" value='d'></button>
+						<button class="tecla_letra" value='e'></button>
+						<button class="tecla_letra" value='f'></button>
+						<button class="tecla_letra" value='g'></button>
+						<button class="tecla_letra" value='h'></button>
+						<button class="tecla_letra" value='i'></button>
+						<button class="tecla_letra" value='j'></button>
+						<button class="tecla_letra" value='k'></button>
+						<button class="tecla_letra" value='l'></button>
+						<button class="tecla_letra" value='m'></button>
+						<button class="tecla_letra" value='n'></button>
+						<button class="tecla_letra" value='o'></button>
+						<button class="tecla_letra" value='p'></button>
+						<button class="tecla_letra" value='q'></button>
+						<button class="tecla_letra" value='r'></button>
+						<button class="tecla_letra" value='s'></button>
+						<button class="tecla_letra" value='t'></button>
+						<button class="tecla_letra" value='u'></button>
+						<button class="tecla_letra" value='v'></button>
+						<button class="tecla_letra" value='w'></button>
+						<button class="tecla_letra" value='x'></button>
+						<button class="tecla_letra" value='y'></button>
+						<button class="tecla_letra" value='z'></button>
+						<button class="tecla_letra" value='ç'></button>
 						<button class="tecla_espaco">Espaço</button>
 						<button class="tecla_apagar" onclick="teclado_libras_apagar('nome')">Apagar</button>
 					</div>
@@ -346,7 +369,7 @@
 					<form name="formulario" id="form_idade_libras">
 						<input type="text" name="nome" id="idade_libras" placeholder="Idade" disabled="">
 					</form>
-					<div class="teclado_libras">
+					<div class="teclado_libras_numero">
 						<button class="tecla_numero" value='0'></button>
 						<button class="tecla_numero" value='1'></button>
 						<button class="tecla_numero" value='2'></button>
@@ -375,6 +398,33 @@
 						<div id="lixeira_azul" class="lixeira lixo_azul"></div>
 					</div>
 				</div>
+				<div id="jogo_ambiental_multiplayer" style="position: initial; display: none">
+					<div class="parte_jogador1">
+						<div class="lixo" id="lixo1">
+							<div id="lixo_inicio"></div>
+							<div id="lixo_fim"></div>
+						</div>
+						<div id="lixeiras">
+							<div id="lixeira_verde" class="lixeira_multiplayer lixo_verde"></div>
+							<div id="lixeira_vermelho" class="lixeira_multiplayer lixo_vermelho"></div>
+							<div id="lixeira_amarelo" class="lixeira_multiplayer lixo_amarelo"></div>
+							<div id="lixeira_azul" class="lixeira_multiplayer lixo_azul"></div>
+						</div>
+					</div>
+					<div id="divisor" style="width: 4px; height: 562px; position: absolute; left: 498px;background-color: black;"></div>
+					<div class="parte_jogador2">
+						<div class="lixo" id="lixo2">
+							<div id="lixo_inicio"></div>
+							<div id="lixo_fim"></div>
+						</div>
+						<div id="lixeiras">
+							<div id="lixeira_verde" class="lixeira_multiplayer lixo_verde"></div>
+							<div id="lixeira_vermelho" class="lixeira_multiplayer lixo_vermelho"></div>
+							<div id="lixeira_amarelo" class="lixeira_multiplayer lixo_amarelo"></div>
+							<div id="lixeira_azul" class="lixeira_multiplayer lixo_azul"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<iframe id="envio" style="display: none;"></iframe>
 		</div>
@@ -386,5 +436,6 @@
 		<script type="text/javascript" src="js/modal.js"></script>
 		<script type="text/javascript" src="js/praca.js"></script>
 		<script type="text/javascript" src="js/ambiental.js"></script>
+		<script type="text/javascript" src="js/ambiental_multiplayer_versus.js"></script>
 	</body>
 	</html>
