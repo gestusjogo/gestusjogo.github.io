@@ -1,11 +1,3 @@
-	function addEvent(obj, evt, fn) {
-		if (obj.addEventListener) {
-			obj.addEventListener(evt, fn, false);
-		}
-		else if (obj.attachEvent) {
-			obj.attachEvent("on" + evt, fn);
-		}
-	}	
 	var cor_lixo = '';
 	var altura_lixeira = 0;
 	var movimento_lateral = 0;
@@ -40,9 +32,10 @@
 	var velocidade_caida = 2;
 	ambiental_play = false;
 	var finalizado = false;
-	addEvent(window,"load",function(e) { 
-		setInterval(function(){
-			if(!multi_jogadores){
+	function iniciar_ambiental(){
+		ambiental_contador = 0;
+		var fase_ambiental = setInterval(function(){
+			if(!multi_jogadores || modo_jogo == 'juntos'){
 				if(ambiental_contador <= 4){
 					if(getInfo('lixo','marginTop') <= 350){
 						if(ambiental_play){
@@ -56,39 +49,81 @@
 				}else{
 					if(!finalizado){
 						$('#lixo').hide();	
-						fase_ambiental_completa = true;
+						fim_fase = true;
 						finalizado = !finalizado;
 						ambiental_parte = 'final';
 						falas();
+						clearInterval(fase_ambiental);
 					}
 				}
 				velocidade_caida = 2;
+				console.log(cor_lixo);
+				if(!multi_jogadores || cores_jogador2.includes(cor_lixo)){
+					if(tecla_jogador2 == 40 || tecla_jogador2 == 39 || tecla_jogador2 == 37){
+						if(tecla_jogador2 == 40){
+							velocidade_caida = 10;
+						}
+						if(tecla_jogador2 == 39){
+							movimento_lateral += 10;
+						}
+						if(tecla_jogador2 == 37){
+							movimento_lateral -= 10;
+						}
+						movimento_lateral = limitacoes(movimento_lateral);
+						va2 = movimento_lateral+'px';	
+						$("#lixo").animate({ left: va2}, 10, function(){
+							semMeios();
+						});		
+					}
+				}
+				if(!multi_jogadores || cores_jogador1.includes(cor_lixo)){
+					if(tecla_jogador1 == 83 || tecla_jogador1 == 68 || tecla_jogador1 == 65){
+						if(tecla_jogador1 == 83){
+							velocidade_caida = 10;
+						}
+						if(tecla_jogador1 == 68){
+							movimento_lateral += 10;
+						}
+						if(tecla_jogador1 == 65){
+							movimento_lateral -= 10;
+						}
+						movimento_lateral = limitacoes(movimento_lateral);
+						va1 = movimento_lateral+'px';	
+						$("#lixo").animate({ left: va1}, 10, function(){
+							semMeios();
+						});		
+					}
+				}
 			}
 		}, 24);
-	});	
+	}
+
+	$(document).keyup(function(event){
+		if(event.which == tecla_jogador1){
+			tecla_jogador1 = null;
+		}
+		if(event.which == tecla_jogador2){
+			tecla_jogador2 = null;
+		}
+	});
 	$(document).keydown(function(event){
-		if(!multi_jogadores){
-			if(event.which == 40){
-				velocidade_caida = 10;
-			}
-			if(event.which == 32){
-				ambiental_play = !ambiental_play;
-			}
-			if(event.which == 39){
-				movimento_lateral += 20;
-			}else if(event.which == 37){
-				movimento_lateral -= 20;
-			}
-			movimento_lateral = limitacoes(movimento_lateral);
-			va = movimento_lateral+'px';	
-			$("#lixo").animate({ left: va}, 10, function(){
-				semMeios();
-			});		
+
+		if(event.which == 32){
+			ambiental_play = !ambiental_play;
+		}
+
+		if(event.which == 40 || event.which == 39 || event.which == 37){
+			tecla_jogador2 = event.which;
+		}
+
+		if(event.which == 83 || event.which == 68 || event.which == 65){
+			tecla_jogador1 = event.which;
 		}
 	});
 	function semMeios(){
 		
-		if(!multi_jogadores){
+		if(!multi_jogadores || modo_jogo == 'juntos'){
+			
 			var inicio = 0;
 			var fim = 0;
 			var divisor = 0;
@@ -122,9 +157,25 @@
 			}
 		}
 	}
-	function ambiental_reiniciar(){
+	function get_random_cores(){
+		var cor1 = lixos[Math.floor(Math.random() * 4)];
+		var cor2 = '';
+		do{
+			cor2 = lixos[Math.floor(Math.random() * 4)];
+		}while(cor2 == cor1);
+		var cores2  = ['vermelho','azul','amarelo','verde'];
+		var cores = [cor1, cor2];
+		cores2.splice(cores2.indexOf(cores[0]), 1);
+		cores2.splice(cores2.indexOf(cores[1]), 1);
+		return {
+			'jogador1' : cores,
+			'jogador2' : cores2,
+		}
+	}
+
+ function ambiental_reiniciar(){
 		
-		if(!multi_jogadores){
+		if(!multi_jogadores || modo_jogo == 'juntos'){
 			var inicioAleatoria = Math.floor(Math.random() * 940);	
 			movimento_lateral = inicioAleatoria;
 			va = movimento_lateral+'px';
@@ -140,7 +191,8 @@
 		}
 	}
 	function ambiental_repetir(){
-		if(!multi_jogadores){
+		if(!multi_jogadores || modo_jogo == 'juntos'){
+			
 			var inicioAleatoria = Math.floor(Math.random() * 940);	
 			movimento_lateral = inicioAleatoria;
 			va = movimento_lateral+'px';
@@ -150,19 +202,17 @@
 		}
 	}
 	function limitacoes(val){
-		
-		if(!multi_jogadores){
-			if(val <= 0){
-				val = 0;
-			}else if(val >= 960){
-				val = 960;
-			}
-			return val;
+		if(val <= 0){
+			val = 0;
+		}else if(val >= 960){
+			val = 960;
 		}
+		return val;
 	}
 	function ondeCaiu(){
 		
-		if(!multi_jogadores){
+		if(!multi_jogadores || modo_jogo == 'juntos'){
+			
 			var dentro = false;
 			var local = getInfo('lixo','left');
 			for(var i = 0; i < lixos.length; i++){
@@ -172,14 +222,16 @@
 						dentro = true;
 					}else{
 						ambiental_parte = 'erro_lixeira';
-						falas();
+						if(!multi_jogadores)
+							falas();
 					}
 				}
 			}
 			if(!dentro){
 				if(ambiental_parte != 'erro_lixeira'){
 					ambiental_parte = 'erro_chao';
-					falas();
+					if(!multi_jogadores)
+						falas();
 				}
 				pontuacao['erros']++;
 				ambiental_repetir();

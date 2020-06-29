@@ -29,7 +29,10 @@ var saudacoes = {
 	'boa_tarde' : false,
 	'boa_noite' : false
 };
+var ambiental_jogadores = [];
 var fim_animacao = true;
+var cores_jogador1 = '';
+var cores_jogador2 = '';
 function alterarJogador(){
 	$("."+jogador_atual).removeClass('jogador_atual');
 	if(jogador_atual.includes('1')){
@@ -252,6 +255,8 @@ function pular_falas(){
 					repetir_fase = false;
 					trocarTela('#tela_cidade','bg_menu');
 				}else{
+
+					iniciar_ambiental();
 					ambiental_reiniciar();
 					$("#jogo_ambiental").show();
 					ambiental_play = true;
@@ -327,6 +332,11 @@ function trocarTela(tela,bg){
 		$("#cores").show();
 	}else if(tela == "#tela_parque"){
 		$("#butt_voltar_cidade").show();
+		if(multi_jogadores){
+			ambiental_jogadores = get_random_cores();
+			cores_jogador1 = ambiental_jogadores['jogador1'].join(' e ');
+			cores_jogador2 = ambiental_jogadores['jogador2'].join(' e ');
+		}
 		ambiental_parte = 'inicio';
 		ambiental_contador = 0;
 		if(multi_jogadores){

@@ -660,6 +660,7 @@ function falas(){
 					}
 				}else{
 					$("#fala").html(dialogo[multi_jogadores][tela_atual][praca_parte][index_dialogo]);
+
 				}
 			}
 		}else{
@@ -755,7 +756,16 @@ function falas(){
 								iniciar_ambiental_multiplayer();
 							}else{
 								$("#dialogo").show();
-								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
+								var value = dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo];
+								if(value.includes("%jogador_1%"))
+									value = value.replace("%%jogador_1%%", nome);
+								if(value.includes("%jogador_2%"))
+									value = value.replace("%%jogador_2%%", nome2);
+								if(value.includes("%lixo_jogador_1%"))
+									value = value.replace("%lixo_jogador_1%", cores_jogador1);
+								if(value.includes("%lixo_jogador_2%"))
+									value = value.replace("%lixo_jogador_2%", cores_jogador2);
+								$("#fala").html(value);
 								$("#butt_pular").show();
 							}
 						}
@@ -773,7 +783,7 @@ function falas(){
 							}else{
 								$("#dialogo").show();
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
-								$("#jogo_ambiental_multiplayer").hide();
+								$("#jogo_ambiental").hide();
 								$("#butt_pular").show();
 							}
 						}else{
@@ -781,10 +791,21 @@ function falas(){
 								reiniciar_contador_fala();
 								$("#butt_pular").hide();
 								$(".som").show();
-								iniciar_ambiental_multiplayer();
+								iniciar_ambiental();
+								ambiental_reiniciar();
+								$("#jogo_ambiental").show();
 							}else{
 								$("#dialogo").show();
-								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo]);
+								var value = dialogo[multi_jogadores][tela_atual][modo_jogo]['inicio'][index_dialogo];
+								if(value.includes("%jogador_1%"))
+									value = value.replace("%%jogador_1%%", nome);
+								if(value.includes("%jogador_2%"))
+									value = value.replace("%%jogador_2%%", nome2);
+								if(value.includes("%lixo_jogador_1%"))
+									value = value.replace("%lixo_jogador_1%", cores_jogador1);
+								if(value.includes("%lixo_jogador_2%"))
+									value = value.replace("%lixo_jogador_2%", cores_jogador2);
+								$("#fala").html(value);
 								$("#butt_pular").show();
 							}
 						}
@@ -803,94 +824,96 @@ function falas(){
 							$("#butt_pular").show();
 						}
 					}
-				}else{
-					switch(ambiental_parte){
-						case 'inicio' :
-						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-							reiniciar_contador_fala();
-							if(multi_jogadores){
-								ambiental_reiniciar_multiplayer(1);
-								ambiental_reiniciar_multiplayer(2);
-								$('#lixo1').show();	
-								$('#lixo2').show();	
-								$("#jogo_ambiental_multiplayer").show();
-							}else{
-								ambiental_reiniciar();
-								$("#jogo_ambiental").show();
-							}
-							ambiental_play = true;
-							$("#butt_pular").hide();
-							$(".som").show();
+			}else{
+				switch(ambiental_parte){
+					case 'inicio' :
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+						reiniciar_contador_fala();
+						if(multi_jogadores){
+							ambiental_reiniciar_multiplayer(1);
+							ambiental_reiniciar_multiplayer(2);
+							$('#lixo1').show();	
+							$('#lixo2').show();	
+							$("#jogo_ambiental_multiplayer").show();
 						}else{
-							$("#dialogo").show();
-							if(multi_jogadores){
-								$("#jogo_ambiental_multiplayer").hide();
-							}else{
-								$("#jogo_ambiental").hide();
-							}
-							ambiental_play = false;
-							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
-							$("#butt_pular").show();
+
+							iniciar_ambiental();
+							ambiental_reiniciar();
+							$("#jogo_ambiental").show();
 						}
-						break;
-						case 'erro_lixeira' :
-						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-							reiniciar_contador_fala();
-							if(multi_jogadores){
-								$("#jogo_ambiental_multiplayer").show();
-							}else{
-								$("#jogo_ambiental").show();
-							}
-							ambiental_parte = '';
-							ambiental_play = true;
+						ambiental_play = true;
+						$("#butt_pular").hide();
+						$(".som").show();
+					}else{
+						$("#dialogo").show();
+						if(multi_jogadores){
+							$("#jogo_ambiental_multiplayer").hide();
 						}else{
-							$("#dialogo").show();
-							if(multi_jogadores){
-								$("#jogo_ambiental_multiplayer").hide();
-							}else{
-								$("#jogo_ambiental").hide();
-							}
-							ambiental_play = false;
-							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+							$("#jogo_ambiental").hide();
 						}
-						break;
-						case 'erro_chao' :
-						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-							reiniciar_contador_fala();
-							if(multi_jogadores){
-								$("#jogo_ambiental_multiplayer").show();
-							}else{
-								$("#jogo_ambiental").show();
-							}
-							ambiental_parte = '';
-							ambiental_play = true;
-						}else{
-							$("#dialogo").show();
-							if(multi_jogadores){
-								$("#jogo_ambiental_multiplayer").hide();
-							}else{
-								$("#jogo_ambiental").hide();
-							}
-							ambiental_play = false;
-							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
-						}
-						break;
-						case 'final' :
-						if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
-							reiniciar_contador_fala();
-							trocarTela('#tela_cidade','bg_menu');
-						}else{
-							$("#dialogo").show();
-							if(multi_jogadores){
-								$("#jogo_ambiental_multiplayer").hide();
-							}else{
-								$("#jogo_ambiental").hide();
-							}
-							ambiental_play = false;
-							$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
-						}
-						break;
+						ambiental_play = false;
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+						$("#butt_pular").show();
 					}
+					break;
+					case 'erro_lixeira' :
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+						reiniciar_contador_fala();
+						if(multi_jogadores){
+							$("#jogo_ambiental_multiplayer").show();
+						}else{
+							$("#jogo_ambiental").show();
+						}
+						ambiental_parte = '';
+						ambiental_play = true;
+					}else{
+						$("#dialogo").show();
+						if(multi_jogadores){
+							$("#jogo_ambiental_multiplayer").hide();
+						}else{
+							$("#jogo_ambiental").hide();
+						}
+						ambiental_play = false;
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+					}
+					break;
+					case 'erro_chao' :
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+						reiniciar_contador_fala();
+						if(multi_jogadores){
+							$("#jogo_ambiental_multiplayer").show();
+						}else{
+							$("#jogo_ambiental").show();
+						}
+						ambiental_parte = '';
+						ambiental_play = true;
+					}else{
+						$("#dialogo").show();
+						if(multi_jogadores){
+							$("#jogo_ambiental_multiplayer").hide();
+						}else{
+							$("#jogo_ambiental").hide();
+						}
+						ambiental_play = false;
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+					}
+					break;
+					case 'final' :
+					if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
+						reiniciar_contador_fala();
+						trocarTela('#tela_cidade','bg_menu');
+					}else{
+						$("#dialogo").show();
+						if(multi_jogadores){
+							$("#jogo_ambiental_multiplayer").hide();
+						}else{
+							$("#jogo_ambiental").hide();
+						}
+						ambiental_play = false;
+						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
+					}
+					break;
+				}
 			}
 		}else{
 			if(index_dialogo == dialogo[multi_jogadores]['repetir'].length){

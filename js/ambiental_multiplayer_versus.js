@@ -111,7 +111,7 @@ function iniciar_ambiental_multiplayer(){
             }else{
                 if(!finalizado){
                     $('#lixo1').hide();	
-                    fase_ambiental_completa = true;
+                    fim_fase = true;
                     if(vencedor_ambiental == ''){
                         vencedor_ambiental = 'Jogador 1';
                         if(modo_jogo == 'versus'){
@@ -125,7 +125,6 @@ function iniciar_ambiental_multiplayer(){
                         falas();
                     }
                     ambiental_parte = 'final';
-                    fim_fase = true;
                 }
             }
             if(ambiental_contador_jogador2 <= 4){
@@ -142,7 +141,7 @@ function iniciar_ambiental_multiplayer(){
             }else{
                 if(!finalizado){
                     $('#lixo2').hide();	
-                    fase_ambiental_completa = true;
+                    fim_fase = true;
                     if(vencedor_ambiental == ''){
                         vencedor_ambiental = 'Jogador 2';
                         if(modo_jogo == 'versus'){
@@ -156,7 +155,6 @@ function iniciar_ambiental_multiplayer(){
                         falas();
                     }
                     ambiental_parte = 'final';
-                    fim_fase = true;
                 }
             }
             velocidade_caida_jogador1 = 2;
