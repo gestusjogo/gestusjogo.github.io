@@ -146,10 +146,14 @@ var dialogo = {
 				'Ah, você sabia que coleta seletiva divide em cores para facilitar o tipo de lixo?',
 				'Vermelho é para o plástico. Azul é para o papel. Amarelo é para o metal e verde é para o vidro.',
 				'Agora que você já sabe disso. Vamos começar a separar os lixos?',
-				'Você pode usar as teclas do seu computador para jogar o lixo no canto certo',
-				"Clicando na seta direita o lixo vai para a direita",
-				"Clicando na seta esquerda o lixo vai para a esquerda",
-				"Clicando na seta baixo o lixo vai descer mais rápido",
+				'Você pode usar as teclas do seu computador para jogar o lixo no canto certo.',
+				'Utilize as teclas com as setas para movimentar o lixo,',
+				'sendo a seta esquerda para movimentar o lixo para esquerda e', 
+				'a seta direita para movimentar o lixo para direita.',
+				'Você também pode apertar e segurar a tecla com seta para baixo', 
+				'para que o lixo se mova mais rapidamente na tela.',
+				'Ganhe pontos ao acertar o tipo de lixo na lixeira correspondente. Valendo!'
+
 			],
 			'erro_lixeira' : [
 				"Você errou! Coloque esse lixo na lixeira correta!"
@@ -381,16 +385,14 @@ var dialogo = {
 			],
 			'versus' : {
 				"inicio" : [
-				"Vamos ver quem consegue colocar todos os lixos no local correto primeiro?",
-				"Jogador 1 você joga na parte da esquerda",
-				"Clicando na tecla D o lixo vai para a direita",
-				"Clicando na tecla A o lixo vai para a esquerda",
-				"Clicando na tecla S o lixo vai cair mais rápido",
-				"Jogador 2 você joga na parte da direita",
-				"Clicando na seta direita o lixo vai para a direita",
-				"Clicando na seta esquerda o lixo vai para a esquerda",
-				"Clicando na seta baixo o lixo vai cair mais rápido",
-				"Vamos lá!"
+					'Vocês podem usar as teclas do computador para jogar o lixo no canto certo.',
+					'Cada jogador ficará com teclas algumas teclas do computador para movimentar o lixo na tela.',
+					'%%jogador_1%% controlará com as teclas “A”, “S” e “D”, sendo A para movimentar o lixo para esquerda,', 
+					'D para movimentar o lixo para direita e S para movimentar o lixo mais rapidamente para baixo.',
+					'Já %%jogador_2%% controlará com as teclas com setas para esquerda, baixo e direita,', 
+					'sendo cada tecla correspondente ao movimento para esquerda, baixo e direita, respectivamente.',
+					'Ganhem pontos ao acertarem o tipo de lixo na lixeira correspondente.',
+					'O jogador com mais pontos, ganha a disputa.  Valendo!'
 				],
 				'resultado' : [
 					'Uau! Olha como esse parque ficou mais bonito!',
@@ -400,16 +402,15 @@ var dialogo = {
 			},
 			'juntos' : {
 				'inicio' : [
-					"Temos que colocar todos os lixos no local correto",
-					"Jogador 1 você joga na parte da esquerda",
-					"Clicando na tecla D o lixo vai para a direita",
-					"Clicando na tecla A o lixo vai para a esquerda",
-					"Clicando na tecla S o lixo vai cair mais rápido",
-					"Jogador 2 você joga na parte da direita",
-					"Clicando na seta direita o lixo vai para a direita",
-					"Clicando na seta esquerda o lixo vai para a esquerda",
-					"Clicando na seta baixo o lixo vai cair mais rápido",
-					"Vamos lá!"
+					'Vocês podem usar as teclas do computador para jogar o lixo no canto certo.',
+					'Cada jogador ficará com teclas algumas teclas do computador para movimentar o lixo na tela.',
+					'%%jogador_1%% controlará com as teclas “A”, “S” e “D”, sendo A para movimentar o lixo para esquerda,', 
+					'D para movimentar o lixo para direita e S para movimentar o lixo mais rapidamente para baixo.',
+					'Já %%jogador_2%% controlará com as teclas com setas para esquerda, baixo e direita,', 
+					'sendo cada tecla correspondente ao movimento para esquerda, baixo e direita, respectivamente.',
+					'Cada jogador controlará 2 tipos de lixo. %%jogador_1%% ficará com %lixo_jogador_1%,', 
+					'e %%jogador_2%% ficará com %lixo_jogador_2%',
+					'Ganhem pontos ao acertarem o tipo de lixo na lixeira correspondente. Valendo!'
 				],
 				'resultado' : [
 					'Uau! Olha como esse parque ficou mais bonito!',
