@@ -153,42 +153,55 @@
 	z-index: 2;
 }
 .lixeira{
-	width: 150px;
+	width: 165px;
 	height: 100%;
 	position: absolute;
 	float: left;
 }
-.lixo_verde{
-	background-color: green !important;
+#lixo_imagem.lixo_verde{
+	background: url("../assets/images/fase_ambiental/Vidro\ -\ Espelho.png") !important;
+	width: 61px;
+	height: 113px;
+	margin-top:-50px !important;
+	background-repeat: no-repeat;
 }
-.lixo_vermelho{
-	background-color: red !important;
+#lixo_imagem.lixo_vermelho{
+	background: url("../assets/images/fase_ambiental/Plástico\ -\ Garraga.png") !important;
+	width: 61px;
+	height: 113px;
+	margin-top:-50px !important;
 }
-.lixo_amarelo{
-	background-color: yellow !important;
+#lixo_imagem.lixo_amarelo{
+	background: url("../assets/images/fase_ambiental/Metal\ -\ Lata\ 01.png") !important;
+	width: 62px;
+	height: 95px;
+	margin-top:-50px !important;
 }
-.lixo_azul{
+#lixo_imagem.lixo_azul{
 	background-color: blue !important;
+	width: 61px;
+	height: 113px;
+	margin-top:-50px !important;
 }
 
 #lixeira_verde{
-	background-color: green !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Vidro.png");
 	left: 770px;
 }
 #lixeira_vermelho{
-	background-color: red !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Plástico.png");
 	left: 80px;
 }
 #lixeira_amarelo{
-	background-color: yellow !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Metal.png");
 	left: 540px;
 }
 #lixeira_azul{
-	background-color: blue !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Papel.png");
 	left: 310px;
 }
 #lixeiras{
-	height: 200px; 
+	height: 238px; 
 	bottom: 0; 
 	position: absolute;
 	z-index: 1;
@@ -221,19 +234,6 @@
 	position: absolute;
 	float: left;
 }
-.lixo_verde{
-	background-color: green !important;
-}
-.lixo_vermelho{
-	background-color: red !important;
-}
-.lixo_amarelo{
-	background-color: yellow !important;
-}
-.lixo_azul{
-	background-color: blue !important;
-}
-
 .parte_jogador1 #lixeira_verde{
 	background-color: green !important;
 	left: 380px;
@@ -270,7 +270,6 @@
 	left: 650px;
 }
 #lixeiras{
-	height: 150px; 
 	bottom: 0; 
 	position: absolute;
 	z-index: 1;

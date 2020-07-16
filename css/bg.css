@@ -70,3 +70,11 @@
 .bg_blur{
   background: url("../assets/images/mapa_blur.png");  
 }
+
+.bg_parque{
+  background: url("../assets/images/bg_ambiental.png")
+}
+
+.bg_parque_blur{
+  background: url("../assets/images/bg_ambiental_blur.png")
+}

@@ -37,7 +37,7 @@
 		var fase_ambiental = setInterval(function(){
 			if(!multi_jogadores || modo_jogo == 'juntos'){
 				if(ambiental_contador <= 4){
-					if(getInfo('lixo','marginTop') <= 350){
+					if(getInfo('lixo','marginTop') <= 330){
 						if(ambiental_play){
 							va = altura_lixeira+'px';
 							$("#lixo").css({'marginTop' : va});
@@ -180,9 +180,11 @@
 			movimento_lateral = inicioAleatoria;
 			va = movimento_lateral+'px';
 			if(cor_lixo != ''){
+				$('#lixo_imagem').removeClass("lixo_"+cor_lixo);
 				$('#lixo').removeClass("lixo_"+cor_lixo);
 			}
 			cor_lixo = lixos[Math.floor(Math.random() * 4)];
+			$('#lixo_imagem').addClass("lixo_"+cor_lixo);
 			$('#lixo').addClass("lixo_"+cor_lixo);
 			$("#lixo").css({'marginTop' : '0px', 'left' : va});
 			semMeios();
@@ -196,9 +198,9 @@
 			var inicioAleatoria = Math.floor(Math.random() * 940);	
 			movimento_lateral = inicioAleatoria;
 			va = movimento_lateral+'px';
-			$("#lixo").css({'marginTop' : '0px', 'left' : va});
+			$("#lixo").css({'marginTop' : '100px', 'left' : va});
 			semMeios();
-			altura_lixeira = 0;		
+			altura_lixeira = 100;		
 		}
 	}
 	function limitacoes(val){

@@ -109,7 +109,8 @@
 			</div>
 			<!-- Tela menu -->
 			<div id="menu">
-				<button class="button_menu play_game" onclick="trocarTela('#tela_escolher_player','bg_fundo')"></button>
+				<!-- <button class="button_menu play_game" onclick="trocarTela('#tela_escolher_player','bg_fundo')"></button> -->
+				<button class="button_menu play_game" onclick="trocarTela('#tela_parque','bg_parque')"></button>
 				<button class="button_menu som somMenu somativo somaqui"></button>
 				<button class="button_menu ajuda" onclick="return trocarTela('#tela_ajuda','bg_ajuda')"></button>
 				<button class="button_menu infor" onclick="return trocarTela('#tela_infor','bg_infor')"></button>
@@ -198,8 +199,8 @@
 				<img id="pin_casa" src="assets/images/pin.png">
 				<input type="button" class="pin" id="praca" style="display: none" onclick="return trocarTela('#tela_praca','bg_praca')">
 				<img id="pin_praca" src="assets/images/pin.png">
-				<!--<input type="button" class="pin" id="parque" onclick="return trocarTela('#tela_parque','bg_praca')">
-				<img id="pin_parque" src="assets/images/pin.png">-->
+				<input type="button" class="pin" id="parque" onclick="return trocarTela('#tela_parque','bg_praca')">
+				<img id="pin_parque" src="assets/images/pin.png">
 			</div>
 
 			<!-- tela escola -->
@@ -387,10 +388,11 @@
 			</div>
 			<div class="tela" id="tela_parque">
 				<div id="jogo_ambiental" style="position: initial; display: none">
-					<div id="lixo">
-						<div id="lixo_inicio"></div>
-						<div id="lixo_fim"></div>
-					</div>
+						<div id="lixo">
+							<div id="lixo_imagem"></div>
+							<div id="lixo_inicio"></div>
+							<div id="lixo_fim"></div>
+						</div>
 					<div id="lixeiras">
 						<div id="lixeira_verde" class="lixeira lixo_verde"></div>
 						<div id="lixeira_vermelho" class="lixeira lixo_vermelho"></div>
@@ -435,7 +437,7 @@
 		<script type="text/javascript" src="js/jogo_erros.js"></script>
 		<script type="text/javascript" src="js/modal.js"></script>
 		<script type="text/javascript" src="js/praca.js"></script>
-		<!--<script type="text/javascript" src="js/ambiental.js"></script>
-		<script type="text/javascript" src="js/ambiental_multiplayer_versus.js"></script>-->
+		<script type="text/javascript" src="js/ambiental.js"></script>
+		<script type="text/javascript" src="js/ambiental_multiplayer_versus.js"></script>
 	</body>
 	</html>
