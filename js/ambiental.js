@@ -2,6 +2,7 @@
 	var altura_lixeira = 0;
 	var movimento_lateral = 0;
 	var ambiental_contador = 0;
+	var contador_rotacao = 0;
 	var ambiental_parte = 'inicio';
 	var lixos = ['vermelho','azul','amarelo','verde'];
 	var lixeiras = {
@@ -35,12 +36,16 @@
 	function iniciar_ambiental(){
 		ambiental_contador = 0;
 		var fase_ambiental = setInterval(function(){
+			
+			$("#myCanvas").addClass("bg_parque_blur");
+			$("#myCanvas").removeClass("bg_parque");
+
 			if(!multi_jogadores || modo_jogo == 'juntos'){
-				if(ambiental_contador <= 4){
+				if(ambiental_contador <= 10){
 					if(getInfo('lixo','marginTop') <= 330){
 						if(ambiental_play){
 							va = altura_lixeira+'px';
-							$("#lixo").css({'marginTop' : va});
+							$("#lixo").css({'marginTop' : va, WebkitTransform: 'rotate('+contador_rotacao+'deg)'});
 							altura_lixeira += velocidade_caida;
 						}
 					}else{
@@ -95,6 +100,7 @@
 					}
 				}
 			}
+			contador_rotacao+= 2;
 		}, 24);
 	}
 
@@ -175,15 +181,23 @@
 
  function ambiental_reiniciar(){
 		
+		$("#myCanvas").addClass("bg_parque_blur");
+		$("#myCanvas").removeClass("bg_parque");
 		if(!multi_jogadores || modo_jogo == 'juntos'){
 			var inicioAleatoria = Math.floor(Math.random() * 940);	
+			var tipo = Math.floor(Math.random() * 2);	
+			tipo++;
+			console.log(tipo);
 			movimento_lateral = inicioAleatoria;
 			va = movimento_lateral+'px';
 			if(cor_lixo != ''){
 				$('#lixo_imagem').removeClass("lixo_"+cor_lixo);
 				$('#lixo').removeClass("lixo_"+cor_lixo);
+				$('#lixo_imagem').removeClass("tipo1");
+				$('#lixo_imagem').removeClass("tipo2");
 			}
 			cor_lixo = lixos[Math.floor(Math.random() * 4)];
+			$('#lixo_imagem').addClass("tipo"+tipo);
 			$('#lixo_imagem').addClass("lixo_"+cor_lixo);
 			$('#lixo').addClass("lixo_"+cor_lixo);
 			$("#lixo").css({'marginTop' : '0px', 'left' : va});
@@ -193,6 +207,8 @@
 		}
 	}
 	function ambiental_repetir(){
+		$("#myCanvas").addClass("bg_parque_blur");
+		$("#myCanvas").removeClass("bg_parque");
 		if(!multi_jogadores || modo_jogo == 'juntos'){
 			
 			var inicioAleatoria = Math.floor(Math.random() * 940);	

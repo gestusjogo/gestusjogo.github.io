@@ -852,6 +852,8 @@ function falas(){
 							$("#jogo_ambiental").hide();
 						}
 						ambiental_play = false;
+						$("#myCanvas").removeClass("bg_parque_blur");
+						$("#myCanvas").addClass("bg_parque");
 						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 						$("#butt_pular").show();
 					}
@@ -874,6 +876,8 @@ function falas(){
 							$("#jogo_ambiental").hide();
 						}
 						ambiental_play = false;
+						$("#myCanvas").removeClass("bg_parque_blur");
+						$("#myCanvas").addClass("bg_parque");
 						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 					}
 					break;
@@ -895,6 +899,8 @@ function falas(){
 							$("#jogo_ambiental").hide();
 						}
 						ambiental_play = false;
+						$("#myCanvas").removeClass("bg_parque_blur");
+						$("#myCanvas").addClass("bg_parque");
 						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 					}
 					break;
@@ -910,6 +916,8 @@ function falas(){
 							$("#jogo_ambiental").hide();
 						}
 						ambiental_play = false;
+						$("#myCanvas").removeClass("bg_parque_blur");
+						$("#myCanvas").addClass("bg_parque");
 						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 					}
 					break;
