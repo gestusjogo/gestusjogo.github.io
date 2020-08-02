@@ -162,45 +162,52 @@
 	background: url("../assets/images/fase_ambiental/Vidro\ -\ Espelho.png") !important;
 	width: 61px;
 	height: 113px;
-	margin-top:-70px !important;
+	margin-top:-56.2px !important;
+	margin-left:-30.5px !important;
 	background-repeat: no-repeat;
 }
 #lixo_imagem.lixo_verde.tipo2{
-	background: url("../assets/images/fase_ambiental/Vidro\ -\ Espelho.png") !important;
-	width: 61px;
-	height: 113px;
-	margin-top:-70px !important;
+	background: url("../assets/images/fase_ambiental/Vidro\ -\ Garrafa.png") !important;
+	width: 87px;
+	height: 131px;
+	margin-top:-56.2px !important;
+	margin-left:-43.5px !important;
 	background-repeat: no-repeat;
 }
 #lixo_imagem.lixo_vermelho.tipo1{
 	background: url("../assets/images/fase_ambiental/Plástico\ -\ Garraga.png") !important;
 	width: 61px;
 	height: 113px;
+	margin-left:-30.5px !important;
 	margin-top:-50px !important;
 }
 #lixo_imagem.lixo_vermelho.tipo2{
 	background: url("../assets/images/fase_ambiental/Plástico\ -\ Pente.png") !important;
 	width: 31px;
 	height: 105px;
-	margin-top:-50px !important;
+	margin-left:-15.5px !important;
+	margin-top:-52.5px !important;
 }
 #lixo_imagem.lixo_amarelo.tipo1{
 	background: url("../assets/images/fase_ambiental/Metal\ -\ Lata\ 01.png") !important;
 	width: 62px;
 	height: 95px;
-	margin-top:-50px !important;
+	margin-left:-31px !important;
+	margin-top:-47.5px !important;
 }
 #lixo_imagem.lixo_amarelo.tipo2{
 	background: url("../assets/images/fase_ambiental/Metal\ -\ Lata\ 02.png") !important;
 	width: 62px;
 	height: 95px;
-	margin-top:-50px !important;
+	margin-left:-31px !important;
+	margin-top:-47.5px !important;
 }
 #lixo_imagem.lixo_azul{
-	background-color: blue !important;
-	width: 61px;
-	height: 113px;
-	margin-top:-50px !important;
+	background:url("../assets/images/fase_ambiental/Papel\ -\ Caixa.png") !important;
+	width: 130px;
+	height: 66px;
+	margin-left:-65px !important;
+	margin-top:-33px !important;
 }
 
 #lixeira_verde{
