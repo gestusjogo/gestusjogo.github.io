@@ -174,8 +174,16 @@
 	margin-left:-43.5px !important;
 	background-repeat: no-repeat;
 }
+#lixo_imagem.lixo_verde.tipo3{
+	background: url("../assets/images/fase_ambiental/Vidro\ -\ Taça.png") !important;
+	width: 65px;
+	height: 143px;
+	margin-top:-71.5px !important;
+	margin-left:-32.5px !important;
+	background-repeat: no-repeat;
+}
 #lixo_imagem.lixo_vermelho.tipo1{
-	background: url("../assets/images/fase_ambiental/Plástico\ -\ Garraga.png") !important;
+	background: url("../assets/images/fase_ambiental/Plástico\ -\ Garrafa.png") !important;
 	width: 61px;
 	height: 113px;
 	margin-left:-30.5px !important;
@@ -187,6 +195,13 @@
 	height: 105px;
 	margin-left:-15.5px !important;
 	margin-top:-52.5px !important;
+}
+#lixo_imagem.lixo_vermelho.tipo3{
+	background: url("../assets/images/fase_ambiental/Plástico\ -\ Copo.png") !important;
+	width: 81px;
+	height: 102px;
+	margin-left:-51px !important;
+	margin-top:-40.5px !important;
 }
 #lixo_imagem.lixo_amarelo.tipo1{
 	background: url("../assets/images/fase_ambiental/Metal\ -\ Lata\ 01.png") !important;
@@ -202,12 +217,33 @@
 	margin-left:-31px !important;
 	margin-top:-47.5px !important;
 }
-#lixo_imagem.lixo_azul{
+#lixo_imagem.lixo_amarelo.tipo3{
+	background: url("../assets/images/fase_ambiental/Metal\ -\ Panela.png") !important;
+	width: 203px;
+	height: 102px;
+	margin-left:-101.5px !important;
+	margin-top:-51px !important;
+}
+#lixo_imagem.lixo_azul.tipo1{
 	background:url("../assets/images/fase_ambiental/Papel\ -\ Caixa.png") !important;
 	width: 130px;
 	height: 66px;
 	margin-left:-65px !important;
 	margin-top:-33px !important;
+}
+#lixo_imagem.lixo_azul.tipo2{
+	background:url("../assets/images/fase_ambiental/Papel\ -\ Caderno.png") !important;
+	width: 99px;
+	height: 111px;
+	margin-left:-55.5px !important;
+	margin-top:-49.5px !important;
+}
+#lixo_imagem.lixo_azul.tipo3{
+	background:url("../assets/images/fase_ambiental/Papel\ -\ Jornal.png") !important;
+	width: 106px;
+	height: 91px;
+	margin-left:-53px !important;
+	margin-top:-45.5px !important;
 }
 
 #lixeira_verde{

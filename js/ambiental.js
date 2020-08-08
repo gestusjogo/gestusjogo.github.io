@@ -185,7 +185,7 @@
 		$("#myCanvas").removeClass("bg_parque");
 		if(!multi_jogadores || modo_jogo == 'juntos'){
 			var inicioAleatoria = Math.floor(Math.random() * 940);	
-			var tipo = Math.floor(Math.random() * 2);	
+			var tipo = Math.floor(Math.random() * 3);	
 			tipo++;
 			console.log(tipo);
 			movimento_lateral = inicioAleatoria;
@@ -195,6 +195,7 @@
 				$('#lixo').removeClass("lixo_"+cor_lixo);
 				$('#lixo_imagem').removeClass("tipo1");
 				$('#lixo_imagem').removeClass("tipo2");
+				$('#lixo_imagem').removeClass("tipo3");
 			}
 			cor_lixo = lixos[Math.floor(Math.random() * 4)];
 			$('#lixo_imagem').addClass("tipo"+tipo);
