@@ -908,6 +908,7 @@ function falas(){
 					if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 						reiniciar_contador_fala();
 						trocarTela('#tela_cidade','bg_menu');
+						$("#myCanvas").removeClass("bg_parque2");
 					}else{
 						$("#dialogo").show();
 						if(multi_jogadores){
@@ -917,7 +918,7 @@ function falas(){
 						}
 						ambiental_play = false;
 						$("#myCanvas").removeClass("bg_parque_blur");
-						$("#myCanvas").addClass("bg_parque");
+						$("#myCanvas").addClass("bg_parque2");
 						$("#fala").html(dialogo[multi_jogadores][tela_atual][ambiental_parte][index_dialogo]);
 					}
 					break;

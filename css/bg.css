@@ -74,6 +74,9 @@
 .bg_parque{
   background: url("../assets/images/bg_ambiental.png")
 }
+.bg_parque2{
+  background: url("../assets/images/bg_ambiental2.png")
+}
 
 .bg_parque_blur{
   background: url("../assets/images/bg_ambiental_blur.png")

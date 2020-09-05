@@ -158,6 +158,12 @@
 	position: absolute;
 	float: left;
 }
+.butt_voltar{
+	z-index: 1000 !important;
+}
+#lixo_imagem{
+	z-index: -2 !important;
+}
 #lixo_imagem.lixo_verde.tipo1{
 	background: url("../assets/images/fase_ambiental/Vidro\ -\ Espelho.png") !important;
 	width: 61px;

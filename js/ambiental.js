@@ -189,6 +189,7 @@
 			tipo++;
 			console.log(tipo);
 			movimento_lateral = inicioAleatoria;
+			movimento_lateral = limitacoes(movimento_lateral);
 			va = movimento_lateral+'px';
 			if(cor_lixo != ''){
 				$('#lixo_imagem').removeClass("lixo_"+cor_lixo);
@@ -201,9 +202,12 @@
 			$('#lixo_imagem').addClass("tipo"+tipo);
 			$('#lixo_imagem').addClass("lixo_"+cor_lixo);
 			$('#lixo').addClass("lixo_"+cor_lixo);
-			$("#lixo").css({'marginTop' : '0px', 'left' : va});
+			var left = parseInt($("#lixo_imagem").css("marginLeft").substring(1,$("#lixo_imagem").css("marginLeft").length-1));
+			var top = parseInt($("#lixo_imagem").css("marginTop").substring(1,$("#lixo_imagem").css("marginTop").length-1));
+			var soma = Math.sqrt((left*left)+(top*top))+15+ 'px';
+			$("#lixo").css({'marginTop' : soma, 'left' : va});
 			semMeios();
-			altura_lixeira = 0;
+			altura_lixeira = Math.sqrt((left*left)+(top*top))-15;
 			ambiental_contador++;	
 		}
 	}
@@ -213,18 +217,25 @@
 		if(!multi_jogadores || modo_jogo == 'juntos'){
 			
 			var inicioAleatoria = Math.floor(Math.random() * 940);	
+			inicioAleatoria = limitacoes(inicioAleatoria);
 			movimento_lateral = inicioAleatoria;
 			va = movimento_lateral+'px';
-			$("#lixo").css({'marginTop' : '100px', 'left' : va});
+			var left = parseInt($("#lixo_imagem").css("marginLeft").substring(1,$("#lixo_imagem").css("marginLeft").length-1));
+			var top = parseInt($("#lixo_imagem").css("marginTop").substring(1,$("#lixo_imagem").css("marginTop").length-1));
+			var soma = Math.sqrt((left*left)+(top*top))+15+ 'px';
+			$("#lixo").css({'marginTop' : soma, 'left' : va});
 			semMeios();
-			altura_lixeira = 100;		
+			altura_lixeira = Math.sqrt((left*left)+(top*top))-15;		
 		}
 	}
 	function limitacoes(val){
-		if(val <= 0){
-			val = 0;
-		}else if(val >= 960){
-			val = 960;
+		var left = parseInt($("#lixo_imagem").css("marginLeft").substring(1,$("#lixo_imagem").css("marginLeft").length-1));
+		var top = parseInt($("#lixo_imagem").css("marginTop").substring(1,$("#lixo_imagem").css("marginTop").length-1));
+		var soma = Math.sqrt((left*left)+(top*top))+15;
+		if(val <= 0+soma){
+			val = 0+soma;
+		}else if(val >= 960-soma){
+			val = 960-soma;
 		}
 		return val;
 	}
