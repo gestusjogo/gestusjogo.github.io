@@ -65,6 +65,7 @@ function mostrarModalAnimacao(){
 $("#fim_jogo").hide();
 //MODAL VOLTAR CIDADE
 $("#butt_voltar_cidade").click(function(){
+  $("#modal_modo_jogo").hide();
   $("#modal_voltar_cidade").show();
 });
 $(".voltar_cidade").click(function(){

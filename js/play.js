@@ -17,7 +17,7 @@ var aaa = 4;
 var temAnimacao = false;
 var praca_parte = 'inicio';
 var saudacoes_finalizadas = false
-var multi_jogadores = false;
+var multi_jogadores = true;
 var jogador_atual = 'jogador1';
 var mostrarResultado = false;
 var modo_jogo = "";
@@ -233,6 +233,7 @@ function pular_falas(){
 							fase_ambiental_completa = true;
 							repetir_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
+							$("#myCanvas").removeClass("bg_parque2");
 						}else{
 							iniciar_ambiental_multiplayer();
 						}
@@ -242,8 +243,11 @@ function pular_falas(){
 							fase_ambiental_completa = true;
 							repetir_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
+							$("#myCanvas").removeClass("bg_parque2");
 						}else{
-							iniciar_ambiental_multiplayer();
+							iniciar_ambiental();
+							ambiental_reiniciar();
+							$("#jogo_ambiental").show();
 						}
 					break;
 					default:
@@ -254,6 +258,7 @@ function pular_falas(){
 					fase_ambiental_completa = true;
 					repetir_fase = false;
 					trocarTela('#tela_cidade','bg_menu');
+					$("#myCanvas").removeClass("bg_parque2");
 				}else{
 
 					iniciar_ambiental();

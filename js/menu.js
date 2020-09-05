@@ -42,13 +42,13 @@ $(document).ready(function(){
     $("#casa").mouseout(function(){
         $("#pin_casa").css("display", "none");
     });
-    /*$("#parque").mouseover(function(){
+    $("#parque").mouseover(function(){
         $("#pin_parque").css("display", "block");
     });
 
     $("#parque").mouseout(function(){
         $("#pin_parque").css("display", "none");
-    });*/
+    });
     $("#praca").mouseover(function(){
         $("#pin_praca").css("display", "block");
     });

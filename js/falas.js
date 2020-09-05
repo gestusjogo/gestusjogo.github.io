@@ -778,10 +778,13 @@ function falas(){
 								$("#butt_pular").hide();
 								$(".som").show();
 								trocarTela('#tela_cidade','bg_menu');
+								$("#myCanvas").removeClass("bg_parque2");
 								fase_ambiental_completa = true;
 								repetir_fase = false;
 							}else{
 								$("#dialogo").show();
+								$("#myCanvas").removeClass("bg_parque_blur");
+								$("#myCanvas").addClass("bg_parque2");
 								$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
 								$("#jogo_ambiental").hide();
 								$("#butt_pular").show();
@@ -829,14 +832,13 @@ function falas(){
 					case 'inicio' :
 					if(index_dialogo == dialogo[multi_jogadores][tela_atual][ambiental_parte].length){
 						reiniciar_contador_fala();
-						if(multi_jogadores){
+						if(multi_jogadores && modo_jogo == 'versus'){
 							ambiental_reiniciar_multiplayer(1);
 							ambiental_reiniciar_multiplayer(2);
 							$('#lixo1').show();	
 							$('#lixo2').show();	
 							$("#jogo_ambiental_multiplayer").show();
 						}else{
-
 							iniciar_ambiental();
 							ambiental_reiniciar();
 							$("#jogo_ambiental").show();
