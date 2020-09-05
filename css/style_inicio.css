@@ -274,6 +274,12 @@
 	position: absolute;
 	z-index: 1;
 }
+#lixeiras_multiplayer{
+	height: 138px; 
+	bottom: 0; 
+	position: absolute;
+	z-index: 1;
+}
 #lixo_inicio{
 	width: 0.010px; 
 	height: 0.010px; 
@@ -297,44 +303,44 @@
 	z-index: 2;
 }
 .lixeira_multiplayer{
-	width: 75px;
-	height: 100%;
+	width: 90px;
+	height: 136px;
 	position: absolute;
 	float: left;
 }
 .parte_jogador1 #lixeira_verde{
-	background-color: green !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Vidro-90-px.png");
 	left: 380px;
 }
 .parte_jogador1 #lixeira_vermelho{
-	background-color: red !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Plástico-90-px.png");
 	left: 40px;
 }
 .parte_jogador1 #lixeira_amarelo{
-	background-color: yellow !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Metal-90-px.png");
 	left: 270px;
 }
 .parte_jogador1 #lixeira_azul{
-	background-color: blue !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Papel-90-px.png");
 	left: 155px;
 }
 .parte_jogador2{
 	border-left: solid black;
 }
 .parte_jogador2 #lixeira_verde{
-	background-color: green !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Vidro-90-px.png");
 	left: 880px;
 }
 .parte_jogador2 #lixeira_vermelho{
-	background-color: red !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Plástico-90-px.png");
 	left: 535px;
 }
 .parte_jogador2 #lixeira_amarelo{
-	background-color: yellow !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Metal-90-px.png");
 	left: 765px;
 }
 .parte_jogador2 #lixeira_azul{
-	background-color: blue !important;
+	background: url("../assets/images/fase_ambiental/Lixeira\ -\ Papel-90-px.png");
 	left: 650px;
 }
 #lixeiras{
