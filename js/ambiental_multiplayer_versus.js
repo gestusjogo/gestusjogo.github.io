@@ -14,6 +14,8 @@ var cor_lixo_jogador2 = '';
 var altura_lixeira_jogador2 = 0;
 var movimento_lateral_jogador2 = 0;
 var ambiental_contador_jogador2 = 0;
+var contador_rotacao1 = 0;
+var contador_rotacao2 = 0;
 var ambiental_parte = 'inicio';
 var lixos = ['vermelho','azul','amarelo','verde'];
 
@@ -87,6 +89,9 @@ function parar_ambiental_multiplayer(){
 }
 
 function iniciar_ambiental_multiplayer(){
+			
+    $("#myCanvas").addClass("bg_parque_blur");
+    $("#myCanvas").removeClass("bg_parque");
         vencedor_ambiental = '';
         ambiental_reiniciar_multiplayer(1);
         ambiental_reiniciar_multiplayer(2);
@@ -97,12 +102,13 @@ function iniciar_ambiental_multiplayer(){
         $('#lixo2').show();	
         $("#jogo_ambiental_multiplayer").show();
         jogando_ambiental = setInterval(function(){
-            if(ambiental_contador_jogador1 <= 4){
+            if(ambiental_contador_jogador1 <= 10){
                     $('#lixo1').show();	
                     if(getInfo_multiplayer('#lixo1','marginTop') <= 420){
                     if(ambiental_play){
                         va = altura_lixeira_jogador1+'px';
-                        $("#lixo1").css({'marginTop' : va});
+                        $("#lixo1").css({'marginTop' : va, WebkitTransform: 'rotate('+contador_rotacao1+'deg)'});
+                        contador_rotacao1+= 2; 
                         altura_lixeira_jogador1 += velocidade_caida_jogador1;
                     }
                 }else{
@@ -127,12 +133,13 @@ function iniciar_ambiental_multiplayer(){
                     ambiental_parte = 'final';
                 }
             }
-            if(ambiental_contador_jogador2 <= 4){
+            if(ambiental_contador_jogador2 <= 10){
                 $('#lixo2').show();	
                 if(getInfo_multiplayer('#lixo2','marginTop') <= 420){
                     if(ambiental_play){
                         va = altura_lixeira_jogador2+'px';
-                        $("#lixo2").css({'marginTop' : va});
+                        $("#lixo2").css({'marginTop' : va,  WebkitTransform: 'rotate('+contador_rotacao2+'deg)'});
+                        contador_rotacao2+= 2;
                         altura_lixeira_jogador2 += velocidade_caida_jogador2;
                     }
                 }else{
@@ -281,30 +288,50 @@ function semMeios_multiplayer(jogador){
 function ambiental_reiniciar_multiplayer(jogador){
     if(jogador == 1){
         var inicioAleatorio = Math.floor(Math.random() * 468);	
+        var tipo = Math.floor(Math.random() * 3);	
+        tipo++;
         movimento_lateral_jogador1 = inicioAleatorio;
+        movimento_lateral_jogador1 = limitacoes_multiplayer(1, movimento_lateral_jogador1);
         va = movimento_lateral_jogador1+'px';
+        
         if(cor_lixo_jogador1 != ''){
+            $('#lixo_imagem1').removeClass("lixo_"+cor_lixo_jogador1);
             $('#lixo1').removeClass("lixo_"+cor_lixo_jogador1);
+            $('#lixo_imagem1').removeClass("tipo1");
+            $('#lixo_imagem1').removeClass("tipo2");
+            $('#lixo_imagem1').removeClass("tipo3");
         }
         cor_lixo_jogador1 = lixos[Math.floor(Math.random() * 4)];
-        $('#lixo1').addClass("lixo_"+cor_lixo_jogador1);
-        $("#lixo1").css({'marginTop' : '0px', 'left' : va});
+        $('#lixo_imagem1').addClass("tipo"+tipo);
+        $('#lixo_imagem1').addClass("lixo_"+cor_lixo_jogador1);
+        cor_lixo_jogador1 = lixos[Math.floor(Math.random() * 4)];
+        $("#lixo1").css({'marginTop' : '50px', 'left' : va});
         semMeios_multiplayer(1);
-        altura_lixeira_jogador1 = 0;
+        altura_lixeira_jogador1 = 50;
         ambiental_contador_jogador1++;
 
     }else{
         var inicioAleatorio = 502 + Math.floor(Math.random() * 468);	
         movimento_lateral_jogador2 = inicioAleatorio;
+        movimento_lateral_jogador2 = limitacoes_multiplayer(2, movimento_lateral_jogador2);
         va = movimento_lateral_jogador2+'px';
+        var tipo = Math.floor(Math.random() * 3);	
+        tipo++;
+        
         if(cor_lixo_jogador2 != ''){
+            $('#lixo_imagem2').removeClass("lixo_"+cor_lixo_jogador2);
             $('#lixo2').removeClass("lixo_"+cor_lixo_jogador2);
+            $('#lixo_imagem2').removeClass("tipo1");
+            $('#lixo_imagem2').removeClass("tipo2");
+            $('#lixo_imagem2').removeClass("tipo3");
         }
         cor_lixo_jogador2 = lixos[Math.floor(Math.random() * 4)];
-        $('#lixo2').addClass("lixo_"+cor_lixo_jogador2);
-        $("#lixo2").css({'marginTop' : '0px', 'left' : va});
+        $('#lixo_imagem2').addClass("tipo"+tipo);
+        $('#lixo_imagem2').addClass("lixo_"+cor_lixo_jogador2);
+        cor_lixo_jogador2 = lixos[Math.floor(Math.random() * 4)];
+        $("#lixo2").css({'marginTop' : '50px', 'left' : va});
         semMeios_multiplayer(2);
-        altura_lixeira_jogador2 = 0;
+        altura_lixeira_jogador2 = 50;
         ambiental_contador_jogador2++;
     }
 }
@@ -312,31 +339,39 @@ function ambiental_repetir_multiplayer(jogador){
     if(jogador == 1){
         var inicioAleatorio = Math.floor(Math.random() * 468);	
         movimento_lateral_jogador1 = inicioAleatorio;
+        movimento_lateral_jogador1 = limitacoes_multiplayer(1, movimento_lateral_jogador1);
         va = movimento_lateral_jogador1+'px';
-        $("#lixo1").css({'marginTop' : '0px', 'left' : va});
+        $("#lixo1").css({'marginTop' : '50px', 'left' : va});
         semMeios_multiplayer(1);
-        altura_lixeira_jogador1 = 0;		
+        altura_lixeira_jogador1 = 50;		
     }else{
         var inicioAleatorio = 502 + Math.floor(Math.random() * 468);	
         movimento_lateral_jogador2 = inicioAleatorio;
+        movimento_lateral_jogador2 = limitacoes_multiplayer(2, movimento_lateral_jogador2);
         va = movimento_lateral_jogador2+'px';
-        $("#lixo2").css({'marginTop' : '0px', 'left' : va});
+        $("#lixo2").css({'marginTop' : '50px', 'left' : va});
         semMeios_multiplayer(2);
-        altura_lixeira_jogador2 = 0;		
+        altura_lixeira_jogador2 = 50;		
     }
 }
 function limitacoes_multiplayer(jogador,val){
     if(jogador == 1){
-        if(val <= 0){
-            val = 0;
-        }else if(val >= 478){
-            val = 478;
+		var left = parseInt($("#lixo_imagem1").css("marginLeft").substring(1,$("#lixo_imagem1").css("marginLeft").length-1));
+		var top = parseInt($("#lixo_imagem1").css("marginTop").substring(1,$("#lixo_imagem1").css("marginTop").length-1));
+		var soma = Math.sqrt((left*left)+(top*top))+15;
+        if(val <= 0+soma){
+            val = 0+soma;
+        }else if(val >= 478-soma){
+            val = 478-soma;
         }
     }else{
-        if(val <= 502){
-            val = 502;
-        }else if(val >= 980){
-            val = 980;
+        var left = parseInt($("#lixo_imagem2").css("marginLeft").substring(1,$("#lixo_imagem2").css("marginLeft").length-1));
+		var top = parseInt($("#lixo_imagem2").css("marginTop").substring(1,$("#lixo_imagem2").css("marginTop").length-1));
+		var soma = Math.sqrt((left*left)+(top*top))+15;
+        if(val <= 502+soma){
+            val = 502+soma;
+        }else if(val >= 980-soma){
+            val = 980-soma;
         }
     }
     return val;
@@ -347,7 +382,7 @@ function ondeCaiu_multiplayer(jogador){
         if(jogador == 1){
             var local = getInfo_multiplayer('#lixo1','left');
             if(local > lixeiras_jogador1['lixeira_'+lixos[i]]['min'] && local < lixeiras_jogador1['lixeira_'+lixos[i]]['max']){
-                if($('#lixo1').hasClass('lixo_'+lixos[i])){
+                if($('#lixo_imagem1').hasClass('lixo_'+lixos[i])){
                     pontuacao_jogador1[lixos[i]]++;
                     dentro = true;
                 }else{
@@ -357,7 +392,7 @@ function ondeCaiu_multiplayer(jogador){
         }else{
             var local = getInfo_multiplayer('#lixo2','left');
             if(local > lixeiras_jogador2['lixeira_'+lixos[i]]['min'] && local < lixeiras_jogador2['lixeira_'+lixos[i]]['max']){
-                if($('#lixo2').hasClass('lixo_'+lixos[i])){
+                if($('#lixo_imagem2').hasClass('lixo_'+lixos[i])){
                     pontuacao_jogador2[lixos[i]]++;
                     dentro = true;
                 }else{

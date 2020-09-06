@@ -736,6 +736,7 @@ function falas(){
 								$("#butt_pular").hide();
 								$(".som").show();
 								trocarTela('#tela_cidade','bg_menu');
+								$("#myCanvas").removeClass("bg_parque2");
 								fase_ambiental_completa = true;
 								repetir_fase = false;
 							}else{
@@ -745,6 +746,8 @@ function falas(){
 								}else{
 									$("#fala").html(dialogo[multi_jogadores][tela_atual][modo_jogo]['resultado'][index_dialogo]);
 								}
+								$("#myCanvas").removeClass("bg_parque_blur");
+								$("#myCanvas").addClass("bg_parque2");
 								$("#jogo_ambiental_multiplayer").hide();
 								$("#butt_pular").show();
 							}
