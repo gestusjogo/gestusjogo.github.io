@@ -16,18 +16,29 @@ var saudacoes_fim = false;
 var aaa = 4;
 var temAnimacao = false;
 var praca_parte = 'inicio';
-var saudacoes_finalizadas = false
+var saudacoes_finalizadas = false;
+var lixos_finalizadas = false;
 var multi_jogadores = false;
 var jogador_atual = 'jogador1';
 var mostrarResultado = false;
 var modo_jogo = "";
 var repetir_fase = false;
 var fim_fase = false;
+var mostrar_animacoes = false;
+var fase_ambiental;
+var id_usuario;
+var id_usuario2;
 var saudacoes = {
 	'oi' : false,
 	'bom_dia' : false,
 	'boa_tarde' : false,
 	'boa_noite' : false
+};
+var lixeiras_animacao = {
+	'vidro' : false,
+	'papel' : false,
+	'plastico' : false,
+	'metal' : false
 };
 var ambiental_jogadores = [];
 var fim_animacao = true;
@@ -100,6 +111,9 @@ function pular_falas(){
 						if(fim_fase){
 							$(".pontuacao").removeClass("pontuacao_fliperama");
 							fase_fliperama_completa = true;
+							atualizar_andamento(id_usuario,'Fliperama');
+							if(multi_jogadores)
+								atualizar_andamento(id_usuario2, 'Fliperama');
 							repetir_fase = false;
 							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
@@ -114,6 +128,9 @@ function pular_falas(){
 					case "juntos" :
 						if(fim_fase){
 							fase_fliperama_completa = true;
+							atualizar_andamento(id_usuario,'Fliperama');
+							if(multi_jogadores)
+								atualizar_andamento(id_usuario2, 'Fliperama');
 							repetir_fase = false;
 							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
@@ -131,6 +148,9 @@ function pular_falas(){
 			}else{
 				if(fim_fase){
 					fase_fliperama_completa = true;
+					atualizar_andamento(id_usuario,'Fliperama');
+					if(multi_jogadores)
+						atualizar_andamento(id_usuario2, 'Fliperama');
 					fim_fase = false;
 					trocarTela('#tela_cidade','bg_menu');
 				}else{
@@ -147,6 +167,9 @@ function pular_falas(){
 						if(fim_fase){
 							$(".pontuacao").removeClass("pontuacao_escola");
 							fase_escola_completa = true;
+							atualizar_andamento(id_usuario,'Escola');
+							if(multi_jogadores)
+								atualizar_andamento(id_usuario2, 'Escola');
 							repetir_fase = false;
 							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
@@ -160,6 +183,9 @@ function pular_falas(){
 					case "juntos" :
 						if(fim_fase){
 							fase_escola_completa = true;
+							atualizar_andamento(id_usuario,'Escola');
+							if(multi_jogadores)
+								atualizar_andamento(id_usuario2, 'Escola');
 							repetir_fase = false;
 							fim_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
@@ -173,6 +199,9 @@ function pular_falas(){
 			}else{
 				if(fim_fase){
 					fase_escola_completa = true;
+					atualizar_andamento(id_usuario,'Escola');
+					if(multi_jogadores)
+						atualizar_andamento(id_usuario2, 'Escola');
 					fim_fase = false;
 					trocarTela('#tela_cidade','bg_menu');
 				}else{
@@ -186,6 +215,9 @@ function pular_falas(){
 					case "versus" :
 						if(fim_fase){
 							fase_sorveteria_completa = true;
+							atualizar_andamento(id_usuario,'Sorveteria');
+							if(multi_jogadores)
+								atualizar_andamento(id_usuario2, 'Sorveteria');
 							repetir_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
@@ -197,6 +229,9 @@ function pular_falas(){
 					case "juntos" :
 						if(fim_fase){
 							fase_sorveteria_completa = true;
+							atualizar_andamento(id_usuario,'Sorveteria');
+							if(multi_jogadores)
+								atualizar_andamento(id_usuario2, 'Sorveteria');
 							repetir_fase = false;
 							trocarTela('#tela_cidade','bg_menu');
 						}else{
@@ -209,6 +244,9 @@ function pular_falas(){
 			}else{
 				if(fim_fase){
 					fase_sorveteria_completa = true;
+					atualizar_andamento(id_usuario,'Sorveteria');
+					if(multi_jogadores)
+						atualizar_andamento(id_usuario2, 'Sorveteria');
 					repetir_fase = false;
 					trocarTela('#tela_cidade','bg_menu');
 				}else{
@@ -219,6 +257,9 @@ function pular_falas(){
 		case "#tela_supermercado":
 			if(fim_fase){
 				fase_supermercado_completa = true;
+				atualizar_andamento(id_usuario,'Supermercado');
+					if(multi_jogadores)
+						atualizar_andamento(id_usuario2, 'Supermercado');
 				repetir_fase = false;
 				trocarTela('#tela_cidade','bg_menu');
 			}else{
@@ -230,20 +271,30 @@ function pular_falas(){
 				switch(modo_jogo){
 					case "versus" :
 						if(fim_fase){
-							fase_ambiental_completa = true;
-							repetir_fase = false;
-							trocarTela('#tela_cidade','bg_menu');
+							if(!mostrar_animacoes){
+								$("#libras_ambiental").show();
+							}else{
+								repetir_fase = false;
+								trocarTela('#tela_cidade','bg_menu');
+								$("#myCanvas").removeClass("bg_parque2");
+							}
 						}else{
 							iniciar_ambiental_multiplayer();
 						}
 					break;
 					case "juntos" :
 						if(fim_fase){
-							fase_ambiental_completa = true;
-							repetir_fase = false;
-							trocarTela('#tela_cidade','bg_menu');
+							if(!mostrar_animacoes){
+								$("#libras_ambiental").show();
+							}else{
+								repetir_fase = false;
+								trocarTela('#tela_cidade','bg_menu');
+								$("#myCanvas").removeClass("bg_parque2");
+							}
 						}else{
-							iniciar_ambiental_multiplayer();
+							iniciar_ambiental();
+							ambiental_reiniciar();
+							$("#jogo_ambiental").show();
 						}
 					break;
 					default:
@@ -251,15 +302,20 @@ function pular_falas(){
 				}		
 			}else{
 				if(fim_fase){
-					fase_ambiental_completa = true;
-					repetir_fase = false;
-					trocarTela('#tela_cidade','bg_menu');
+					if(!mostrar_animacoes){
+						$("#libras_ambiental").show();
+					}else{
+						repetir_fase = false;
+						trocarTela('#tela_cidade','bg_menu');
+						$("#myCanvas").removeClass("bg_parque2");
+					}
 				}else{
 
 					iniciar_ambiental();
 					ambiental_reiniciar();
 					$("#jogo_ambiental").show();
 					ambiental_play = true;
+					repetir_fase = true;
 				}
 			}
 		break;
@@ -269,9 +325,13 @@ function pular_falas(){
 function trocarTela(tela,bg){
 	// Esconde a Tela Atual
 	fecharModalAnimacao();  
+	
 	$("#myCanvas").removeClass('bg_praca_fundo');
+	$("#myCanvas").removeClass('bg_parque2');
+	$("#myCanvas").removeClass("bg_parque_blur");
 	$(".pontuacao").hide();
 	$(tela_atual).hide();
+	mostrar_animacoes = false;
 	$("#tela_fliperama2").hide();
 	if(tela != "#tela_fliperama2"){
 		contar = false;
@@ -332,6 +392,7 @@ function trocarTela(tela,bg){
 		$("#cores").show();
 	}else if(tela == "#tela_parque"){
 		$("#butt_voltar_cidade").show();
+		$("#seta2").hide();
 		if(multi_jogadores){
 			ambiental_jogadores = get_random_cores();
 			cores_jogador1 = ambiental_jogadores['jogador1'].join(' e ');
@@ -355,7 +416,7 @@ function trocarTela(tela,bg){
 				'erros' : 0
 			}
 			$('#lixo1').show();	
-			$('#lixo2').show();	
+			$('#lixo2').show();
 		}else{
 			var pontuacao = {
 				'vermelho' : 0,
@@ -447,9 +508,19 @@ function saudacao_executada(nome) {
 		}
 	}
 }
+function ambiental_executada(lixo) {
+	lixeiras_animacao[lixo] = true;
+	lixos_finalizadas = true;
+	for(var lixo_libra in lixeiras_animacao){
+		if(!lixeiras_animacao[lixo_libra]){
+			lixos_finalizadas = false;
+		}
+	}
+}
 function proxima_fala(){
 	$("#saudacoes").hide();
 	$("#seta").hide();
+	$("#seta2").hide();
 	falas();
 }
 
@@ -516,6 +587,7 @@ function executa_animacao(pessoa, acao){
 	$(".jonas_cutscene_center").hide();
 	$(".marina_cutscene").hide();
 	$(".item_lista").hide();
+	$("#libras_ambiental").hide();
 	$("#viewport").hide();
 	$("#cores").hide();
 
@@ -587,6 +659,22 @@ function executa_animacao(pessoa, acao){
 				animacao_width = 3556;
 				quantidade_sprites = 7;
 			break;
+			case 'metal':
+				animacao_width = 6604;
+				quantidade_sprites = 13;
+			break;
+			case 'papel':
+				animacao_width = 4572;
+				quantidade_sprites = 9;
+			break;
+			case 'vidro':
+				animacao_width = 8636;
+				quantidade_sprites = 17;
+			break;
+			case 'plastico':
+				animacao_width = 8636;
+				quantidade_sprites = 17;
+			break;
 			case 'tchau':
 				animacao_width = 3048;
 				quantidade_sprites = 6;
@@ -610,7 +698,7 @@ function executa_animacao(pessoa, acao){
 		}
 	}
 	local = "./assets/images/animacoes/"+pessoa+"/"+acao+"_sheet.png";
-  fim_animacao = false;
+    fim_animacao = false;
 	anima(pessoa, acao, animacao_width, animacao_height, quantidade_sprites, local, canvas_id, fecharModalAnimacao);
 }
 
@@ -618,20 +706,120 @@ function getDados(campo){
 	campo = $(campo).closest('#formulario_inicio');
 	var nome = $(campo).find('input[name="nome"]').val().toLowerCase();
 	var idade = $(campo).find('input[name="idade"]').val().toLowerCase();
-	var data = new Date();
-	armazenar_dados(nome, idade, data.getDate()+'/'+(data.getMonth()+1)+'/'+data.getFullYear());
+	armazenar_dados_single(nome, idade);
 }
-function armazenar_dados(nome, idade, data){
-	document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbxEpZk4L4EhAkRqlLWlVARPcgHqIp_rnumhoA3bnrjwjKP5rVRr/exec?nome='+nome+'&idade='+idade+'&data='+data;
+function getDadosMulti(){
+	var nome = $('#nome_j1').val().toLowerCase();
+	var idade = $('#idade_j1').val().toLowerCase();
+	var nome2 = $('#nome_j2').val().toLowerCase();
+	var idade2 = $('#idade_j2').val().toLowerCase();
+	armazenar_dados_multi(nome, idade, nome2, idade2);
+}
+function armazenar_dados_single(nome, idade){
+	dados_result = {
+		nome: nome,
+		idade: idade
+	};
+	$.ajax({
+		url: "https://red-spotless-jaguar.cyclic.app/usuarios/single",
+		type: "POST",
+		data: dados_result,
+		cache: false,
+		success: function (data) {
+			console.log(data);
+			id_usuario = data;
+			iniciar_andamento(id_usuario);
+		},
+		error: function (err, exception) {
+			console.log(err.responseText);
+		}
+	});
+}
+function iniciar_andamento(id){
+	dados_result = {
+		id_usuario: id
+	};
+	$.ajax({
+		url: "https://red-spotless-jaguar.cyclic.app/fases_concluidas/inicio",
+		type: "POST",
+		data: dados_result,
+		cache: false,
+		success: function (data) {
+		},
+		error: function (err, exception) {
+			console.log(err.responseText);
+		}
+	});
+}
+function atualizar_andamento(id, fase){
+	console.log(fase);
+	dados_result = {
+		id_usuario: id,
+		fase: fase
+	};
+	$.ajax({
+		url: "https://red-spotless-jaguar.cyclic.app/fases_concluidas/atualizacao",
+		type: "POST",
+		data: dados_result,
+		cache: false,
+		success: function (data) {
+
+		},
+		error: function (err, exception) {
+			console.log(err.responseText);
+		}
+	});
+}
+function armazenar_dados_multi(nome, idade, nome2, idade2){
+	dados_result = {
+		nome: nome,
+		idade: idade,
+		nome2: nome2,
+		idade2: idade2,
+	};
+	$.ajax({
+		url: "https://red-spotless-jaguar.cyclic.app/usuarios/multiplo",
+		type: "POST",
+		data: dados_result,
+		cache: false,
+		success: function (data) {
+			console.log(data);
+			var ids = data.split(',');
+			id_usuario = ids[0];
+			id_usuario2 = ids[1];
+			iniciar_andamento(id_usuario);
+			iniciar_andamento(id_usuario2);
+		},
+		error: function (err, exception) {
+			console.log(err.responseText);
+		}
+	});
 }
 
 function pular_feedback(){
 	$("#modal_feedback").hide();
-	$("#modal_reiniciar_jogo").show();
+	var dados = {
+		"nome" : "Kp",
+		"idade" : 12
+	}
+	$.ajax({
+		url: "certificado/gerador.php",
+		type: "POST",
+		data: dados,
+		cache: false,
+		success: function (data) {
+			console.log(data);
+		},
+		error: function (err, exception) {
+			console.log(err.responseText);
+		}
+	});
+	//$("#modal_reiniciar_jogo").show();
 }
 
 function deixar_feedback(){
 	feedback = $(".feedback_textarea").val();
+	feedback = 'aaaa';
 	console.log(feedback);
 	document.getElementById('envio').src = 'https://script.google.com/macros/s/AKfycbzpH5SiikbsxRBjrAgPCqoM3ZjJ9EtIccz6bzKcdZhVTu0j03w/exec?feedback='+feedback;
 	pular_feedback();
